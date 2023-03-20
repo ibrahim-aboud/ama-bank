@@ -2,6 +2,9 @@ import Head from "next/head";
 import React, { useState, useRef } from "react";
 import { signIn, getSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import Image from "next/image";
+import { FaRegUserCircle } from "react-icons/fa";
+import { BiLock, BiLogIn } from "react-icons/bi";
 
 function Admin() {
   const [error, setError] = useState("");
@@ -37,33 +40,70 @@ function Admin() {
       <Head>
         <title>Login</title>
       </Head>
-      <main>
-        <form onSubmit={sumbitHandler}>
-          <div className="flex gap-4 items-center">
-            <label>username</label>
-            <input
-              className="outline-none p-2"
-              ref={usernameInputRef}
-              placeholder="username"
-            ></input>
+      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center h-screen bg-gray-100">
+        <form
+          className="bg-white rounded-2xl shadow-2xl w-2/5 max-w-4xl py-14 px-16 relative"
+          onSubmit={sumbitHandler}
+        >
+          <div className="absolute -top-10 left-[45%] shadow-2xl">
+            <Image
+              src="/assets/logos/logo.png"
+              alt="amaBank logo"
+              width={70}
+              height={70}
+            />
           </div>
 
-          <div className="flex gap-4 items-center">
-            <label>password</label>
-            <input
-              className="outline-none p-2"
-              ref={passwordInputRef}
-              placeholder="password"
-            ></input>
+          <div className="px-20 container flex justify-center">
+            <h2 className=" text-2xl font-semibold mb-2 ">
+              Connexion administrateur
+            </h2>
           </div>
 
-          <button
-            className="text-center px-4 py-2 rounded-lg bg-green-300 hover:underline disabled:bg-gray-500"
-            type="submit"
-            disabled={loading}
-          >
-            Login
-          </button>
+          <div className="my-10">
+            <div className="flex justify-start px-6 font-medium py-1">
+              <h2>Nom d{"'"}utilisateur</h2>
+            </div>
+            <div className="flex flex-col items-center mb-3">
+              <div className="bg-gray-100 w-11/12 p-4 rounded-sm border flex items-center">
+                <FaRegUserCircle size={22} />
+                <input
+                  type="text"
+                  name="username"
+                  ref={usernameInputRef}
+                  placeholder="Admin"
+                  className="bg-gray-100 outline-none px-4 flex-1"
+                />
+              </div>
+            </div>
+            <div className="flex justify-start px-6 font-medium py-1">
+              <h2>Mot de passe</h2>
+            </div>
+            <div className="flex flex-col items-center mb-3">
+              <div className="bg-gray-100 w-11/12 p-4 rounded-sm border flex items-center">
+                {" "}
+                <BiLock size={25} />
+                <input
+                  type="password"
+                  name="password"
+                  ref={passwordInputRef}
+                  placeholder="Mot de passe"
+                  className="bg-gray-100 outline-none px-3 flex-1"
+                />
+              </div>
+            </div>
+
+            <div className="flex flex-col items-center mt-8">
+              <button
+                className="rounded-xl px-8 py-3 font-semibold bg-black text-white shadow-xl hover:bg-green-500 flex items-center"
+                type="submit"
+                disabled={loading}
+              >
+                <BiLogIn className="mr-3" size={20} />
+                Se connecter
+              </button>
+            </div>
+          </div>
 
           {error && <p className="text-rose-600 font-semibold">{error}</p>}
         </form>

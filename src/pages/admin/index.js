@@ -55,12 +55,12 @@ function Admin() {
           </div>
 
           <div className="px-20 container flex justify-center">
-            <h2 className=" text-2xl font-semibold mb-2 ">
+            <h2 className="text-xl font-semibold mb-2 ">
               Connexion administrateur
             </h2>
           </div>
 
-          <div className="my-10">
+          <div className="mt-10">
             <div className="flex justify-start px-6 font-medium py-1">
               <h2>Nom d{"'"}utilisateur</h2>
             </div>
@@ -93,7 +93,7 @@ function Admin() {
               </div>
             </div>
 
-            <div className="flex flex-col items-center mt-8">
+            <div className="flex flex-col items-center mt-9">
               <button
                 className="rounded-xl px-8 py-3 font-semibold bg-black text-white shadow-xl hover:bg-green-500 flex items-center"
                 type="submit"
@@ -105,7 +105,7 @@ function Admin() {
             </div>
           </div>
 
-          {error && <p className="text-rose-600 font-semibold">{error}</p>}
+          {error && <p className="text-rose-600 font-semibold mt-6">{error}</p>}
         </form>
       </main>
     </>

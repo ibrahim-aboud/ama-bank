@@ -1,3 +1,4 @@
+import AdminLayout from "@/layouts/adminLayout";
 import { getSession, useSession, signOut } from "next-auth/react";
 
 function Dashboard() {
@@ -13,7 +14,7 @@ function Dashboard() {
 }
 
 Dashboard.getLayout = function PageLayout(page) {
-  return <>{page}</>;
+  return <AdminLayout>{page}</AdminLayout>;
 };
 
 export async function getServerSideProps(context) {

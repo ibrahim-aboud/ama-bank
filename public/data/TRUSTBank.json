@@ -14,55 +14,55 @@
             {
                 "nom_prestation": "Ouverture de compte et délivrance chéquier" ,
                 "categorie": "ouverture de compte" ,
-                "tarif": 0,
-                "period": 360
+                "tarif": null,
+                "period": null
             } ,
             {
                 "nom_prestation": "Frais de tenue de compte courant" ,
                 "categorie": "tenue de compte" ,
-                "tarif": 1000,
-                "period": 360
+                "tarif": 1200,
+                "period": 30
             } ,
             {
                 "nom_prestation": "Frais de tenue de compte chèque" ,
                 "categorie": "tenue de compte" ,
-                "tarif": 500,
-                "period": 360
+                "tarif": 20,
+                "period": 30
             } ,
             {
                 "nom_prestation": "Frais de tenue de compte sur livret" ,
                 "categorie": "tenue de compte" ,
-                "tarif": 0,
-                "period": 360
+                "tarif": null,
+                "period": null
             } ,
             {
                 "nom_prestation": "Tenue de compte en devise" ,
                 "categorie": "tenue de compte" ,
-                "tarif": 0,
-                "period": 360
+                "tarif": null,
+                "period": null
             },
             {
                 "nom_prestation": "Fermeture compte courant" ,
                 "categorie": "fermeture de compte" ,
-                "tarif": 0,
-                "period": 360
+                "tarif": null,
+                "period": null
             },
             {
                 "nom_prestation": "Fermeture compte chèque" ,
                 "categorie": "fermeture de compte" ,
-                "tarif": 0,
-                "period": 360
+                "tarif": null,
+                "period": null
             },
             {
                 "nom_prestation": "Fermeture compte sur livret" ,
                 "categorie": "fermeture de compte" ,
                 "tarif": null,
-                "period": 360
+                "period": null
             },
             {
                 "nom_prestation": "Fermeture compte devise" ,
                 "categorie": "fermeture de compte" ,
-                "tarif": 0,"period": 360
+                "tarif": null,"period": null
             }
         ] ,
         "paiement": [
@@ -70,137 +70,189 @@
                 "nom_prestation": "Versement espèces Client-agence" ,
                 "categorie": "Versement",
                 "tarif": 0,
-                "period": 360
+                "period": null
             },
             {
                 "nom_prestation": "Versement espèces Tiers" ,
                 "categorie": "Versement",
                 "tarif": 0,
-                "period": 360
+                "period": null
             },
             {
                 "nom_prestation": "Versement espèces déplacées" ,
                 "categorie": "Versement",
                 "tarif": 0,
-                "period": 360
+                "period": null
             },
             {
                 "nom_prestation": "Virement reçu d'un compte de la même agence" ,
                 "categorie": "Virement",
                 "tarif": 0,
-                "period": 360
+                "period": 0
             },
             {
                 "nom_prestation": "Virement devise reçue de l'étranger" ,
                 "categorie": "Virement",
                 "tarif": null,
-                "period": 360
+                "period": null
             },
             {
                 "nom_prestation": "Virement de compte à compte (même agence)" ,
                 "categorie": "Virement",
                 "tarif": 0,
-                "period": 360
+                "period": 0
             },
             {
                 "nom_prestation": "Virement ordonné en faveur client d'une autre agence" ,
                 "categorie": "Virement",
+                "tarif": null,
+                "period": null
+            },
+            {
+                "nom_prestation": "Virement ordonné en faveur client d'une meme agence" ,
+                "categorie": "Virement",
                 "tarif": 0,
-                "period": 360
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement ordonné en faveur client d'une meme agence TAWFIR+" ,
+                "categorie": "Virement",
+                "tarif": 0,
+                "period": 0
             },
             {
                 "nom_prestation": "Retrait espèces aux guichets d'une autre agence" ,
                 "categorie": "Retrait",
-                "tarif": null,
-                "period": 360
+                "tarif": 0,
+                "period": 0
             },
             {
                 "nom_prestation": "Émission de chèque de banque" ,
                 "categorie": "chèque",
-                "tarif": 0,
-                "period": 360
+                "tarif": 500,
+                "period": 0
             },
             {
                 "nom_prestation": "Émission Chèque de banque déplacée" ,
                 "categorie": "chèque",
-                "tarif": 0,
-                "period": 360
+                "tarif": null,
+                "period": null
             },
             {
                 "nom_prestation": "Annulation de chèque de banque" ,
                 "categorie": "chèque",
-                "tarif": 0,
-                "period": 360
+                "tarif": null,
+                "period": null
             }
         ] ,
         "monetique": {
             "carte CIB": [
                 {
                     "nom_prestation": "Émission de la première carte",
-                    "tarif": 0,
-                    "period": 360
+                    "tarif": null,
+                    "period": null
                 },
                 {
                     "nom_prestation": "Renouvèlement",
                     "tarif": null,
-                    "period": 360
+                    "period": null
                 },
                 {
                     "nom_prestation": "Reconfection",
-                    "tarif": 0,
-                    "period": 360
+                    "tarif": null,
+                    "period": null
                 },
                 {
                     "nom_prestation": "Réédition du code secret",
-                    "tarif": 0,
-                    "period": 360
+                    "tarif": null,
+                    "period": null
                 },
                 {
                     "nom_prestation": "Commission de retrait sur DAB de la banque",
                     "tarif": 0,
-                    "period": 360
+                    "period": 0
                 },
                 {
                     "nom_prestation": "Commission de retrait sur DAB confrère",
-                    "tarif": 0,
-                    "period": 360
+                    "tarif": null,
+                    "period": null
                 },
                 {
                     "nom_prestation": "Commission de paiement sur TPE/Client",
-                    "tarif": null,
-                    "period": 360
+                    "tarif": 0,
+                    "period": 0
                 },
                 {
-                    "nom_prestation": "Commission de paiement sur TPE/Commerçant",
-                    "tarif": 0,
-                    "period": 360
+                    "nom_prestation": "Commission de paiement sur TPE/Commerçant avec montant <= 2000 DA",
+                    "tarif": 2,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Commission de paiement sur TPE/Commerçant avec montant > 2000 DA",
+                    "tarif": 6,
+                    "period": 0
                 }
             ] ,
             "carte internationale": [
                 {
                     "nom_prestation": "Octroi",
                     "tarif": null,
-                    "period": 360
+                    "period": null
                 },
                 {
-                    "nom_prestation": "Mise en opposition",
-                    "tarif": 0,
-                    "period": 360
+                    "nom_prestation": "Mise en opposition MasterCard",
+                    "tarif": null,
+                    "period": null
                 },
                 {
-                    "nom_prestation": "Reconfection",
-                    "tarif": 0,
-                    "period": 360
+                    "nom_prestation": "Mise en opposition Visa classic",
+                    "tarif": 1500,
+                    "period": 0
                 },
                 {
-                    "nom_prestation": "Réédition du code secret",
+                    "nom_prestation": "Mise en opposition Visa Gold",
+                    "tarif": 2000,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Mise en opposition Visa Plentinium",
+                    "tarif": 2500,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Reconfection MasterCard",
                     "tarif": 500,
+                    "period": 0
+                },
+                {                    
+                    "nom_prestation": "Reconfection Visa Classic",
+                    "tarif": 4000,
                     "period": 360
+                },
+                {                    
+                    "nom_prestation": "Reconfection Visa Gold",
+                    "tarif": 1400,
+                    "period": 360
+                },
+                {                    
+                    "nom_prestation": "Reconfection Visa Plentinuim",
+                    "tarif": 2000,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Réédition du code secret MasterCard",
+                    "tarif": 3000,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Réédition du code secret Visa",
+                    "tarif": 1000,
+                    "period": 0
                 },
                 {
                     "nom_prestation": "Changement de code PIN",
                     "tarif": null,
-                    "period": 360
+                    "period": null
                 }
             ]
         }
@@ -212,55 +264,55 @@
             {
                 "nom_prestation": "Ouverture de compte et délivrance chéquier" ,
                 "categorie": "ouverture de compte" ,
-                "tarif": 0,
-                "period": 360
+                "tarif": null,
+                "period": null
             } ,
             {
                 "nom_prestation": "Frais de tenue de compte courant" ,
                 "categorie": "tenue de compte" ,
-                "tarif": 1000,
-                "period": 360
+                "tarif": 1200,
+                "period": 30
             } ,
             {
                 "nom_prestation": "Frais de tenue de compte chèque" ,
                 "categorie": "tenue de compte" ,
-                "tarif": 500,
-                "period": 360
+                "tarif": 20,
+                "period": 30
             } ,
             {
                 "nom_prestation": "Frais de tenue de compte sur livret" ,
                 "categorie": "tenue de compte" ,
-                "tarif": 0,
-                "period": 360
+                "tarif": null,
+                "period": null
             } ,
             {
                 "nom_prestation": "Tenue de compte en devise" ,
                 "categorie": "tenue de compte" ,
-                "tarif": 0,
-                "period": 360
+                "tarif": null,
+                "period": null
             },
             {
                 "nom_prestation": "Fermeture compte courant" ,
                 "categorie": "fermeture de compte" ,
-                "tarif": 0,
-                "period": 360
+                "tarif": null,
+                "period": null
             },
             {
                 "nom_prestation": "Fermeture compte chèque" ,
                 "categorie": "fermeture de compte" ,
-                "tarif": 0,
-                "period": 360
+                "tarif": null,
+                "period": null
             },
             {
                 "nom_prestation": "Fermeture compte sur livret" ,
                 "categorie": "fermeture de compte" ,
                 "tarif": null,
-                "period": 360
+                "period": null
             },
             {
                 "nom_prestation": "Fermeture compte devise" ,
                 "categorie": "fermeture de compte" ,
-                "tarif": 0,"period": 360
+                "tarif": null,"period": null
             }
         ] ,
         "paiement": [
@@ -268,137 +320,189 @@
                 "nom_prestation": "Versement espèces Client-agence" ,
                 "categorie": "Versement",
                 "tarif": 0,
-                "period": 360
+                "period": null
             },
             {
                 "nom_prestation": "Versement espèces Tiers" ,
                 "categorie": "Versement",
                 "tarif": 0,
-                "period": 360
+                "period": null
             },
             {
                 "nom_prestation": "Versement espèces déplacées" ,
                 "categorie": "Versement",
                 "tarif": 0,
-                "period": 360
+                "period": null
             },
             {
                 "nom_prestation": "Virement reçu d'un compte de la même agence" ,
                 "categorie": "Virement",
                 "tarif": 0,
-                "period": 360
+                "period": 0
             },
             {
                 "nom_prestation": "Virement devise reçue de l'étranger" ,
                 "categorie": "Virement",
                 "tarif": null,
-                "period": 360
+                "period": null
             },
             {
                 "nom_prestation": "Virement de compte à compte (même agence)" ,
                 "categorie": "Virement",
                 "tarif": 0,
-                "period": 360
+                "period": 0
             },
             {
                 "nom_prestation": "Virement ordonné en faveur client d'une autre agence" ,
                 "categorie": "Virement",
+                "tarif": null,
+                "period": null
+            },
+            {
+                "nom_prestation": "Virement ordonné en faveur client d'une meme agence" ,
+                "categorie": "Virement",
                 "tarif": 0,
-                "period": 360
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement ordonné en faveur client d'une meme agence TAWFIR+" ,
+                "categorie": "Virement",
+                "tarif": 0,
+                "period": 0
             },
             {
                 "nom_prestation": "Retrait espèces aux guichets d'une autre agence" ,
                 "categorie": "Retrait",
-                "tarif": null,
-                "period": 360
+                "tarif": 0,
+                "period": 0
             },
             {
                 "nom_prestation": "Émission de chèque de banque" ,
                 "categorie": "chèque",
-                "tarif": 0,
-                "period": 360
+                "tarif": 500,
+                "period": 0
             },
             {
                 "nom_prestation": "Émission Chèque de banque déplacée" ,
                 "categorie": "chèque",
-                "tarif": 0,
-                "period": 360
+                "tarif": null,
+                "period": null
             },
             {
                 "nom_prestation": "Annulation de chèque de banque" ,
                 "categorie": "chèque",
-                "tarif": 0,
-                "period": 360
+                "tarif": null,
+                "period": null
             }
         ] ,
         "monetique": {
             "carte CIB": [
                 {
                     "nom_prestation": "Émission de la première carte",
-                    "tarif": 0,
-                    "period": 360
+                    "tarif": null,
+                    "period": null
                 },
                 {
                     "nom_prestation": "Renouvèlement",
                     "tarif": null,
-                    "period": 360
+                    "period": null
                 },
                 {
                     "nom_prestation": "Reconfection",
-                    "tarif": 0,
-                    "period": 360
+                    "tarif": null,
+                    "period": null
                 },
                 {
                     "nom_prestation": "Réédition du code secret",
-                    "tarif": 0,
-                    "period": 360
+                    "tarif": null,
+                    "period": null
                 },
                 {
                     "nom_prestation": "Commission de retrait sur DAB de la banque",
                     "tarif": 0,
-                    "period": 360
+                    "period": 0
                 },
                 {
                     "nom_prestation": "Commission de retrait sur DAB confrère",
-                    "tarif": 0,
-                    "period": 360
+                    "tarif": null,
+                    "period": null
                 },
                 {
                     "nom_prestation": "Commission de paiement sur TPE/Client",
-                    "tarif": null,
-                    "period": 360
+                    "tarif": 0,
+                    "period": 0
                 },
                 {
-                    "nom_prestation": "Commission de paiement sur TPE/Commerçant",
-                    "tarif": 0,
-                    "period": 360
+                    "nom_prestation": "Commission de paiement sur TPE/Commerçant avec montant <= 2000 DA",
+                    "tarif": 2,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Commission de paiement sur TPE/Commerçant avec montant > 2000 DA",
+                    "tarif": 6,
+                    "period": 0
                 }
             ] ,
             "carte internationale": [
                 {
                     "nom_prestation": "Octroi",
                     "tarif": null,
-                    "period": 360
+                    "period": null
                 },
                 {
-                    "nom_prestation": "Mise en opposition",
-                    "tarif": 0,
-                    "period": 360
+                    "nom_prestation": "Mise en opposition MasterCard",
+                    "tarif": null,
+                    "period": null
                 },
                 {
-                    "nom_prestation": "Reconfection",
-                    "tarif": 0,
-                    "period": 360
+                    "nom_prestation": "Mise en opposition Visa classic",
+                    "tarif": 1500,
+                    "period": 0
                 },
                 {
-                    "nom_prestation": "Réédition du code secret",
+                    "nom_prestation": "Mise en opposition Visa Gold",
+                    "tarif": 2000,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Mise en opposition Visa Plentinium",
+                    "tarif": 2500,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Reconfection MasterCard",
                     "tarif": 500,
+                    "period": 0
+                },
+                {                    
+                    "nom_prestation": "Reconfection Visa Classic",
+                    "tarif": 4000,
                     "period": 360
+                },
+                {                    
+                    "nom_prestation": "Reconfection Visa Gold",
+                    "tarif": 1400,
+                    "period": 360
+                },
+                {                    
+                    "nom_prestation": "Reconfection Visa Plentinuim",
+                    "tarif": 2000,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Réédition du code secret MasterCard",
+                    "tarif": 3000,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Réédition du code secret Visa",
+                    "tarif": 1000,
+                    "period": 0
                 },
                 {
                     "nom_prestation": "Changement de code PIN",
                     "tarif": null,
-                    "period": 360
+                    "period": null
                 }
             ]
         }
@@ -409,55 +513,55 @@
             {
                 "nom_prestation": "Ouverture de compte et délivrance chéquier" ,
                 "categorie": "ouverture de compte" ,
-                "tarif": 0,
-                "period": 360
+                "tarif": null,
+                "period": null
             } ,
             {
                 "nom_prestation": "Frais de tenue de compte courant" ,
                 "categorie": "tenue de compte" ,
-                "tarif": 1000,
-                "period": 360
+                "tarif": 1200,
+                "period": 30
             } ,
             {
                 "nom_prestation": "Frais de tenue de compte chèque" ,
                 "categorie": "tenue de compte" ,
-                "tarif": 500,
-                "period": 360
+                "tarif": 20,
+                "period": 30
             } ,
             {
                 "nom_prestation": "Frais de tenue de compte sur livret" ,
                 "categorie": "tenue de compte" ,
-                "tarif": 0,
-                "period": 360
+                "tarif": null,
+                "period": null
             } ,
             {
                 "nom_prestation": "Tenue de compte en devise" ,
                 "categorie": "tenue de compte" ,
-                "tarif": 0,
-                "period": 360
+                "tarif": null,
+                "period": null
             },
             {
                 "nom_prestation": "Fermeture compte courant" ,
                 "categorie": "fermeture de compte" ,
-                "tarif": 0,
-                "period": 360
+                "tarif": null,
+                "period": null
             },
             {
                 "nom_prestation": "Fermeture compte chèque" ,
                 "categorie": "fermeture de compte" ,
-                "tarif": 0,
-                "period": 360
+                "tarif": null,
+                "period": null
             },
             {
                 "nom_prestation": "Fermeture compte sur livret" ,
                 "categorie": "fermeture de compte" ,
                 "tarif": null,
-                "period": 360
+                "period": null
             },
             {
                 "nom_prestation": "Fermeture compte devise" ,
                 "categorie": "fermeture de compte" ,
-                "tarif": 0,"period": 360
+                "tarif": null,"period": null
             }
         ] ,
         "paiement": [
@@ -465,137 +569,189 @@
                 "nom_prestation": "Versement espèces Client-agence" ,
                 "categorie": "Versement",
                 "tarif": 0,
-                "period": 360
+                "period": null
             },
             {
                 "nom_prestation": "Versement espèces Tiers" ,
                 "categorie": "Versement",
                 "tarif": 0,
-                "period": 360
+                "period": null
             },
             {
                 "nom_prestation": "Versement espèces déplacées" ,
                 "categorie": "Versement",
                 "tarif": 0,
-                "period": 360
+                "period": null
             },
             {
                 "nom_prestation": "Virement reçu d'un compte de la même agence" ,
                 "categorie": "Virement",
                 "tarif": 0,
-                "period": 360
+                "period": 0
             },
             {
                 "nom_prestation": "Virement devise reçue de l'étranger" ,
                 "categorie": "Virement",
                 "tarif": null,
-                "period": 360
+                "period": null
             },
             {
                 "nom_prestation": "Virement de compte à compte (même agence)" ,
                 "categorie": "Virement",
                 "tarif": 0,
-                "period": 360
+                "period": 0
             },
             {
                 "nom_prestation": "Virement ordonné en faveur client d'une autre agence" ,
                 "categorie": "Virement",
+                "tarif": null,
+                "period": null
+            },
+            {
+                "nom_prestation": "Virement ordonné en faveur client d'une meme agence" ,
+                "categorie": "Virement",
                 "tarif": 0,
-                "period": 360
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement ordonné en faveur client d'une meme agence TAWFIR+" ,
+                "categorie": "Virement",
+                "tarif": 0,
+                "period": 0
             },
             {
                 "nom_prestation": "Retrait espèces aux guichets d'une autre agence" ,
                 "categorie": "Retrait",
-                "tarif": null,
-                "period": 360
+                "tarif": 0,
+                "period": 0
             },
             {
                 "nom_prestation": "Émission de chèque de banque" ,
                 "categorie": "chèque",
-                "tarif": 0,
-                "period": 360
+                "tarif": 500,
+                "period": 0
             },
             {
                 "nom_prestation": "Émission Chèque de banque déplacée" ,
                 "categorie": "chèque",
-                "tarif": 0,
-                "period": 360
+                "tarif": null,
+                "period": null
             },
             {
                 "nom_prestation": "Annulation de chèque de banque" ,
                 "categorie": "chèque",
-                "tarif": 0,
-                "period": 360
+                "tarif": null,
+                "period": null
             }
         ] ,
         "monetique": {
             "carte CIB": [
                 {
                     "nom_prestation": "Émission de la première carte",
-                    "tarif": 0,
-                    "period": 360
+                    "tarif": null,
+                    "period": null
                 },
                 {
                     "nom_prestation": "Renouvèlement",
                     "tarif": null,
-                    "period": 360
+                    "period": null
                 },
                 {
                     "nom_prestation": "Reconfection",
-                    "tarif": 0,
-                    "period": 360
+                    "tarif": null,
+                    "period": null
                 },
                 {
                     "nom_prestation": "Réédition du code secret",
-                    "tarif": 0,
-                    "period": 360
+                    "tarif": null,
+                    "period": null
                 },
                 {
                     "nom_prestation": "Commission de retrait sur DAB de la banque",
                     "tarif": 0,
-                    "period": 360
+                    "period": 0
                 },
                 {
                     "nom_prestation": "Commission de retrait sur DAB confrère",
-                    "tarif": 0,
-                    "period": 360
+                    "tarif": null,
+                    "period": null
                 },
                 {
                     "nom_prestation": "Commission de paiement sur TPE/Client",
-                    "tarif": null,
-                    "period": 360
+                    "tarif": 0,
+                    "period": 0
                 },
                 {
-                    "nom_prestation": "Commission de paiement sur TPE/Commerçant",
-                    "tarif": 0,
-                    "period": 360
+                    "nom_prestation": "Commission de paiement sur TPE/Commerçant avec montant <= 2000 DA",
+                    "tarif": 2,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Commission de paiement sur TPE/Commerçant avec montant > 2000 DA",
+                    "tarif": 6,
+                    "period": 0
                 }
             ] ,
             "carte internationale": [
                 {
                     "nom_prestation": "Octroi",
                     "tarif": null,
-                    "period": 360
+                    "period": null
                 },
                 {
-                    "nom_prestation": "Mise en opposition",
-                    "tarif": 0,
-                    "period": 360
+                    "nom_prestation": "Mise en opposition MasterCard",
+                    "tarif": null,
+                    "period": null
                 },
                 {
-                    "nom_prestation": "Reconfection",
-                    "tarif": 0,
-                    "period": 360
+                    "nom_prestation": "Mise en opposition Visa classic",
+                    "tarif": 1500,
+                    "period": 0
                 },
                 {
-                    "nom_prestation": "Réédition du code secret",
+                    "nom_prestation": "Mise en opposition Visa Gold",
+                    "tarif": 2000,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Mise en opposition Visa Plentinium",
+                    "tarif": 2500,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Reconfection MasterCard",
                     "tarif": 500,
+                    "period": 0
+                },
+                {                    
+                    "nom_prestation": "Reconfection Visa Classic",
+                    "tarif": 4000,
                     "period": 360
+                },
+                {                    
+                    "nom_prestation": "Reconfection Visa Gold",
+                    "tarif": 1400,
+                    "period": 360
+                },
+                {                    
+                    "nom_prestation": "Reconfection Visa Plentinuim",
+                    "tarif": 2000,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Réédition du code secret MasterCard",
+                    "tarif": 3000,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Réédition du code secret Visa",
+                    "tarif": 1000,
+                    "period": 0
                 },
                 {
                     "nom_prestation": "Changement de code PIN",
                     "tarif": null,
-                    "period": 360
+                    "period": null
                 }
             ]
         }

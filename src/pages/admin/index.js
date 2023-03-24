@@ -26,7 +26,7 @@ function Admin() {
       redirect: false,
       username,
       password,
-      callbackUrl: process.env.NEXT_PUBLIC_APP_URL + "/admin/dashboard",
+      callbackUrl: process.env.NEXT_PUBLIC_APP_URL + "/admin/home",
     });
 
     if (status.ok) router.push(status.url);

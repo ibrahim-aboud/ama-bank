@@ -7,7 +7,12 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        comfortaa: ["Comfortaa", "sans-serif"],
+        nunito: ["Nunito", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 };

@@ -1,19 +1,11 @@
 import AdminLayout from "@/layouts/adminLayout";
-import { getSession, useSession, signOut } from "next-auth/react";
+import { getSession } from "next-auth/react";
 
-function Dashboard() {
-  const session = useSession();
-
-  return (
-    <div>
-      <div>Dashboard</div>
-      <div>{JSON.stringify(session)}</div>
-      <button onClick={() => signOut()}>Logout</button>
-    </div>
-  );
+function Website() {
+  return <div>Website</div>;
 }
 
-Dashboard.getLayout = function PageLayout(page) {
+Website.getLayout = function PageLayout(page) {
   return <AdminLayout>{page}</AdminLayout>;
 };
 
@@ -34,4 +26,4 @@ export async function getServerSideProps(context) {
   };
 }
 
-export default Dashboard;
+export default Website;

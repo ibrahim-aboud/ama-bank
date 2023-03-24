@@ -12,10 +12,10 @@ function AdminLayout({ children }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
+      <div className="w-screen">
         <AdminNavbar />
         {children}
-      </main>
+      </div>
     </>
   );
 }

@@ -17,10 +17,12 @@ function AdminNavbar() {
           <Image
             src="/assets/logos/logo.png"
             alt="logo"
-            width={48}
-            height={48}
+            width={430}
+            height={430}
+            className="w-12"
           />
-          <h2 className="text-xl font-comfortaa">amaBank</h2>
+
+          <h2 className="pt-1 text-xl font-comfortaa">amaBank</h2>
         </div>
 
         <button

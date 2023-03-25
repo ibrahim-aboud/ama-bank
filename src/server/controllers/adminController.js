@@ -14,7 +14,7 @@ export default class AdminController {
     var result = null;
 
     try {
-      result = await dbQuery("SELECT * FROM ab_admins WHERE username=(?)", [
+      result = await dbQuery("SELECT * FROM ab_admins WHERE admin_name=(?)", [
         username,
       ]);
     } catch (e) {
@@ -28,7 +28,7 @@ export default class AdminController {
     const user = result[0];
 
     // check if the password is correct
-    if (user.password !== password) {
+    if (user.admin_password !== password) {
       throw new Error("Le mot de passe est incorrect. essayez à nouveau");
     }
 

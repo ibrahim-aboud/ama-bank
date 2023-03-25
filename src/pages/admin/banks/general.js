@@ -25,9 +25,9 @@ export async function getServerSideProps(context) {
 
   try {
     const response = await axios.put(
-      process.env.NEXT_PUBLIC_API_URL + "banks",
+      process.env.NEXT_PUBLIC_API_URL + "/banks",
       {
-        bank: new Bank(1, "bank name", "desc", 10, "link", new Date()),
+        bank: new Bank(1, "bank name", "desc", 10, "link", null),
       },
       {
         headers: {
@@ -39,7 +39,7 @@ export async function getServerSideProps(context) {
 
     console.log(response.data);
   } catch (e) {
-    console.log(e.message);
+    console.log(e.response.data);
   }
 
   return {

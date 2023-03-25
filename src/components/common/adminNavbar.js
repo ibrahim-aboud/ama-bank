@@ -34,11 +34,21 @@ function AdminNavbar() {
       </div>
 
       {/* for large screen */}
-      <div className="hidden md:flex justify-center items-center gap-3 lg:gap-8">
-        <Link href="/admin/home">Accueil</Link>
-        <Link href="/admin/website">Gestion du site</Link>
+      <div className="hidden md:flex justify-center items-center lg:gap-5">
+        <Link
+          href="/admin/home"
+          className="hover:bg-[#222222] px-2 py-2 rounded-xl"
+        >
+          Accueil
+        </Link>
+        <Link
+          href="/admin/website"
+          className="hover:bg-[#222222] px-2 py-2 rounded-xl"
+        >
+          Gestion du site
+        </Link>
         <div
-          className="flex justify-center items-center gap-2 relative cursor-pointer"
+          className="flex justify-center items-center gap-2 relative cursor-pointer hover:bg-[#222222] px-2 py-2 rounded-xl"
           onClick={() => setIsGstBanksHidden(!isGstBanksHidden)}
         >
           <span>Gestion des banques</span>
@@ -49,8 +59,8 @@ function AdminNavbar() {
           )}
           <div
             className={`${
-              isGstBanksHidden ? "collapse" : "visible"
-            } absolute bg-[#111111] text-white flex flex-col justify-center items-center top-10 p-4 rounded-xl`}
+              isGstBanksHidden ? "hidden" : "flex"
+            } absolute bg-[#111111] text-white flex-col justify-center items-center top-10 p-4 rounded-xl animate-fade-in`}
           >
             <Link
               href="/admin/banks/general"
@@ -72,9 +82,14 @@ function AdminNavbar() {
             </Link>
           </div>
         </div>
-        <Link href="/admin/account">Paramètres du compte</Link>
+        <Link
+          href="/admin/account"
+          className="hover:bg-[#222222] px-2 py-2 rounded-xl"
+        >
+          Paramètres du compte
+        </Link>
         <BiLogOut
-          className="rotate-180 text-2xl ml-2 cursor-pointer"
+          className="rotate-180 text-2xl ml-2 cursor-pointer hover:text-rose-500"
           onClick={() => signOut()}
         />
       </div>

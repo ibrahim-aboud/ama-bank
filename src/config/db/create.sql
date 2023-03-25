@@ -6,7 +6,7 @@ USE db_amabank;
 
 
 CREATE TABLE `ab_banks` (
-  `id_bank` INT NOT NULL UNIQUE AUTO_INCREMENT,
+  `id_bank` INT NOT NULL AUTO_INCREMENT,
   `bank_name` VARCHAR(256) NOT NULL UNIQUE,
   `bank_description` TEXT,
   `bank_visits_count` INT DEFAULT 0,
@@ -16,13 +16,13 @@ CREATE TABLE `ab_banks` (
 );
 
 CREATE TABLE `ab_categories` (
-  `id_categorie` INT NOT NULL UNIQUE AUTO_INCREMENT,
+  `id_categorie` INT NOT NULL AUTO_INCREMENT,
   `categorie_name` TINYTEXT NOT NULL,
   PRIMARY KEY (`id_categorie`)
 );
 
 CREATE TABLE `ab_prestations` (
-  `id_prestation` INT NOT NULL UNIQUE AUTO_INCREMENT,
+  `id_prestation` INT NOT NULL AUTO_INCREMENT,
   `prestation_bank_id` INT NOT NULL,
   `prestation_name` VARCHAR(256) NOT NULL,
   `prestation_categorie_id` INT,
@@ -36,7 +36,7 @@ CREATE TABLE `ab_prestations` (
 );
 
 CREATE TABLE `ab_dgs` (
-  `id_dg` INT NOT NULL UNIQUE AUTO_INCREMENT,
+  `id_dg` INT NOT NULL AUTO_INCREMENT,
   `dg_bank_id` INT,
   `dg_address` TINYTEXT NOT NULL,
   `dg_lat` DOUBLE,
@@ -50,7 +50,7 @@ CREATE TABLE `ab_dgs` (
 );
 
 CREATE TABLE `ab_agencies` (
-  `id_agency` INT NOT NULL UNIQUE AUTO_INCREMENT,
+  `id_agency` INT NOT NULL AUTO_INCREMENT,
   `agency_bank_id` INT,
   `agency_address` TINYTEXT,
   `agency_lat` DOUBLE,
@@ -64,7 +64,7 @@ CREATE TABLE `ab_agencies` (
 );
 
 CREATE TABLE `ab_info` (
-  `id_info` INT NOT NULL UNIQUE AUTO_INCREMENT,
+  `id_info` INT NOT NULL AUTO_INCREMENT,
   `phone` TINYTEXT,
   `email` TINYTEXT,
   `fax` TINYTEXT,
@@ -78,7 +78,7 @@ CREATE TABLE `ab_info` (
 
 
 CREATE TABLE `ab_users` (
-  `id_user` INT NOT NULL UNIQUE AUTO_INCREMENT,
+  `id_user` INT NOT NULL AUTO_INCREMENT,
   `user_name` VARCHAR(256) UNIQUE NOT NULL,
   `user_email`VARCHAR(256) UNIQUE NOT NULL,
   `user_password` TINYTEXT NOT NULL,
@@ -90,9 +90,9 @@ USE db_admin_amabank;
 
 # TO BE PUT IN ANOTHER DATABASE!
 CREATE TABLE `ab_admins` (
-  `id_admin` INT NOT NULL UNIQUE AUTO_INCREMENT,
+  `id_admin` INT NOT NULL AUTO_INCREMENT,
   `admin_name` VARCHAR(256) UNIQUE NOT NULL,
-  `admin_email` VARCHAR(256) NULL UNIQUE,
+  `admin_email` VARCHAR(256) UNIQUE NOT NULL,
   `admin_password` TINYTEXT NOT NULL,
   PRIMARY KEY (`id_admin`)
 );

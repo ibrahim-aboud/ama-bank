@@ -8,7 +8,9 @@ export default class Bank {
     this.description = description;
     this.visitsCount = visitsCount;
     this.websiteLink = websiteLink;
-    this.updateDate = updateDate ? updateDate : new Date();
+    this.updateDate = updateDate
+      ? updateDate
+      : new Date().toJSON().slice(0, 10);
   }
 
   static async getAllBanks() {

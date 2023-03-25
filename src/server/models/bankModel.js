@@ -32,7 +32,7 @@ export default class Bank {
         new Bank(
           bank.id_bank,
           bank.bank_name,
-          null, // description
+          bank.bank_description,
           bank.bank_visits_count,
           bank.bank_website_link,
           bank.bank_update_date
@@ -64,7 +64,7 @@ export default class Bank {
     return new Bank(
       bank.id_bank,
       bank.bank_name,
-      null, // description
+      bank.bank_description,
       bank.bank_visits_count,
       bank.bank_website_link,
       bank.bank_update_date
@@ -75,8 +75,15 @@ export default class Bank {
     const _bank = Bank.getBankById(bank.id);
 
     await dbQuery(
-      "UPDATE ab_banks SET bank_name=(?), bank_visits_count=(?), bank_website_link=(?), bank_update_date=(?) WHERE id_bank=(?)",
-      [bank.name, bank.visitsCount, bank.websiteLink, bank.updateDate, bank.id]
+      "UPDATE ab_banks SET bank_name=(?), bank_description=(?), bank_visits_count=(?), bank_website_link=(?), bank_update_date=(?) WHERE id_bank=(?)",
+      [
+        bank.name,
+        bank.description,
+        bank.visitsCount,
+        bank.websiteLink,
+        bank.updateDate,
+        bank.id,
+      ]
     );
   }
 }

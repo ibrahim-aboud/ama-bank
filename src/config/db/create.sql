@@ -8,9 +8,10 @@ USE db_amabank;
 CREATE TABLE `ab_banks` (
   `id_bank` INT NOT NULL UNIQUE AUTO_INCREMENT,
   `bank_name` VARCHAR(256) NOT NULL UNIQUE,
+  `bank_description` TEXT,
   `bank_visits_count` INT DEFAULT 0,
   `bank_website_link` TEXT,
-  `bank_update_date` DATE,
+  `bank_update_date` DATE DEFAULT (NOW()),
   PRIMARY KEY (`id_bank`)
 );
 

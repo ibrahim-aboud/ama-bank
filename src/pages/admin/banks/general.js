@@ -1,5 +1,7 @@
 import AdminLayout from "@/layouts/adminLayout";
 import { getSession } from "next-auth/react";
+import axios from "axios";
+import Bank from "@/server/models/bankModel";
 
 function General() {
   return <div>General</div>;
@@ -19,6 +21,25 @@ export async function getServerSideProps(context) {
         permanent: false,
       },
     };
+  }
+
+  try {
+    const response = await axios.put(
+      process.env.NEXT_PUBLIC_API_URL + "banks",
+      {
+        bank: new Bank(1, "bank name", "desc", 10, "link", new Date()),
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          cookie: context.req.headers.cookie,
+        },
+      }
+    );
+
+    console.log(response.data);
+  } catch (e) {
+    console.log(e.message);
   }
 
   return {

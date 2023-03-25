@@ -1,3 +1,4 @@
+import bankInfoValidator from "@/lib/validations/bankInfoValidator";
 import dbQuery from "../db/connect";
 
 export default class Bank {
@@ -7,7 +8,7 @@ export default class Bank {
     this.description = description;
     this.visitsCount = visitsCount;
     this.websiteLink = websiteLink;
-    this.updateDate = updateDate;
+    this.updateDate = updateDate ? updateDate : new Date();
   }
 
   static async getAllBanks() {
@@ -72,7 +73,16 @@ export default class Bank {
   }
 
   static async updateBank(bank) {
-    const _bank = Bank.getBankById(bank.id);
+    if (!bank) {
+      throw new Error("No bank to update");
+    }
+
+    const check = bankInfoValidator(bank);
+    if (check.error) {
+      throw new Error(check.errorList[0]);
+    }
+
+    const _bank = await Bank.getBankById(bank.id);
 
     await dbQuery(
       "UPDATE ab_banks SET bank_name=(?), bank_description=(?), bank_visits_count=(?), bank_website_link=(?), bank_update_date=(?) WHERE id_bank=(?)",
@@ -82,8 +92,14 @@ export default class Bank {
         bank.visitsCount,
         bank.websiteLink,
         bank.updateDate,
+
         bank.id,
       ]
     );
+
+    return {
+      old: _bank,
+      new: bank,
+    };
   }
 }

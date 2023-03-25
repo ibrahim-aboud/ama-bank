@@ -8,8 +8,10 @@ export default class BankController {
       const bank = await Bank.getBankById(id);
 
       res.status(200).json({ bank });
+      return;
     } catch (e) {
       res.status(404).send(e.message);
+      return;
     }
   }
 }

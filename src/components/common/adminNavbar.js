@@ -22,7 +22,7 @@ function AdminNavbar() {
             className="w-12"
           />
 
-          <h2 className="pt-1 text-xl font-comfortaa">amaBank</h2>
+          <h2 className="pt-1 text-xl font-comfortaa font-semibold">amaBank</h2>
         </div>
 
         <button

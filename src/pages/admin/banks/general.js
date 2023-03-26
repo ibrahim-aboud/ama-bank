@@ -1,10 +1,38 @@
 import AdminLayout from "@/layouts/adminLayout";
 import { getSession } from "next-auth/react";
 import axios from "axios";
-import Bank from "@/server/models/bankModel";
+import { useState } from "react";
+import SearchBox from "@/components/admin/banks/general/searchBox";
+import BankInfoForm from "@/components/admin/banks/general/bankInfoForm";
 
-function General() {
-  return <div>General</div>;
+function General({ banks }) {
+  const [banksList, setBanksList] = useState(banks);
+  const [selectedBankId, setSelectedBankId] = useState(
+    banks && banks.length > 0 ? banks[0].id : null
+  );
+
+  return (
+    <main>
+      <div className="mt-8 mx-16">
+        <h2 className="font-semibold ml-2">Nom de la banque</h2>
+        <SearchBox
+          items={banksList}
+          selectedId={selectedBankId}
+          setSelectedId={setSelectedBankId}
+          searchField="name"
+        />
+      </div>
+
+      <div>
+        <br />
+        <br />
+      </div>
+
+      <div className="mt-8 mx-16">
+        <BankInfoForm bankId={selectedBankId} />
+      </div>
+    </main>
+  );
 }
 
 General.getLayout = function PageLayout(page) {
@@ -13,6 +41,7 @@ General.getLayout = function PageLayout(page) {
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
+  var banks = [];
 
   if (!session) {
     return {
@@ -23,6 +52,17 @@ export async function getServerSideProps(context) {
     };
   }
 
+  try {
+    const response = await axios.get(
+      process.env.NEXT_PUBLIC_API_URL + "/banks"
+    );
+
+    banks = response.data.banks;
+  } catch (e) {
+    console.error(e.message);
+  }
+
+  /*
   try {
     const response = await axios.put(
       process.env.NEXT_PUBLIC_API_URL + "/banks",
@@ -41,9 +81,10 @@ export async function getServerSideProps(context) {
   } catch (e) {
     console.log(e.response.data);
   }
+  */
 
   return {
-    props: { session },
+    props: { session, banks },
   };
 }
 

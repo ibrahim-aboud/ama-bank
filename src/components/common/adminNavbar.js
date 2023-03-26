@@ -11,7 +11,7 @@ function AdminNavbar() {
   const [show, setShow] = useState(false);
 
   return (
-    <nav className=" md:flex justify-between items-center w-screen bg-[#111111] text-[#ffffff] py-4 px-12 md:px-4 lg:px-12">
+    <nav className="md:flex justify-between items-center w-screen bg-[#111111] text-[#ffffff] py-4 px-12 md:px-4 lg:px-12">
       <div className="flex justify-between items-center">
         <div className="flex justify-center items-center gap-4">
           <Image
@@ -60,7 +60,7 @@ function AdminNavbar() {
           <div
             className={`${
               isGstBanksHidden ? "hidden" : "flex"
-            } absolute bg-[#111111] text-white flex-col justify-center items-center top-10 p-4 rounded-xl animate-fade-in`}
+            } absolute z-40 bg-[#111111] text-white flex-col justify-center items-center top-10 p-4 rounded-xl animate-fade-in`}
           >
             <Link
               href="/admin/banks/general"

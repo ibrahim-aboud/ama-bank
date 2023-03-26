@@ -93,7 +93,7 @@ export default class Bank {
         bank.description,
         bank.visitsCount,
         bank.websiteLink,
-        bank.updateDate,
+        bank.updateDate.substring(0, 10),
 
         bank.id,
       ]

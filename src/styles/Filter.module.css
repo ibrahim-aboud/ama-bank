@@ -66,15 +66,12 @@
     margin: 2%;
 }
 
-.check > input:checked {
-    margin: 2%;
-}
-
 .check > label:hover {
     color: #40916c;
     font-weight: bold;
-    background-color: hsl(233, 100%, 49%);
 }
+
+
 
 @media screen and (max-width: 800px) {
 

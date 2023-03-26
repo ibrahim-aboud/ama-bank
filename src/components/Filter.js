@@ -18,6 +18,10 @@ const Filter = ({types_comptes}) => {
         }
     }
 
+    const submitForm = ()=>{
+
+    }
+
   return (
     <div className={styles.container} >
             <div className={styles.filters}>
@@ -47,7 +51,7 @@ const Filter = ({types_comptes}) => {
                     {
                         fltrs.map((val,index)=>(
                             <div key={index} className={styles.check}>
-                                <input type="checkbox" id={val} value={val} />
+                                <input type="checkbox" id={val} value={val}/>
                                 <label htmlFor={val}>{val}</label>
                             </div>
                         ))
@@ -55,9 +59,9 @@ const Filter = ({types_comptes}) => {
                 </form>
             </div>
             <div className={styles.start_filter}>
-                <button className={styles.start_compare_btn}  >
+                <button className={styles.start_compare_btn} onClick={submitForm}  >
                 <span>Filter les champs de la comparaison</span>
-                <Image src="/Vectors/params_vector.svg" alt="qsdf" width={50} height={50} className={styles.param} />
+                <Image src="/Vectors/params_vector.svg" width={50} height={50} className={styles.param} />
                 </button>
             </div>
         </div>

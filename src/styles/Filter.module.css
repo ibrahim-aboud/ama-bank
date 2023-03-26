@@ -34,7 +34,8 @@
 .start_filter {
     background-color: #40916c ;
     border-radius: 40px;
-    box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.3);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease-in-out;
 }
 
 .start_compare_btn {
@@ -47,7 +48,8 @@
 }
 
 .start_filter:hover{
-    box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
 }
 
 /************ CheckBoxes styles ************/
@@ -62,6 +64,16 @@
 
 .check > input {
     margin: 2%;
+}
+
+.check > input:checked {
+    margin: 2%;
+}
+
+.check > label:hover {
+    color: #40916c;
+    font-weight: bold;
+    background-color: hsl(233, 100%, 49%);
 }
 
 @media screen and (max-width: 800px) {

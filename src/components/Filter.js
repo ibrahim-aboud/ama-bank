@@ -1,21 +1,20 @@
 import React from "react"
 import Image from "next/image"
 import styles from "@/styles/Filter.module.css"
+import { useRef } from "react";
 
 const Filter = ({types_comptes}) => {
-    const fltrs = ["Gestion et tenue de compte", "Operation de paiement", "Monétique"] ;
+    const fltrs = ["Gestion et tenue de compte", "Opérations de paiement", "Monétique"] ;
+    const arrow = useRef(null) ;
+    const checkboxes = useRef(null);
     
     const handleClick = ()=>{
-        var c = styles.checkBoxes ;
-        var img = document.getElementById("arrow");
-        var area = document.getElementsByClassName(c)[0] ;   
-        if (area.style.display=='block'){
-            area.style.display = "none" ;
-            img.style.transform = "rotate(0deg)"
-            
+        if (checkboxes.current.style.display != 'none'){
+            checkboxes.current.style.display = "none" ;
+            arrow.current.style.transform = "rotate(0deg)" ;
         } else {
-            area.style.display = "block" ;
-            img.style.transform = "rotate(180deg)"
+            checkboxes.current.style.display = "block" ;
+            arrow.current.style.transform = "rotate(180deg)" ;
         }
     }
 
@@ -36,20 +35,20 @@ const Filter = ({types_comptes}) => {
                 </div>
                 <div className={styles.type_prestation_container}>
                     <label className={styles.types_prestations_label}>
-                        Prestations
+                        Type Prestations
                     </label>
                     <div className={styles.T} onClick={handleClick}>
-                        <Image src="/Vectors/ic_round-keyboard-arrow-down.svg" id="arrow" width={30} height={30} />
+                        <Image src="/Vectors/ic_round-keyboard-arrow-down.svg" ref={arrow} width={30} height={30} />
                     </div>
                 </div>
             </div>
-            <div className={styles.checkBoxes}>
+            <div className={styles.checkBoxes} ref={checkboxes}>
                 <form action="">
                     {
-                        fltrs.map((t,index)=>(
+                        fltrs.map((val,index)=>(
                             <div key={index} className={styles.check}>
-                                <input type="checkbox" id={t} className={styles.inp} />
-                                <label htmlFor={t} >{t}</label>
+                                <input type="checkbox" id={val} value={val} />
+                                <label htmlFor={val}>{val}</label>
                             </div>
                         ))
                     }

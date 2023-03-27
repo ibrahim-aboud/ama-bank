@@ -6,10 +6,8 @@ import SearchBox from "@/components/admin/banks/general/searchBox";
 import BankInfoForm from "@/components/admin/banks/general/bankInfoForm";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { useRouter } from "next/router";
-import fs from "fs";
-import path from "path";
 
-function General({ banks, logos }) {
+function General({ banks }) {
   const router = useRouter();
   const { id } = router.query;
 
@@ -53,7 +51,7 @@ function General({ banks, logos }) {
       </div>
 
       <div className="mt-8 mx-16">
-        <BankInfoForm bankId={selectedBankId} logos={logos} />
+        <BankInfoForm bankId={selectedBankId} />
       </div>
     </main>
   );
@@ -86,15 +84,8 @@ export async function getServerSideProps(context) {
     console.error(e.message);
   }
 
-  const logosDirectory = path.join(
-    process.cwd(),
-    "public/assets/logos/banks_logos"
-  );
-
-  const logos = fs.readdirSync(logosDirectory);
-
   return {
-    props: { banks, logos },
+    props: { banks },
   };
 }
 

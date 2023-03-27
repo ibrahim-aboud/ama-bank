@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { MdModeEditOutline, MdCancel } from "react-icons/md";
@@ -6,7 +6,7 @@ import { FiUpload } from "react-icons/fi";
 import { HiCheckCircle } from "react-icons/hi";
 import Image from "next/image";
 
-function BankInfoForm({ bankId, logos }) {
+function BankInfoForm({ bankId }) {
   const [bank, setBank] = useState(null);
   const [oldInfo, setOldInfo] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -15,6 +15,7 @@ function BankInfoForm({ bankId, logos }) {
   const [selectedFile, setSelectedFile] = useState();
 
   const router = useRouter();
+  const logoInputRef = useRef();
 
   // fetch bank data when loading the page for the first time
   useEffect(() => {
@@ -24,6 +25,9 @@ function BankInfoForm({ bankId, logos }) {
     }
 
     setLoading(true);
+    setSelectedFile(null);
+    setSelectedImage("");
+    logoInputRef.current.value = "";
 
     axios
       .get(process.env.NEXT_PUBLIC_API_URL + `/bank/${bankId}`)
@@ -57,14 +61,6 @@ function BankInfoForm({ bankId, logos }) {
     setLoading(true);
 
     try {
-      // put request to the API to check user inputs and update the database
-      const response2 = await axios.put(
-        process.env.NEXT_PUBLIC_API_URL + "/banks",
-        {
-          bank: { ...bank, updateDate: bank.updateDate.substring(0, 10) },
-        }
-      );
-
       // TODO: update the logo photo
       if (!selectedFile) {
         setError("");
@@ -73,9 +69,7 @@ function BankInfoForm({ bankId, logos }) {
       }
 
       const fileExtension = selectedFile.name.split(".").pop();
-      const file = new File([selectedFile], `${bank.id}.${fileExtension}`, {
-        type: `image/${fileExtension}`,
-      });
+      const file = new File([selectedFile], `${bank.id}.${fileExtension}`);
 
       const formData = new FormData();
       formData.append("file", file);
@@ -90,11 +84,19 @@ function BankInfoForm({ bankId, logos }) {
         }
       );
 
+      // put request to the API to check user inputs and update the database
+      const response2 = await axios.put(
+        process.env.NEXT_PUBLIC_API_URL + "/banks",
+        {
+          bank: { ...bank, updateDate: bank.updateDate.substring(0, 10) },
+        }
+      );
+
       // when the data is updated
       setError("");
       router.reload();
     } catch (e) {
-      setError(e.response ? e.response.data : e.message);
+      setError(e.response?.data);
     }
 
     setLoading(false);
@@ -119,28 +121,26 @@ function BankInfoForm({ bankId, logos }) {
       <div className="flex flex-col w-[80%]">
         <label htmlFor="logo">Logo de la banque</label>
         <div className="border border-gray-400 py-2 px-4 rounded-lg font-extralight flex items-center gap-12">
-          <Image
-            src={
-              selectedImage
-                ? selectedImage
-                : `/assets/logos/banks_logos/${
-                    logos.find((item) => {
-                      return (
-                        parseInt(item.split(".")[0]) ===
-                        parseInt(bank && bank.id)
-                      );
-                    }) || ""
-                  }`
-            }
-            alt="logo"
-            width={430}
-            height={430}
-            className="h-14 w-28 rounded-lg"
-          />
+          {(selectedImage || (bank && bank.logoLink)) && (
+            <Image
+              src={
+                selectedImage
+                  ? selectedImage
+                  : bank
+                  ? `${bank.logoLink}?${Math.random()}`
+                  : ""
+              }
+              alt="logo"
+              width={430}
+              height={430}
+              className="h-14 w-28 rounded-lg"
+            />
+          )}
 
           <input
             type="file"
             id="logo"
+            ref={logoInputRef}
             className={`w-[50%] ${
               selectedFile && "text-[#40916C] font-semibold"
             }`}
@@ -204,6 +204,9 @@ function BankInfoForm({ bankId, logos }) {
           onClick={() => {
             setBank(oldInfo);
             setError("");
+            setSelectedFile(null);
+            setSelectedImage("");
+            logoInputRef.current.value = "";
           }}
           className="flex items-center justify-center gap-4 py-2.5 pl-4 pr-6 rounded-lg bg-[#40916C] text-white hover:bg-[#419f75] disabled:bg-slate-900"
         >

@@ -29,7 +29,10 @@ function SearchBox({ items, selectedId, setSelectedId, searchField }) {
             <input
               type="text"
               className="border-none outline-none w-full"
-              onChange={(event) => setSearchQuery(event.target.value)}
+              onChange={(event) => {
+                setSearchQuery(event.target.value);
+                setShowDropList(true);
+              }}
               value={searchQuery}
             />
 

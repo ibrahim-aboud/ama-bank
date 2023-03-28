@@ -4,7 +4,6 @@ import axios from "axios";
 import { useState } from "react";
 import SearchBox from "@/components/admin/banks/general/searchBox";
 import BankInfoForm from "@/components/admin/banks/general/bankInfoForm";
-import { AiOutlineInfoCircle } from "react-icons/ai";
 import { useRouter } from "next/router";
 
 function General({ banks }) {
@@ -22,7 +21,8 @@ function General({ banks }) {
       return parseInt(id);
     }
 
-    return banks && banks.length > 0 ? banks[0].id : null;
+    // return banks && banks.length > 0 ? banks[0].id : null;
+    return null;
   }
 
   const [selectedBankId, setSelectedBankId] = useState(_getDefaultBankId());
@@ -39,20 +39,7 @@ function General({ banks }) {
         />
       </div>
 
-      <div className="my-6 md:mx-16 flex items-center justify-center gap-14">
-        <div className="hidden lg:block h-[2px] bg-black w-[25%]" />
-
-        <div className="flex items-center justify-center gap-4 sm:text-xl md:text-3xl">
-          <AiOutlineInfoCircle />
-          <h3 className="font-bold">Informations générales sur la banque</h3>
-        </div>
-
-        <div className="hidden lg:block h-[2px] bg-black w-[25%]" />
-      </div>
-
-      <div className="mt-8 mx-16">
-        <BankInfoForm bankId={selectedBankId} />
-      </div>
+      <BankInfoForm bankId={selectedBankId} />
     </main>
   );
 }

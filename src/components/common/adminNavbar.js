@@ -20,6 +20,7 @@ function AdminNavbar() {
             width={430}
             height={430}
             className="w-12"
+            priority
           />
 
           <h2 className="pt-1 text-xl font-comfortaa font-semibold">amaBank</h2>

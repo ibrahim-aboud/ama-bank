@@ -117,11 +117,14 @@ function BankInfoForm({ bankId }) {
 
       <form className="flex flex-col items-center" onSubmit={sumbitHandler}>
         <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
-          <h2 className="p-1">Nom de la banque</h2>
+          <label htmlFor="bank_name" className="block p-1">
+            Nom de la banque
+          </label>
           <div className="bg-gray-100 p-4 rounded-md border flex items-center w-full">
             <input
               type="text"
               name="bank_name"
+              id="bank_name"
               placeholder="Ex: Natixis Algérie"
               className="bg-gray-100 outline-none px-4 flex-1"
               value={bank && bank.name}
@@ -133,11 +136,14 @@ function BankInfoForm({ bankId }) {
         </div>
 
         <div className="mx-5 mb-4 w-[90%] lg:w-[900px] lg:pr-[450px]">
-          <h2 className="p-1 ">Logo de la banque</h2>
+          <label htmlFor="bank_logo" className="block p-1 ">
+            Logo de la banque
+          </label>
           <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center">
             <input
               type="file"
               name="bank_logo"
+              id="bank_logo"
               accept=".jpeg,.jpg,.png"
               className="bg-gray-100 outline-none px-4 flex-1 w-full"
               ref={logoInputRef}
@@ -172,7 +178,9 @@ function BankInfoForm({ bankId }) {
         </div>
 
         <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
-          <h2 className="p-1">Description de la banque</h2>
+          <label htmlFor="description" className="block p-1">
+            Description de la banque
+          </label>
           <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center">
             <textarea
               id="description"
@@ -189,12 +197,15 @@ function BankInfoForm({ bankId }) {
         </div>
 
         <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
-          <h2 className="p-1">Lien du site Web</h2>
+          <label htmlFor="bank_url" className="block p-1">
+            Lien du site Web
+          </label>
           <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center">
             <FiGlobe className="text-gray-600" size={24} />
             <input
               type="text"
               name="bank_url"
+              id="bank_url"
               placeholder="Ex: https://www.natixis.dz"
               className="bg-gray-100 outline-none px-4 flex-1"
               value={bank && bank.websiteLink}

@@ -29,7 +29,11 @@ function AdminNavbar() {
           className="block md:hidden relative"
           onClick={() => setShow(!show)}
         >
-          {show ? <IoMdClose /> : <FaBars />}
+          {show ? (
+            <IoMdClose className="text-2xl" />
+          ) : (
+            <FaBars className="text-xl" />
+          )}
         </button>
       </div>
 
@@ -95,48 +99,59 @@ function AdminNavbar() {
       </div>
 
       {/* for small screen */}
-      {show && (
-        <div className="flex flex-col items-center justify-center gap-2 md:hidden w-full mt-4">
-          <Link href="/admin/home">Accueil</Link>
-          <Link href="/admin/website">Gestion du site</Link>
+      <div
+        className={`${
+          show ? "flex" : "hidden"
+        } flex-col items-center justify-center gap-2 md:hidden w-full mt-4 animate-fade-in`}
+      >
+        <Link href="/admin/home">Accueil</Link>
+        <Link href="/admin/website">Gestion du site</Link>
 
-          <div
-            className="flex justify-center items-center gap-2 relative cursor-pointer"
-            onClick={() => setIsGstBanksHidden(!isGstBanksHidden)}
-          >
-            <span>Gestion des banques</span>
-            {isGstBanksHidden ? (
-              <FaAngleDown />
-            ) : (
-              <FaAngleDown className="rotate-180" />
-            )}
-          </div>
-
-          {!isGstBanksHidden && (
-            <Link href="/admin/banks/general" className="w-48 text-center">
-              Informations Générales
-            </Link>
+        <div
+          className="flex justify-center items-center gap-2 relative cursor-pointer"
+          onClick={() => setIsGstBanksHidden(!isGstBanksHidden)}
+        >
+          <span>Gestion des banques</span>
+          {isGstBanksHidden ? (
+            <FaAngleDown />
+          ) : (
+            <FaAngleDown className="rotate-180" />
           )}
-
-          {!isGstBanksHidden && (
-            <Link href="/admin/banks/agencies" className="w-48 text-center">
-              Agencies
-            </Link>
-          )}
-
-          {!isGstBanksHidden && (
-            <Link href="/admin/banks/prestations" className="w-48 text-center">
-              Conditions Tarifaires
-            </Link>
-          )}
-
-          <Link href="/admin/account">Paramètres du compte</Link>
-          <BiLogOut
-            className="rotate-180 text-2xl ml-2 cursor-pointer"
-            onClick={() => signOut()}
-          />
         </div>
-      )}
+
+        {!isGstBanksHidden && (
+          <Link
+            href="/admin/banks/general"
+            className="w-48 text-center animate-fade-in"
+          >
+            Informations Générales
+          </Link>
+        )}
+
+        {!isGstBanksHidden && (
+          <Link
+            href="/admin/banks/agencies"
+            className="w-48 text-center animate-fade-in"
+          >
+            Agencies
+          </Link>
+        )}
+
+        {!isGstBanksHidden && (
+          <Link
+            href="/admin/banks/prestations"
+            className="w-48 text-center animate-fade-in"
+          >
+            Conditions Tarifaires
+          </Link>
+        )}
+
+        <Link href="/admin/account">Paramètres du compte</Link>
+        <BiLogOut
+          className="rotate-180 text-2xl ml-2 cursor-pointer"
+          onClick={() => signOut()}
+        />
+      </div>
     </nav>
   );
 }

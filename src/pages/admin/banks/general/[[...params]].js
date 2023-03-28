@@ -2,7 +2,7 @@ import AdminLayout from "@/layouts/adminLayout";
 import { getSession } from "next-auth/react";
 import axios from "axios";
 import { useState } from "react";
-import SearchBox from "@/components/admin/banks/general/searchBox";
+import SearchBox from "@/components/common/searchBox";
 import BankInfoForm from "@/components/admin/banks/general/bankInfoForm";
 import { useRouter } from "next/router";
 

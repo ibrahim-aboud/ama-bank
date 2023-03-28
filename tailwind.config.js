@@ -25,6 +25,11 @@ module.exports = {
       animation: {
         "fade-in": "fade-in 0.3s ease-out",
       },
+      screens: {
+        'smx': {'max': '1023px'},
+        'lgm': {'min': '1000px'},
+        'lgx': {'min': '1500px'},
+      }
     },
   },
   plugins: [],

@@ -40,7 +40,6 @@ function General({ banks, logos }) {
           searchField="name"
         />
       </div>
-
       <div className="my-6 md:mx-16 flex items-center justify-center gap-14">
         <div className="hidden lg:block h-[2px] bg-black w-[25%]" />
 

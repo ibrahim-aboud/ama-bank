@@ -78,7 +78,7 @@ function AdminNavbar() {
               href="/admin/banks/agencies"
               className="w-48 text-center py-1 hover:underline"
             >
-              Agencies
+              Agences
             </Link>
             <Link
               href="/admin/banks/prestations"
@@ -135,7 +135,7 @@ function AdminNavbar() {
             href="/admin/banks/agencies"
             className="w-48 text-center animate-fade-in"
           >
-            Agencies
+            Agences
           </Link>
         )}
 

@@ -168,8 +168,7 @@ function BankInfoForm({ bankId }) {
                 alt="Preview"
                 width={400}
                 height={400}
-                className="mr-5 rounded-md"
-                style={{ maxWidth: "50px", height: "auto" }}
+                className="mr-5 rounded-md h-auto max-w-[50px]"
               />
             )}
 

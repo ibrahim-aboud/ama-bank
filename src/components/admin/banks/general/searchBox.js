@@ -37,7 +37,10 @@ function SearchBox({ items, selectedId, setSelectedId, searchField }) {
               value={searchQuery}
             />
 
-            <button onClick={() => setShowDropList(!showDropList)}>
+            <button
+              title="show-hide drop list"
+              onClick={() => setShowDropList(!showDropList)}
+            >
               {showDropList ? (
                 <FaAngleDown className="rotate-180 text-lg" />
               ) : (

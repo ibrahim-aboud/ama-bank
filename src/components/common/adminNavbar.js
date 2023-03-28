@@ -28,6 +28,7 @@ function AdminNavbar() {
         <button
           className="block md:hidden relative"
           onClick={() => setShow(!show)}
+          title="show-hide navbar"
         >
           {show ? (
             <IoMdClose className="text-2xl" />

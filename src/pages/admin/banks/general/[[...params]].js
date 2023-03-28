@@ -29,8 +29,8 @@ function General({ banks }) {
 
   return (
     <main>
-      <div className="mt-8 mx-16">
-        <h2 className="font-semibold ml-2">Nom de la banque</h2>
+      <div className="mt-8 mx-16 md:px-[200px]">
+        <h2 className="font-semibold md:text-xl ml-2 mb-2">Nom de la banque</h2>
         <SearchBox
           items={banks}
           selectedId={selectedBankId}

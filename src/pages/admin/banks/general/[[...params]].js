@@ -29,7 +29,7 @@ function General({ banks }) {
 
   return (
     <main>
-      <div className="mt-8 mx-16 md:px-[200px]">
+      <div className="mt-8 mx-16 lg:px-[150px]">
         <h2 className="font-semibold md:text-xl ml-2 mb-2">Nom de la banque</h2>
         <SearchBox
           items={banks}

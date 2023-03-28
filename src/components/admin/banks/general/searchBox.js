@@ -23,7 +23,7 @@ function SearchBox({ items, selectedId, setSelectedId, searchField }) {
 
   return (
     <section className="flex flex-col">
-      <div className="flex justify-between items-start md:items-center flex-col md:flex-row gap-3 md:gap-0">
+      <div className="flex justify-between items-start md:items-center flex-col md:flex-row gap-10">
         <div className="relative md:w-[80%]">
           <div className="flex items-center justify-between border bg-gray-100 border-gray-300 py-4 pl-4 pr-2 rounded-lg">
             <input
@@ -74,7 +74,7 @@ function SearchBox({ items, selectedId, setSelectedId, searchField }) {
         </div>
 
         <button
-          className="md:w-[15%] flex items-center justify-center gap-4 py-2.5 pl-4 pr-6 rounded-lg bg-[#40916C] text-white hover:bg-[#419f75] hover:ease-in-out duration-300"
+          className="flex items-center justify-center gap-4 py-2.5 pl-4 pr-6 rounded-lg bg-[#40916C] text-white hover:bg-[#419f75] hover:ease-in-out duration-300"
           onClick={() => {
             const item = items.find(
               (item) => item[searchField] === searchQuery

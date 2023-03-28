@@ -76,7 +76,7 @@ function BankInfoForm({ bankId }) {
         const formData = new FormData();
         formData.append("file", file);
 
-        const response1 = await axios.post(
+        await axios.post(
           process.env.NEXT_PUBLIC_API_URL + "/bank/logo",
           formData,
           {
@@ -88,12 +88,9 @@ function BankInfoForm({ bankId }) {
       }
 
       // put request to the API to check user inputs and update the database
-      const response2 = await axios.put(
-        process.env.NEXT_PUBLIC_API_URL + "/banks",
-        {
-          bank: { ...bank, updateDate: bank.updateDate.substring(0, 10) },
-        }
-      );
+      await axios.put(process.env.NEXT_PUBLIC_API_URL + "/banks", {
+        bank: { ...bank, updateDate: bank.updateDate.substring(0, 10) },
+      });
 
       // when the data is updated
       setError("");
@@ -106,8 +103,8 @@ function BankInfoForm({ bankId }) {
   }
 
   return (
-    <div className="mb-20">
-      <div className="py-6 lg:mx-16 flex items-center justify-center lg:gap-14">
+    <div className="mb-20 mt-5">
+      <div className="py-8 lg:mx-16 flex items-center justify-center lg:gap-14">
         <div className="hidden lg:block h-[2px] bg-black w-[25%]" />
 
         <div className="flex items-center justify-center gap-4 text-lg sm:text-xl md:text-3xl">
@@ -209,20 +206,21 @@ function BankInfoForm({ bankId }) {
         </div>
 
         {error && (
-          <div className="text-rose-500 font-bold text-center overflow-hidden mt-2 mb-4">
+          <div className="text-rose-500 font-bold text-center overflow-hidden mt-2">
             {error}
           </div>
         )}
 
-        <div className="flex items-center justify-center gap-16">
+        <div className="mt-4 flex flex-col md:flex-row items-center justify-center gap-5 md:gap-10 w-full lg:w-[800px] lg:justify-between">
           <button
             type="submit"
             disabled={loading}
-            className="flex items-center justify-center gap-4 py-2.5 pl-4 pr-6 rounded-lg bg-[#40916C] text-white hover:bg-[#419f75] disabled:bg-slate-900"
+            className="mb-1 rounded-xl px-8 py-3 font-semibold bg-black text-white shadow-xl hover:bg-green-600 disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
           >
             Sauvegarder les modifications
-            <HiCheckCircle />
+            <HiCheckCircle size={23} className="ml-2" />
           </button>
+
           <button
             type="reset"
             disabled={loading}
@@ -233,10 +231,10 @@ function BankInfoForm({ bankId }) {
               setSelectedImage("");
               logoInputRef.current.value = "";
             }}
-            className="flex items-center justify-center gap-4 py-2.5 pl-4 pr-6 rounded-lg bg-[#40916C] text-white hover:bg-[#419f75] disabled:bg-slate-900"
+            className="rounded-xl px-8 py-3 font-semibold bg-black text-white shadow-xl hover:bg-green-600 disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
           >
             Annuler les modifications
-            <MdCancel />
+            <MdCancel size={23} className="ml-2" />
           </button>
         </div>
       </form>

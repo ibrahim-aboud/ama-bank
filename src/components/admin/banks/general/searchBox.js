@@ -28,7 +28,7 @@ function SearchBox({ items, selectedId, setSelectedId, searchField }) {
           <div className="flex items-center justify-between border bg-gray-100 border-gray-300 py-4 pl-4 pr-2 rounded-lg">
             <input
               type="text"
-              placeholder="Ex: Natixis Algérie"
+              placeholder="Rechercher..."
               className="border-none outline-none w-full text-md bg-gray-100"
               onChange={(event) => {
                 setSearchQuery(event.target.value);

@@ -79,7 +79,7 @@ export default function bankInfoValidator(bank) {
     }
   }
   return {
-    containsError: error,
+    error,
     errorList: ArrayError,
   };
 }

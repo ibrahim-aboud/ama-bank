@@ -1,3 +1,4 @@
+import FilesHelpers from "@/lib/utils/FilesHelpers";
 import bankInfoValidator from "@/lib/validations/bankInfoValidator";
 import dbQuery from "../db/connect";
 
@@ -11,6 +12,25 @@ export default class Bank {
     this.updateDate = updateDate
       ? updateDate
       : new Date().toJSON().slice(0, 10);
+
+    this.logoLink = Bank.#getLogoLink(id);
+    this.imageLink = Bank.#getImageLink(id);
+  }
+
+  static #getLogoLink(id) {
+    const dirPath = "public/assets/logos/banks_logos";
+    const logos = FilesHelpers.getAllDirectoryFiles(dirPath);
+
+    const logo = logos.find((logo) => logo.split(".")[0] == id);
+    return logo ? "/assets/logos/banks_logos/" + logo : "";
+  }
+
+  static #getImageLink(id) {
+    const dirPath = "public/assets/images/banks_images";
+    const images = FilesHelpers.getAllDirectoryFiles(dirPath);
+
+    const image = images.find((image) => image.split(".")[0] == id);
+    return image ? "/assets/logos/banks_logos/" + image : "";
   }
 
   static async getAllBanks() {
@@ -86,18 +106,22 @@ export default class Bank {
 
     const _bank = await Bank.getBankById(bank.id);
 
-    await dbQuery(
-      "UPDATE ab_banks SET bank_name=(?), bank_description=(?), bank_visits_count=(?), bank_website_link=(?), bank_update_date=(?) WHERE id_bank=(?)",
-      [
-        bank.name,
-        bank.description,
-        bank.visitsCount,
-        bank.websiteLink,
-        bank.updateDate,
+    try {
+      await dbQuery(
+        "UPDATE ab_banks SET bank_name=(?), bank_description=(?), bank_visits_count=(?), bank_website_link=(?), bank_update_date=(?) WHERE id_bank=(?)",
+        [
+          bank.name,
+          bank.description,
+          bank.visitsCount,
+          bank.websiteLink,
+          bank.updateDate,
 
-        bank.id,
-      ]
-    );
+          bank.id,
+        ]
+      );
+    } catch (e) {
+      throw new Error("Ce nom de la banque existe déjà");
+    }
 
     return {
       old: _bank,

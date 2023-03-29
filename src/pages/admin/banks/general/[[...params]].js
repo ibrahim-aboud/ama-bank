@@ -2,14 +2,11 @@ import AdminLayout from "@/layouts/adminLayout";
 import { getSession } from "next-auth/react";
 import axios from "axios";
 import { useState } from "react";
-import SearchBox from "@/components/admin/banks/general/searchBox";
+import SearchBox from "@/components/common/searchBox";
 import BankInfoForm from "@/components/admin/banks/general/bankInfoForm";
-import { AiOutlineInfoCircle } from "react-icons/ai";
 import { useRouter } from "next/router";
-import fs from "fs";
-import path from "path";
 
-function General({ banks, logos }) {
+function General({ banks }) {
   const router = useRouter();
   const { id } = router.query;
 
@@ -24,15 +21,16 @@ function General({ banks, logos }) {
       return parseInt(id);
     }
 
-    return banks && banks.length > 0 ? banks[0].id : null;
+    // return banks && banks.length > 0 ? banks[0].id : null;
+    return null;
   }
 
   const [selectedBankId, setSelectedBankId] = useState(_getDefaultBankId());
 
   return (
     <main>
-      <div className="mt-8 mx-16">
-        <h2 className="font-semibold ml-2">Nom de la banque</h2>
+      <div className="mt-8 mx-16 lg:px-[150px]">
+        <h2 className="font-semibold md:text-xl ml-2 mb-2">Nom de la banque</h2>
         <SearchBox
           items={banks}
           selectedId={selectedBankId}
@@ -54,6 +52,8 @@ function General({ banks, logos }) {
       <div className="mt-8 mx-16">
         <BankInfoForm bankId={selectedBankId} logos={logos} />
       </div>
+
+      <BankInfoForm bankId={selectedBankId} />
     </main>
   );
 }
@@ -85,15 +85,8 @@ export async function getServerSideProps(context) {
     console.error(e.message);
   }
 
-  const logosDirectory = path.join(
-    process.cwd(),
-    "public/assets/logos/banks_logos"
-  );
-
-  const logos = fs.readdirSync(logosDirectory);
-
   return {
-    props: { banks, logos },
+    props: { banks },
   };
 }
 

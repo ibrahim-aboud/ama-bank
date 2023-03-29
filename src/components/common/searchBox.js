@@ -23,17 +23,24 @@ function SearchBox({ items, selectedId, setSelectedId, searchField }) {
 
   return (
     <section className="flex flex-col">
-      <div className="flex justify-between items-start md:items-center flex-col md:flex-row gap-3 md:gap-0">
+      <div className="flex justify-between items-start md:items-center flex-col md:flex-row gap-10">
         <div className="relative md:w-[80%]">
-          <div className="flex items-center justify-between border border-gray-300 py-2 pl-4 pr-2 rounded-lg">
+          <div className="flex items-center justify-between border bg-gray-100 border-gray-300 py-4 pl-4 pr-2 rounded-lg">
             <input
               type="text"
-              className="border-none outline-none w-full"
-              onChange={(event) => setSearchQuery(event.target.value)}
+              placeholder="Rechercher..."
+              className="border-none outline-none w-full text-md bg-gray-100"
+              onChange={(event) => {
+                setSearchQuery(event.target.value);
+                setShowDropList(true);
+              }}
               value={searchQuery}
             />
 
-            <button onClick={() => setShowDropList(!showDropList)}>
+            <button
+              title="show-hide drop list"
+              onClick={() => setShowDropList(!showDropList)}
+            >
               {showDropList ? (
                 <FaAngleDown className="rotate-180 text-lg" />
               ) : (
@@ -48,7 +55,7 @@ function SearchBox({ items, selectedId, setSelectedId, searchField }) {
             }`}
           >
             <ul
-              className={`flex-col px-6 py-2 mt-2 bg-white drop-shadow-md hover:drop-shadow-lg rounded-lg ${
+              className={`flex-col px-6 py-2 mt-2 bg-gray-100 drop-shadow-md hover:drop-shadow-lg rounded-lg ${
                 filteredList.length > 0 ? "flex" : "hidden"
               }`}
             >
@@ -70,7 +77,7 @@ function SearchBox({ items, selectedId, setSelectedId, searchField }) {
         </div>
 
         <button
-          className="md:w-[15%] flex items-center justify-center gap-4 py-2.5 pl-4 pr-6 rounded-lg bg-[#40916C] text-white hover:bg-[#419f75]"
+          className="flex items-center justify-center gap-4 py-2.5 pl-4 pr-6 rounded-lg bg-[#40916C] text-white hover:bg-[#419f75] hover:ease-in-out duration-300"
           onClick={() => {
             const item = items.find(
               (item) => item[searchField] === searchQuery
@@ -88,7 +95,7 @@ function SearchBox({ items, selectedId, setSelectedId, searchField }) {
           }}
         >
           <AiOutlineSearch className="text-xl" />
-          <span>Rechercher</span>
+          <span className="text-xl font-medium">Rechercher</span>
         </button>
       </div>
 

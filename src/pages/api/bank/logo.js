@@ -24,7 +24,7 @@ export default async function handler(req, res) {
   const controller = new BankController();
 
   if (req.method === "POST") {
-    controller.uploadLogo(req, res);
+    await controller.uploadLogo(req, res);
   } else {
     res.status(404).send("Not Found");
     return;

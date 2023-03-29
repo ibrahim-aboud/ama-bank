@@ -38,20 +38,6 @@ function General({ banks }) {
           searchField="name"
         />
       </div>
-      <div className="my-6 md:mx-16 flex items-center justify-center gap-14">
-        <div className="hidden lg:block h-[2px] bg-black w-[25%]" />
-
-        <div className="flex items-center justify-center gap-4 sm:text-xl md:text-3xl">
-        <AiOutlineInfoCircle/>
-          <h3 className="font-bold">Informations générales sur la banque</h3>
-        </div>
-
-        <div className="hidden lg:block h-[2px] bg-black w-[25%]" />
-      </div>
-
-      <div className="mt-8 mx-16">
-        <BankInfoForm bankId={selectedBankId} logos={logos} />
-      </div>
 
       <BankInfoForm bankId={selectedBankId} />
     </main>

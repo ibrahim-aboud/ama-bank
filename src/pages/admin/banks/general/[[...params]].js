@@ -42,7 +42,7 @@ function General({ banks }) {
         <div className="hidden lg:block h-[2px] bg-black w-[25%]" />
 
         <div className="flex items-center justify-center gap-4 sm:text-xl md:text-3xl">
-          <AiOutlineInfoCircle />
+        <AiOutlineInfoCircle/>
           <h3 className="font-bold">Informations générales sur la banque</h3>
         </div>
 

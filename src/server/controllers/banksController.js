@@ -17,15 +17,6 @@ export default class BanksController {
   async put(req, res) {
     const { bank: data } = req.body;
 
-    if (!bank) {
-      res.status(409).send("No bank to update");
-    }
-
-    const check = bankInfoValidator(bank);
-    if (check.error) {
-      res.status(400).send(check.errorList[0]);
-    }
-
     const bank = new Bank(
       data.id,
       data.name,
@@ -34,6 +25,15 @@ export default class BanksController {
       data.websiteLink,
       data.updateDate
     );
+
+    if (!bank) {
+      res.status(409).send("No bank to update");
+    }
+
+    const check = bankInfoValidator(bank);
+    if (check.error) {
+      res.status(400).send(check.errorList[0]);
+    }
 
     try {
       const data = await Bank.updateBank(bank);

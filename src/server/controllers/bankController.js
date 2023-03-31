@@ -6,13 +6,17 @@ export default class BankController {
   async get(req, res) {
     const { id } = req.query;
 
+    if (isNaN(id) || !Number.isInteger(id)) {
+      res.status(404).send("La bank n'existe pas!");
+    }
+
     try {
       const bank = await Bank.getBankById(id);
 
       res.status(200).json({ bank });
       return;
     } catch (e) {
-      res.status(404).send(e.message);
+      res.status(e.status || 500).send(e.message);
       return;
     }
   }

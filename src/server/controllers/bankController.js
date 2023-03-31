@@ -6,7 +6,7 @@ export default class BankController {
   async get(req, res) {
     const { id } = req.query;
 
-    if (isNaN(id) || !Number.isInteger(id)) {
+    if (isNaN(id)) {
       res.status(404).send("La bank n'existe pas!");
     }
 

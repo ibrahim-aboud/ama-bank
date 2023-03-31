@@ -17,6 +17,10 @@ export default class BanksController {
   async put(req, res) {
     const { bank: data } = req.body;
 
+    if (!data) {
+      res.status(409).send("No bank to update");
+    }
+
     const bank = new Bank(
       data.id,
       data.name,

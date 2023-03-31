@@ -8,6 +8,7 @@ export default class BankController {
 
     if (isNaN(id)) {
       res.status(404).send("La bank n'existe pas!");
+      return;
     }
 
     try {
@@ -49,8 +50,10 @@ export default class BankController {
 
       // File uploaded successfully
       res.status(201).send("ok");
+      return;
     } catch (e) {
       res.status(500).send(e.message);
+      return;
     }
   }
 }

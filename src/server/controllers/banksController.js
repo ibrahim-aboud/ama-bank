@@ -19,6 +19,7 @@ export default class BanksController {
 
     if (!data) {
       res.status(409).send("No bank to update");
+      return;
     }
 
     const bank = new Bank(
@@ -32,11 +33,13 @@ export default class BanksController {
 
     if (!bank) {
       res.status(409).send("No bank to update");
+      return;
     }
 
     const check = bankInfoValidator(bank);
     if (check.error) {
       res.status(400).send(check.errorList[0]);
+      return;
     }
 
     try {

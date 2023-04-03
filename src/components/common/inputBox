@@ -1,8 +1,0 @@
-function InputBox({initialValue}){
-    return(
-        <div className="inputBox">
-            <h1>hello</h1>
-        </div>
-    );
-}
-export default InputBox;

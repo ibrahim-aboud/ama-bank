@@ -1,7 +1,7 @@
 import AdminLayout from "@/layouts/adminLayout";
 import { getSession } from "next-auth/react";
 import style from './../../styles/account.module.css';
-import Input from "@/components/common/input";
+import Input from "@/components/admin/banks/general/input";
 import { FiSettings } from "react-icons/fi";
 import { FaUserAlt } from 'react-icons/fa';
 import { RiMailFill } from 'react-icons/ri';

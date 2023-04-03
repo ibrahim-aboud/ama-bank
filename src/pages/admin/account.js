@@ -1,8 +1,57 @@
 import AdminLayout from "@/layouts/adminLayout";
 import { getSession } from "next-auth/react";
+import style from './../../styles/account.module.css';
+import Input from "@/components/common/input";
+import { FiSettings } from "react-icons/fi";
+import { FaUserAlt } from 'react-icons/fa';
+import { RiMailFill } from 'react-icons/ri';
+import { FaLock } from 'react-icons/fa';
+import { useState } from "react";
+
 
 function Account() {
-  return <div>Account</div>;
+  const[username,setUsername]=useState('username');
+  const[mail,setMail]=useState('example@gmail.com');
+  const[password,setPassword]=useState('password');
+  return (
+    <div>
+      <div className={style.icon}><span><FiSettings/></span><p>Paramètres du compte</p></div>
+      <form className={style.form}>
+        <div>
+          <div className={style.barTitle}>Nom d'utilisateur</div>
+          <Input 
+            info={username}
+            setInfo={setUsername}
+            generatePopUp={false}
+            isPassword={false}
+            Icon={<FaUserAlt/>}
+          />
+        </div>
+        <div>
+          <div className={style.barTitle}>Adresse Email</div>
+          <Input 
+            info={mail}
+            setInfo={setMail}
+            generatePopUp={false}
+            isPassword={false}
+            Icon={<RiMailFill/>}
+          />
+        </div>
+        <div>
+          <div className={style.barTitle}>Mot de passe</div>
+          <Input 
+            info={password}
+            setInfo={setPassword}
+            generatePopUp={true}
+            isPassword={true}
+            Icon={<FaLock/>}
+          />
+          
+        </div>
+      </form>
+      <div className={style.submit}><button className={style.Button}>Appliquer les modifications</button></div>
+    </div>
+  );
 }
 
 Account.getLayout = function PageLayout(page) {

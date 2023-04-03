@@ -1,9 +1,10 @@
-import BankSelection from "@/components/common/bankSelection"
+//import BankSelection from "@/components/common/bankSelection";
+import InputBox from "@/components/common/inputBox";
 
 function Test (){
     return (
         <div className="test">
-            <BankSelection />
+            <InputBox/>
         </div>
     )
 }

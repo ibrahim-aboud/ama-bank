@@ -3,33 +3,33 @@ import style from "@/styles/input.module.css";
 import { RiPencilFill } from "react-icons/ri";
 import { RxCross2 } from "react-icons/rx";
 
-function Input({ info, setInfo, generatePopUp, isPassword, Icon }) {
+function Input({
+  info,
+  setInfo,
+  generatePopUp,
+  isPassword,
+  setOldPassword,
+  Icon,
+}) {
   const [showPopUp, setShowPopUp] = useState(false);
   const [initialPassword, setInitialPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [errorInitial, setErrorInitial] = useState(false);
   const [errorConfirm, setErrorConfirm] = useState(false);
-  const [errorSame, setErrorSame] = useState(false);
 
   const inputType = isPassword ? "password" : "text";
 
   function submitHandler(event) {
     event.preventDefault();
 
-    if (
-      initialPassword === info &&
-      newPassword !== initialPassword &&
-      newPassword === confirmPassword
-    ) {
+    if (newPassword === confirmPassword) {
       setInfo(newPassword);
+      setOldPassword(initialPassword);
       setShowPopUp(false);
       return;
     }
 
-    setErrorInitial(initialPassword !== info);
     setErrorConfirm(newPassword !== confirmPassword);
-    setErrorSame(newPassword === initialPassword);
   }
 
   return (
@@ -66,10 +66,7 @@ function Input({ info, setInfo, generatePopUp, isPassword, Icon }) {
               {/* Mot de passe actuel */}
               <div className={style.center}>
                 <div>
-                  <p>Mot de passe actuel</p>{" "}
-                  {errorInitial && (
-                    <p className={style.error}> - Mot de passe incorrect - </p>
-                  )}
+                  <p>Mot de passe actuel</p>
                 </div>
 
                 <div>
@@ -85,11 +82,11 @@ function Input({ info, setInfo, generatePopUp, isPassword, Icon }) {
               {/* Nouveau mot de passe */}
               <div className={style.center}>
                 <div>
-                  <p>Nouveau mot de passe</p>{" "}
-                  {errorSame && (
+                  <p>Nouveau mot de passe </p>
+                  {errorConfirm && (
                     <p className={style.error}>
                       {" "}
-                      - Même mot de passe choisit -{" "}
+                      - Les mots de passe sont incohérents -{" "}
                     </p>
                   )}
                 </div>
@@ -107,13 +104,9 @@ function Input({ info, setInfo, generatePopUp, isPassword, Icon }) {
               {/* Confirmer le nouveau mot de passe */}
               <div className={style.center}>
                 <div>
-                  <p>Confirmer le nouveau mot de passe</p>{" "}
-                  {errorConfirm && (
-                    <p className={style.error}>
-                      {" "}
-                      - Les mots de passe sont incohérents -{" "}
-                    </p>
-                  )}
+                  <p className={`${errorConfirm && "text-[#850000]"}`}>
+                    Confirmer le nouveau mot de passe
+                  </p>
                 </div>
 
                 <div>
@@ -154,6 +147,7 @@ function Input({ info, setInfo, generatePopUp, isPassword, Icon }) {
             disabled
             className={style.box}
             value={info}
+            placeholder="Modifier votre mot de passe"
             onChange={(e) => setInfo(e.target.value)}
           />
         ) : (
@@ -173,8 +167,6 @@ function Input({ info, setInfo, generatePopUp, isPassword, Icon }) {
               if (generatePopUp) {
                 setShowPopUp(true);
                 setErrorConfirm(false);
-                setErrorInitial(false);
-                setErrorSame(false);
                 setInitialPassword("");
                 setConfirmPassword("");
                 setNewPassword("");
@@ -188,4 +180,5 @@ function Input({ info, setInfo, generatePopUp, isPassword, Icon }) {
     </div>
   );
 }
+
 export default Input;

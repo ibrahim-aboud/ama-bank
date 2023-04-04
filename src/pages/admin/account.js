@@ -7,17 +7,40 @@ import { FaUserAlt } from "react-icons/fa";
 import { RiMailFill } from "react-icons/ri";
 import { FaLock } from "react-icons/fa";
 import { useState } from "react";
+import axios from "axios";
+import { useRouter } from "next/router";
 
-function Account() {
-  const [username, setUsername] = useState("username");
-  const [mail, setMail] = useState("example@gmail.com");
-  const [password, setPassword] = useState("password");
+function Account({ admin }) {
+  const [username, setUsername] = useState(admin.username);
+  const [mail, setMail] = useState(admin.email);
+  const [password, setPassword] = useState("");
+  const [oldPassword, setOldPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  function submitHandler(event) {
+  const router = useRouter();
+
+  async function submitHandler(event) {
+    setLoading(true);
     event.preventDefault();
 
-    // send data to api
-    // ...
+    admin.username = username;
+    admin.email = mail;
+    admin.password = password;
+
+    try {
+      await axios.put(process.env.NEXT_PUBLIC_API_URL + "/admin", {
+        admin,
+        oldPassword,
+      });
+
+      setError("");
+      router.reload();
+    } catch (e) {
+      setError(e.response?.data || "Something went wrong");
+    }
+
+    setLoading(false);
   }
 
   return (
@@ -46,14 +69,23 @@ function Account() {
             info={password}
             setInfo={setPassword}
             Icon={<FaLock />}
-            generatePopUp
+            generatePopUp={!loading}
             isPassword
+            setOldPassword={setOldPassword}
           />
         </div>
+
+        {error && <div className="text-[#850000] text-xl">{error}</div>}
       </div>
 
       <div className={style.submit}>
-        <button className={style.Button}>Appliquer les modifications</button>
+        <button
+          disabled={loading}
+          onClick={submitHandler}
+          className={style.Button}
+        >
+          Appliquer les modifications
+        </button>
       </div>
     </div>
   );
@@ -75,8 +107,25 @@ export async function getServerSideProps(context) {
     };
   }
 
+  var admin = null;
+
+  try {
+    const response = await axios.get(
+      process.env.NEXT_PUBLIC_API_URL + "/admin/" + session.user.id,
+      {
+        headers: {
+          cookie: context.req.headers.cookie,
+        },
+      }
+    );
+
+    admin = response.data.admin;
+  } catch (e) {
+    console.log(e.response.data || e.message);
+  }
+
   return {
-    props: { session },
+    props: { admin },
   };
 }
 

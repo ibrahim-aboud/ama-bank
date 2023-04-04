@@ -1,6 +1,13 @@
 import userCredsValidator from "./userCredsValidator";
 
 export default function adminInfoValidator(admin) {
+  if (!admin || !admin.id) {
+    return {
+      error: true,
+      errorList: ["invalid admin !!"],
+    };
+  }
+
   const checkCreds = userCredsValidator(admin.username, admin.password);
   if (checkCreds.error) {
     return checkCreds;

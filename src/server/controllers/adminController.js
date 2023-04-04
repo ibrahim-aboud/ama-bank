@@ -1,3 +1,5 @@
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import userCredsValidator from "@/lib/validations/userCredsValidator";
 import adminInfoValidator from "@/lib/validations/adminInfoValidator";
 import Admin from "../models/adminModel";
@@ -43,10 +45,18 @@ export default class AdminController {
   }
 
   async put(req, res) {
+    // get the session and the new data from user's req
+    const session = await getServerSession(req, res, authOptions);
     const { admin: data, oldPassword } = req.body;
 
     if (!data) {
       res.status(409).send("No admin to update");
+      return;
+    }
+
+    // check if the admin who send the request to update his information
+    if (session?.user?.id !== data?.id) {
+      res.status(401).send("Access denied!");
       return;
     }
 
@@ -57,12 +67,14 @@ export default class AdminController {
       return;
     }
 
+    // check if the admin's info are valid
     const check = adminInfoValidator(admin);
     if (check.error) {
       res.status(400).send(check.errorList[0]);
       return;
     }
 
+    // compare the old password before updating the admin
     const oldAdmin = await Admin.getAdminById(admin.id);
     if (oldAdmin.password !== hashPassword(oldPassword)) {
       res.status(401).send("Le mot de passe est incorrect");
@@ -73,6 +85,7 @@ export default class AdminController {
     admin.password = hashPassword(admin.password);
 
     try {
+      // update the admin
       const data = await Admin.updateAdmin(admin);
       delete data.old.password;
       delete data.new.password;

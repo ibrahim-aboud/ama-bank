@@ -10,13 +10,16 @@ import { HiPhone, HiLocationMarker, HiSearch } from "react-icons/hi";
 import { RiBankFill } from "react-icons/ri";
 import { MdFax, MdAddCircle, MdCancel, MdDeleteForever } from "react-icons/md";
 import { FaUndo, FaAngleDown } from "react-icons/fa";
+import axios from "axios";
+import SearchBox from "@/components/common/searchBox";
+import { useRouter } from "next/router";
 
 function BankListElement(props) {
   const [isGstBanksHidden, setIsGstBanksHidden] = useState(true);
 
   return (
     <div>
-      <div className="flex justify-center items-center mb-10">
+      <div className="flex justify-center items-center mb-7">
         <Image
           src={props.logo_src}
           alt="amaBank logo"
@@ -27,7 +30,7 @@ function BankListElement(props) {
         <h2 className="font-bold pl-8 text-2xl pr-[450px]">{props.name}</h2>
 
         <div
-          className="flex justify-center items-center gap-2 relative cursor-pointer rounded-xl bg-green-600 hover:bg-green-700 text-white  shadow-md py-3 px-5 mr-3 hover:ease-in-out duration-300"
+          className="flex justify-center items-center gap-2 relative cursor-pointer rounded-xl bg-[#40916C] hover:bg-[#46a078] text-white shadow-md py-3 px-5 mr-3 hover:ease-in-out duration-300"
           onClick={() => setIsGstBanksHidden(!isGstBanksHidden)}
         >
           <span>Modifier les informations</span>
@@ -39,30 +42,30 @@ function BankListElement(props) {
           <div
             className={`${
               isGstBanksHidden ? "hidden" : "flex"
-            } absolute z-40 bg-green-600 text-white flex-col justify-center items-center top-12 px-6 py-2 rounded-xl animate-fade-in`}
+            } absolute z-40 bg-[#40916dfa] text-white flex-col justify-center items-center top-12 px-6 py-2 rounded-xl animate-fade-in`}
           >
             <Link
               href="/admin/banks/general"
-              className="w-48 text-center py-1 hover:bg-green-700 hover:rounded-xl"
+              className="w-48 text-center py-1 hover:bg-gray-100 hover:text-black hover:rounded-xl"
             >
               Informations Générales
             </Link>
             <Link
               href="/admin/banks/agencies"
-              className="w-48 text-center py-1 hover:bg-green-700 hover:rounded-xl"
+              className="w-48 text-center py-1 hover:bg-gray-100 hover:text-black hover:rounded-xl"
             >
               Agencies
             </Link>
             <Link
               href="/admin/banks/prestations"
-              className="w-48 text-center py-1 hover:bg-green-700 hover:rounded-xl"
+              className="w-48 text-center py-1 hover:bg-gray-100 hover:text-black hover:rounded-xl"
             >
               Conditions Tarifaires
             </Link>
           </div>
         </div>
 
-        <button className="rounded-xl px-5 py-3 font-semibold bg-red-600 text-white shadow-md hover:bg-red-700 disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300">
+        <button className="rounded-xl px-5 py-3 font-semibold bg-[#EA5455] text-white shadow-md hover:bg-[#e24141] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300">
           Supprimer la banque
           <MdDeleteForever size={23} className="ml-2" />
         </button>
@@ -71,32 +74,48 @@ function BankListElement(props) {
   );
 }
 
-function Home() {
+function Home({ banks }) {
+
+  const router = useRouter();
+  const { id } = router.query;
+
+  function _getDefaultBankId() {
+    if (
+      id !== null &&
+      id !== undefined &&
+      !isNaN(id) &&
+      id >= 0 &&
+      Number.isInteger(parseInt(id))
+    ) {
+      return parseInt(id);
+    }
+
+    // return banks && banks.length > 0 ? banks[0].id : null;
+    return null;
+  }
+
+  const [selectedBankId, setSelectedBankId] = useState(_getDefaultBankId());
+
   return (
     <div className="flex flex-col items-center h-screen mt-14">
       <div className="flex items-center mb-20">
         <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
           <h2 className="p-1 text-lg">Nom de la banque</h2>
-          <div className="bg-gray-100 px-4 py-2 rounded-md border flex items-center w-full">
-            <HiSearch className="text-gray-600" size={24} />
-            <select
-              id="bank"
-              name="bank"
-              className="bg-gray-100 outline-none block w-full hover:border-gray-500 px-4 py-2 pr-8 rounded-2xl leading-tight focus:outline-none focus:shadow-outline"
-            >
-              <option value="">-- Selectionner une banque --</option>
-              {wilayas.map((wilaya) => (
-                <option key={wilaya.code} value={wilaya.name}>
-                  {wilaya.code} - {wilaya.name}
-                </option>
-              ))}
-            </select>
+          <div className="bg-[#ffffff6e] px-4 py-2 rounded-md border shadow-sm flex items-center w-full">
+            <div className="w-full">
+              <SearchBox
+                items={banks}
+                selectedId={selectedBankId}
+                setSelectedId={setSelectedBankId}
+                searchField="name"
+              />
+            </div>
           </div>
         </div>
         <div>
           <Link
             href="/admin/banks/add-bank"
-            className="rounded-xl px-8 py-4 mt-4 ml-10 font-semibold bg-black text-white shadow-xl hover:bg-green-600 disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
+            className="rounded-xl px-8 py-4 mt-4 ml-10 font-semibold bg-black text-white shadow-xl hover:bg-[#40916C] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
           >
             Ajouter une banque
             <MdAddCircle size={23} className="ml-2" />
@@ -104,24 +123,17 @@ function Home() {
         </div>
       </div>
 
-      <div className="w-full">
-        <BankListElement
-          name="Natixis Algérie"
-          logo_src="/assets/logos/logo.png"
-        />
-        <BankListElement
-          name="Natixis Algérie"
-          logo_src="/assets/logos/logo.png"
-        />
-        <BankListElement
-          name="Natixis Algérie"
-          logo_src="/assets/logos/logo.png"
-        />
-        <BankListElement
-          name="Natixis Algérie"
-          logo_src="/assets/logos/logo.png"
-        />
+      <div className="w-full px-[20%]">
+        <div className="w-full bg-[#d9d9d928] py-16 rounded-md">
+          {banks.map(() => (
+            <BankListElement 
+              name={banks.name}
+              logo_src={banks.logo_src}
+            />
+          ))}
+        </div>
       </div>
+      
     </div>
   );
 }
@@ -130,8 +142,10 @@ Home.getLayout = function PageLayout(page) {
   return <AdminLayout>{page}</AdminLayout>;
 };
 
+
 export async function getServerSideProps(context) {
   const session = await getSession(context);
+  var banks = [];
 
   if (!session) {
     return {
@@ -142,9 +156,18 @@ export async function getServerSideProps(context) {
     };
   }
 
+  try {
+    const response = await axios.get(
+      process.env.NEXT_PUBLIC_API_URL + "/banks"
+    );
+
+    banks = response.data.banks;
+  } catch (e) {
+    console.error(e.message);
+  }
+
   return {
-    props: { session },
+    props: { banks },
   };
 }
-
 export default Home;

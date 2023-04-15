@@ -70,7 +70,7 @@ function NewBank() {
 
   return (
     <div>
-      <div className="mb-20">
+      <div className="mb-10">
         <div className="py-6 lg:mx-16 flex items-center justify-center lg:gap-14">
           <div className="hidden lg:block h-[2px] bg-black w-[25%]" />
 
@@ -147,7 +147,7 @@ function NewBank() {
         </div>
       </div>
 
-      <div>
+      {/* <div>
         <div className="py-6 smx:border-t-4 md:mx-16 flex items-center justify-center gap-14">
           <div className="hidden lg:block h-[2px] bg-black w-[22%]" />
 
@@ -245,7 +245,7 @@ function NewBank() {
           <PrestationEntry name="Ouverture de compte et déliverance chéquier" />
           <PrestationEntry name="Ouverture de compte et déliverance chéquier" />
         </div>
-      </div>
+      </div> */}
 
       <div>
         <div className="py-6 smx:border-t-4 md:mx-16 flex items-center justify-center gap-14">
@@ -339,17 +339,17 @@ function NewBank() {
 
       <div className="lg:flex flex-col items-center py-5 lg:py-10 w-full lg:w-full">
         <div className="flex smx:flex-col items-center justify-center w-full lg:w-[800px] lg:justify-between">
-          <button className="mb-1 rounded-xl px-8 py-3 font-semibold bg-black text-white shadow-xl hover:bg-green-600 disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300">
+          <button className="mb-1 rounded-xl px-8 py-3 font-semibold bg-black text-white shadow-xl hover:bg-[#40916C] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300">
             Ajouter la banque
             <MdAddCircle size={23} className="ml-2" />
           </button>
 
-          <button className="mb-1 rounded-xl px-8 py-3 font-semibold bg-black text-white shadow-xl hover:bg-green-600 disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300">
+          <button className="mb-1 rounded-xl px-8 py-3 font-semibold bg-black text-white shadow-xl hover:bg-[#EA5455] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300">
             Effacer le formulaire
             <FaUndo size={20} className="ml-2" />
           </button>
 
-          <button className="rounded-xl px-8 py-3 font-semibold bg-black text-white shadow-xl hover:bg-green-600 disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300">
+          <button className="rounded-xl px-8 py-3 font-semibold bg-black text-white shadow-xl hover:bg-[#EA5455] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300">
             Annuler les modifications
             <MdCancel size={23} className="ml-2" />
           </button>

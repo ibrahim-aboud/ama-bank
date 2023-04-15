@@ -1,13 +1,149 @@
 import AdminLayout from "@/layouts/adminLayout";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import { wilayas } from "@/lib/utils/wilayaMap";
 import { getSession, useSession } from "next-auth/react";
+import { AiOutlineInfoCircle } from "react-icons/ai";
+import { FiUpload, FiGlobe, FiPhone } from "react-icons/fi";
+import { HiPhone, HiLocationMarker, HiSearch } from "react-icons/hi";
+import { TbHomeCog } from "react-icons/tb";
+import { MdFax, MdAddCircle, MdCancel, MdDeleteForever } from "react-icons/md";
+import { FaUndo, FaAngleDown } from "react-icons/fa";
+import axios from "axios";
+import SearchBox from "@/components/common/searchBox";
+import { useRouter } from "next/router";
 
-function Home() {
-  const session = useSession();
+function BankListElement(props) {
+  const [isGstBanksHidden, setIsGstBanksHidden] = useState(true);
 
   return (
     <div>
-      <div>Home Admin</div>
-      <div>{JSON.stringify(session)}</div>
+      <div className="flex justify-center items-center mb-7">
+        <Image
+          src={props.logo_src}
+          alt="amaBank logo"
+          width={400}
+          height={400}
+          className="w-[80px] h-[80px] shadow-lg"
+        />
+        <h2 className="font-bold pl-8 text-2xl pr-[450px]">{props.name}</h2>
+
+        <div
+          className="flex justify-center items-center gap-2 relative cursor-pointer rounded-xl bg-[#40916C] hover:bg-[#46a078] text-white shadow-md py-3 px-5 mr-3 hover:ease-in-out duration-300"
+          onClick={() => setIsGstBanksHidden(!isGstBanksHidden)}
+        >
+          <span>Modifier les informations</span>
+          {isGstBanksHidden ? (
+            <FaAngleDown />
+          ) : (
+            <FaAngleDown className="rotate-180" />
+          )}
+          <div
+            className={`${
+              isGstBanksHidden ? "hidden" : "flex"
+            } absolute z-40 bg-[#40916dfa] text-white flex-col justify-center items-center top-12 px-6 py-2 rounded-xl animate-fade-in`}
+          >
+            <Link
+              href="/admin/banks/general"
+              className="w-48 text-center py-1 hover:bg-gray-100 hover:text-black hover:rounded-xl"
+            >
+              Informations Générales
+            </Link>
+            <Link
+              href="/admin/banks/agencies"
+              className="w-48 text-center py-1 hover:bg-gray-100 hover:text-black hover:rounded-xl"
+            >
+              Agencies
+            </Link>
+            <Link
+              href="/admin/banks/prestations"
+              className="w-48 text-center py-1 hover:bg-gray-100 hover:text-black hover:rounded-xl"
+            >
+              Conditions Tarifaires
+            </Link>
+          </div>
+        </div>
+
+        <button className="rounded-xl px-5 py-3 font-semibold bg-[#EA5455] text-white shadow-md hover:bg-[#e24141] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300">
+          Supprimer la banque
+          <MdDeleteForever size={23} className="ml-2" />
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function Home({ banks }) {
+
+  const router = useRouter();
+  const { id } = router.query;
+
+  function _getDefaultBankId() {
+    if (
+      id !== null &&
+      id !== undefined &&
+      !isNaN(id) &&
+      id >= 0 &&
+      Number.isInteger(parseInt(id))
+    ) {
+      return parseInt(id);
+    }
+
+    // return banks && banks.length > 0 ? banks[0].id : null;
+    return null;
+  }
+
+  const [selectedBankId, setSelectedBankId] = useState(_getDefaultBankId());
+
+  return (
+    <div className="flex flex-col items-center h-screen mt-14">
+      <div className="py-6 lg:mx-16 flex items-center justify-center lg:gap-14 w-full">
+        <div className="hidden lg:block h-[2px] bg-black w-[25%]" />
+
+        <div className="flex items-center justify-center gap-4 text-lg sm:text-xl md:text-3xl">
+          <TbHomeCog className=" font-bold" />
+          <h3 className="font-bold">Acceuil Administrateur</h3>
+        </div>
+
+        <div className="hidden lg:block h-[2px] bg-black w-[25%]" />
+      </div>
+      <div className="flex items-center mb-20">
+        <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
+          <h2 className="p-1 text-lg">Nom de la banque</h2>
+          <div className="bg-[#ffffff6e] px-4 py-2 rounded-md border shadow-sm flex items-center w-full">
+            <div className="w-full">
+              <SearchBox
+                items={banks}
+                selectedId={selectedBankId}
+                setSelectedId={setSelectedBankId}
+                searchField="name"
+              />
+            </div>
+          </div>
+        </div>
+        <div>
+          <Link
+            href="/admin/banks/add-bank"
+            className="rounded-xl px-8 py-4 mt-4 ml-10 font-semibold bg-black text-white shadow-xl hover:bg-[#40916C] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
+          >
+            Ajouter une banque
+            <MdAddCircle size={23} className="ml-2" />
+          </Link>
+        </div>
+      </div>
+
+      <div className="w-full px-[20%]">
+        <div className="w-full bg-[#d9d9d928] py-16 rounded-md">
+          {banks.map(() => (
+            <BankListElement 
+              name={banks.name}
+              logo_src={banks.logo_src}
+            />
+          ))}
+        </div>
+      </div>
+      
     </div>
   );
 }
@@ -16,8 +152,10 @@ Home.getLayout = function PageLayout(page) {
   return <AdminLayout>{page}</AdminLayout>;
 };
 
+
 export async function getServerSideProps(context) {
   const session = await getSession(context);
+  var banks = [];
 
   if (!session) {
     return {
@@ -28,9 +166,18 @@ export async function getServerSideProps(context) {
     };
   }
 
+  try {
+    const response = await axios.get(
+      process.env.NEXT_PUBLIC_API_URL + "/banks"
+    );
+
+    banks = response.data.banks;
+  } catch (e) {
+    console.error(e.message);
+  }
+
   return {
-    props: { session },
+    props: { banks },
   };
 }
-
 export default Home;

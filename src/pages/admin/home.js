@@ -7,7 +7,7 @@ import { getSession, useSession } from "next-auth/react";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { FiUpload, FiGlobe, FiPhone } from "react-icons/fi";
 import { HiPhone, HiLocationMarker, HiSearch } from "react-icons/hi";
-import { RiBankFill } from "react-icons/ri";
+import { TbHomeCog } from "react-icons/tb";
 import { MdFax, MdAddCircle, MdCancel, MdDeleteForever } from "react-icons/md";
 import { FaUndo, FaAngleDown } from "react-icons/fa";
 import axios from "axios";
@@ -98,6 +98,16 @@ function Home({ banks }) {
 
   return (
     <div className="flex flex-col items-center h-screen mt-14">
+      <div className="py-6 lg:mx-16 flex items-center justify-center lg:gap-14 w-full">
+        <div className="hidden lg:block h-[2px] bg-black w-[25%]" />
+
+        <div className="flex items-center justify-center gap-4 text-lg sm:text-xl md:text-3xl">
+          <TbHomeCog className=" font-bold" />
+          <h3 className="font-bold">Acceuil Administrateur</h3>
+        </div>
+
+        <div className="hidden lg:block h-[2px] bg-black w-[25%]" />
+      </div>
       <div className="flex items-center mb-20">
         <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
           <h2 className="p-1 text-lg">Nom de la banque</h2>

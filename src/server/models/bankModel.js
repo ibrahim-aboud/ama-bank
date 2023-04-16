@@ -1,5 +1,5 @@
 import FilesHelpers from "@/lib/utils/FilesHelpers";
-import bankInfoValidator from "@/lib/validations/bankInfoValidator";
+import ModelError from "../../lib/utils/ModelError";
 import dbQuery from "../db/connect";
 
 export default class Bank {
@@ -39,7 +39,7 @@ export default class Bank {
     try {
       data = await dbQuery("SELECT * FROM ab_banks");
     } catch (e) {
-      throw new Error("Something went wrong!");
+      throw new ModelError("Something went wrong!", 500);
     }
 
     if (!data) {
@@ -67,20 +67,16 @@ export default class Bank {
   }
 
   static async getBankById(id) {
-    if (isNaN(id)) {
-      res.status(404).send("La bank n'existe pas!");
-    }
-
     var data = null;
 
     try {
       data = await dbQuery("SELECT * FROM ab_banks WHERE id_bank=(?)", [id]);
     } catch (e) {
-      throw new Error("Something went wrong!");
+      throw new ModelError("Something went wrong!", 500);
     }
 
     if (!data || data.length === 0) {
-      throw new Error("La bank n'existe pas!");
+      throw new ModelError("La bank n'existe pas!", 404);
     }
 
     const bank = data[0];
@@ -95,15 +91,6 @@ export default class Bank {
   }
 
   static async updateBank(bank) {
-    if (!bank) {
-      throw new Error("No bank to update");
-    }
-
-    const check = bankInfoValidator(bank);
-    if (check.error) {
-      throw new Error(check.errorList[0]);
-    }
-
     const _bank = await Bank.getBankById(bank.id);
 
     try {
@@ -120,7 +107,7 @@ export default class Bank {
         ]
       );
     } catch (e) {
-      throw new Error("Ce nom de la banque existe déjà");
+      throw new ModelError("Ce nom de la banque existe déjà", 409);
     }
 
     return {

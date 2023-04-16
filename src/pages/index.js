@@ -3,14 +3,14 @@ import axios from "axios";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { MdAddCircle } from "react-icons/md";
 import { BiFilterAlt } from "react-icons/bi";
 import Image from "next/image";
 import SearchBox from "@/components/common/searchBox";
 import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { FaChevronRight, FaChevronLeft } from 'react-icons/fa'
+import { MdOutlineCompareArrows } from 'react-icons/md';
+import { TbListDetails } from 'react-icons/tb';
 
 function BankListElement(props) {
   const [isGstBanksHidden, setIsGstBanksHidden] = useState(true);
@@ -25,47 +25,16 @@ function BankListElement(props) {
           height={400}
           className="w-[80px] h-[80px] shadow-lg"
         />
-        <h2 className="font-bold pl-8 text-2xl pr-[450px]">{props.name}</h2>
+        <h2 className="font-bold pl-8 text-2xl w-[35%]">{props.name}</h2>
 
-        <div
-          className="flex justify-center items-center gap-2 relative cursor-pointer rounded-xl bg-green-600 hover:bg-green-700 text-white  shadow-md py-3 px-5 mr-3 hover:ease-in-out duration-300"
-          onClick={() => setIsGstBanksHidden(!isGstBanksHidden)}
-        >
-          <span>Modifier les informations</span>
-          {isGstBanksHidden ? (
-            <FaAngleDown />
-          ) : (
-            <FaAngleDown className="rotate-180" />
-          )}
-          <div
-            className={`${
-              isGstBanksHidden ? "hidden" : "flex"
-            } absolute z-40 bg-green-600 text-white flex-col justify-center items-center top-12 px-6 py-2 rounded-xl animate-fade-in`}
-          >
-            <Link
-              href="/admin/banks/general"
-              className="w-48 text-center py-1 hover:bg-green-700 hover:rounded-xl"
-            >
-              Informations Générales
-            </Link>
-            <Link
-              href="/admin/banks/agencies"
-              className="w-48 text-center py-1 hover:bg-green-700 hover:rounded-xl"
-            >
-              Agencies
-            </Link>
-            <Link
-              href="/admin/banks/prestations"
-              className="w-48 text-center py-1 hover:bg-green-700 hover:rounded-xl"
-            >
-              Conditions Tarifaires
-            </Link>
-          </div>
-        </div>
+        <button className="rounded-xl px-5 py-3 font-semibold bg-[#40916C] mr-2 text-white shadow-md hover:bg-[#51b186] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300">
+          Comparer avec une autre banque
+          <MdOutlineCompareArrows size={23} className="ml-2" />
+        </button>
 
-        <button className="rounded-xl px-5 py-3 font-semibold bg-red-600 text-white shadow-md hover:bg-red-700 disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300">
-          Supprimer la banque
-          <MdDeleteForever size={23} className="ml-2" />
+        <button className="rounded-xl px-5 py-3 font-semibold bg-[#40916C] text-white shadow-md hover:bg-[#51b186] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300">
+          Plus de details
+          <TbListDetails size={23} className="ml-2" />
         </button>
       </div>
     </div>
@@ -84,36 +53,14 @@ function Slide(props) {
     )
 }
 
-// function NextArrow({ onClick }) {
-//   return (
-//     <div className="absolute right-3 top-[600px]">
-//       <button className="rounded-full p-3 bg-[#111111e0] text-white grid place-items-center cursor-pointer" onClick={onClick}>
-//         <FaChevronRight />
-//       </button>
-//     </div>
-//   )
-// }
-
-// function PrevArrow({ onClick }) {
-//   return (
-//     <div className="absolute right-3 top-[700px]">
-//       <button className="rounded-full p-3 bg-[#111111e0] text-white" onClick={onClick}>
-//         <FaChevronLeft />
-//       </button>
-//     </div>
-//   )
-// }
-
 function Slideshow() {
   
   const settings = {
     dots: true,
     arrows: true,
-    // nextArrow: <NextArrow />,
-    // prevArrow: <PrevArrow />,
     infinite: true,
-    autoplay: false,
-    autoplaySpeed: 3000,
+    autoplay: true,
+    autoplaySpeed: 5000,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1
@@ -174,7 +121,6 @@ export default function Home({ banks }) {
                     setSelectedId={setSelectedBankId}
                     searchField="name"
                   />
-                  {console.log(banks)}
                 </div>
               </div>
             </div>

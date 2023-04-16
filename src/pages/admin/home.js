@@ -2,14 +2,10 @@ import AdminLayout from "@/layouts/adminLayout";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { wilayas } from "@/lib/utils/wilayaMap";
 import { getSession, useSession } from "next-auth/react";
-import { AiOutlineInfoCircle } from "react-icons/ai";
-import { FiUpload, FiGlobe, FiPhone } from "react-icons/fi";
-import { HiPhone, HiLocationMarker, HiSearch } from "react-icons/hi";
 import { TbHomeCog } from "react-icons/tb";
-import { MdFax, MdAddCircle, MdCancel, MdDeleteForever } from "react-icons/md";
-import { FaUndo, FaAngleDown } from "react-icons/fa";
+import { MdAddCircle, MdDeleteForever } from "react-icons/md";
+import { FaAngleDown } from "react-icons/fa";
 import axios from "axios";
 import SearchBox from "@/components/common/searchBox";
 import { useRouter } from "next/router";
@@ -27,7 +23,7 @@ function BankListElement(props) {
           height={400}
           className="w-[80px] h-[80px] shadow-lg"
         />
-        <h2 className="font-bold pl-8 text-2xl pr-[450px]">{props.name}</h2>
+        <h2 className="font-bold pl-8 text-2xl w-[35%]">{props.name}</h2>
 
         <div
           className="flex justify-center items-center gap-2 relative cursor-pointer rounded-xl bg-[#40916C] hover:bg-[#46a078] text-white shadow-md py-3 px-5 mr-3 hover:ease-in-out duration-300"
@@ -135,10 +131,10 @@ function Home({ banks }) {
 
       <div className="w-full px-[20%]">
         <div className="w-full bg-[#d9d9d928] py-16 rounded-md">
-          {banks.map(() => (
+          {banks.map((bank) => (
             <BankListElement 
-              name={banks.name}
-              logo_src={banks.logo_src}
+              name={bank.name}
+              logo_src={bank.logo_src}
             />
           ))}
         </div>

@@ -101,9 +101,10 @@ function Modal({ isVisible, setIsVisible }) {
             </button>
           </div>
           <div>
-            <FilterElement prestation={"Ouverture compte"} typeCompte={"Particuliers"} type={"Inférieure à"} value={"200"}/>
-            <FilterElement prestation={"Ouverture compte"} typeCompte={"Particuliers"} type={"Égale à"} value={"200"}/>
-            <FilterElement prestation={"Ouverture compte"} typeCompte={"Particuliers"} type={"Supérieure à"} value={"200"}/>
+            <FilterElement prestation={"Ouverture compte"} typeCompte={"Particuliers"} type={0} value={"200"}/>
+            <FilterElement prestation={"Ouverture compte"} typeCompte={"Particuliers"} type={1} value={"200"}/>
+            <FilterElement prestation={"Ouverture compte"} typeCompte={"Particuliers"} type={2} value={"200"}/>
+            <FilterElement prestation={"Ouverture compte"} typeCompte={"Particuliers"} type={3} value={"200"}/>
 
           
           
@@ -114,7 +115,13 @@ function Modal({ isVisible, setIsVisible }) {
   )
 }
 
-function FilterElement({ prestation, typeCompte, type, value }) {
+function FilterElement({ prestation, typeCompte, type, value1, value2 }) {
+  const typeMap = {
+    0: "Inférieure à",
+    1: "Égale à",
+    2: "Supérieure à",
+    3: "Comprise entre"
+  };
   return (
     <div className="flex items-center my-4 px-5">
       <div className="flex border p-2 rounded mr-2">
@@ -124,7 +131,7 @@ function FilterElement({ prestation, typeCompte, type, value }) {
         <h2 className=" text-gray-400 mr-3">Type de compte</h2><h2>{typeCompte}</h2>
       </div>
       <div className="flex border p-2 rounded mr-10">
-        <h2 className=" text-gray-400 mr-3">{type}</h2><h2 className="mr-2">{value}</h2><h2 className="text-gray-400">DA</h2>
+        <h2 className=" text-gray-400 mr-3">{typeMap[type]}</h2><h2 className="mr-2">{}{value1}</h2><h2 className="text-gray-400">DA</h2>
       </div>
       <div>
         <button className="text-white ml-auto place-self-end bg-[#EA5455] hover:ease-in-out duration-100 rounded-full" onClick={() => {setIsVisible(!isVisible)}}>
@@ -164,7 +171,7 @@ export default function Home({ banks }) {
       </section>
 
       <section>
-        <div className="flex flex-col items-center h-screen mt-14">
+        <div className="flex flex-col items-center mt-14">
           <div className="flex items-center mb-20">
             <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
               <h2 className="p-1 text-lg">Nom de la banque</h2>
@@ -194,6 +201,7 @@ export default function Home({ banks }) {
             <div className="w-full bg-[#d9d9d928] py-16 rounded-md">
               {banks.map((bank) => (
                 <BankListElement 
+                  key={bank.id}
                   name={bank.name}
                   logo_src={bank.logo_src}
                 />

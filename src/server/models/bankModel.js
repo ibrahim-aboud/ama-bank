@@ -30,7 +30,7 @@ export default class Bank {
     const images = FilesHelpers.getAllDirectoryFiles(dirPath);
 
     const image = images.find((image) => image.split(".")[0] == id);
-    return image ? "/assets/logos/banks_logos/" + image : "";
+    return image ? "/assets/images/banks_images/" + image : "";
   }
 
   static async getAllBanks() {

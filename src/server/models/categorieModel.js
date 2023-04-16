@@ -17,11 +17,8 @@ export default class Categorie{
             throw new ModelError("Something went wrong !", 500) ;
         }
 
-        var categories = [] ;
-        data.map(element=>{
-            categories.push(
-                new Categorie(element.id_categorie,element.categorie_name)
-            )
+        var categories = data.map(element=>{
+                return new Categorie(element.id_categorie,element.categorie_name)
         }) ;
 
         return categories ;
@@ -75,7 +72,7 @@ export default class Categorie{
             var data = await dbQuery("DELETE FROM ab_categories WHERE id_categorie=(?)",[categorie_id]) ;
     
         } catch (err){
-            throw new ModelError("Something went wrong !") ;
+            throw new ModelError("Something went wrong !",500) ;
         }
 
         return {

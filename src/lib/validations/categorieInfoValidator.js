@@ -1,4 +1,3 @@
-import dbQuery from "@/server/db/adminDbConnect";
 
 export default function categorieInfoValidator(categorieName){
     let error = false ;

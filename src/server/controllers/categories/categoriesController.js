@@ -45,7 +45,6 @@ export default class CategoriesController {
                 const data = await Categorie.insertCategorie(categorie) ; 
                 res.status(200).json({data}) ;
             } catch (err) {
-                console.log("azert");
                 res.status(500).send(err.message) ;
             }
         }
@@ -70,7 +69,7 @@ export default class CategoriesController {
                     return ;
                 }
             } catch(err){
-                res.status(500).send("err.message") ;
+                res.status(500).send(err.message) ;
             }
         }
     }

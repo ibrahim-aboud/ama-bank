@@ -1,10 +1,10 @@
-import CategorieController from "@/server/controllers/categories/categorieController";
+import prestationController from "@/server/controllers/prestations/prestationController";
 import { errorMessages } from "@/lib/utils/errorMessages";
 
 export default async function handler(req,res){
-    const controller = new CategorieController() ;
+    const controller = new prestationController() ;
 
-    if (req.method=="GET"){
+    if (req.method=="GET") {
         await controller.get(req,res) ;
     } else {
         res.status(405).send(errorMessages.wrongMethod) ;

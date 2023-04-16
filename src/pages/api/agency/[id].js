@@ -1,12 +1,14 @@
-import CategorieController from "@/server/controllers/categories/categorieController";
+import AgencyController from "@/server/controllers/agencies/agencyController";
 import { errorMessages } from "@/lib/utils/errorMessages";
 
 export default async function handler(req,res){
-    const controller = new CategorieController() ;
+    const controller = new AgencyController() ;
 
-    if (req.method=="GET"){
+    if (req.method=="GET") {
         await controller.get(req,res) ;
     } else {
         res.status(405).send(errorMessages.wrongMethod) ;
     }
+
+    return
 }

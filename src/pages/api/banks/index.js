@@ -1,14 +1,9 @@
 import BanksController from "@/server/controllers/banksController";
-import { getServerSession } from "next-auth";
-import { authOptions } from "../auth/[...nextauth]";
+import isNotAdmin from "@/lib/utils/checkAdmin";
+import { errorMessages } from "@/lib/utils/errorMessages";
+
 
 export default async function handler(req, res) {
-  const session = await getServerSession(req, res, authOptions);
-  const isNotAdmin =
-    !session ||
-    !session.user ||
-    !session.user.role ||
-    session.user.role !== "admin";
 
   const controller = new BanksController();
 
@@ -22,7 +17,6 @@ export default async function handler(req, res) {
 
     await controller.put(req, res);
   } else {
-    res.status(404).send("Not Found");
-    return;
+    res.status(405).send(errorMessages.wrongMethod) ;
   }
 }

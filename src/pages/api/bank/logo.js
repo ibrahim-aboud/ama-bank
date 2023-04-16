@@ -1,6 +1,6 @@
-import { getServerSession } from "next-auth";
-import { authOptions } from "../auth/[...nextauth]";
+import isNotAdmin from "@/lib/utils/checkAdmin";
 import BankController from "@/server/controllers/bankController";
+import { errorMessages } from "@/lib/utils/errorMessages";
 
 export const config = {
   api: {
@@ -9,12 +9,6 @@ export const config = {
 };
 
 export default async function handler(req, res) {
-  const session = await getServerSession(req, res, authOptions);
-  const isNotAdmin =
-    !session ||
-    !session.user ||
-    !session.user.role ||
-    session.user.role !== "admin";
 
   if (isNotAdmin) {
     res.status(401).send("Access denied!");
@@ -26,7 +20,6 @@ export default async function handler(req, res) {
   if (req.method === "POST") {
     await controller.uploadLogo(req, res);
   } else {
-    res.status(404).send("Not Found");
-    return;
+    res.status(405).send(errorMessages.wrongMethod) ;
   }
 }

@@ -18,20 +18,5 @@ export default class CategorieController{
         }
     }
 
-    // async post (req,res){
-    //     const {categorie} = req.body ;
-        
-    //     const check = categorieInfoValidator(categorie) ;
 
-    //     if (check.error){
-    //         throw new Error(check.errorList[0]) ;
-    //     }
-
-    //     try{
-    //         const data = await Categorie.insertCategorie(categorie) ;
-    //         res.status(200).json({data}) ;
-    //     } catch(err) {
-    //         res.status(500).send(err.message) ;
-    //     }
-    // }
 }

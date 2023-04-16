@@ -1,0 +1,14 @@
+import { errorMessages } from "@/lib/utils/errorMessages";
+import AgenciesController from "@/server/controllers/agencies/agenciesController";
+
+export default async function handler(req,res){
+    const controller = new AgenciesController();
+
+    if (req.method=="GET"){
+        await controller.get(req,res);
+    } else if (req.method =="DELETE") {
+        await controller.delete(req,res) ;
+    } else {
+        res.status(405).send(errorMessages.wrongMethod) ;
+    }
+}

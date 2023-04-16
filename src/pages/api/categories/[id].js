@@ -1,12 +1,13 @@
 import CategoriesController from "@/server/controllers/categories/categoriesController" ;
-
+import { errorMessages } from "@/lib/utils/errorMessages";
 
 export default async function handler(req,res){
     
     const controller = new CategoriesController() ;
 
     if (req.method=="DELETE"){
-        
-        controller.delete(req,res) ;
+        await controller.delete(req,res) ;
+    } else {
+        res.status(405).send(errorMessages.wrongMethod) ;
     }
 }

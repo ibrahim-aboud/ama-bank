@@ -1,11 +1,11 @@
-import CategorieController from "@/server/controllers/categories/categorieController";
+import DgsController from "@/server/controllers/dgs/dgsController";
 import { errorMessages } from "@/lib/utils/errorMessages";
 
 export default async function handler(req,res){
-    const controller = new CategorieController() ;
+    const controller = new DgsController() ;
 
     if (req.method=="GET"){
-        await controller.get(req,res) ;
+        await controller.get(req,res);
     } else {
         res.status(405).send(errorMessages.wrongMethod) ;
     }

@@ -9,7 +9,7 @@ import SearchBox from "@/components/common/searchBox";
 import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { MdOutlineCompareArrows } from 'react-icons/md';
+import { MdOutlineCompareArrows, MdOutlineClose, MdDeleteForever, MdAdd } from 'react-icons/md';
 import { TbListDetails } from 'react-icons/tb';
 
 function BankListElement(props) {
@@ -20,7 +20,7 @@ function BankListElement(props) {
       <div className="flex justify-center items-center mb-10">
         <Image
           src={props.logo_src}
-          alt="amaBank logo"
+          alt={`${props.name} logo`}
           width={400}
           height={400}
           className="w-[80px] h-[80px] shadow-lg"
@@ -43,7 +43,7 @@ function BankListElement(props) {
 
 function Slide(props) {
     return (
-      <div className="relative pb-[56.25%] bg-cover bg-center h-screen" style={{ backgroundImage: `url(${props.url})` }}>
+      <div className="relative pb-[56.25%] aspect-w-16 aspect-h-9 bg-cover bg-center" style={{ backgroundImage: `url(${props.url})` }}>
         <div className={`${props.showbutton ? '' : 'hidden'}`}>
           <button className={`p-4 bg-[#${props.colorhex}] font-bold text-2xl rounded-full shadow-md absolute right-[20%] top-[50%]`}>
             <h2>{props.buttontext}</h2>
@@ -81,6 +81,60 @@ function Slideshow() {
   )
 }
 
+function Modal({ isVisible, setIsVisible }) {
+  if ( !isVisible ) return null;
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center ">
+      <div className="w-[1000px]">
+        <div className="bg-white rounded p-4 ">
+          <div className="flex w-full items-center px-2">
+            <button className="text-white py-1 px-2 bg-[#40916C] hover:bg-[#4fb487] hover:ease-in-out duration-100 rounded-lg flex items-center" onClick={() => {setIsVisible(!isVisible)}}>
+              Ajouter un filtre
+              <MdAdd size={25} />
+            </button>
+            <button className="text-white ml-2 py-1 px-2 bg-[#EA5455] hover:bg-[#f76565] hover:ease-in-out duration-100 rounded-lg flex items-center" onClick={() => {setIsVisible(!isVisible)}}>
+              Supprimer tous les filtres
+              <MdDeleteForever size={25} />
+            </button>
+            <button className="text-black ml-auto hover:text-white place-self-end hover:bg-[#EA5455] hover:ease-in-out duration-100 rounded-lg" onClick={() => {setIsVisible(!isVisible)}}>
+              <MdOutlineClose size={28} />
+            </button>
+          </div>
+          <div>
+            <FilterElement prestation={"Ouverture compte"} typeCompte={"Particuliers"} type={"Inférieure à"} value={"200"}/>
+            <FilterElement prestation={"Ouverture compte"} typeCompte={"Particuliers"} type={"Égale à"} value={"200"}/>
+            <FilterElement prestation={"Ouverture compte"} typeCompte={"Particuliers"} type={"Supérieure à"} value={"200"}/>
+
+          
+          
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function FilterElement({ prestation, typeCompte, type, value }) {
+  return (
+    <div className="flex items-center my-4 px-5">
+      <div className="flex border p-2 rounded mr-2">
+        <h2 className=" text-gray-400 mr-3">Prestation</h2><h2>{prestation}</h2>
+      </div>
+      <div className="flex border p-2 rounded mr-2">
+        <h2 className=" text-gray-400 mr-3">Type de compte</h2><h2>{typeCompte}</h2>
+      </div>
+      <div className="flex border p-2 rounded mr-10">
+        <h2 className=" text-gray-400 mr-3">{type}</h2><h2 className="mr-2">{value}</h2><h2 className="text-gray-400">DA</h2>
+      </div>
+      <div>
+        <button className="text-white ml-auto place-self-end bg-[#EA5455] hover:ease-in-out duration-100 rounded-full" onClick={() => {setIsVisible(!isVisible)}}>
+          <MdOutlineClose size={15} />
+        </button>
+      </div>
+    </div>
+  )
+}
+
 export default function Home({ banks }) {
   const router = useRouter();
   const { id } = router.query;
@@ -101,10 +155,11 @@ export default function Home({ banks }) {
   }
 
   const [selectedBankId, setSelectedBankId] = useState(_getDefaultBankId());
+  const [isVisible, setIsVisible] = useState(false);
 
   return (
     <div>
-      <section className="h-screen shadow-2xl mb-[7%]">
+      <section className="h-screen mb-[7%] mt-1">
         <Slideshow />
       </section>
 
@@ -125,13 +180,13 @@ export default function Home({ banks }) {
               </div>
             </div>
             <div>
-              <Link
-                href="/admin/banks/add-bank"
+              <button
                 className="rounded-xl px-10 py-4 mt-4 ml-2 font-semibold bg-black text-white shadow-xl hover:bg-[#40916C] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
+                onClick={() => {setIsVisible(!isVisible)}}
               >
                 Filtrer
                 <BiFilterAlt size={23} className="ml-2" />
-              </Link>
+              </button>
             </div>
           </div>
 
@@ -147,6 +202,10 @@ export default function Home({ banks }) {
           </div>
         </div>
       </section>
+      <Modal 
+        isVisible={isVisible}
+        setIsVisible={setIsVisible}
+      />
     </div>
   );
 }

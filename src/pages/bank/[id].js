@@ -7,14 +7,14 @@ import { MdManageSearch, MdReadMore } from "react-icons/md";
 
 function BankInfo({ bank }) {
   return (
-    <div className="flex flex-col min-w-full min-h-[80%] justify-center items-center gap-12 my-8 px-4">
-      <div className="flex flex-col md:flex-row w-full items-center justify-around gap-8">
+    <div className="flex flex-col min-w-full justify-center items-center gap-12 my-8 md:my-32 px-4">
+      <div className="flex flex-col md:flex-row w-full items-center justify-center gap-12">
         <Image
           src={bank.imageLink}
           alt="bank image"
           width={720}
           height={720}
-          className="w-96 max-h-96 rounded-2xl"
+          className="w-[30rem] max-h-[30rem] rounded-2xl"
         />
 
         <div className="flex flex-col items-start gap-4 md:w-[55%]">
@@ -37,7 +37,7 @@ function BankInfo({ bank }) {
       <div className="flex flex-col md:flex-row md:w-full items-center justify-center gap-2 md:gap-8">
         <Link
           href={process.env.NEXT_PUBLIC_APP_URL + ``}
-          className="mb-1 rounded-xl px-8 py-3 font-semibold bg-green-600 text-white shadow-xl hover:bg-black disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
+          className="mb-1 rounded-xl px-8 py-3 font-semibold bg-[#40916C] text-white shadow-xl hover:bg-[#419f75] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
         >
           Trouver une agence
           <CiLocationOn size={23} className="ml-2" />
@@ -45,7 +45,7 @@ function BankInfo({ bank }) {
 
         <Link
           href={process.env.NEXT_PUBLIC_APP_URL + ``}
-          className="mb-1 rounded-xl px-8 py-3 font-semibold bg-green-600 text-white shadow-xl hover:bg-black disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
+          className="mb-1 rounded-xl px-8 py-3 font-semibold bg-[#40916C] text-white shadow-xl hover:bg-[#419f75] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
         >
           Consulter les conditions tarifaires
           <MdManageSearch size={23} className="ml-2" />
@@ -54,7 +54,7 @@ function BankInfo({ bank }) {
         <Link
           href={bank.websiteLink}
           target="_blank"
-          className="mb-1 rounded-xl px-8 py-3 font-semibold bg-green-600 text-white shadow-xl hover:bg-black disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
+          className="mb-1 rounded-xl px-8 py-3 font-semibold bg-[#40916C] text-white shadow-xl hover:bg-[#419f75] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
         >
           Consulter le site de la banque
           <MdReadMore size={23} className="ml-2" />

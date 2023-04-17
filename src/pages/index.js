@@ -5,10 +5,10 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { BiFilterAlt } from "react-icons/bi";
 import Image from "next/image";
-import SearchBox from "@/components/common/searchBox";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
 import {
   MdOutlineCompareArrows,
   MdOutlineClose,
@@ -49,18 +49,12 @@ function BankListElement(props) {
 
 function Slide(props) {
   return (
-    <div
-      className="pb-[56.25%] aspect-w-16 aspect-h-9 bg-cover bg-center"
-      style={{ backgroundImage: `url(${props.url})` }}
-    >
-      <div className={`${props.showbutton ? "" : "hidden"}`}>
-        <button
-          className={`p-4 bg-[#${props.colorhex}] font-bold text-2xl rounded-full shadow-md absolute right-[20%] top-[50%]`}
-        >
-          <h2>{props.buttontext}</h2>
-        </button>
-      </div>
-    </div>
+    <Link href={props.url} target={`${props.url !== '' ? "_blank" : ""}`}>
+      <div
+        className="pb-[56.25%] aspect-w-16 aspect-h-9 bg-cover bg-center"
+        style={{ backgroundImage: `url(${props.imgUrl})` }}
+      />
+    </Link>
   );
 }
 
@@ -76,32 +70,25 @@ function Slideshow() {
     slidesToScroll: 1,
   };
 
+  {/* add more slides here */}
+  const idToUrl = {
+    1: 'https://www.example.com',
+    2: 'https://www.google.com',
+    3: 'https://www.github.com',
+    4: '',
+    5: '',
+    6: '',
+    7: '',
+  };
+  
   return (
     <div>
       <Slider {...settings}>
-        <Slide
-          url="/assets/images/slideshow/1.png"
-          buttontext="Comparer les banques"
-          colorhex="40916C"
-        />
-        <Slide
-          url="/assets/images/slideshow/2.png"
-          buttontext="Consulter les banques"
-          colorhex="40916C"
-          showbutton="1"
-        />
-        <Slide
-          url="/assets/images/slideshow/3.jpg"
-          buttontext="Choisir votre banque"
-          colorhex="40916C"
-        />
-        <Slide
-          url="/assets/images/slideshow/4.png"
-          buttontext="Explorer notre site"
-          colorhex="40916C"
-          showbutton="1"
-        />
-        {/* add more slides here */}
+        {Object.keys(idToUrl).map((id) => (
+          <div key={id}>
+            <Slide url={idToUrl[id]} imgUrl={`/assets/images/slideshow/${id}.png`} />
+          </div>
+        ))}
       </Slider>
     </div>
   );
@@ -112,22 +99,18 @@ function Modal({ isVisible, setIsVisible }) {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center ">
       <div className="w-[1000px]">
-        <div className="bg-white rounded p-4 ">
-          <div className="flex w-full items-center px-2">
+        <div className="bg-white rounded p-12 ">
+          <div className="flex w-full items-center px-2 mb-10">
             <button
               className="text-white py-1 px-2 bg-[#40916C] hover:bg-[#4fb487] hover:ease-in-out duration-100 rounded-lg flex items-center"
-              onClick={() => {
-                setIsVisible(!isVisible);
-              }}
+              
             >
               Ajouter un filtre
               <MdAdd size={25} />
             </button>
             <button
               className="text-white ml-2 py-1 px-2 bg-[#EA5455] hover:bg-[#f76565] hover:ease-in-out duration-100 rounded-lg flex items-center"
-              onClick={() => {
-                setIsVisible(!isVisible);
-              }}
+      
             >
               Supprimer tous les filtres
               <MdDeleteForever size={25} />
@@ -164,7 +147,7 @@ function FilterElement({ prestation, typeCompte, type, value1, value2 }) {
     3: "Comprise entre"
   };
   return (
-    <div className="flex items-center my-4 px-5">
+    <div className="flex items-center my-4 px-10">
       <div className="flex border p-2 rounded mr-2">
         <h2 className=" text-gray-400 mr-3">Prestation</h2>
         <h2>{prestation}</h2>
@@ -179,15 +162,12 @@ function FilterElement({ prestation, typeCompte, type, value1, value2 }) {
       <div className="flex border p-2 rounded mr-2">
         <h2 className="mr-2">{value1}</h2><h2 className="text-gray-400">DA</h2>
       </div>
-      <div className={`flex border p-2 rounded mr-10 ${type != 3 ? "hidden" : "visible"}`}>
+      <div className={`flex border p-2 rounded mr-2 ${type != 3 ? "hidden" : "visible"}`}>
         <h2 className="mr-2">{value2}</h2><h2 className="text-gray-400">DA</h2>
       </div>
       <div>
         <button
-          className="text-white ml-auto place-self-end bg-[#EA5455] hover:ease-in-out duration-100 rounded-full"
-          onClick={() => {
-            setIsVisible(!isVisible);
-          }}
+          className="text-white place-self-end bg-[#EA5455] hover:ease-in-out duration-100 rounded-full"
         >
           <MdOutlineClose size={15} />
         </button>
@@ -220,8 +200,6 @@ export default function Home({ banks }) {
     // return banks && banks.length > 0 ? banks[0].id : null;
     return null;
   }
-
-  const [selectedBankId, setSelectedBankId] = useState(_getDefaultBankId());
   const [isVisible, setIsVisible] = useState(false);
 
   return (

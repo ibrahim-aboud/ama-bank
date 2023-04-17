@@ -5,8 +5,8 @@ import SuccesPopUp from "../components/editBankDataPage/success.js"
 import ModficationListe from "../components/editBankDataPage/modificationList.js"
 import AgencyListe from "../components/editBankDataPage/agencyListe.js"
 import Header from  "../components/editBankDataPage/headerListeOfModification.js"
-import SearchBars from "../components/editBankDataPage/searchBars.js" */
-/* import EditBankData from "src/components/editBankDataPage/editBankData.js" */
+import SearchBars from "../components/editBankDataPage/searchBars.js"
+import EditBankData from "src/components/editBankDataPage/editBankData.js" */
 import EditBankDataClient from "src/components/editBankDataPageClient/editBankData.js"
 
 export default function Home() {

@@ -6,13 +6,18 @@ export default class BankController {
   async get(req, res) {
     const { id } = req.query;
 
+    if (isNaN(id)) {
+      res.status(404).send("La bank n'existe pas!");
+      return;
+    }
+
     try {
       const bank = await Bank.getBankById(id);
 
       res.status(200).json({ bank });
       return;
     } catch (e) {
-      res.status(404).send(e.message);
+      res.status(e.status || 500).send(e.message);
       return;
     }
   }
@@ -45,8 +50,10 @@ export default class BankController {
 
       // File uploaded successfully
       res.status(201).send("ok");
+      return;
     } catch (e) {
       res.status(500).send(e.message);
+      return;
     }
   }
 }

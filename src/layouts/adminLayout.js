@@ -1,6 +1,7 @@
 import Head from "next/head";
 
 import AdminNavbar from "@/components/common/adminNavbar";
+import Scrollbar from "@/components/common/scrollbar";
 
 function AdminLayout({ children }) {
   return (
@@ -12,9 +13,11 @@ function AdminLayout({ children }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="w-screen">
-        <AdminNavbar />
-        {children}
+      <div className="w-screen h-screen">
+        <Scrollbar>
+          <AdminNavbar />
+          {children}
+        </Scrollbar>
       </div>
     </>
   );

@@ -3,16 +3,31 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { getSession, useSession } from "next-auth/react";
-import { TbHomeCog } from "react-icons/tb";
+import { TbCircleLetterG, TbHomeCog } from "react-icons/tb";
 import { MdAddCircle, MdDeleteForever } from "react-icons/md";
 import { FaAngleDown } from "react-icons/fa";
 import axios from "axios";
-import SearchBox from "@/components/common/searchBox";
 import { useRouter } from "next/router";
 import Scrollbar from "@/components/common/scrollbar";
 
 function BankListElement(props) {
   const [isGstBanksHidden, setIsGstBanksHidden] = useState(true);
+  const router = useRouter();
+
+  async function deleteBank(id) {
+    try {
+      const response = await axios.delete(
+        process.env.NEXT_PUBLIC_API_URL + `/banks/${id}`
+      );
+    } catch (e) {
+      console.log(e.message);
+    }
+  }
+
+  async function deleteHandler() {
+    await deleteBank(props.id);
+    router.reload();
+  }
 
   return (
     <div>
@@ -62,7 +77,10 @@ function BankListElement(props) {
           </div>
         </div>
 
-        <button className="rounded-xl px-5 py-3 font-semibold bg-[#EA5455] text-white shadow-md hover:bg-[#e24141] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300">
+        <button
+          onClick={deleteHandler}
+          className="rounded-xl px-5 py-3 font-semibold bg-[#EA5455] text-white shadow-md hover:bg-[#e24141] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
+        >
           Supprimer la banque
           <MdDeleteForever size={23} className="ml-2" />
         </button>

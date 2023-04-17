@@ -1,0 +1,9 @@
+prestation: {
+        bank_id: 1,
+        categorie_id: 2,
+        name: "Nom prestation",
+        type: "particulier",
+        tarif: 400,
+        period: 365,
+        categorie_operation: "Gestion et tenue de compte"       
+}

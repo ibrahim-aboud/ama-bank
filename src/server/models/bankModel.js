@@ -24,7 +24,7 @@ export default class Bank {
       const logos = FilesHelpers.getAllDirectoryFiles(dirPath);
   
       const logo = logos.find((logo) => logo.split(".")[0] == id);
-      return logo ? "public/assets/logos/banks_logos/" + logo : "";
+      return logo ? "/assets/logos/banks_logos/" + logo : "";
     } catch(err){
       throw new ModelError(errorMessages.serverError,500) ;
     }
@@ -32,11 +32,11 @@ export default class Bank {
 
   static #getImageLink(id) {
     try {
-      const dirPath = "public/assets/images/bank_images";
+      const dirPath = "public/assets/images/banks_images";
       const images = FilesHelpers.getAllDirectoryFiles(dirPath);
   
       const image = images.find((image) => image.split(".")[0] == id);
-      return image ? "public/assets/images/bank_images" + image : "";
+      return image ? "/assets/images/banks_images/" + image : "";
     } catch(err){
       throw new ModelError(errorMessages.serverError,500) ;
     }﻿

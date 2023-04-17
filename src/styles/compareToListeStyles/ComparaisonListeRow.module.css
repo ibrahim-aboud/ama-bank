@@ -21,6 +21,7 @@
     display : flex;
     position : relative;
     align-items: center;
+    text-align: center;
   }
   
   .prestationName, .value1,  .value2{

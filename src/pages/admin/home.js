@@ -104,41 +104,51 @@ function Home({ banks }) {
 
         <div className="hidden lg:block h-[2px] bg-black w-[25%]" />
       </div>
-      <div className="flex items-center mb-20">
-        <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
-          <h2 className="p-1 text-lg">Nom de la banque</h2>
-          <div className="bg-[#ffffff6e] px-4 py-2 rounded-md border shadow-sm flex items-center w-full">
-            <div className="w-full">
-              <SearchBox
-                items={banks}
-                selectedId={selectedBankId}
-                setSelectedId={setSelectedBankId}
-                searchField="name"
-              />
+      <section>
+        <div className="flex flex-col items-center h-screen mt-14">
+          <div className="flex items-center mb-16">
+            <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
+              <h2 className="p-1 text-lg">Nom de la banque</h2>
+              <div className="px-4 py-2 rounded-md border shadow-sm flex items-center w-full bg-gray-100">
+                <div className="w-full">
+                  <input
+                    type="text"
+                    placeholder="Rechercher une banque..."
+                    className="border-none outline-none w-full text-md bg-gray-100 p-2 rounded-md border"
+                    onChange={(event) => {
+                      setSearchQuery(event.target.value);
+                    }}
+                    value={searchQuery}
+                  />
+                </div>
+              </div>
+            </div>
+            <div>
+              <Link
+                href="/admin/banks/add-bank"
+                className="rounded-xl px-8 py-4 mt-4 ml-10 font-semibold bg-black text-white shadow-xl hover:bg-[#40916C] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
+              >
+                Ajouter une banque
+                <MdAddCircle size={23} className="ml-2" />
+              </Link>
             </div>
           </div>
-        </div>
-        <div>
-          <Link
-            href="/admin/banks/add-bank"
-            className="rounded-xl px-8 py-4 mt-4 ml-10 font-semibold bg-black text-white shadow-xl hover:bg-[#40916C] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
-          >
-            Ajouter une banque
-            <MdAddCircle size={23} className="ml-2" />
-          </Link>
-        </div>
-      </div>
 
-      <div className="w-full px-[20%]">
-        <div className="w-full bg-[#d9d9d928] py-16 rounded-md">
-          {banks.map((bank) => (
-            <BankListElement 
-              name={bank.name}
-              logo_src={bank.logo_src}
-            />
-          ))}
+          <div className="w-full px-[20%] h-[540px]">
+            <Scrollbar>
+              <div className="w-full bg-[#d9d9d928] py-16 rounded-md">
+                {filteredList.map((bank) => (
+                  <BankListElement
+                    key={bank.id}
+                    name={bank.name}
+                    logo_src={bank.logo_src}
+                  />
+                ))}
+              </div>
+            </Scrollbar>
+          </div>
         </div>
-      </div>
+      </section>
       
     </div>
   );

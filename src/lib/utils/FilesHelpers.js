@@ -4,7 +4,13 @@ import path from "path";
 export default class FilesHelpers {
   static getAllDirectoryFiles(directory) {
     const _dir = path.join(process.cwd(), directory);
-    const files = fs.readdirSync(_dir);
+    var files = [];
+
+    try {
+      files = fs.readdirSync(_dir);
+    } catch (e) {
+      console.log(e.message);
+    }
 
     return files;
   }

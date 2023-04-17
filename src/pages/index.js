@@ -51,7 +51,7 @@ function Slide(props) {
   return (
     <Link href={props.url} target={`${props.url !== '' ? "_blank" : ""}`}>
       <div
-        className="pb-[56.25%] aspect-w-16 aspect-h-9 bg-cover bg-center"
+        className="pb-[50%] bg-cover bg-center"
         style={{ backgroundImage: `url(${props.imgUrl})` }}
       />
     </Link>
@@ -146,6 +146,7 @@ function FilterElement({ prestation, typeCompte, type, value1, value2 }) {
     2: "Supérieure à",
     3: "Comprise entre"
   };
+
   return (
     <div className="flex items-center my-4 px-10">
       <div className="flex border p-2 rounded mr-2">
@@ -204,12 +205,12 @@ export default function Home({ banks }) {
 
   return (
     <div>
-      <section className="h-screen mb-[10%] mt-1">
+      <div className="h-screen mt-1">
         <Slideshow />
-      </section>
+      </div>
 
-      <section>
-        <div className="flex flex-col items-center h-screen mt-14">
+      <div>
+        <div className="flex flex-col items-center mt-14 h-screen">
           <div className="flex items-center mb-16">
             <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
               <h2 className="p-1 text-lg">Nom de la banque</h2>
@@ -254,7 +255,7 @@ export default function Home({ banks }) {
             </Scrollbar>
           </div>
         </div>
-      </section>
+      </div>
 
       <Modal isVisible={isVisible} setIsVisible={setIsVisible} />
     </div>
@@ -264,15 +265,6 @@ export default function Home({ banks }) {
 export async function getServerSideProps(context) {
   const session = await getSession(context);
   var banks = [];
-
-  // if (!session) {
-  //   return {
-  //     redirect: {
-  //       destination: "/",
-  //       permanent: false,
-  //     },
-  //   };
-  // }
 
   try {
     const response = await axios.get(

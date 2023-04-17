@@ -22,83 +22,58 @@ export default class Bank {
     try {
       const dirPath = "public/assets/logos/banks_logos";
       const logos = FilesHelpers.getAllDirectoryFiles(dirPath);
-  
+
       const logo = logos.find((logo) => logo.split(".")[0] == id);
-      return logo ? "public/assets/logos/banks_logos/" + logo : "";
-    } catch(err){
-      throw new ModelError(errorMessages.serverError,500) ;
+      return logo ? "/assets/logos/banks_logos/" + logo : "";
+    } catch (err) {
+      throw new ModelError(errorMessages.serverError, 500);
     }
   }
 
   static #getImageLink(id) {
     try {
-      const dirPath = "public/assets/images/bank_images";
+      const dirPath = "public/assets/images/banks_images";
       const images = FilesHelpers.getAllDirectoryFiles(dirPath);
-  
+
       const image = images.find((image) => image.split(".")[0] == id);
-      return image ? "public/assets/images/bank_images" + image : "";
-    } catch(err){
-      throw new ModelError(errorMessages.serverError,500) ;
-    }﻿
+      return image ? "/assets/images/banks_images/" + image : "";
+    } catch (err) {
+      throw new ModelError(errorMessages.serverError, 500);
+    }
   }
 
   static async getAllBanks() {
     try {
-      var data = await dbQuery("SELECT * FROM ab_banks") ;
-    } catch(err){
-        throw new ModelError(errorMessages.serverError,500) ;
+      var data = await dbQuery("SELECT * FROM ab_banks");
+    } catch (err) {
+      throw new ModelError(errorMessages.serverError, 500);
     }
 
-    var result = data.map(bank=>{
-        return new Bank(
-            bank.id_bank, 
-            bank.bank_name,
-            bank.bank_description,
-            bank.bank_visits_count,
-            bank.bank_website_link,
-            bank.bank_update_date,
-        )
-    })
+    var result = data.map((bank) => {
+      return new Bank(
+        bank.id_bank,
+        bank.bank_name,
+        bank.bank_description,
+        bank.bank_visits_count,
+        bank.bank_website_link,
+        bank.bank_update_date
+      );
+    });
 
-    return result ;
- 
+    return result;
   }
 
   static async getBankById(id) {
-    
     try {
-      var data = await dbQuery("SELECT * FROM ab_banks WHERE id_bank=(?)", [id]);
-      
+      var data = await dbQuery("SELECT * FROM ab_banks WHERE id_bank=(?)", [
+        id,
+      ]);
     } catch (err) {
       throw new ModelError(errorMessages.serverError, 500);
     }
 
-    if (data.length==0){
-      return null ;
-    } else {
-      return new Bank(
-        data[0].id_bank,
-        data[0].bank_name,
-        data[0].bank_description,
-        data[0].bank_visits_count,
-        data[0].bank_website_link,
-        data[0].bank_update_date
-      );
-    }
-    
-  }
-
-  static async getBankByName(name){
-    try {
-     
-      var data = await dbQuery("SELECT * FROM ab_banks WHERE bank_name=(?)", [name]);
-      
-    } catch (err) {
-      throw new ModelError(errorMessages.serverError, 500);
-    }
-
-    if (data.length==0){
-      return null ;
+    if (data.length == 0) {
+      return null;
     } else {
       return new Bank(
         data[0].id_bank,
@@ -111,22 +86,45 @@ export default class Bank {
     }
   }
 
-  static async insertBank(bank){
-    
+  static async getBankByName(name) {
     try {
-        const {name,description,websiteLink}= bank ;
-
-        var data = await dbQuery("INSERT INTO ab_banks (bank_name,bank_description,bank_website_link) VALUES (?,?,?)", [name,description,websiteLink])
-
-    } catch(err){
-        throw new ModelError(errorMessages.serverError,500) ;
+      var data = await dbQuery("SELECT * FROM ab_banks WHERE bank_name=(?)", [
+        name,
+      ]);
+    } catch (err) {
+      throw new ModelError(errorMessages.serverError, 500);
     }
 
-    return data ;
-}
+    if (data.length == 0) {
+      return null;
+    } else {
+      return new Bank(
+        data[0].id_bank,
+        data[0].bank_name,
+        data[0].bank_description,
+        data[0].bank_visits_count,
+        data[0].bank_website_link,
+        data[0].bank_update_date
+      );
+    }
+  }
+
+  static async insertBank(bank) {
+    try {
+      const { name, description, websiteLink } = bank;
+
+      var data = await dbQuery(
+        "INSERT INTO ab_banks (bank_name,bank_description,bank_website_link) VALUES (?,?,?)",
+        [name, description, websiteLink]
+      );
+    } catch (err) {
+      throw new ModelError(errorMessages.serverError, 500);
+    }
+
+    return data;
+  }
 
   static async updateBank(bank) {
-
     try {
       var data = await dbQuery(
         "UPDATE ab_banks SET bank_name=(?), bank_description=(?), bank_visits_count=(?), bank_website_link=(?) WHERE id_bank=(?)",
@@ -143,18 +141,16 @@ export default class Bank {
       throw new ModelError(errorMessages.serverError, 500);
     }
 
-    return data ;
+    return data;
   }
 
-  static async deleteBank(id){
-
+  static async deleteBank(id) {
     try {
-        var data = await dbQuery("DELETE FROM ab_banks WHERE id_bank=(?)",[id]) ;
-    
-    } catch (err){
-        throw new ModelError(errorMessages.serverError,500) ;
+      var data = await dbQuery("DELETE FROM ab_banks WHERE id_bank=(?)", [id]);
+    } catch (err) {
+      throw new ModelError(errorMessages.serverError, 500);
     }
 
-    return data ;
-}
+    return data;
+  }
 }

@@ -18,7 +18,7 @@ function BankListElement(props) {
       <div className="flex justify-center items-center mb-7">
         <Image
           src={props.logo_src}
-          alt="amaBank logo"
+          alt={`${props.name} logo`}
           width={400}
           height={400}
           className="w-[80px] h-[80px] shadow-lg"
@@ -72,6 +72,12 @@ function BankListElement(props) {
 
 function Home({ banks }) {
 
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredList = banks.filter((bank) =>
+    bank.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   const router = useRouter();
   const { id } = router.query;
 
@@ -104,7 +110,7 @@ function Home({ banks }) {
 
         <div className="hidden lg:block h-[2px] bg-black w-[25%]" />
       </div>
-      <section>
+      
         <div className="flex flex-col items-center h-screen mt-14">
           <div className="flex items-center mb-16">
             <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
@@ -126,16 +132,16 @@ function Home({ banks }) {
             <div>
               <Link
                 href="/admin/banks/add-bank"
-                className="rounded-xl px-8 py-4 mt-4 ml-10 font-semibold bg-black text-white shadow-xl hover:bg-[#40916C] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
+                className="rounded-xl px-8 py-3 mt-4 ml-10 font-semibold bg-black text-white shadow-xl hover:bg-[#40916C] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
               >
                 Ajouter une banque
-                <MdAddCircle size={23} className="ml-2" />
+                <MdAddCircle size={22} className="ml-2" />
               </Link>
             </div>
           </div>
 
-          <div className="w-full px-[20%] h-[540px]">
-            <Scrollbar>
+          <div className="w-full px-[4%] h-[540px]">
+            {/* <Scrollbar> */}
               <div className="w-full bg-[#d9d9d928] py-16 rounded-md">
                 {filteredList.map((bank) => (
                   <BankListElement
@@ -145,10 +151,9 @@ function Home({ banks }) {
                   />
                 ))}
               </div>
-            </Scrollbar>
+            {/* </Scrollbar> */}
           </div>
         </div>
-      </section>
       
     </div>
   );

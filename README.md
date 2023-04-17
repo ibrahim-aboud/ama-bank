@@ -1,3 +1,12 @@
+I added informatios about 3 banks
+  Natixis bank
+  TRUST Bank
+  Societe generale Bank
+    in the fist two banks i didnt find informations about profssional and company accounts so I set them to a simple account data
+I added the liste of pprestations with a json file in data that constains a defined structure of data that should be sent through the controller layer
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

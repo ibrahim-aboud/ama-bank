@@ -50,7 +50,7 @@ function BankListElement(props) {
 function Slide(props) {
   return (
     <div
-      className="relative pb-[56.25%] aspect-w-16 aspect-h-9 bg-cover bg-center"
+      className="pb-[56.25%] aspect-w-16 aspect-h-9 bg-cover bg-center"
       style={{ backgroundImage: `url(${props.url})` }}
     >
       <div className={`${props.showbutton ? "" : "hidden"}`}>
@@ -67,7 +67,7 @@ function Slide(props) {
 function Slideshow() {
   const settings = {
     dots: true,
-    arrows: true,
+    arrows: false,
     infinite: true,
     autoplay: true,
     autoplaySpeed: 5000,
@@ -77,7 +77,7 @@ function Slideshow() {
   };
 
   return (
-    <div className="relative">
+    <div>
       <Slider {...settings}>
         <Slide
           url="/assets/images/slideshow/1.png"
@@ -142,10 +142,10 @@ function Modal({ isVisible, setIsVisible }) {
             </button>
           </div>
           <div>
-            <FilterElement prestation={"Ouverture compte"} typeCompte={"Particuliers"} type={0} value={"200"}/>
-            <FilterElement prestation={"Ouverture compte"} typeCompte={"Particuliers"} type={1} value={"200"}/>
-            <FilterElement prestation={"Ouverture compte"} typeCompte={"Particuliers"} type={2} value={"200"}/>
-            <FilterElement prestation={"Ouverture compte"} typeCompte={"Particuliers"} type={3} value={"200"}/>
+            <FilterElement prestation={"Ouverture compte"} typeCompte={"Particuliers"} type={0} value1={"200"}/>
+            <FilterElement prestation={"Ouverture compte"} typeCompte={"Particuliers"} type={1} value1={"200"}/>
+            <FilterElement prestation={"Ouverture compte"} typeCompte={"Particuliers"} type={2} value1={"200"}/>
+            <FilterElement prestation={"Ouverture compte"} typeCompte={"Particuliers"} type={3} value1={"200"} value2={400}/>
 
           
           
@@ -173,8 +173,14 @@ function FilterElement({ prestation, typeCompte, type, value1, value2 }) {
         <h2 className=" text-gray-400 mr-3">Type de compte</h2>
         <h2>{typeCompte}</h2>
       </div>
-      <div className="flex border p-2 rounded mr-10">
-        <h2 className=" text-gray-400 mr-3">{typeMap[type]}</h2><h2 className="mr-2">{}{value1}</h2><h2 className="text-gray-400">DA</h2>
+      <div className="flex border p-2 rounded mr-2">
+        <h2 className=" text-gray-400 w-28">{typeMap[type]}</h2>
+      </div>
+      <div className="flex border p-2 rounded mr-2">
+        <h2 className="mr-2">{value1}</h2><h2 className="text-gray-400">DA</h2>
+      </div>
+      <div className={`flex border p-2 rounded mr-10 ${type != 3 ? "hidden" : "visible"}`}>
+        <h2 className="mr-2">{value2}</h2><h2 className="text-gray-400">DA</h2>
       </div>
       <div>
         <button
@@ -220,71 +226,21 @@ export default function Home({ banks }) {
 
   return (
     <div>
-      <section className="h-screen mb-[12%] mt-1">
+      <section className="h-screen mb-[10%] mt-1">
         <Slideshow />
       </section>
-      {/* 
-      <section>
-        <div className="flex flex-col items-center mt-14">
-          <div className="flex items-center mb-20">
-            <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
-              <h2 className="p-1 text-lg">Nom de la banque</h2>
-              <div className="bg-[#ffffff6e] px-4 py-2 rounded-md border shadow-sm flex items-center w-full">
-                <div className="w-full">
-                  <SearchBox
-                    items={banks}
-                    selectedId={selectedBankId}
-                    setSelectedId={setSelectedBankId}
-                    searchField="name"
-                  />
-                </div>
-              </div>
-            </div>
-            <div>
-              <button
-                className="rounded-xl px-10 py-4 mt-4 ml-2 font-semibold bg-black text-white shadow-xl hover:bg-[#40916C] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
-                onClick={() => {
-                  setIsVisible(!isVisible);
-                }}
-              >
-                Filtrer
-                <BiFilterAlt size={23} className="ml-2" />
-              </button>
-            </div>
-          </div>
-
-          <div className="w-full px-[20%] h-96">
-            <Scrollbar>
-              <div className="w-full bg-[#d9d9d928] py-16 rounded-md">
-                {banks
-                  .filter((bank) =>
-                    selectedBankId ? bank.id === selectedBankId : true
-                  )
-                  .map((bank) => (
-                    <BankListElement
-                      key={bank.id}
-                      name={bank.name}
-                      logo_src={bank.logo_src}
-                    />
-                  ))}
-              </div>
-            </Scrollbar>
-          </div>
-        </div>
-      </section> 
-      */}
 
       <section>
         <div className="flex flex-col items-center h-screen mt-14">
-          <div className="flex items-center mb-20">
+          <div className="flex items-center mb-16">
             <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
               <h2 className="p-1 text-lg">Nom de la banque</h2>
-              <div className="bg-[#ffffff6e] px-4 py-2 rounded-md border shadow-sm flex items-center w-full">
+              <div className="px-4 py-2 rounded-md border shadow-sm flex items-center w-full bg-gray-100">
                 <div className="w-full">
                   <input
                     type="text"
-                    placeholder="Rechercher..."
-                    className="border-none outline-none w-full text-md bg-[#ffffff6e]"
+                    placeholder="Rechercher une banque..."
+                    className="border-none outline-none w-full text-md bg-gray-100 p-2 rounded-md border"
                     onChange={(event) => {
                       setSearchQuery(event.target.value);
                     }}
@@ -295,7 +251,7 @@ export default function Home({ banks }) {
             </div>
             <div>
               <button
-                className="rounded-xl px-10 py-4 mt-4 ml-2 font-semibold bg-black text-white shadow-xl hover:bg-[#40916C] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
+                className="rounded-xl px-10 py-4 mt-4 ml-2 font-semibold bg-black text-white hover:bg-[#40916C] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
                 onClick={() => {
                   setIsVisible(!isVisible);
                 }}
@@ -306,7 +262,7 @@ export default function Home({ banks }) {
             </div>
           </div>
 
-          <div className="w-full px-[20%] h-96">
+          <div className="w-full px-[20%] h-[540px]">
             <Scrollbar>
               <div className="w-full bg-[#d9d9d928] py-16 rounded-md">
                 {filteredList.map((bank) => (

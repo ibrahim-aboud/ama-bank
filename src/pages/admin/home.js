@@ -9,6 +9,7 @@ import { FaAngleDown } from "react-icons/fa";
 import axios from "axios";
 import SearchBox from "@/components/common/searchBox";
 import { useRouter } from "next/router";
+import Scrollbar from "@/components/common/scrollbar";
 
 function BankListElement(props) {
   const [isGstBanksHidden, setIsGstBanksHidden] = useState(true);
@@ -140,8 +141,8 @@ function Home({ banks }) {
             </div>
           </div>
 
-          <div className="w-full px-[4%] h-[540px]">
-            {/* <Scrollbar> */}
+          <div className="w-full px-[4%] h-[600px]">
+            <Scrollbar>
               <div className="w-full bg-[#d9d9d928] py-16 rounded-md">
                 {filteredList.map((bank) => (
                   <BankListElement
@@ -151,7 +152,7 @@ function Home({ banks }) {
                   />
                 ))}
               </div>
-            {/* </Scrollbar> */}
+            </Scrollbar>
           </div>
         </div>
       

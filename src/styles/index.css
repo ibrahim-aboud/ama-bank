@@ -251,7 +251,7 @@ body{
   font-weight: 400;
 }
  */
-.dataModification{
+/* .dataModification{
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -302,7 +302,7 @@ body{
   background-image: url("../../public/assets/modificationsPage/localisationIcon.svg");
   background-repeat: no-repeat;
   background-position: left center;
-}
+} */
 /* }
 
 .inputComponent{
@@ -322,7 +322,7 @@ body{
   position :absolute;
 }
  */
-
+/* 
 .dataValidation{
   display: flex;
   justify-content: center;
@@ -342,7 +342,7 @@ body{
   font-family: 'Nunito', sans-serif;
   font-weight: 400;
   color:white;
-}
+} */
 
 /* .agencyRow{
   display : flex;

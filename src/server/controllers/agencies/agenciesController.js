@@ -9,10 +9,6 @@ export default class AgenciesController{
         const {id} = req.query ;
         try {
             var agencies = await Agency.getAllAgencies(id) ;
-
-            if (agencies.length==0){
-                throw new ModelError(errorMessages.wrongId,404) ;
-            }
             res.status(200).json({agencies}) ;
         } catch(err){
             res.status(err.status).json({error: err}) ;
@@ -20,7 +16,6 @@ export default class AgenciesController{
     }
 
     async add(req,res){
-        
         try {
 
             if (await isNotAdmin(req,res)){
@@ -28,6 +23,11 @@ export default class AgenciesController{
             }
     
             const {agency} = req.body ;
+
+            if (agency==undefined){
+                throw new ModelError(errorMessages.missingResource,400);
+            }
+
             var check = agencyInfoValidator(agency) ;
     
             if (check.error){
@@ -35,13 +35,13 @@ export default class AgenciesController{
             }
 
             //add something to check wether the agency exists or not---
+            
             //////////////////////////////////////////////////////////
             var data = await Agency.insertAgency(agency) ;
             var result = await Agency.getAgencyById(data.insertId) ;
 
             res.status(200).json({agency: result}) ;
 
-            
         } catch(err){
             res.status(err.status).json({error: err}) ;
         }
@@ -55,6 +55,10 @@ export default class AgenciesController{
             }
     
             const {agency} = req.body ; 
+
+            if (agency==undefined){
+                throw new ModelError(errorMessages.missingResource,400);
+            }
     
             var check = agencyInfoValidator(agency) ;
     
@@ -94,7 +98,7 @@ export default class AgenciesController{
             const agency = await Agency.getAgencyById(id) ;
 
             if (agency!=null){
-                var data = await Agency.deleteAgency(id) ;
+                await Agency.deleteAgency(id) ;
                 res.status(200).json({agency}) ;
             } else {
                 throw new ModelError(errorMessages.wrongId,404) ;

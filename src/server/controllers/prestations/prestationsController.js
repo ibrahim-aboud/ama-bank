@@ -10,10 +10,6 @@ export default class PrestationsController {
         const {id} = req.query ;
         try {
             var data = await Prestation.getAllPrestations(id) ;
-
-            if (data.length ==0 ){
-                throw new ModelError(errorMessages.wrongId,404) ;
-            }
             res.status(200).json({prestations: data}) ;
             return ;
         } catch(err){
@@ -30,6 +26,10 @@ export default class PrestationsController {
             }
             
             const {prestation} = req.body ; 
+
+            if (prestation==undefined){
+                throw new ModelError(errorMessages.missingResource,400);
+            }
     
             var check = prestationInfoValidator(prestation) ;
             
@@ -66,6 +66,10 @@ export default class PrestationsController {
             }
     
             const {prestation} = req.body ; 
+
+            if (prestation==undefined){
+                throw new ModelError(errorMessages.missingResource,400);
+            }
     
             var check = prestationInfoValidator(prestation) ;
     

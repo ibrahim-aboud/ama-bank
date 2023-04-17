@@ -72,8 +72,6 @@ export default class Agency {
             
             var data = await dbQuery("INSERT INTO ab_agencies(agency_bank_id,agency_address,agency_lat,agency_lng,agency_wilaya,agency_phone,agency_fax,agency_location_link) VALUES ((?),(?),(?),(?),(?),(?),(?),(?))",[bank_id ,address ,lat ,lng ,wilaya ,phone ,fax ,location_link]) ;
             
-            
- 
         } catch(err){
             throw new ModelError(errorMessages.serverError,500) ;
         }

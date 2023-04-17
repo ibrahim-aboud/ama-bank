@@ -1,3 +1,4 @@
+import ModelError from "@/lib/utils/ModelError";
 import isNotAdmin from "@/lib/utils/checkAdmin";
 import { errorMessages } from "@/lib/utils/errorMessages";
 import dgInfoValidator from "@/lib/validations/dgInfoValidator";
@@ -15,21 +16,25 @@ export default class DgsController{
     }
 
     async add(req,res){
-        if (isNotAdmin){
-            res.status(401).send(errorMessages.unauthorized) ;
-            return ;
-        }
-
-        const {dg} = req.body ;
-        var check = dgInfoValidator(dg) ;
-
-        if (check.error){
-            res.status(400).send(check.errorList[0]) ;
-            return ;
-        }
-
+        
         try {
+            if (await isNotAdmin(req,res)){
+                throw new ModelError(errorMessages.unauthorized,401) ;
+            }
+    
+            const {dg} = req.body ;
+    
+            if (dg==undefined){
+                throw new ModelError(errorMessages.missingResource,400) ;
+            }
+    
+            var check = dgInfoValidator(dg) ;
+    
+            if (check.error){
+                throw new ModelError(check.errorList[0],400) ;
+            }
             //add something to check wether the dg exists or not---
+            ////////////////////////////////////////////////
             var data = await Dg.insertDg(dg) ;
             var result = await Dg.getDgById(data.insertId) ;
 
@@ -37,44 +42,43 @@ export default class DgsController{
 
             
         } catch(err){
-            res.status(err.status).send(err.message) ;
+            res.status(err.status).json({error: err}) ;
         }
     }
 
     async modify(req,res){
-        if (isNotAdmin){
-            res.status(401).send(errorMessages.unauthorized) ;
-            return ;
-        }
-
-        const {dg} = req.body ;
-
-        var check = dgInfoValidator(dg) ;
-
-        //additional check
-        if (!("id" in dg)){
-            res.status(409).send("id not present in dg") ;
-            return
-        } else if (check.error){
-            res.status(409).send(check.errorList[0]) ;
-            return ;
-        } 
-
+        
         try {
-            var data = await Dg.modifyDg(dg) ;
+            if (await isNotAdmin(req,res)){
+                throw new ModelError(errorMessages.unauthorized,401) ;
+            }
+    
+            const {dg} = req.body ;
+    
+            if (dg==undefined){
+                throw new ModelError(errorMessages.missingResource,400) ;
+            }
+    
+            var check = dgInfoValidator(dg) ;
+    
+            //additional check
+            if (!("id" in dg)){
+                throw new ModelError(errorMessages.missingID,400) ;
+            } else if (check.error){
+                throw new ModelError(check.errorList[0],400) ;
+            }
 
-            console.log(data); 
+            var data = await Dg.modifyDg(dg) ;
 
             if (data.affectedRows==1){
                 var result = await Dg.getDgById(dg.id) ;
-                console.log(result) ;
                 res.status(200).json({dg: result}) ;
                 return ;
             } else {
-                throw new ModelError("N'existe pas",409) ;
+                throw new ModelError(errorMessages.inexistant,404) ;
             }
         } catch(err){
-            res.status(err.status).send(err.message) ;
+            res.status(err.status).json({error: err}) ;
             return ;
         }
     }   

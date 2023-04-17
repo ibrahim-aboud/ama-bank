@@ -1,4 +1,4 @@
-import BankController from "@/server/controllers/bankController";
+import BankController from "@/server/controllers/banks/bankController";
 import { errorMessages } from "@/lib/utils/errorMessages";
 
 export default async function handler(req, res) {
@@ -6,7 +6,7 @@ export default async function handler(req, res) {
 
   if (req.method === "GET") await controller.get(req, res);
   else {
-      res.status(405).send(errorMessages.wrongMethod) ;
+    res.status(405).json({error: new ModelError(errorMessages.wrongMethod,405)})
   }
 }
 

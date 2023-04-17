@@ -1,12 +1,18 @@
 import fs from "fs";
 import path from "path";
+import ModelError from "./ModelError";
+import { errorMessages } from "./errorMessages";
 
 export default class FilesHelpers {
   static getAllDirectoryFiles(directory) {
-    const _dir = path.join(process.cwd(), directory);
-    const files = fs.readdirSync(_dir);
+    try {
+      const _dir = path.join(process.cwd(), directory);
+      const files = fs.readdirSync(_dir);
+      return files;
 
-    return files;
+    } catch(err){
+      throw new ModelError(errorMessages.serverError,500) ;
+    }
   }
 
   static deleteFilesInDirectory_IgnoreExtension(filename, directory) {

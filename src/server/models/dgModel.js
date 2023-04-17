@@ -1,4 +1,6 @@
 import dbQuery from "../db/connect";
+import ModelError from "@/lib/utils/ModelError";
+import { errorMessages } from "@/lib/utils/errorMessages";
 
 export default class Dg{
     
@@ -41,12 +43,25 @@ export default class Dg{
     static async getDgById(id){
         
         try {
-            var data = await dbQuery("SELECT * FROM ab_dgs WHERE id_dg=(?)",[id]) ;
+            var dg = await dbQuery("SELECT * FROM ab_dgs WHERE id_dg=(?)",[id]) ;
         } catch(err){
             throw new ModelError(errorMessages.serverError,500) ;
         }
-
-        return data ;
+        if (dg.length==0){
+            return null ;
+        } else {
+            return new Dg(
+                    dg[0].id_dg, 
+                    dg[0].dg_bank_id,
+                    dg[0].dg_address,
+                    dg[0].dg_lat,
+                    dg[0].dg_lng,
+                    dg[0].dg_wilaya,
+                    dg[0].dg_phone,
+                    dg[0].dg_fax,
+                    dg[0].dg_location_link
+            ) ;
+        }
     }
 
     static async insertDg(dg){

@@ -7,6 +7,9 @@ export default class prestationController{
     async get(req,res){
         const {id} = req.query ;
         try {
+            if (id==undefined){
+                throw new ModelError(errorMessages.missingResource,400);
+            }
             var data = await Prestation.getPrestationById(id) ;
             if (data==null){ 
                 throw new ModelError(errorMessages.wrongId,404) ;

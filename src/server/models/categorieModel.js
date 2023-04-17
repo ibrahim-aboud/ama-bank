@@ -1,6 +1,6 @@
-import categorieInfoValidator from "@/lib/validations/categorieInfoValidator";
 import dbQuery from "../db/connect";
 import ModelError from "@/lib/utils/ModelError";
+import { errorMessages } from "@/lib/utils/errorMessages";
 
 
 export default class Categorie{
@@ -14,7 +14,7 @@ export default class Categorie{
         try {
             var data = await dbQuery("SELECT * FROM ab_categories") ;
         } catch (err){
-            throw new ModelError("Something went wrong !", 500) ;
+            throw new ModelError(errorMessages.serverError, 500) ;
         }
 
         var categories = data.map(element=>{
@@ -29,35 +29,39 @@ export default class Categorie{
             var data = await dbQuery("SELECT * FROM ab_categories WHERE id_categorie=(?)",[id]) ;
 
         } catch(err){
-            throw new ModelError("Something went wrong !",500) ;
+            throw new ModelError(errorMessages.serverError,500) ;
         }
-
-        return data ;
+        if (data.length!=0){
+            return new Categorie(data[0].id_categorie, data[0].categorie_name) ;
+        } else {
+            return null ;
+        }
     }
 
     static async getCategorieByName(name){
-        var data = [] ;
+        
         try {
-            data = dbQuery("SELECT * FROM ab_categories WHERE categorie_name=(?)",[name]) ;
-        } catch (err){
-            console.log("qdsfqfd");
-            throw new ModelError("Something went wrong", 500) ;
-        }
+            var data = await dbQuery("SELECT * FROM ab_categories WHERE categorie_name=(?)",[name]) ;
 
-        return data ;
+        } catch (err){
+            throw new ModelError(errorMessages.serverError, 500) ;
+        }
+        
+        if (data.length==0){
+            return null ;
+        } else {
+            return new Categorie(data[0].id_categorie, data[0].categorie_name) ; ;
+        }
     }
 
     static async insertCategorie(categorieName){
-        var data = [] ;
         try {
-            await dbQuery("INSERT INTO ab_categories(categorie_name) VALUES (?)",categorieName) ;
+            var tmp = await dbQuery("INSERT INTO ab_categories(categorie_name) VALUES (?)",categorieName) ;
 
-            data = await dbQuery("SELECT * FROM ab_categories WHERE categorie_name=(?) ",categorieName) ;
-
-            console.log(data) ;
+            var data = await dbQuery("SELECT * FROM ab_categories WHERE id_categorie=(?) ",tmp.insertId) ;
 
         } catch(err){
-            throw new ModelError("Something went wrong !",500) ;
+            throw new ModelError(errorMessages.serverError,500) ;
         }
 
         return new Categorie(data[0].id_categorie,data[0].categorie_name) ;
@@ -66,19 +70,14 @@ export default class Categorie{
 
     static async deleteCategorie(categorie_id){
         try {
-            var categorie = await dbQuery("SELECT * FROM ab_categories WHERE id_categorie=(?)",[categorie_id]) ;
             
-
             var data = await dbQuery("DELETE FROM ab_categories WHERE id_categorie=(?)",[categorie_id]) ;
     
         } catch (err){
-            throw new ModelError("Something went wrong !",500) ;
+            throw new ModelError(errorMessages.serverError,500) ;
         }
 
-        return {
-            categorie:categorie[0] ,
-            data: data
-        } ;
+        return data ;
         
     }
 }

@@ -8,6 +8,6 @@ export default async function handler(req,res){
     if (req.method=="DELETE"){
         await controller.delete(req,res) ;
     } else {
-        res.status(405).send(errorMessages.wrongMethod) ;
+        res.status(405).json({error: new ModelError(errorMessages.wrongMethod,405)})
     }
 }

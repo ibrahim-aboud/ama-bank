@@ -1,6 +1,7 @@
 import isNotAdmin from "@/lib/utils/checkAdmin";
-import BankController from "@/server/controllers/bankController";
+import BankController from "@/server/controllers/banks/bankController";
 import { errorMessages } from "@/lib/utils/errorMessages";
+import ModelError from "@/lib/utils/ModelError";
 
 export const config = {
   api: {
@@ -10,8 +11,8 @@ export const config = {
 
 export default async function handler(req, res) {
 
-  if (isNotAdmin) {
-    res.status(401).send("Access denied!");
+  if (await isNotAdmin(req,res)) {
+    res.status(401).json({error: new ModelError(errorMessages.unauthorized,401)}) ;
     return;
   }
 
@@ -20,6 +21,6 @@ export default async function handler(req, res) {
   if (req.method === "POST") {
     await controller.uploadLogo(req, res);
   } else {
-    res.status(405).send(errorMessages.wrongMethod) ;
+    res.status(405).json({error: new ModelError(errorMessages.wrongMethod,405)})
   }
 }

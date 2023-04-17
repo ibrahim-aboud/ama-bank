@@ -1,5 +1,4 @@
-import BanksController from "@/server/controllers/banksController";
-import isNotAdmin from "@/lib/utils/checkAdmin";
+import BanksController from "@/server/controllers/banks/banksController";
 import { errorMessages } from "@/lib/utils/errorMessages";
 
 
@@ -9,14 +8,10 @@ export default async function handler(req, res) {
 
   if (req.method === "GET") await controller.get(req, res);
   else if (req.method === "PUT") {
-    // securing the route
-    if (isNotAdmin) {
-      res.status(401).send("Access denied!");
-      return;
-    }
-
-    await controller.put(req, res);
+    await controller.modify(req, res);
+  } else if (req.method=="POST") {
+    await controller.add(req,res) ;
   } else {
-    res.status(405).send(errorMessages.wrongMethod) ;
+    res.status(405).json({error: new ModelError(errorMessages.wrongMethod,405)})
   }
 }

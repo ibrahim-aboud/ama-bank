@@ -44,3 +44,19 @@
     padding-left: 10%;
     padding-right: 10%;
   }
+
+  @media only screen and (max-width: 600px) {
+    .row{
+      font-size: 11px;
+    }
+  }
+
+  @media only screen and (max-width: 450px) {
+  
+    .row img{
+      position :relative;
+      width : 25px;
+      height : auto;
+      margin : 0.3em;
+    }
+  }

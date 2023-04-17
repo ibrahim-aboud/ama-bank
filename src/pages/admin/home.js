@@ -2,17 +2,14 @@ import AdminLayout from "@/layouts/adminLayout";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { wilayas } from "@/lib/utils/wilayaMap";
 import { getSession, useSession } from "next-auth/react";
-import { AiOutlineInfoCircle } from "react-icons/ai";
-import { FiUpload, FiGlobe, FiPhone } from "react-icons/fi";
-import { HiPhone, HiLocationMarker, HiSearch } from "react-icons/hi";
 import { TbHomeCog } from "react-icons/tb";
-import { MdFax, MdAddCircle, MdCancel, MdDeleteForever } from "react-icons/md";
-import { FaUndo, FaAngleDown } from "react-icons/fa";
+import { MdAddCircle, MdDeleteForever } from "react-icons/md";
+import { FaAngleDown } from "react-icons/fa";
 import axios from "axios";
 import SearchBox from "@/components/common/searchBox";
 import { useRouter } from "next/router";
+import Scrollbar from "@/components/common/scrollbar";
 
 function BankListElement(props) {
   const [isGstBanksHidden, setIsGstBanksHidden] = useState(true);
@@ -22,12 +19,12 @@ function BankListElement(props) {
       <div className="flex justify-center items-center mb-7">
         <Image
           src={props.logo_src}
-          alt="amaBank logo"
+          alt={`${props.name} logo`}
           width={400}
           height={400}
           className="w-[80px] h-[80px] shadow-lg"
         />
-        <h2 className="font-bold pl-8 text-2xl pr-[450px]">{props.name}</h2>
+        <h2 className="font-bold pl-8 text-2xl w-[35%]">{props.name}</h2>
 
         <div
           className="flex justify-center items-center gap-2 relative cursor-pointer rounded-xl bg-[#40916C] hover:bg-[#46a078] text-white shadow-md py-3 px-5 mr-3 hover:ease-in-out duration-300"
@@ -76,6 +73,12 @@ function BankListElement(props) {
 
 function Home({ banks }) {
 
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredList = banks.filter((bank) =>
+    bank.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   const router = useRouter();
   const { id } = router.query;
 
@@ -108,41 +111,50 @@ function Home({ banks }) {
 
         <div className="hidden lg:block h-[2px] bg-black w-[25%]" />
       </div>
-      <div className="flex items-center mb-20">
-        <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
-          <h2 className="p-1 text-lg">Nom de la banque</h2>
-          <div className="bg-[#ffffff6e] px-4 py-2 rounded-md border shadow-sm flex items-center w-full">
-            <div className="w-full">
-              <SearchBox
-                items={banks}
-                selectedId={selectedBankId}
-                setSelectedId={setSelectedBankId}
-                searchField="name"
-              />
+      
+        <div className="flex flex-col items-center h-screen mt-14">
+          <div className="flex items-center mb-16">
+            <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
+              <h2 className="p-1 text-lg">Nom de la banque</h2>
+              <div className="px-4 py-2 rounded-md border shadow-sm flex items-center w-full bg-gray-100">
+                <div className="w-full">
+                  <input
+                    type="text"
+                    placeholder="Rechercher une banque..."
+                    className="border-none outline-none w-full text-md bg-gray-100 p-2 rounded-md border"
+                    onChange={(event) => {
+                      setSearchQuery(event.target.value);
+                    }}
+                    value={searchQuery}
+                  />
+                </div>
+              </div>
+            </div>
+            <div>
+              <Link
+                href="/admin/banks/add-bank"
+                className="rounded-xl px-8 py-3 mt-4 ml-10 font-semibold bg-black text-white shadow-xl hover:bg-[#40916C] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
+              >
+                Ajouter une banque
+                <MdAddCircle size={22} className="ml-2" />
+              </Link>
             </div>
           </div>
-        </div>
-        <div>
-          <Link
-            href="/admin/banks/add-bank"
-            className="rounded-xl px-8 py-4 mt-4 ml-10 font-semibold bg-black text-white shadow-xl hover:bg-[#40916C] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
-          >
-            Ajouter une banque
-            <MdAddCircle size={23} className="ml-2" />
-          </Link>
-        </div>
-      </div>
 
-      <div className="w-full px-[20%]">
-        <div className="w-full bg-[#d9d9d928] py-16 rounded-md">
-          {banks.map(() => (
-            <BankListElement 
-              name={banks.name}
-              logo_src={banks.logo_src}
-            />
-          ))}
+          <div className="w-full px-[4%] h-[600px]">
+            <Scrollbar>
+              <div className="w-full bg-[#d9d9d928] py-16 rounded-md">
+                {filteredList.map((bank) => (
+                  <BankListElement
+                    key={bank.id}
+                    name={bank.name}
+                    logo_src={bank.logo_src}
+                  />
+                ))}
+              </div>
+            </Scrollbar>
+          </div>
         </div>
-      </div>
       
     </div>
   );

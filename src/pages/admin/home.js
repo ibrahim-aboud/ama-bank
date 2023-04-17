@@ -42,7 +42,7 @@ function BankListElement(props) {
             } absolute z-40 bg-[#40916dfa] text-white flex-col justify-center items-center top-12 px-6 py-2 rounded-xl animate-fade-in`}
           >
             <Link
-              href="/admin/banks/general"
+              href={`/admin/banks/general?id=${props.id}`}
               className="w-48 text-center py-1 hover:bg-gray-100 hover:text-black hover:rounded-xl"
             >
               Informations Générales
@@ -72,7 +72,6 @@ function BankListElement(props) {
 }
 
 function Home({ banks }) {
-
   const [searchQuery, setSearchQuery] = useState("");
 
   const filteredList = banks.filter((bank) =>
@@ -111,51 +110,51 @@ function Home({ banks }) {
 
         <div className="hidden lg:block h-[2px] bg-black w-[25%]" />
       </div>
-      
-        <div className="flex flex-col items-center h-screen mt-14">
-          <div className="flex items-center mb-16">
-            <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
-              <h2 className="p-1 text-lg">Nom de la banque</h2>
-              <div className="px-4 py-2 rounded-md border shadow-sm flex items-center w-full bg-gray-100">
-                <div className="w-full">
-                  <input
-                    type="text"
-                    placeholder="Rechercher une banque..."
-                    className="border-none outline-none w-full text-md bg-gray-100 p-2 rounded-md border"
-                    onChange={(event) => {
-                      setSearchQuery(event.target.value);
-                    }}
-                    value={searchQuery}
-                  />
-                </div>
+
+      <div className="flex flex-col items-center h-screen mt-14">
+        <div className="flex items-center mb-16">
+          <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
+            <h2 className="p-1 text-lg">Nom de la banque</h2>
+            <div className="px-4 py-2 rounded-md border shadow-sm flex items-center w-full bg-gray-100">
+              <div className="w-full">
+                <input
+                  type="text"
+                  placeholder="Rechercher une banque..."
+                  className="border-none outline-none w-full text-md bg-gray-100 p-2 rounded-md border"
+                  onChange={(event) => {
+                    setSearchQuery(event.target.value);
+                  }}
+                  value={searchQuery}
+                />
               </div>
-            </div>
-            <div>
-              <Link
-                href="/admin/banks/add-bank"
-                className="rounded-xl px-8 py-3 mt-4 ml-10 font-semibold bg-black text-white shadow-xl hover:bg-[#40916C] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
-              >
-                Ajouter une banque
-                <MdAddCircle size={22} className="ml-2" />
-              </Link>
             </div>
           </div>
-
-          <div className="w-full px-[4%] h-[600px]">
-            <Scrollbar>
-              <div className="w-full bg-[#d9d9d928] py-16 rounded-md">
-                {filteredList.map((bank) => (
-                  <BankListElement
-                    key={bank.id}
-                    name={bank.name}
-                    logo_src={bank.logo_src}
-                  />
-                ))}
-              </div>
-            </Scrollbar>
+          <div>
+            <Link
+              href="/admin/banks/add-bank"
+              className="rounded-xl px-8 py-3 mt-4 ml-10 font-semibold bg-black text-white shadow-xl hover:bg-[#40916C] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
+            >
+              Ajouter une banque
+              <MdAddCircle size={22} className="ml-2" />
+            </Link>
           </div>
         </div>
-      
+
+        <div className="w-full px-[4%] h-[600px]">
+          <Scrollbar>
+            <div className="w-full bg-[#d9d9d928] py-16 rounded-md">
+              {filteredList.map((bank) => (
+                <BankListElement
+                  key={bank.id}
+                  id={bank.id}
+                  name={bank.name}
+                  logo_src={bank.logoLink}
+                />
+              ))}
+            </div>
+          </Scrollbar>
+        </div>
+      </div>
     </div>
   );
 }
@@ -163,7 +162,6 @@ function Home({ banks }) {
 Home.getLayout = function PageLayout(page) {
   return <AdminLayout>{page}</AdminLayout>;
 };
-
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);

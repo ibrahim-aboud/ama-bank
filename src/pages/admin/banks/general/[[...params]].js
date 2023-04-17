@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 function General({ banks }) {
   const router = useRouter();
   const { id } = router.query;
+  console.log(id);
 
   function _getDefaultBankId() {
     if (

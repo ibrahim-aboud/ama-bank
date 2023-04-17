@@ -32,7 +32,9 @@ function BankListElement(props) {
             height={400}
             className="w-[40px] h-[40px] sm:w-[60px] sm:h-[60px] md:w-[80px] md:h-[80px] shadow-lg"
           />
-          <h2 className="font-bold sm:pl-[5%] sm:text-md smx:mt-2 lg:text-2xl">{props.name}</h2>
+          <h2 className="font-bold sm:pl-[5%] sm:text-md smx:mt-2 lg:text-2xl">
+            {props.name}
+          </h2>
         </div>
 
         <div className="flex smx:flex-col items-center">
@@ -43,12 +45,15 @@ function BankListElement(props) {
             <MdOutlineCompareArrows size={17} className="ml-2 lg:hidden" />
           </button>
 
-          <button className="rounded-xl px-5 smx:py-2 py-3 font-semibold bg-[#40916C] text-white shadow-md hover:bg-[#51b186] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300">
+          <Link
+            href={`/bank/${props.id}`}
+            className="rounded-xl px-5 smx:py-2 py-3 font-semibold bg-[#40916C] text-white shadow-md hover:bg-[#51b186] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
+          >
             <h2 className="smx:hidden">Plus de details</h2>
             <h2 className="lg:hidden text-[0.7rem]">Details</h2>
             <TbListDetails size={23} className="ml-2 smx:hidden" />
             <TbListDetails size={17} className="ml-2 lg:hidden" />
-          </button>
+          </Link>
         </div>
       </div>
     </div>
@@ -57,7 +62,7 @@ function BankListElement(props) {
 
 function Slide(props) {
   return (
-    <Link href={props.url} target={`${props.url !== '' ? "_blank" : ""}`}>
+    <Link href={props.url} target={`${props.url !== "" ? "_blank" : ""}`}>
       <div
         className="pb-[50%] bg-cover bg-center"
         style={{ backgroundImage: `url(${props.imgUrl})` }}
@@ -78,23 +83,28 @@ function Slideshow() {
     slidesToScroll: 1,
   };
 
-  {/* add more slides here */}
+  {
+    /* add more slides here */
+  }
   const idToUrl = {
-    1: 'https://www.example.com',
-    2: 'https://www.google.com',
-    3: 'https://www.github.com',
-    4: '',
-    5: '',
-    6: '',
-    7: '',
+    1: "https://www.example.com",
+    2: "https://www.google.com",
+    3: "https://www.github.com",
+    4: "",
+    5: "",
+    6: "",
+    7: "",
   };
-  
+
   return (
     <div>
       <Slider {...settings}>
         {Object.keys(idToUrl).map((id) => (
           <div key={id}>
-            <Slide url={idToUrl[id]} imgUrl={`/assets/images/slideshow/${id}.png`} />
+            <Slide
+              url={idToUrl[id]}
+              imgUrl={`/assets/images/slideshow/${id}.png`}
+            />
           </div>
         ))}
       </Slider>
@@ -109,17 +119,11 @@ function Modal({ isVisible, setIsVisible }) {
       <div className="w-[1000px]">
         <div className="bg-white rounded p-12 ">
           <div className="flex w-full items-center px-2 mb-10">
-            <button
-              className="text-white py-1 px-2 bg-[#40916C] hover:bg-[#4fb487] hover:ease-in-out duration-100 rounded-lg flex items-center"
-              
-            >
+            <button className="text-white py-1 px-2 bg-[#40916C] hover:bg-[#4fb487] hover:ease-in-out duration-100 rounded-lg flex items-center">
               Ajouter un filtre
               <MdAdd size={25} />
             </button>
-            <button
-              className="text-white ml-2 py-1 px-2 bg-[#EA5455] hover:bg-[#f76565] hover:ease-in-out duration-100 rounded-lg flex items-center"
-      
-            >
+            <button className="text-white ml-2 py-1 px-2 bg-[#EA5455] hover:bg-[#f76565] hover:ease-in-out duration-100 rounded-lg flex items-center">
               Supprimer tous les filtres
               <MdDeleteForever size={25} />
             </button>
@@ -133,13 +137,31 @@ function Modal({ isVisible, setIsVisible }) {
             </button>
           </div>
           <div>
-            <FilterElement prestation={"Ouverture compte"} typeCompte={"Particuliers"} type={0} value1={"200"}/>
-            <FilterElement prestation={"Ouverture compte"} typeCompte={"Particuliers"} type={1} value1={"200"}/>
-            <FilterElement prestation={"Ouverture compte"} typeCompte={"Particuliers"} type={2} value1={"200"}/>
-            <FilterElement prestation={"Ouverture compte"} typeCompte={"Particuliers"} type={3} value1={"200"} value2={400}/>
-
-          
-          
+            <FilterElement
+              prestation={"Ouverture compte"}
+              typeCompte={"Particuliers"}
+              type={0}
+              value1={"200"}
+            />
+            <FilterElement
+              prestation={"Ouverture compte"}
+              typeCompte={"Particuliers"}
+              type={1}
+              value1={"200"}
+            />
+            <FilterElement
+              prestation={"Ouverture compte"}
+              typeCompte={"Particuliers"}
+              type={2}
+              value1={"200"}
+            />
+            <FilterElement
+              prestation={"Ouverture compte"}
+              typeCompte={"Particuliers"}
+              type={3}
+              value1={"200"}
+              value2={400}
+            />
           </div>
         </div>
       </div>
@@ -152,7 +174,7 @@ function FilterElement({ prestation, typeCompte, type, value1, value2 }) {
     0: "Inférieure à",
     1: "Égale à",
     2: "Supérieure à",
-    3: "Comprise entre"
+    3: "Comprise entre",
   };
 
   return (
@@ -169,15 +191,19 @@ function FilterElement({ prestation, typeCompte, type, value1, value2 }) {
         <h2 className=" text-gray-400 w-28">{typeMap[type]}</h2>
       </div>
       <div className="flex border p-2 rounded mr-2">
-        <h2 className="mr-2">{value1}</h2><h2 className="text-gray-400">DA</h2>
+        <h2 className="mr-2">{value1}</h2>
+        <h2 className="text-gray-400">DA</h2>
       </div>
-      <div className={`flex border p-2 rounded mr-2 ${type != 3 ? "hidden" : "visible"}`}>
-        <h2 className="mr-2">{value2}</h2><h2 className="text-gray-400">DA</h2>
+      <div
+        className={`flex border p-2 rounded mr-2 ${
+          type != 3 ? "hidden" : "visible"
+        }`}
+      >
+        <h2 className="mr-2">{value2}</h2>
+        <h2 className="text-gray-400">DA</h2>
       </div>
       <div>
-        <button
-          className="text-white place-self-end bg-[#EA5455] hover:ease-in-out duration-100 rounded-full"
-        >
+        <button className="text-white place-self-end bg-[#EA5455] hover:ease-in-out duration-100 rounded-full">
           <MdOutlineClose size={15} />
         </button>
       </div>
@@ -255,6 +281,7 @@ export default function Home({ banks }) {
                 {filteredList.map((bank) => (
                   <BankListElement
                     key={bank.id}
+                    id={bank.id}
                     name={bank.name}
                     logo_src={bank.logo_src}
                   />

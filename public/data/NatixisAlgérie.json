@@ -1,16 +1,13 @@
 {
-    "Bank_Table" :{
-        "bank_name" : "NATIXIS Bank",
-        "website_link": "https://natixis.groupebpce.com/",
-        "dg_address": "Direction Générale Immeuble Le Ksar، 34/35 Zone d'affaires Mercure،, Bab Ezzouar 16312",
-        "dg_lat" : 36.71462190047448,
-        "dg_lng" : 3.203240498645826,
-        "dg_wilaya": 16,
-        "dg_phone": "021 54 90 15 / 021 54 90 16 / 021 54 91 99/ 021 54 91 95 / 05 56 70 60 44 / 021 54 90 15",
-        "dg_fax" : "021 54 90 13 / 021 54 90 17 / 021 54 90 18",
-        "date_prestations": "2023-03-16"
-    },
-    
+    "bank_name" : "Natixis Algérie",
+    "website_link": "https://natixis.groupebpce.com/",
+    "dg_address": "Direction Générale Immeuble Le Ksar، 34/35 Zone d\\'affaires Mercure، Bab Ezzouar 16312",
+    "dg_lat" : 36.71462190047448,
+    "dg_lng" : 3.203240498645826,
+    "dg_wilaya": 16,
+    "dg_phone": "021 54 90 15 / 021 54 90 16 / 021 54 91 99/ 021 54 91 95 / 05 56 70 60 44 / 021 54 90 15",
+    "dg_fax" : "021 54 90 13 / 021 54 90 17 / 021 54 90 18",
+    "date_prestations": "2023-03-16", 
     "prestations_indiv": {
         "compte": [
             {
@@ -140,13 +137,13 @@
                 "period": 0
             },
             {
-                "nom_prestation": "Virement reçu d'un compte de la même agence" ,
+                "nom_prestation": "Virement reçu d\\'un compte de la même agence" ,
                 "categorie": "Virement",
                 "tarif": 0,
                 "period": 0
             },
             {
-                "nom_prestation": "Virement devise reçue de l'étranger" ,
+                "nom_prestation": "Virement devise reçue de l\\'étranger" ,
                 "categorie": "Virement",
                 "tarif": null,
                 "period": null
@@ -158,19 +155,19 @@
                 "period": null
             },
             {
-                "nom_prestation": "Virement ordonné en faveur client d'une autre agence vers compte sur livret" ,
+                "nom_prestation": "Virement ordonné en faveur client d\\'une autre agence vers compte sur livret" ,
                 "categorie": "Virement",
                 "tarif": 0,
                 "period": 0
             },
             {
-                "nom_prestation": "Virement ordonné en faveur client d'une autre agence vers un compte BANXY" ,
+                "nom_prestation": "Virement ordonné en faveur client d\\'une autre agence vers un compte BANXY" ,
                 "categorie": "Virement",
                 "tarif": 0,
                 "period": 0
             },
             {
-                "nom_prestation": "Retrait espèces aux guichets d'une autre agence" ,
+                "nom_prestation": "Retrait espèces aux guichets d\\'une autre agence" ,
                 "categorie": "Retrait",
                 "tarif": 238,
                 "period": 0
@@ -215,6 +212,7 @@
                 },
                 {
                     "nom_prestation": "Renouvèlement",
+                    "categorie" : "CIB",
                     "tarif": 1190,
                     "period": 0
                 },
@@ -225,6 +223,7 @@
                 },
                 {
                     "nom_prestation": "Réédition du code secret",
+                    "categorie" : "CIB",
                     "tarif": 500,
                     "period": 0
                 },
@@ -257,31 +256,36 @@
                 },
                 {
                     "nom_prestation": "Mise en opposition VISA Gold temporaire ",
+                    "categorie" : "VISA",
                     "tarif": 0,
                     "period": 0
                 },
                 {
                     "nom_prestation": "Mise en opposition VISA GOLD définitive",
+                    "categorie" : "VISA",
                     "tarif": 1000,
                     "period": 0
                 },
                 {
                     "nom_prestation": "Mise en opposition VISA Plentinuim temporaire ",
+                    "categorie" : "VISA",
                     "tarif": 0,
                     "period": 0
                 },
                 {
                     "nom_prestation": "Mise en opposition VISA Plentinuim définitive",
+                    "categorie" : "VISA",
                     "tarif": 1000,
                     "period": 0
                 },
                 {
                     "nom_prestation": "Reconfection",
-                    "tarif": 0,
-                    "period": 0
+                    "tarif": null,
+                    "period": null
                 },
                 {
                     "nom_prestation": "Réédition du code secret VISA",
+                    "categorie" : "VISA",
                     "tarif": 1000,
                     "period": 360
                 },
@@ -424,13 +428,13 @@
                 "period": 0
             },
             {
-                "nom_prestation": "Virement reçu d'un compte de la même agence" ,
+                "nom_prestation": "Virement reçu d\\'un compte de la même agence" ,
                 "categorie": "Virement",
                 "tarif": 0,
                 "period": 0
             },
             {
-                "nom_prestation": "Virement devise reçue de l'étranger" ,
+                "nom_prestation": "Virement devise reçue de l\\'étranger" ,
                 "categorie": "Virement",
                 "tarif": null,
                 "period": null
@@ -442,19 +446,19 @@
                 "period": null
             },
             {
-                "nom_prestation": "Virement ordonné en faveur client d'une autre agence vers compte sur livret" ,
+                "nom_prestation": "Virement ordonné en faveur client d\\'une autre agence vers compte sur livret" ,
                 "categorie": "Virement",
                 "tarif": 0,
                 "period": 0
             },
             {
-                "nom_prestation": "Virement ordonné en faveur client d'une autre agence vers un compte BANXY" ,
+                "nom_prestation": "Virement ordonné en faveur client d\\'une autre agence vers un compte BANXY" ,
                 "categorie": "Virement",
                 "tarif": 0,
                 "period": 0
             },
             {
-                "nom_prestation": "Retrait espèces aux guichets d'une autre agence" ,
+                "nom_prestation": "Retrait espèces aux guichets d\\'une autre agence" ,
                 "categorie": "Retrait",
                 "tarif": 238,
                 "period": 0
@@ -499,6 +503,7 @@
                 },
                 {
                     "nom_prestation": "Renouvèlement",
+                    "categorie" : "CIB",
                     "tarif": 1190,
                     "period": 0
                 },
@@ -509,6 +514,7 @@
                 },
                 {
                     "nom_prestation": "Réédition du code secret",
+                    "categorie" : "CIB",
                     "tarif": 500,
                     "period": 0
                 },
@@ -541,31 +547,36 @@
                 },
                 {
                     "nom_prestation": "Mise en opposition VISA Gold temporaire ",
+                    "categorie" : "VISA",
                     "tarif": 0,
                     "period": 0
                 },
                 {
                     "nom_prestation": "Mise en opposition VISA GOLD définitive",
+                    "categorie" : "VISA",
                     "tarif": 1000,
                     "period": 0
                 },
                 {
                     "nom_prestation": "Mise en opposition VISA Plentinuim temporaire ",
+                    "categorie" : "VISA",
                     "tarif": 0,
                     "period": 0
                 },
                 {
                     "nom_prestation": "Mise en opposition VISA Plentinuim définitive",
+                    "categorie" : "VISA",
                     "tarif": 1000,
                     "period": 0
                 },
                 {
                     "nom_prestation": "Reconfection",
-                    "tarif": 0,
-                    "period": 0
+                    "tarif": null,
+                    "period": null
                 },
                 {
                     "nom_prestation": "Réédition du code secret VISA",
+                    "categorie" : "VISA",
                     "tarif": 1000,
                     "period": 360
                 },
@@ -707,13 +718,13 @@
                 "period": 0
             },
             {
-                "nom_prestation": "Virement reçu d'un compte de la même agence" ,
+                "nom_prestation": "Virement reçu d\\'un compte de la même agence" ,
                 "categorie": "Virement",
                 "tarif": 0,
                 "period": 0
             },
             {
-                "nom_prestation": "Virement devise reçue de l'étranger" ,
+                "nom_prestation": "Virement devise reçue de l\\'étranger" ,
                 "categorie": "Virement",
                 "tarif": null,
                 "period": null
@@ -725,19 +736,19 @@
                 "period": null
             },
             {
-                "nom_prestation": "Virement ordonné en faveur client d'une autre agence vers compte sur livret" ,
+                "nom_prestation": "Virement ordonné en faveur client d\\'une autre agence vers compte sur livret" ,
                 "categorie": "Virement",
                 "tarif": 0,
                 "period": 0
             },
             {
-                "nom_prestation": "Virement ordonné en faveur client d'une autre agence vers un compte BANXY" ,
+                "nom_prestation": "Virement ordonné en faveur client d\\'une autre agence vers un compte BANXY" ,
                 "categorie": "Virement",
                 "tarif": 0,
                 "period": 0
             },
             {
-                "nom_prestation": "Retrait espèces aux guichets d'une autre agence" ,
+                "nom_prestation": "Retrait espèces aux guichets d\\'une autre agence" ,
                 "categorie": "Retrait",
                 "tarif": 238,
                 "period": 0
@@ -782,6 +793,7 @@
                 },
                 {
                     "nom_prestation": "Renouvèlement",
+                    "categorie" : "CIB",
                     "tarif": 1190,
                     "period": 0
                 },
@@ -792,6 +804,7 @@
                 },
                 {
                     "nom_prestation": "Réédition du code secret",
+                    "categorie" : "CIB",
                     "tarif": 500,
                     "period": 0
                 },
@@ -824,31 +837,36 @@
                 },
                 {
                     "nom_prestation": "Mise en opposition VISA Gold temporaire ",
+                    "categorie" : "VISA",
                     "tarif": 0,
                     "period": 0
                 },
                 {
                     "nom_prestation": "Mise en opposition VISA GOLD définitive",
+                    "categorie" : "VISA",
                     "tarif": 1000,
                     "period": 0
                 },
                 {
                     "nom_prestation": "Mise en opposition VISA Plentinuim temporaire ",
+                    "categorie" : "VISA",
                     "tarif": 0,
                     "period": 0
                 },
                 {
                     "nom_prestation": "Mise en opposition VISA Plentinuim définitive",
+                    "categorie" : "VISA",
                     "tarif": 1000,
                     "period": 0
                 },
                 {
                     "nom_prestation": "Reconfection",
-                    "tarif": 0,
-                    "period": 0
+                    "tarif": null,
+                    "period": null
                 },
                 {
                     "nom_prestation": "Réédition du code secret VISA",
+                    "categorie" : "VISA",
                     "tarif": 1000,
                     "period": 360
                 },

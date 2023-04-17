@@ -1,0 +1,54 @@
+{
+    "data" : [
+        {
+            "localisation": "Alger",
+            "adress" : "Ilot 1, Quartier d'affaires d'Alger 16000 Alger",
+            "localisationMaps" :"https://www.google.com/maps/place/Akbou/@36.4571257,4.4498601,12z/data=!3m1!4b1!4m6!3m5!1s0x128cfcec11f42021:0x2f0d14e73fc50cc5!8m2!3d36.4556403!4d4.5365087!16s%2Fm%2F03wdny4",
+            "tel" : "+213 21 98 53 99",
+            "fax" : "+213 21 98 53 99"
+        },
+        {
+            "localisation": "Alger",
+            "adress" : "",
+            "localisationMaps" :"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d204572.62842945123!2d2.9717413497827807!3d36.75983508038182!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128fad6795639515%3A0x4ba4b4c9d0a7e602!2sAlger!5e0!3m2!1sfr!2sdz!4v1681696336464!5m2!1sfr!2sdz",
+            "tel" : "+213 21 98 53 99",
+            "fax" : "+213 21 98 53 99"
+        },
+        {
+            "localisation": "Alger",
+            "adress" : "",
+            "localisationMaps" :" Ilot 1, Quartier d'affaires d'Alger 16000 Alger",
+            "tel" : "+213 21 98 53 99",
+            "fax" : "+213 21 98 53 99"
+        },
+        {
+            "localisation": "Alger",
+            "adress" : "",
+            "localisationMaps" :" Ilot 1, Quartier d'affaires d'Alger 16000 Alger",
+            "tel" : "+213 21 98 53 99",
+            "fax" : "+213 21 98 53 99"
+        },
+        {
+            "localisation": "Alger",
+            "adress" : "",
+            "localisationMaps" :" Ilot 1, Quartier d'affaires d'Alger 16000 Alger",
+            "tel" : "+213 21 98 53 99",
+            "fax" : "+213 21 98 53 99"
+        },
+        {
+            "localisation": "Alger",
+            "adress" : "",
+            "localisationMaps" :" Ilot 1, Quartier d'affaires d'Alger 16000 Alger",
+            "tel" : "+213 21 98 53 99",
+            "fax" : "+213 21 98 53 99"
+        },
+        {
+            "localisation": "Alger",
+            "adress" : "",
+            "localisationMaps" :" Ilot 1, Quartier d'affaires d'Alger 16000 Alger",
+            "tel" : "+213 21 98 53 99",
+            "fax" : "+213 21 98 53 99"
+        }
+        
+    ]
+}

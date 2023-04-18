@@ -40,7 +40,7 @@ function SearchBars ({handleClickAddAgency}){
                             <option>option 1</option>
                         </select>
                     </div>
-                    <button onClick={handleClickAddAgency}>
+                    <button onClick={handleClickAddAgency} className="shadow-xl">
                         <span>Ajouter une agence</span>
                         <Image src={addIcone} alt="icone"/>
                     </button>
@@ -48,7 +48,7 @@ function SearchBars ({handleClickAddAgency}){
                 <div className={styles.searchAgency}>
                     <div>
                         <span>Wilaya</span>
-                        <select onChange={handleButtonClickWilaya}>
+                        <select onChange={handleButtonClickWilaya} >
                             <option value="16">16 - Alger</option>
                             <option value="01">01 - Adrar</option>
                             <option value="02">02 - Chlef</option>
@@ -102,7 +102,7 @@ function SearchBars ({handleClickAddAgency}){
                     </div>
                     <div>
                         <span>Agence</span>
-                        <select onChange={handleButtonClickAgency}>
+                        <select onChange={handleButtonClickAgency} >
                             <option>Sélectionner une agence</option>
                             {
                                 agencyList.map(element => 
@@ -110,7 +110,7 @@ function SearchBars ({handleClickAddAgency}){
                             )}
                         </select>
                     </div>
-                    <button>
+                    <button className="shadow-xl">
                         <Image src={searchTool} alt="Icone"/> 
                         <span>Rechercher</span>
                     </button>                   

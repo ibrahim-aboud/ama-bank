@@ -58,7 +58,7 @@ function AgencyRow(props){
                 </span>
             </div>
             <div className={styles.agencyRowModifyDelete}>
-                <button onClick={props.handleEditAgencyInfo}>
+                <button onClick={props.handleEditAgencyInfo} >
                     <Image src={penIcone}></Image>
                 </button>
                 <button onClick={props.handleDeleteAgency}>

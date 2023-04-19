@@ -1,9 +1,8 @@
 import Head from "next/head";
 
-import Footer from "@/components/common/footer";
-import Navbar from "@/components/common/navbar";
+import AdminNavbar from "@/components/common/adminNavbar";
 
-function Layout({ children }) {
+function AdminLayout({ children }) {
   return (
     <>
       <Head>
@@ -14,12 +13,11 @@ function Layout({ children }) {
       </Head>
 
       <div className="w-screen">
-        <Navbar />
+        <AdminNavbar />
         {children}
-        <Footer />
       </div>
     </>
   );
 }
 
-export default Layout;
+export default AdminLayout;

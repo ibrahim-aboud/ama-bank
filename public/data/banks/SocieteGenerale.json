@@ -1,9 +1,11 @@
 {
     "bank_name" : "Societé Générale",
+    "bank_description": "",
     "website_link": "https://societegenerale.dz/",
     "dg_address": "Résidence El-Kerma 16105 – Gué de Constantine ; BP 55, Bir Khadem, Alger Algérie.",
     "dg_lat" : 36.74314776162377, 
     "dg_lng" : 3.027804035679244,
+    "dg_location_link": "",
     "dg_wilaya": 16,
     "dg_phone": "021 54 97 50",
     "dg_fax" : "021 54 97 55",

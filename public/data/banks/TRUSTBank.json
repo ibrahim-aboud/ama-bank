@@ -1,9 +1,11 @@
 {
     "bank_name" : "TRUST Bank",
+    "bank_description": "",
     "website_link": "https://www.trustbank.dz/",
     "dg_address": "70 Chemin Larbi Allik - Hydra",
     "dg_lat" : 10.5 ,
     "dg_lng" : 11.5,
+    "dg_location_link": "",
     "dg_wilaya": 16,
     "dg_phone": "021 64 87 44",
     "dg_fax" : "023 55 66 78",

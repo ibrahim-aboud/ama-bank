@@ -1,9 +1,11 @@
 {
     "bank_name" : "Natixis Algérie",
+    "bank_description": "",
     "website_link": "https://natixis.groupebpce.com/",
     "dg_address": "Direction Générale Immeuble Le Ksar، 34/35 Zone d\\'affaires Mercure، Bab Ezzouar 16312",
     "dg_lat" : 36.71462190047448,
     "dg_lng" : 3.203240498645826,
+    "dg_location_link": "",
     "dg_wilaya": 16,
     "dg_phone": "021 54 90 15 / 021 54 90 16 / 021 54 91 99/ 021 54 91 95 / 05 56 70 60 44 / 021 54 90 15",
     "dg_fax" : "021 54 90 13 / 021 54 90 17 / 021 54 90 18",

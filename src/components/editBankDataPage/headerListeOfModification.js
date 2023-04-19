@@ -1,5 +1,5 @@
 import React from "react"
-import Image from "next/Image"
+import Image from "next/image"
 import iconeInd from "public/assets/modificationsPage/indicationIcon.png"
 import styles from "src/styles/agenciesModificaitonStyles/headerListeOfModificaiton.module.css"
 

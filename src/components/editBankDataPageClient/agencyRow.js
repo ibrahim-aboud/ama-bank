@@ -12,7 +12,7 @@ function AgencyRow(props){
     return(
         <span className={styles.agencyRow} style={style}>
             <div className={styles.agencyRowBankLocalisation}>
-                <Image src={props.agencyIcone}></Image>
+                <Image src={props.agencyIcone} alt="agencyIcon"></Image>
                 <span className={styles.agencyRowLocalisation}>{props.record.localisation}</span>
             </div>
             <div className={styles.agencyRowAdressLocalisation}>
@@ -24,12 +24,12 @@ function AgencyRow(props){
             </div>
             <div className={styles.agencyRowTelFax}>
                 <span>
-                    <Image src={telIcone}></Image>
+                    <Image src={telIcone} alt="telIcone"></Image>
                     <span>Téléphone : </span>
                     <span>{props.record.tel}</span>
                 </span>
                 <span>
-                    <Image src={faxIcon}></Image>
+                    <Image src={faxIcon} alt="faxIcone"></Image>
                     <span>Fax : </span>
                     <span>{props.record.fax}</span>
                 </span>

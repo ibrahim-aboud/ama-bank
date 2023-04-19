@@ -21,7 +21,7 @@ function InputBar(Props){
         <div className={styles.inputComponent}>
             <span  className={styles.inputMessage}>{Props.record.title}</span>
             <span className={styles.inputBar}>
-                <Image src={Props.record.icone} style={style}></Image>
+                <Image src={Props.record.icone} style={style} alt="icone"></Image>
                 <span style={style}>{Props.record.placeHolder} </span>
                 {str}
             </span>

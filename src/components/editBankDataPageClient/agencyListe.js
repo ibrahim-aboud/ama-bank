@@ -16,7 +16,6 @@ function agencyListe({handleDeleteAgency, handleEditAgencyInfo}){
     }
 
     const dataComponent = dataAgencies.data.map((dataElement, index, arr) => {
-        console.log(index + " " + dataAgencies.data.length - 1)
         if(index === arr.length - 1){
             border = false;
         } else {
@@ -25,7 +24,7 @@ function agencyListe({handleDeleteAgency, handleEditAgencyInfo}){
                 agencyIcone = localisationIcon
             }
         }
-        return <AgencyRow record={dataElement} isDg={isDg} agencyIcone={agencyIcone} style={{border}} handleDeleteAgency={handleDeleteAgency} handleEditAgencyInfo={handleEditAgencyInfo} />
+        return <AgencyRow key={index} record={dataElement} isDg={isDg} agencyIcone={agencyIcone} style={{border}} handleDeleteAgency={handleDeleteAgency} handleEditAgencyInfo={handleEditAgencyInfo} />
     })
     
 

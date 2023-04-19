@@ -8,7 +8,7 @@ import styles from "src/styles/agenciesModificaitonStylesClient/headerListeOfMod
         <div className={styles.container}>
             <span></span>
             <span>
-                <Image src={iconeInd} />
+                <Image src={iconeInd} alt="iconeInd"/>
                 <h2>Informations relatives aux agences</h2>
             </span>
             <span></span>

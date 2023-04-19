@@ -98,7 +98,7 @@ function SearchBars ({handleClickAddAgency}){
                             <option>Sélectionner une agence</option>
                             {
                                 agencyList.map(element => 
-                                    <option value={element.agencyId}>{element.agencyName}</option>    
+                                    <option key = {element.agencyId} value={element.agencyId}>{element.agencyName}</option>    
                             )}
                         </select>
                     </div>

@@ -492,7 +492,7 @@
                 "nom_prestation": "Frais de tenue de compte sur livret" ,
                 "categorie": "tenue de compte" ,
                 "tarif": 0,
-                "period": 360
+                "period": 0
             } ,
             {
                 "nom_prestation": "Tenue de compte en devise" ,

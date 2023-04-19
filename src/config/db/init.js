@@ -96,8 +96,9 @@ for(let file of filesArray){
                 }
                 idCatigorie++;
             }
+            cpt++;//i can use the bank id but to make things clear i wont
         }
-        cpt++;//i can use the bank id but to make things clear i wont
+        
         bank_id++;
     }
 

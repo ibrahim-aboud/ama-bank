@@ -6,8 +6,8 @@ import axios from "axios"
 function ComparaisonListe(props){
     let prestationsBank1, prestationsBank2
     let prestationsData = {
-/*         bank1Name : "Natixis Algérie",
-        bank2Name : "BNP Paribas", */
+/*          bank1Name : "Natixis Algérie",
+        bank2Name : "BNP Paribas",  */
         bank1Name : props.object.bankName1,
         bank2Name : props.object.bankName2,
         data : []
@@ -40,11 +40,11 @@ function ComparaisonListe(props){
     }
 
     useEffect(() => {
-        axios.get(process.env.NEXT_PUBLIC_API_URL + `/prestations/${/* props.object.bank1ID */1}`)
+        axios.get(process.env.NEXT_PUBLIC_API_URL + `/prestations/${ props.object.bank1ID}`)
         .then(response =>{
             prestationsBank1 = response.data.prestations
             
-            return axios.get(process.env.NEXT_PUBLIC_API_URL + `/prestations/${/* props.object.bank2ID */3}`)
+            return axios.get(process.env.NEXT_PUBLIC_API_URL + `/prestations/${props.object.bank2ID}`)
             })
         .then(response =>{
             prestationsBank2 = response.data.prestations

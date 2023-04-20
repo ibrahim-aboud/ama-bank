@@ -124,4 +124,22 @@ export default class PrestationsController {
         return ;
     }
 
+    async getTypes(req,res){
+        try {
+            var types = await Prestation.getAllTypes() ;
+            res.status(200).json({types}) ;
+        } catch(err){
+            res.status(err.status).json({error:err}) ;
+        }
+    }
+
+    async getCategories(req,res){
+        try {
+            var categories = await Prestation.getAllCategories() ;
+            res.status(200).json({categories}) ;
+        } catch(err){
+            res.status(err.status).json({error:err}) ;
+        }
+    }
+    
 }

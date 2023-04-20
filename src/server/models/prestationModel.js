@@ -126,4 +126,34 @@ export default class Prestation{
 
         return data ;
     }
+
+    static async getAllTypes(){
+        try {
+            var data = await dbQuery("SELECT DISTINCT prestation_type FROM ab_prestations") ;
+            
+        } catch(err){
+            throw new ModelError(errorMessages.serverError,500) ;
+        }
+
+        var result = data.map(type=>{
+            return type.prestation_type ;
+        })
+
+        return result ; 
+    }
+
+    static async getAllCategories(){
+        try {
+            var data = await dbQuery("SELECT DISTINCT prestation_categorie_operation FROM ab_prestations") ;
+            
+        } catch(err){
+            throw new ModelError(errorMessages.serverError,500) ;
+        }
+
+        var result = data.map(categorie=>{
+            return categorie.prestation_categorie_operation ;
+        })
+
+        return result ; 
+    }
 }

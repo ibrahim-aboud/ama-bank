@@ -135,44 +135,89 @@ function BankInfoForm({ bankId }) {
           </div>
         </div>
 
-        <div className="mx-5 mb-4 w-[90%] lg:w-[900px] lg:pr-[450px]">
-          <label htmlFor="bank_logo" className="block p-1 ">
-            Logo de la banque
-          </label>
-          <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center">
-            <input
-              type="file"
-              name="bank_logo"
-              id="bank_logo"
-              accept=".jpeg,.jpg,.png"
-              className="bg-gray-100 outline-none px-4 flex-1 w-full"
-              ref={logoInputRef}
-              onChange={({ target }) => {
-                if (target.files) {
-                  const file = target.files[0];
-                  setSelectedImage(file ? URL.createObjectURL(file) : null);
-                  setSelectedFile(file);
-                }
-              }}
-            />
-
-            {(selectedImage || (bank && bank.logoLink)) && (
-              <Image
-                src={
-                  selectedImage
-                    ? selectedImage
-                    : bank
-                    ? `${bank.logoLink}?${Math.random()}`
-                    : ""
-                }
-                alt="Preview"
-                width={400}
-                height={400}
-                className="mr-5 rounded-md h-auto max-w-[50px]"
+        <div className="mx-5 mb-4 w-[90%] lg:w-[900px] flex gap-4 flex-col md:flex-row justify-between">
+          {/* Logo */}
+          <div className="">
+            <label htmlFor="bank_logo" className="block p-1 ">
+              Logo de la banque
+            </label>
+            <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center">
+              <input
+                type="file"
+                name="bank_logo"
+                id="bank_logo"
+                accept=".jpeg,.jpg,.png"
+                className="bg-gray-100 outline-none px-4 flex-1 w-full"
+                ref={logoInputRef}
+                onChange={({ target }) => {
+                  if (target.files) {
+                    const file = target.files[0];
+                    setSelectedImage(file ? URL.createObjectURL(file) : null);
+                    setSelectedFile(file);
+                  }
+                }}
               />
-            )}
 
-            <FiUpload className="pr-2 text-gray-600" size={28} />
+              {(selectedImage || (bank && bank.logoLink)) && (
+                <Image
+                  src={
+                    selectedImage
+                      ? selectedImage
+                      : bank
+                      ? `${bank.logoLink}?${Math.random()}`
+                      : ""
+                  }
+                  alt="Preview"
+                  width={400}
+                  height={400}
+                  className="mr-5 rounded-md h-auto max-w-[50px]"
+                />
+              )}
+
+              <FiUpload className="pr-2 text-gray-600" size={28} />
+            </div>
+          </div>
+
+          {/* Image */}
+          <div className="">
+            <label htmlFor="bank_logo" className="block p-1 ">
+              Logo de la banque
+            </label>
+            <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center">
+              <input
+                type="file"
+                name="bank_logo"
+                id="bank_logo"
+                accept=".jpeg,.jpg,.png"
+                className="bg-gray-100 outline-none px-4 flex-1 w-full"
+                ref={logoInputRef}
+                onChange={({ target }) => {
+                  if (target.files) {
+                    const file = target.files[0];
+                    setSelectedImage(file ? URL.createObjectURL(file) : null);
+                    setSelectedFile(file);
+                  }
+                }}
+              />
+
+              {(selectedImage || (bank && bank.logoLink)) && (
+                <Image
+                  src={
+                    selectedImage
+                      ? selectedImage
+                      : bank
+                      ? `${bank.logoLink}?${Math.random()}`
+                      : ""
+                  }
+                  alt="Preview"
+                  width={400}
+                  height={400}
+                  className="mr-5 rounded-md h-auto max-w-[50px]"
+                />
+              )}
+
+              <FiUpload className="pr-2 text-gray-600" size={28} />
+            </div>
           </div>
         </div>
 

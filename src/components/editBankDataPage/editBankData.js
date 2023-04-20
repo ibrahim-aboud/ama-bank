@@ -34,6 +34,7 @@ function EditBankDataPage(){
     };
 
     const handleClickAddAgency = () => {
+        console.log("aaaaaaa")
         setStyle({
             /* backgroundColor : '#00000090', */
             position : 'absolute',
@@ -129,7 +130,7 @@ function EditBankDataPage(){
                 
                 <Header />
                 <SearchBars handleClickAddAgency={handleClickAddAgency} />
-                <AgencyListe handleDeleteAgency={handleDeleteAgency} handleEditAgencyInfo={handleEditAgencyInfo} />     
+                {/* <AgencyListe handleDeleteAgency={handleDeleteAgency} handleEditAgencyInfo={handleEditAgencyInfo} />  */}    
             </div>
          
         

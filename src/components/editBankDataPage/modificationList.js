@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState, useEffect} from "react"
 import Image from "next/image"
 import adressIcon from "../../../public/assets/modificationsPage/adressIcon.svg"
 import telIcone from "../../../public/assets/modificationsPage/telIcone.svg"
@@ -7,26 +7,79 @@ import localisationIcon from "../../../public/assets/modificationsPage/localisat
 import modificationListeDescard from "../../../public/assets/modificationsPage/modificationListeDescard.svg"
 import styles from "src/styles/agenciesModificaitonStyles/modificaitonListe.module.css"
 import InputBar from "./inputBar"
+import axios from "axios"
 
 function modificationListe(Props){
+    const [bankId, setBankId] = useState(null)
+    const [wilaya, setWilaya] = useState(null)
+    const [adresse, setAdresse] = useState(null)
+    const[phone, setPhone] = useState(null)
+    const[fax, setFax] = useState(null)
+    const[localisation, setLocalisation] = useState(null)
+    const[bankList, setBankList] = useState(null)
+    useEffect(() => {
+        axios.get(process.env.NEXT_PUBLIC_API_URL + `/banks`)
+        .then(response =>{
+            setBankList(response.data.banks.map(element =>{
+                return <option value={element.id} >{element.name}</option>
+            }))
+        }).catch(err => {
+            console.log( err.message )
+        })
+    }, [])
+
+    const handleInputs = (val, which) => {
+        switch(which){
+            case "Adresse *" :
+            setAdresse(val)
+            break
+            case "Numéro de téléphone":
+            setPhone(val)
+            break
+            case "Fax":
+            setFax(val)
+            break
+            case "Localisation":
+            setLocalisation(val)
+            break
+        }
+        console.log(val)
+    }
+
+    const handleButtonClick = ()=> {
+        let objToSend = {
+            agency : {
+                id : null,
+                bank_id : bankId,
+                address : adresse,
+                lat : null,
+                lng : null,
+                wilaya : wilaya,
+                phone : phone,
+                fax : fax,
+                location_link : localisation
+            }
+        }
+
+        axios.post(process.env.NEXT_PUBLIC_API_URL + '/agencies', objToSend)
+        .then(response => {
+            console.log(response)
+            })
+        .catch(err =>{
+            console.log(err.message)
+        })
+    }
+
     return(
         <div className={styles.dataModification}>
             <form className={styles.dataInput}>
                 <span className={styles.inputMessage}>Nom de la banque *</span>
-                <select name="bankName" className={styles.inputBlock} required>
-                    <option value="Banque d'Algérie pour le Développement Rural (BADR)">Banque d'Algérie pour le Développement Rural (BADR)</option>
-                    <option value="Banque de l'Agriculture et du Développement Rural (BADR)">Banque de l'Agriculture et du Développement Rural (BADR)</option>
-                    <option value="Banque Extérieure d'Algérie (BEA)">Banque Extérieure d'Algérie (BEA)</option>
-                    <option value="Banque Nationale d'Algérie (BNA)">Banque Nationale d'Algérie (BNA)</option>
-                    <option value="Caisse Nationale d'Epargne et de Prévoyance (CNEP)">Caisse Nationale d'Epargne et de Prévoyance (CNEP)</option>
-                    <option value="Crédit Populaire d'Algérie (CPA)">Crédit Populaire d'Algérie (CPA)</option>
-                    <option value="Société Générale Algérie (SGA)">Société Générale Algérie (SGA)</option>
-                    <option value="Trust Bank Algeria (TBA)">Trust Bank Algeria (TBA)</option>
-
+                <select name="bankName" className={styles.inputBlock} required onChange={(e)=>{setBankId(parseInt(e.target.value))}}>
+                        {bankList}
                 </select>
 
                 <span className={styles.inputMessage}>Wilaya *</span>
-                <select name="wilaya" className={styles.inputBlock} required>
+                <select name="wilaya" className={styles.inputBlock} required onChange={(e) => {setWilaya(parseInt(e.target.value))}}>
                     <option value="16">16 - Alger</option>
                     <option value="01">01 - Adrar</option>
                     <option value="02">02 - Chlef</option>
@@ -78,16 +131,16 @@ function modificationListe(Props){
                 </select>
 
 
-                <InputBar  record={{title:"Adresse *" , placeHolder:"Ex: 99 route de Meftah16310 Alger", icone:adressIcon ,type:"text"}}/>
-                <InputBar  record={{title:"Numéro de téléphone" , placeHolder:"Ex: +213 21 98 53 99", icone:telIcone ,type:"tel"}}/>
-                <InputBar  record={{title:"Fax" , placeHolder:"Ex: +213 21 98 53 99", icone:faxIcone ,type:"tel"}}/>
-                <InputBar  record={{title:"Localisation" , placeHolder:"Ex: https://goo.gl/maps/onJ7hBd4oZ1fMpPj9", icone:localisationIcon ,type:"url"}}/>
+                <InputBar  record={{title:"Adresse *" , placeHolder:"Ex: 99 route de Meftah16310 Alger", icone:adressIcon ,type:"text", handleInputs:handleInputs}}/>
+                <InputBar  record={{title:"Numéro de téléphone" , placeHolder:"Ex: +213 21 98 53 99", icone:telIcone ,type:"tel", handleInputs:handleInputs}}/>
+                <InputBar  record={{title:"Fax" , placeHolder:"Ex: +213 21 98 53 99", icone:faxIcone ,type:"tel", handleInputs:handleInputs}}/>
+                <InputBar  record={{title:"Localisation" , placeHolder:"Ex: https://goo.gl/maps/onJ7hBd4oZ1fMpPj9", icone:localisationIcon ,type:"url", handleInputs:handleInputs}}/>
 
         </form>
 
         
             <div className={styles.dataValidation}>
-                <button>
+                <button onClick={handleButtonClick()}>
                     
                     <span className={styles.modificationListeButtonsMessage}>{Props.record.message1}</span>
                     <Image src={Props.record.icone}></Image>

@@ -40,7 +40,7 @@ function AgencyRow(props){
             <div className={styles.agencyRowAdressLocalisation}>
                 <span>
                     <span>{props.isDg}</span>
-                    <span>{props.record.adress}</span>
+                    <span>{props.record.address}</span>
                 </span>
                 {/* <a href={props.record.localisationMaps}>Localisation GPS</a> */}
                 <button onClick={handleMpasClick}>Localisation GPS</button>
@@ -49,7 +49,7 @@ function AgencyRow(props){
                 <span>
                     <Image src={telIcone}></Image>
                     <span>Téléphone : </span>
-                    <span>{props.record.tel}</span>
+                    <span>{props.record.phone}</span>
                 </span>
                 <span>
                     <Image src={faxIcon}></Image>

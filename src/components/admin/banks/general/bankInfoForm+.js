@@ -5,12 +5,11 @@ import Image from "next/image";
 import { FiGlobe, FiUpload } from "react-icons/fi";
 import { FaUndo } from "react-icons/fa"
 import { AiOutlineInfoCircle } from "react-icons/ai";
-import { MdFax, MdCancel } from "react-icons/md";
+import { MdFax, MdCancel, MdOutlineClose } from "react-icons/md";
 import { HiCheckCircle, HiPhone, HiLocationMarker, HiSearch } from "react-icons/hi";
 import { RiBankFill } from "react-icons/ri";
 import { wilayas } from "@/lib/utils/wilayaMap";
 import Link from "next/link";
-
 
 function BankInfoFormADD() {
   const [loading, setLoading] = useState(false);
@@ -27,11 +26,11 @@ function BankInfoFormADD() {
   });
 
   const [dg, setDg] = useState({
-    bank_id: "",
+    bank_id: 0,
     address: "",
     lat: 0,
     lng: 0,
-    wilaya: "",
+    wilaya: 0,
     phone: "",
     fax: "",
     location_link: ""
@@ -54,8 +53,9 @@ function BankInfoFormADD() {
   // get excuted when the form is submitted
   async function sumbitHandler(event) {
     event.preventDefault();
+    
     setLoading(true);
-
+    
     try {
       // post request to the API to check user inputs and add to the database
       const response1 = await axios.post(process.env.NEXT_PUBLIC_API_URL + "/banks", {bank: bank});
@@ -98,18 +98,11 @@ function BankInfoFormADD() {
       }
 
       const dgToSend = {...dg, bank_id: data1.id};
-      const response2 = await axios.post(process.env.NEXT_PUBLIC_API_URL + "/dgs", {dg: dgToSend});
-        
-      const data2 = response2.data.dg;
-
-      console.log(bank);
-      console.log(data1);
-      console.log(dgToSend);
-      console.log(data2);
+      await axios.post(process.env.NEXT_PUBLIC_API_URL + "/dgs", {dg: dgToSend});
 
       // when the data is updated
       setError("");
-      //router.reload();
+      router.replace("/admin/home");
     } catch (e) {
       setError(e.response?.data);
     }
@@ -117,10 +110,14 @@ function BankInfoFormADD() {
     setLoading(false);
   }
 
+  const [isResetting, setIsResetting] = useState(false);
+
+  const formRef = useRef(null);
+
   return (
     <div className="mb-20 mt-5">
 
-      <form className="flex flex-col items-center" onSubmit={sumbitHandler}>
+      <form className="flex flex-col items-center" onSubmit={sumbitHandler} ref={formRef}>
         <div className="py-8 lg:mx-16 flex items-center justify-center lg:gap-14 w-full">
             <div className="hidden lg:block h-[2px] bg-black w-[25%]" />
 
@@ -133,7 +130,7 @@ function BankInfoFormADD() {
         </div>
         <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
           <label htmlFor="bank_name" className="block p-1">
-            Nom de la banque
+            Nom de la banque<span className="text-red-500 font-bold text-xl">*</span>
           </label>
           <div className="bg-gray-100 p-4 rounded-md border flex items-center w-full">
             <input
@@ -145,6 +142,7 @@ function BankInfoFormADD() {
               onChange={(event) =>
                 setBank({ ...bank, name: event.target.value })
               }
+              required
             />
           </div>
         </div>
@@ -253,7 +251,7 @@ function BankInfoFormADD() {
 
         <div className="flex flex-col items-center w-full">
           <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
-            <label className="p-1" htmlFor="wilaya">Wilaya</label>
+            <label className="p-1" htmlFor="wilaya">Wilaya<span className="text-red-500 font-bold text-xl">*</span></label>
             <div className="bg-gray-100 w-full px-4 py-3 rounded-md border flex items-center">
               <HiSearch className="text-gray-600" size={24} />
               <select
@@ -263,6 +261,7 @@ function BankInfoFormADD() {
                 onChange={(event) =>
                     setDg({ ...dg, wilaya: parseInt(event.target.value) })
                 }
+                required
               >
                 <option value="">-- Selectionner une Wilaya --</option>
                 {wilayas.map((wilaya) => (
@@ -275,7 +274,7 @@ function BankInfoFormADD() {
           </div>
 
           <div className="mx-5 mb-4  w-[90%] lg:w-[900px]">
-            <label className="p-1" htmlFor="dg_address">Adresse du siège social</label>
+            <label className="p-1" htmlFor="dg_address">Adresse du siège social<span className="text-red-500 font-bold text-xl">*</span></label>
             <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center">
               <RiBankFill className="text-gray-600" size={24} />
               <input
@@ -287,6 +286,7 @@ function BankInfoFormADD() {
                 onChange={(event) =>
                     setDg({ ...dg, address: event.target.value })
                 }
+                required
               />
             </div>
           </div>
@@ -343,11 +343,11 @@ function BankInfoFormADD() {
           </div>
         </div>
 
-        {/* {error && (
+        {error && (
           <div className="text-rose-500 font-bold text-center overflow-hidden mt-2">
             {error}
           </div>
-        )} */}
+        )}
 
         <div className="mt-4 flex flex-col md:flex-row items-center justify-center gap-5 md:gap-10 w-full lg:w-[800px] lg:justify-between">
           <button
@@ -360,37 +360,59 @@ function BankInfoFormADD() {
           </button>
 
           <button
-            type="reset"
+            type="button"
             disabled={loading}
             onClick={() => {
-              setError("");
-              setSelectedFile1(null);
-              setSelectedFile2(null);
-              setPreview1("");
-              setPreview2("");
-              setBank({
-                name: "",
-                description: "",
-                websiteLink: "",
-              });
-            
-              setDg({
-                bank_id: "",
-                address: "",
-                lat: "",
-                lng: "",
-                wilaya: "",
-                phone: "",
-                fax: "",
-                location_link: "",
-              });
+              setIsResetting(!isResetting);
             }}
             className="rounded-xl px-8 py-3 font-semibold bg-black text-white hover:shadow-xl hover:bg-[#daa250] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
           >
             Effacer le formulaire
             <FaUndo size={20} className="ml-2" />
           </button>
+            {isResetting && (
+              <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center ">
+                <div className="w-[400px]">
+                  <div className="bg-white rounded p-10 flex flex-col justify-center items-center">
+                    <h2 className="mb-10 font-semibold">Voulez-vous réinitialiser le formulaire?</h2>
+                    <div>
+                        <button className="bg-gray-200 p-2 rounded border mr-10 hover:bg-gray-100 font-medium" onClick={() => {
+                            formRef.current.reset();
+                            
+                            setError("");
+                            setSelectedFile1(null);
+                            setSelectedFile2(null);
+                            setPreview1("");
+                            setPreview2("");
+                            setBank({
+                                name: "",
+                                description: "",
+                                websiteLink: "",
+                            });
+                            
+                            setDg({
+                                bank_id: 0,
+                                address: "",
+                                lat: 0,
+                                lng: 0,
+                                wilaya: 0,
+                                phone: "",
+                                fax: "",
+                                location_link: ""
+                            });
 
+                            setIsResetting(!isResetting);
+                        }}>
+                            Confirmer
+                        </button>
+                        <button className="bg-gray-200 p-2 rounded border hover:bg-gray-100 font-medium" onClick={() => {setIsResetting(!isResetting)}}>
+                            Annuler
+                        </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
           <Link href="/admin/home" className="mb-1 rounded-xl px-8 py-3 font-semibold bg-black text-white hover:shadow-xl hover:bg-[#EA5455] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300">
             Annuler
             <MdCancel size={23} className="ml-2" />

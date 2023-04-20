@@ -19,7 +19,7 @@ export default async function handler(req, res) {
   const controller = new BankController();
 
   if (req.method === "POST") {
-    await controller.uploadLogo(req, res);
+    await controller.uploadImage(req,res) ;
   } else {
     res.status(405).json({error: new ModelError(errorMessages.wrongMethod,405)})
   }

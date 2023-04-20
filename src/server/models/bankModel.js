@@ -1,6 +1,7 @@
 import FilesHelpers from "@/lib/utils/FilesHelpers";
 import ModelError from "../../lib/utils/ModelError";
 import dbQuery from "../db/connect";
+import { errorMessages } from "@/lib/utils/errorMessages";
 
 export default class Bank {
   constructor(id, name, description, visitsCount, websiteLink, updateDate) {
@@ -18,101 +19,138 @@ export default class Bank {
   }
 
   static #getLogoLink(id) {
-    const dirPath = "public/assets/logos/banks_logos";
-    const logos = FilesHelpers.getAllDirectoryFiles(dirPath);
+    try {
+      const dirPath = "public/assets/logos/banks_logos";
+      const logos = FilesHelpers.getAllDirectoryFiles(dirPath);
 
-    const logo = logos.find((logo) => logo.split(".")[0] == id);
-    return logo ? "/assets/logos/banks_logos/" + logo : "";
+      const logo = logos.find((logo) => logo.split(".")[0] == id);
+      return logo ? "/assets/logos/banks_logos/" + logo : "";
+    } catch (err) {
+      throw new ModelError(errorMessages.serverError, 500);
+    }
   }
 
   static #getImageLink(id) {
-    const dirPath = "public/assets/images/banks_images";
-    const images = FilesHelpers.getAllDirectoryFiles(dirPath);
+    try {
+      const dirPath = "public/assets/images/banks_images";
+      const images = FilesHelpers.getAllDirectoryFiles(dirPath);
 
-    const image = images.find((image) => image.split(".")[0] == id);
-    return image ? "/assets/logos/banks_logos/" + image : "";
+      const image = images.find((image) => image.split(".")[0] == id);
+      return image ? "/assets/images/banks_images/" + image : "";
+    } catch (err) {
+      throw new ModelError(errorMessages.serverError, 500);
+    }
   }
 
   static async getAllBanks() {
-    var data = null;
-
     try {
-      data = await dbQuery("SELECT * FROM ab_banks");
-    } catch (e) {
-      throw new ModelError("Something went wrong!", 500);
+      var data = await dbQuery("SELECT * FROM ab_banks");
+    } catch (err) {
+      throw new ModelError(errorMessages.serverError, 500);
     }
 
-    if (!data) {
-      return [];
-    }
-
-    var banks = [];
-
-    for (let i = 0; i < data.length; i++) {
-      const bank = data[i];
-
-      banks.push(
-        new Bank(
-          bank.id_bank,
-          bank.bank_name,
-          bank.bank_description,
-          bank.bank_visits_count,
-          bank.bank_website_link,
-          bank.bank_update_date
-        )
+    var result = data.map((bank) => {
+      return new Bank(
+        bank.id_bank,
+        bank.bank_name,
+        bank.bank_description,
+        bank.bank_visits_count,
+        bank.bank_website_link,
+        bank.bank_update_date
       );
-    }
+    });
 
-    return banks;
+    return result;
   }
 
   static async getBankById(id) {
-    var data = null;
-
     try {
-      data = await dbQuery("SELECT * FROM ab_banks WHERE id_bank=(?)", [id]);
-    } catch (e) {
-      throw new ModelError("Something went wrong!", 500);
+      var data = await dbQuery("SELECT * FROM ab_banks WHERE id_bank=(?)", [
+        id,
+      ]);
+    } catch (err) {
+      throw new ModelError(errorMessages.serverError, 500);
     }
 
-    if (!data || data.length === 0) {
-      throw new ModelError("La bank n'existe pas!", 404);
+    if (data.length == 0) {
+      return null;
+    } else {
+      return new Bank(
+        data[0].id_bank,
+        data[0].bank_name,
+        data[0].bank_description,
+        data[0].bank_visits_count,
+        data[0].bank_website_link,
+        data[0].bank_update_date
+      );
+    }
+  }
+
+  static async getBankByName(name) {
+    try {
+      var data = await dbQuery("SELECT * FROM ab_banks WHERE bank_name=(?)", [
+        name,
+      ]);
+    } catch (err) {
+      throw new ModelError(errorMessages.serverError, 500);
     }
 
-    const bank = data[0];
-    return new Bank(
-      bank.id_bank,
-      bank.bank_name,
-      bank.bank_description,
-      bank.bank_visits_count,
-      bank.bank_website_link,
-      bank.bank_update_date
-    );
+    if (data.length == 0) {
+      return null;
+    } else {
+      return new Bank(
+        data[0].id_bank,
+        data[0].bank_name,
+        data[0].bank_description,
+        data[0].bank_visits_count,
+        data[0].bank_website_link,
+        data[0].bank_update_date
+      );
+    }
+  }
+
+  static async insertBank(bank) {
+    try {
+      const { name, description, websiteLink } = bank;
+
+      var data = await dbQuery(
+        "INSERT INTO ab_banks (bank_name,bank_description,bank_website_link) VALUES (?,?,?)",
+        [name, description, websiteLink]
+      );
+    } catch (err) {
+      throw new ModelError(errorMessages.serverError, 500);
+    }
+
+    return data;
   }
 
   static async updateBank(bank) {
-    const _bank = await Bank.getBankById(bank.id);
-
     try {
-      await dbQuery(
-        "UPDATE ab_banks SET bank_name=(?), bank_description=(?), bank_visits_count=(?), bank_website_link=(?), bank_update_date=(?) WHERE id_bank=(?)",
+      var data = await dbQuery(
+        "UPDATE ab_banks SET bank_name=(?), bank_description=(?), bank_visits_count=(?), bank_website_link=(?) WHERE id_bank=(?)",
         [
           bank.name,
           bank.description,
           bank.visitsCount,
           bank.websiteLink,
-          bank.updateDate,
-
+          // bank.updateDate,
           bank.id,
         ]
       );
-    } catch (e) {
-      throw new ModelError("Ce nom de la banque existe déjà", 409);
+    } catch (err) {
+      throw new ModelError(errorMessages.serverError, 500);
     }
 
-    return {
-      old: _bank,
-      new: bank,
-    };
+    return data;
+  }
+
+  static async deleteBank(id) {
+    try {
+      var data = await dbQuery("DELETE FROM ab_banks WHERE id_bank=(?)", [id]);
+    } catch (err) {
+      throw new ModelError(errorMessages.serverError, 500);
+    }
+
+    return data;
   }
 }

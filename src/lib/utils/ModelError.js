@@ -1,7 +1,6 @@
-export default class ModelError extends Error {
+export default class ModelError  {
   constructor(message, status) {
-    super(message);
-    this.name = "ModelError";
+    this.message = message ;
     this.status = status;
   }
 }

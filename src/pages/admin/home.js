@@ -2,18 +2,15 @@ import AdminLayout from "@/layouts/adminLayout";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { getSession, useSession } from "next-auth/react";
-import { TbCircleLetterG, TbHomeCog } from "react-icons/tb";
+import { getSession } from "next-auth/react";
+import { TbHomeCog } from "react-icons/tb";
 import { MdAddCircle, MdDeleteForever } from "react-icons/md";
 import { FaAngleDown } from "react-icons/fa";
 import axios from "axios";
 import { useRouter } from "next/router";
 import Scrollbar from "@/components/common/scrollbar";
 
-function BankListElement(props) {
-  const [isGstBanksHidden, setIsGstBanksHidden] = useState(true);
-  const router = useRouter();
-
+function ConfirmDelete({ id, name, isDeleting, setIsDeleting }) {
   async function deleteBank(id) {
     try {
       const response = await axios.delete(process.env.NEXT_PUBLIC_API_URL + `/banks/${id}`)
@@ -21,23 +18,47 @@ function BankListElement(props) {
       console.log(e.message)
     }
   }
+  const router = useRouter();
 
-  async function deleteHandler() {
-    await deleteBank(props.id);
-    router.reload();
-  }
+  if (!isDeleting) return null;
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center ">
+      <div className="w-[400px]">
+        <div className="bg-white rounded p-10 flex flex-col justify-center items-center">
+          <h2 className="mb-10 font-semibold">Voulez-vous supprimer "{name}"?</h2>
+          <div>
+              <button className="bg-gray-200 p-2 rounded border mr-10 hover:bg-gray-100 font-medium" onClick={async () => {
+                  await deleteBank(id);
+                  router.reload();
+
+                  setIsDeleting(!isDeleting);
+              }}>
+                  Confirmer
+              </button>
+              <button className="bg-gray-200 p-2 rounded border hover:bg-gray-100 font-medium" onClick={() => {setIsDeleting(!isDeleting)}}>
+                  Annuler
+              </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function BankListElement({ id, name, logo_src, isDeleting, setIsDeleting, onDelete }) {
+  const [isGstBanksHidden, setIsGstBanksHidden] = useState(true);
 
   return (
     <div>
       <div className="flex justify-center items-center mb-7">
         <Image
-          src={props.logo_src}
-          alt={`${props.name} logo`}
+          src={logo_src}
+          alt={`${name} logo`}
           width={400}
           height={400}
           className="w-[80px] h-[80px] shadow-lg"
         />
-        <h2 className="font-bold pl-8 text-2xl w-[35%]">{props.name}</h2>
+        <h2 className="font-bold pl-8 text-2xl w-[35%]">{name}</h2>
 
         <div
           className="flex justify-center items-center gap-2 relative cursor-pointer rounded-xl bg-[#40916C] hover:bg-[#46a078] text-white shadow-md py-3 px-5 mr-3 hover:ease-in-out duration-300"
@@ -55,7 +76,7 @@ function BankListElement(props) {
             } absolute z-40 bg-[#40916dfa] text-white flex-col justify-center items-center top-12 px-6 py-2 rounded-xl animate-fade-in`}
           >
             <Link
-              href={`/admin/banks/general?id=${props.id}`}
+              href={`/admin/banks/general?id=${id}`}
               className="w-48 text-center py-1 hover:bg-gray-100 hover:text-black hover:rounded-xl"
             >
               Informations Générales
@@ -75,7 +96,11 @@ function BankListElement(props) {
           </div>
         </div>
 
-        <button onClick={deleteHandler} className="rounded-xl px-5 py-3 font-semibold bg-[#EA5455] text-white shadow-md hover:bg-[#e24141] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300">
+        <button className="rounded-xl px-5 py-3 font-semibold bg-[#EA5455] text-white shadow-md hover:bg-[#e24141] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300" onClick={() => {
+          onDelete();
+          setIsDeleting(!isDeleting);
+        }
+        }>
           Supprimer la banque
           <MdDeleteForever size={23} className="ml-2" />
         </button>
@@ -92,25 +117,9 @@ function Home({ banks }) {
     bank.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const router = useRouter();
-  const { id } = router.query;
-
-  function _getDefaultBankId() {
-    if (
-      id !== null &&
-      id !== undefined &&
-      !isNaN(id) &&
-      id >= 0 &&
-      Number.isInteger(parseInt(id))
-    ) {
-      return parseInt(id);
-    }
-
-    // return banks && banks.length > 0 ? banks[0].id : null;
-    return null;
-  }
-
-  const [selectedBankId, setSelectedBankId] = useState(_getDefaultBankId());
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [idToDelete, setIdToDelete] = useState(0);
+  const [nameToDelete, setNameToDelete] = useState("");
 
   return (
     <div className="flex flex-col items-center h-screen mt-14">
@@ -163,13 +172,19 @@ function Home({ banks }) {
                     id={bank.id}
                     name={bank.name}
                     logo_src={bank.logoLink}
+                    isDeleting={isDeleting}
+                    setIsDeleting={setIsDeleting}
+                    onDelete={() => {
+                      setIdToDelete(bank.id);
+                      setNameToDelete(bank.name);
+                    }}
                   />
                 ))}
               </div>
             </Scrollbar>
           </div>
         </div>
-      
+        <ConfirmDelete id={idToDelete} name={nameToDelete} isDeleting={isDeleting} setIsDeleting={setIsDeleting} />
     </div>
   );
 }

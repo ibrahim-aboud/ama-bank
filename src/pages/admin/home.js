@@ -50,21 +50,23 @@ function BankListElement({ id, name, logo_src, isDeleting, setIsDeleting, onDele
 
   return (
     <div>
-      <div className="flex justify-center items-center mb-7">
-        <Image
-          src={logo_src}
-          alt={`${name} logo`}
-          width={400}
-          height={400}
-          className="w-[80px] h-[80px] shadow-lg"
-        />
-        <h2 className="font-bold pl-8 text-2xl w-[35%]">{name}</h2>
+      <div className="flex justify-center items-center mb-5 md:mb-10">
+        <div className="flex flex-col sm:flex-row sm:items-center w-[150px] sm:w-[400px]">
+          <Image
+            src={logo_src}
+            alt={`${name} logo`}
+            width={400}
+            height={400}
+            className="w-[40px] h-[40px] sm:w-[60px] sm:h-[60px] md:w-[80px] md:h-[80px] shadow-lg"
+          />
+          <h2 className="font-bold sm:pl-[5%] sm:text-md smx:mt-2 lg:text-2xl">{name}</h2>
+        </div>
 
         <div
-          className="flex justify-center items-center gap-2 relative cursor-pointer rounded-xl bg-[#40916C] hover:bg-[#46a078] text-white shadow-md py-3 px-5 mr-3 hover:ease-in-out duration-300"
+          className="flex justify-center items-center gap-2 relative cursor-pointer rounded-xl bg-[#40916C] hover:bg-[#46a078] text-white shadow-md p-3 lg:py-3 lg:px-5 mr-3 hover:ease-in-out duration-300"
           onClick={() => setIsGstBanksHidden(!isGstBanksHidden)}
         >
-          <span>Modifier les informations</span>
+          <span className="smx:hidden">Modifier les informations</span>
           {isGstBanksHidden ? (
             <FaAngleDown />
           ) : (
@@ -96,13 +98,13 @@ function BankListElement({ id, name, logo_src, isDeleting, setIsDeleting, onDele
           </div>
         </div>
 
-        <button className="rounded-xl px-5 py-3 font-semibold bg-[#EA5455] text-white shadow-md hover:bg-[#e24141] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300" onClick={() => {
+        <button className="rounded-xl p-2 lg:px-5 lg:py-3 font-semibold bg-[#EA5455] text-white shadow-md hover:bg-[#e24141] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300" onClick={() => {
           onDelete();
           setIsDeleting(!isDeleting);
         }
         }>
-          Supprimer la banque
-          <MdDeleteForever size={23} className="ml-2" />
+          <h2 className="smx:hidden">Supprimer la banque</h2>
+          <MdDeleteForever size={23} className="lg:ml-2" />
         </button>
       </div>
     </div>
@@ -134,11 +136,11 @@ function Home({ banks }) {
         <div className="hidden lg:block h-[2px] bg-black w-[25%]" />
       </div>
       
-        <div className="flex flex-col items-center h-screen mt-14">
-          <div className="flex items-center mb-16">
-            <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
-              <h2 className="p-1 text-lg">Nom de la banque</h2>
-              <div className="px-4 py-2 rounded-md border shadow-sm flex items-center w-full bg-gray-100">
+        <div className="flex flex-col items-center md:my-14 py-[1%] px-[10%]">
+          <div className="flex items-center mb-5 md:mb-16">
+            <div className="mb-4 xs:w-[300px] sm:w-[500px] lg:w-[800px] lgx:w-[1000px]">
+              <h2 className="p-1 text-[1rem]">Nom de la banque</h2>
+              <div className="px-3 md:px-7 py-1 sm:px-4 sm:py-2 rounded-md border shadow-sm flex items-center w-full bg-gray-100">
                 <div className="w-full">
                   <input
                     type="text"
@@ -155,15 +157,15 @@ function Home({ banks }) {
             <div>
               <Link
                 href="/admin/banks/add-bank"
-                className="rounded-xl px-8 py-3 mt-4 ml-10 font-semibold bg-black text-white shadow-xl hover:bg-[#40916C] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
+                className="rounded-xl p-3 lg:px-4 sm:p-4 mt-4 ml-2 font-semibold bg-[#111111] text-white hover:text-white hover:bg-[#40916C] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
               >
-                Ajouter une banque
-                <MdAddCircle size={22} className="ml-2" />
+                <h2 className="smx:hidden">Ajouter une banque</h2>
+                <MdAddCircle size={22} className="lg:ml-2" />
               </Link>
             </div>
           </div>
 
-          <div className="w-full px-[4%] h-[600px]">
+          <div className="w-[340px] xs:w-[400px] sm:w-[600px] md:w-[700px] lg:w-[1000px] lgx:w-[1200px] h-[540px]">
             <Scrollbar>
               <div className="w-full bg-[#d9d9d928] py-16 rounded-md">
                 {filteredList.map((bank) => (

@@ -1,26 +1,26 @@
 import multer from "multer";
-import Bank from "../models/bankModel";
+import Bank from "../../models/bankModel";
 import FilesHelpers from "@/lib/utils/FilesHelpers";
+import { errorMessages } from "@/lib/utils/errorMessages";
+import ModelError from "@/lib/utils/ModelError";
 
 export default class BankController {
-  async get(req, res) {
-    const { id } = req.query;
-
-    if (isNaN(id)) {
-      res.status(404).send("La bank n'existe pas!");
-      return;
-    }
-
+  async get(req,res){
+    const {id} = req.query ;
     try {
-      const bank = await Bank.getBankById(id);
-
-      res.status(200).json({ bank });
-      return;
-    } catch (e) {
-      res.status(e.status || 500).send(e.message);
-      return;
+        if (id==undefined){
+            throw new ModelError(errorMessages.missingResource,400);
+        }
+        var data = await Bank.getBankById(id) ;
+        if (data==null){ 
+            throw new ModelError(errorMessages.wrongId,404) ;
+        } else {
+            res.status(200).json({bank: data})
+        }
+    } catch(err){
+        res.status(err.status).json({error: err}) ;
     }
-  }
+}
 
   async uploadLogo(req, res) {
     const storage = multer.diskStorage({
@@ -52,7 +52,7 @@ export default class BankController {
       res.status(201).send("ok");
       return;
     } catch (e) {
-      res.status(500).send(e.message);
+      res.status(500).json({error: new ModelError(errorMessages.serverError,500)}) ;
       return;
     }
   }

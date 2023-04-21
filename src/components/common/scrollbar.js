@@ -4,7 +4,7 @@ import "react-perfect-scrollbar/dist/css/styles.css";
 function Scrollbar({ children }) {
   return (
     <PerfectScrollbar
-      option={{
+      options={{
         wheelPropagation: false,
         swipeEasing: true,
         wheelSpeed: 0.75,

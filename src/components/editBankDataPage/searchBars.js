@@ -7,7 +7,8 @@ import choiceListe from "public/data/wilayaAgencies.json"
 import agencyListe from "./agencyListe"
 import { handleClientScriptLoad } from "next/script"
 import axios from "axios"
-function SearchBars ({handleClickAddAgency}){
+
+function SearchBars ({handleClickAddAgency, handleClickSearch}){
 
         const[wilaya, setWilaya] = useState(0)
         const[agency, setAgency] = useState(0)
@@ -15,6 +16,17 @@ function SearchBars ({handleClickAddAgency}){
         const[agencyList, setAgencyList] = useState([])
         const[agencyListGlobal, setAgencyListGlobal] = useState([])
         const[bankList, setBankList] = useState([])
+
+        const handleClickSearchHere = () => {
+            if(bankName == 0){
+
+            } else if(agency == 0){
+                handleClickSearch(agencyList)
+            } else if(agency != 0){
+                handleClickSearch([agencyList.find(element => element.id == agency)])
+            }
+        }
+
         useEffect(() => {
             axios.get(process.env.NEXT_PUBLIC_API_URL + `/banks`)
             .then(response =>{
@@ -27,6 +39,7 @@ function SearchBars ({handleClickAddAgency}){
         }, [])
         
         const editWilaya = (wilayaId, same) => {
+            console.log("wilaya : ", wilayaId, "bankId", bankName)
             /* console.log(wilayaId, agencyListGlobal) */
             if((wilayaId != wilaya || (wilayaId == wilaya && !same)) && wilayaId != 0){
                 setWilaya(wilayaId)
@@ -37,30 +50,31 @@ function SearchBars ({handleClickAddAgency}){
             } 
         }
         const editAgency = (agencyId) => {
-
+            setAgency(agencyId)
         }
 
         const editBankName = (bankId) =>{
+            
             if(bankId != bankName){
                 setBankName(bankId)
-                if(bankId != 0){
+            }
+        }
+
+            useEffect(()=>{
+                if(bankName != 0){
                     let tempList
                     
-                    axios.get(process.env.NEXT_PUBLIC_API_URL + `/dgs/${bankId}`).then(response => {
+                    axios.get(process.env.NEXT_PUBLIC_API_URL + `/dgs/${bankName}`).then(response => {
                         tempList = response.data.dgs
                         tempList[0].id = -1
-                        return axios.get(process.env.NEXT_PUBLIC_API_URL + `/agencies/${bankId}`)
+                        return axios.get(process.env.NEXT_PUBLIC_API_URL + `/agencies/${bankName}`)
                     }).then(response => {
                         tempList = tempList.concat(response.data.agencies)
-                        console.log(bankId)
-                        console.log(agencyListGlobal)
                         setAgencyListGlobal(tempList)
-                        console.log(agencyListGlobal)
-                        editWilaya(wilaya, false)
                     }).catch(err => {
                         console.log(err.message)
                     })
-                } else if(bankId == 0){
+                } else if(bankName == 0){
                     
                     if(agencyListGlobal.length != 0)
                         {setAgencyListGlobal([])
@@ -69,9 +83,15 @@ function SearchBars ({handleClickAddAgency}){
                         {setAgency(0)}
                     
                 }
-            }
+            }, [bankName])
             //send to controller
-        }
+        useEffect(()=>{
+            editWilaya(wilaya, false)
+        }, [agencyListGlobal])
+
+        useEffect(() => {
+
+        }, [wilaya])
         /* console.log("azul" + agencyList.listeOfAgencies[0].agencyId) */
         return(
             <div className={styles.container}>
@@ -83,7 +103,7 @@ function SearchBars ({handleClickAddAgency}){
                             {bankList}
                         </select>
                     </div>
-                    <button onClick={handleClickAddAgency} className="shadow-xl">
+                    <button onClick={handleClickAddAgency} className="shadow-xl hover:bg-zinc-700">
                         <span>Ajouter une agence</span>
                         <Image src={addIcone} alt="icone"/>
                     </button>
@@ -146,15 +166,15 @@ function SearchBars ({handleClickAddAgency}){
                     </div>
                     <div>
                         <span>Agence</span>
-                        <select onChange={( ) => {editAgency(parseInt(e.target.value))}} >
+                        <select onChange={(e) => {editAgency(parseInt(e.target.value))}} >
                             <option value="0">Sélectionner une agence</option>
                             {
                                 agencyList.map(element => 
-                                    <option value={element.id}>{element.address} {element.wilaya}</option>    
+                                    <option key = {element.id} value={element.id}>{element.address} {element.wilaya}</option>    
                             )}
                         </select>
                     </div>
-                    <button className="shadow-xl">
+                    <button className="shadow-xl hover:bg-sky-700" onClick={() => handleClickSearchHere()}>
                         <Image src={searchTool} alt="Icone"/> 
                         <span>Rechercher</span>
                     </button>                   

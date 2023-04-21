@@ -3,7 +3,7 @@ import Image from "next/image"
 import crossImg from "../../../public/assets/modificationsPage/crossDelete.svg"
 import basketImg from "../../../public/assets/modificationsPage/deleteIcon.svg"
 import styles from "src/styles/agenciesModificaitonStyles/deleteConfirmation.module.css"
-function deleteConfirmation({handleAnnuler, handleButtonDeleteAgency}){
+function deleteConfirmation({handleAnnuler, handleButtonDeleteAgency, agencyId}){
     return(
         <div className={styles.deletePopUpContainer}>
             <div className={styles.deleteHeader}>
@@ -12,7 +12,7 @@ function deleteConfirmation({handleAnnuler, handleButtonDeleteAgency}){
                     <span className={styles.headerDeleteMessage}>Confirmer la suppression</span>
                 </div>
                 <button className={styles.deleteHeaderRight} onClick ={handleAnnuler} >
-                    <Image src={crossImg} classNmae = {styles.crossImg}/>
+                    <Image src={crossImg} className = {styles.crossImg} alt="icone"/>
                 </button>
             </div>
             <div className = {styles.divMessage}>
@@ -24,7 +24,7 @@ function deleteConfirmation({handleAnnuler, handleButtonDeleteAgency}){
                     <button className={styles.spanDiscard} onClick={handleAnnuler}>Annule</button>
                 </div>
                 <div className={styles.divDelete}>
-                    <button classeName={styles.spanDelete} onClick={handleButtonDeleteAgency} >Supprimer</button>
+                    <button classeName={styles.spanDelete} onClick={()=>handleButtonDeleteAgency(agencyId)} >Supprimer</button>
                 </div>
             </div>
         </div>

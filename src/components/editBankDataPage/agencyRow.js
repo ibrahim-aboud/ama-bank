@@ -8,7 +8,13 @@ import styles from "src/styles/agenciesModificaitonStyles/agencyRow.module.css"
 
 function AgencyRow(props){
     const[styleMap, setStyleMap] = useState(null);
-    let style = {}
+    let style = {}, phone = "indisponible", fax = "indisponible"
+    if(props.record.fax != "null"){
+        fax = props.record.fax
+    }
+    if(props.record.phone != "null"){
+        phone = props.record.phone
+    }
     if(props.style.border === true){
         style={borderBottom : "3px solid rgba(0, 0, 0, 0.1)"}
     } 
@@ -49,19 +55,19 @@ function AgencyRow(props){
                 <span>
                     <Image src={telIcone}></Image>
                     <span>Téléphone : </span>
-                    <span>{props.record.phone}</span>
+                    <span>{phone}</span>
                 </span>
                 <span>
                     <Image src={faxIcon}></Image>
                     <span>Fax : </span>
-                    <span>{props.record.fax}</span>
+                    <span>{fax}</span>
                 </span>
             </div>
             <div className={styles.agencyRowModifyDelete}>
                 <button onClick={props.handleEditAgencyInfo} >
                     <Image src={penIcone}></Image>
                 </button>
-                <button onClick={props.handleDeleteAgency}>
+                <button onClick={() => props.handleDeleteAgency(props.record.id)}>
                     <Image src={basketIcon}></Image>
                 </button>
             </div>

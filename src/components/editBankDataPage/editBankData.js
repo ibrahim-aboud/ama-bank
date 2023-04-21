@@ -8,25 +8,20 @@ import ModificationListe from "./modificationList.js"
 import styles from "src/styles/agenciesModificaitonStyles/editBankData.module.css"
 import modificaitonAddImg from "public/assets/modificationsPage/addAgencyIcone.svg"
 import modificationModImg from "public/assets/modificationsPage/modificationListeCheck.svg"
-
+import axios from "axios"
+//petit beuge, quand on supprime une agence et on fait la recherche sur la meme place lagence retounera
 function timeout(delay) {
     return new Promise( res => setTimeout(res, delay) );
 }
 
 function EditBankDataPage(){
     
-/*     let style = null
-    function handleButtonClick(){
-        style = {
-            backgroundColor : '#00000090'
-        }
-    } */
     const[style, setStyle] = useState({
         display : 'none'
     })
     const[objToRender, setObjToRender] = useState(<></>)
     const [scrollPosition, setScrollPosition] = useState(0);
-    
+    const [listeOfAgencies, setListeOfAgencies] = useState([])
     
     const handleScroll = () => {
         const position = window.pageYOffset;
@@ -34,7 +29,6 @@ function EditBankDataPage(){
     };
 
     const handleClickAddAgency = () => {
-        console.log("aaaaaaa")
         setStyle({
             /* backgroundColor : '#00000090', */
             position : 'absolute',
@@ -69,7 +63,7 @@ function EditBankDataPage(){
         })
     }
 
-    const handleDeleteAgency = () => {
+    const handleDeleteAgency = (agencyId) => {
         handleScroll()
         setStyle({
             backgroundColor : '#00000090',
@@ -83,10 +77,11 @@ function EditBankDataPage(){
                                     handleButtonDeleteAgency={handleButtonDeleteAgency}
                                     style={{
                                         animationName : styles.animationSuccess
-                                    }} />)
+                                    }}
+                                    agencyId = {agencyId} />)
     }
 
-    const handleButtonDeleteAgency = () => {
+    const handleButtonDeleteAgency = (agencyId) => {
         setStyle({
             /* backgroundColor : '#00000090', */
             position : 'absolute',
@@ -99,6 +94,20 @@ function EditBankDataPage(){
             animationFillMode: 'forwards'
         })
         setObjToRender(<SuccessCard handleAnnuler={handleAnnuler}/>)
+        let strTemp
+        if(agencyId == -1){
+            strTemp = "dgs"
+        } else {
+            strTemp = "agencies"
+        }
+        axios.delete(process.env.NEXT_PUBLIC_API_URL + `/${strTemp}/${agencyId}`)
+        .then(response => {
+            setListeOfAgencies(listeOfAgencies.filter(element => element.id != agencyId))
+            console.log(response.data)
+        })
+        .catch(err => {
+            console.log(err.message)
+        })
     }
 
     const handleEditAgencyInfo = () => {
@@ -119,6 +128,10 @@ function EditBankDataPage(){
 
     }
 
+    const handleClickSearch = (list) => {
+            setListeOfAgencies(list)
+    }
+
     return (
             <div className={styles.container}>
                {/*  <button onClick={handleAnnuler}></button> */}
@@ -129,8 +142,8 @@ function EditBankDataPage(){
                  < className={styles.sucCard} />  */}
                 
                 <Header />
-                <SearchBars handleClickAddAgency={handleClickAddAgency} />
-                {/* <AgencyListe handleDeleteAgency={handleDeleteAgency} handleEditAgencyInfo={handleEditAgencyInfo} />  */}    
+                <SearchBars handleClickAddAgency={handleClickAddAgency} handleClickSearch={handleClickSearch} />
+                <AgencyListe handleDeleteAgency={handleDeleteAgency} handleEditAgencyInfo={handleEditAgencyInfo} agencyList={listeOfAgencies} />     
             </div>
          
         

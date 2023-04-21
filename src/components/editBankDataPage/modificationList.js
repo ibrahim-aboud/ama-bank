@@ -10,18 +10,21 @@ import InputBar from "./inputBar"
 import axios from "axios"
 
 function modificationListe(Props){
-    const [bankId, setBankId] = useState(null)
-    const [wilaya, setWilaya] = useState(null)
+    const [bankId, setBankId] = useState(0)
+    const [wilaya, setWilaya] = useState(0)
     const [adresse, setAdresse] = useState(null)
     const[phone, setPhone] = useState(null)
     const[fax, setFax] = useState(null)
     const[localisation, setLocalisation] = useState(null)
     const[bankList, setBankList] = useState(null)
+    const [error, setError] = useState(null)
+    const [errStyle, setErrStyle] = useState({display : "none"})
+
     useEffect(() => {
         axios.get(process.env.NEXT_PUBLIC_API_URL + `/banks`)
         .then(response =>{
             setBankList(response.data.banks.map(element =>{
-                return <option value={element.id} >{element.name}</option>
+                return <option key={element.id} value={element.id} >{element.name}</option>
             }))
         }).catch(err => {
             console.log( err.message )
@@ -43,31 +46,77 @@ function modificationListe(Props){
             setLocalisation(val)
             break
         }
-        console.log(val)
+  
+    }
+
+    const verifyData = () =>{
+        return new Promise((resolve, reject) => {
+            let errMsg = ""
+            if(bank_id == 0){
+                errMsg +=" choisir une banque!"
+            } 
+            if (wilaya == 0){
+                errMsg +=" choisir la wilaya de l'agence que vous souhaitez ajouter."
+            }
+            if(adresse.length > 5){
+                errMsg += " l'adresse contient moins de 5 caractères."
+            } 
+            if(errMsg.length > 0 ){
+                 reject(errMsg)
+            } else {
+                 resolve()
+            }
+        })
     }
 
     const handleButtonClick = ()=> {
-        let objToSend = {
-            agency : {
-                id : null,
-                bank_id : bankId,
-                address : adresse,
-                lat : null,
-                lng : null,
-                wilaya : wilaya,
-                phone : phone,
-                fax : fax,
-                location_link : localisation
-            }
-        }
 
-        axios.post(process.env.NEXT_PUBLIC_API_URL + '/agencies', objToSend)
-        .then(response => {
-            console.log(response)
+        verifyData()
+        .then(() => {
+            let objToSend = {
+                agency : {
+                    id : null,
+                    bank_id : bankId,
+                    address : adresse,
+                    lat : null,
+                    lng : null,
+                    wilaya : wilaya,
+                    phone : phone,
+                    fax : fax,
+                    location_link : localisation
+                }
+            }
+            if(Props.record.message1 != "Sauvegarder les modifications"){
+                axios.post(process.env.NEXT_PUBLIC_API_URL + '/agencies', objToSend)
+                .then(response => {
+                    console.log(response)
+                    })
+                .catch(err =>{
+                    console.log(err.message)
+                    })
+                
+            } else {
+                axios.put(process.env.NEXT_PUBLIC_API_URL + '/agencies', objToSend)
+                .then(response => {
+                    console.log(response)
+                    })
+                .catch(err =>{
+                    console.log(err.message)
+                    })
+            }
+            setError("")
+            setEerrStyle ({display : "none"})
             })
-        .catch(err =>{
+
+        .catch(err => {
             console.log(err.message)
-        })
+            setError(err.message)
+            setErrStyle ( {display : "block", 
+                            color : "red", 
+                            textAlign: "center"
+                        })
+            })
+
     }
 
     return(
@@ -75,11 +124,13 @@ function modificationListe(Props){
             <form className={styles.dataInput}>
                 <span className={styles.inputMessage}>Nom de la banque *</span>
                 <select name="bankName" className={styles.inputBlock} required onChange={(e)=>{setBankId(parseInt(e.target.value))}}>
+                        <option value="0">Sélectionner une banque</option>
                         {bankList}
                 </select>
 
                 <span className={styles.inputMessage}>Wilaya *</span>
                 <select name="wilaya" className={styles.inputBlock} required onChange={(e) => {setWilaya(parseInt(e.target.value))}}>
+                    <option value="0">Sélectionner la wilaya</option>
                     <option value="16">16 - Alger</option>
                     <option value="01">01 - Adrar</option>
                     <option value="02">02 - Chlef</option>
@@ -138,18 +189,18 @@ function modificationListe(Props){
 
         </form>
 
-        
+            <div style={errStyle}>{error}</div>
             <div className={styles.dataValidation}>
-                <button onClick={handleButtonClick()}>
+                <button onClick={() => handleButtonClick()}>
                     
                     <span className={styles.modificationListeButtonsMessage}>{Props.record.message1}</span>
-                    <Image src={Props.record.icone}></Image>
+                    <Image src={Props.record.icone} alt="icone"></Image>
                 
                 </button>
                 <button onClick={Props.handleAddAgencyAnnuler} >
                     
                     <span className={styles.modificationListeButtonsMessage}>{Props.record.message2}</span>
-                    <Image src={modificationListeDescard}></Image>
+                    <Image src={modificationListeDescard} alt="icone"></Image>
                 
                 </button>
             </div>

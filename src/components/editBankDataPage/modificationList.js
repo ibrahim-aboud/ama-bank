@@ -115,8 +115,11 @@ function modificationListe(Props){
                         })
                 }
             }
-            setError("")
-            setErrStyle ({display : "none"})
+            setError("Opération bien éffectuée")
+            setErrStyle ( {display : "block", 
+                            color : "green", 
+                            textAlign: "center"
+                        })
             })
 
         .catch(err => {

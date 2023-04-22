@@ -16,14 +16,27 @@ function SearchBars ({handleClickAddAgency, handleClickSearch}){
         const[agencyList, setAgencyList] = useState([])
         const[agencyListGlobal, setAgencyListGlobal] = useState([])
         const[bankList, setBankList] = useState([])
+        const [errStyle, setErrStyle] = useState({display : "none"})
 
         const handleClickSearchHere = () => {
             if(bankName == 0){
-
-            } else if(agency == 0){
+                setErrStyle({
+                    display : "block", 
+                    color : "red", 
+                    textAlign : "center"
+                })
+                setAgencyList([])
+                setAgencyListGlobal([])
                 handleClickSearch(agencyList)
-            } else if(agency != 0){
-                handleClickSearch([agencyList.find(element => element.id == agency)])
+
+            } else 
+            {
+                setErrStyle({display : "none"})
+                if(agency == 0){
+                handleClickSearch(agencyList)
+                } else{
+                    handleClickSearch([agencyList.find(element => element.id == agency)])
+                }
             }
         }
 
@@ -171,13 +184,16 @@ function SearchBars ({handleClickAddAgency, handleClickSearch}){
                             {
                                 agencyList.map(element => 
                                     <option key = {element.id} value={element.id}>{element.address} {element.wilaya}</option>    
-                            )}
+                                    )}
                         </select>
                     </div>
                     <button className="shadow-xl hover:bg-sky-700" onClick={() => handleClickSearchHere()}>
                         <Image src={searchTool} alt="Icone"/> 
                         <span>Rechercher</span>
                     </button>                   
+                </div>
+                <div style={errStyle}>             
+                    vous n'avez pas encore choisi le nom de la banque
                 </div>
             </div>
         )

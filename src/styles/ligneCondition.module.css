@@ -1,3 +1,33 @@
 .container{
-    color: red;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
 }
+.nomPrestation{
+    color: #40916C;
+    font-weight: 700;
+    margin: 0 0;
+    text-align: center;
+    margin: 0 0;
+   
+}
+.tarifPrestation{
+    flex-shrink: 0;
+    font-weight: 700;
+    margin: 0 0;
+    text-align: center;
+    margin : 0 0;
+    
+}
+
+.nomTarifPrestation{
+    display : flex;
+    margin: 0 0;
+    align-items: center;
+    margin: 0 10%;
+}
+
+
+@media screen and (max-width: 800px) {
+    
+  }

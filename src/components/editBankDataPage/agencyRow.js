@@ -2,7 +2,7 @@ import React from "react"
 import Image from "next/image"
 import telIcone from "../../../public/assets/modificationsPage/telGreenIcon.svg"
 import faxIcon from "../../../public/assets/modificationsPage/faxGreenIcon.svg"
-import styles from "src/styles/agenciesModificaitonStylesClient/agencyRow.module.css"
+import styles from "src/styles/agenciesModificaitonStyles/agencyRow.module.css"
 
 function AgencyRow(props){
     let style = {}
@@ -20,7 +20,7 @@ function AgencyRow(props){
                     <span>{props.isDg}</span>
                     <span>{props.record.adress}</span>
                 </span>
-                <a href={props.record.localisationMaps} >Localisation GPS</a>
+                <button /* href={props.record.localisationMaps} */ className={styles.agencyRowAdressLocalisation}>Localisation GPS</button>
             </div>
             <div className={styles.agencyRowTelFax}>
                 <span>

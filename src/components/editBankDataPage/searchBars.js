@@ -2,46 +2,126 @@ import React, {useState, useEffect} from "react"
 import Image from "next/image"
 import addIcone from "public/assets/modificationsPage/addAgencyIcone.svg"
 import searchTool from "public/assets/modificationsPage/searchTool.svg"
-import styles from "src/styles/agenciesModificaitonStylesClient/searchBars.module.css"
+import styles from "src/styles/agenciesModificaitonStyles/searchBars.module.css"
 import choiceListe from "public/data/wilayaAgencies.json"
 import agencyListe from "./agencyListe"
 import { handleClientScriptLoad } from "next/script"
+import axios from "axios"
 
-function SearchBars ({handleClickAddAgency}){
+function SearchBars ({handleClickAddAgency, handleClickSearch}){
 
-        const[wilaya, setWilaya] = useState(16)
-        const[agency, setAgency] = useState(null)
-        const[bankName, setBankName] = useState(null)
-        const[agencyList, setAgencyList] = useState(choiceListe.correspondenceListe[1].listeOfAgencies)
-    
-        const handleButtonClickWilaya = (e) => {
-            setWilaya(e.target.value)
-            let objAgency = choiceListe.correspondenceListe.find((element) => {
-                return element.wilaya == e.target.value
+        const[wilaya, setWilaya] = useState(0)
+        const[agency, setAgency] = useState(0)
+        const[bankName, setBankName] = useState(0)
+        const[agencyList, setAgencyList] = useState([])
+        const[agencyListGlobal, setAgencyListGlobal] = useState([])
+        const[bankList, setBankList] = useState([])
+        const [errStyle, setErrStyle] = useState({display : "none"})
+
+        const handleClickSearchHere = () => {
+            if(bankName == 0){
+                setErrStyle({
+                    display : "block", 
+                    color : "red", 
+                    textAlign : "center"
+                })
+                setAgencyList([])
+                setAgencyListGlobal([])
+                handleClickSearch(agencyList)
+
+            } else 
+            {
+                setErrStyle({display : "none"})
+                if(agency == 0){
+                handleClickSearch(agencyList)
+                } else{
+                    handleClickSearch([agencyList.find(element => element.id == agency)])
+                }
+            }
+        }
+
+        useEffect(() => {
+            axios.get(process.env.NEXT_PUBLIC_API_URL + `/banks`)
+            .then(response =>{
+                setBankList(response.data.banks.map(element =>{
+                    return <option value={element.id} >{element.name}</option>
+                }))
+            }).catch(err => {
+                console.log( err.message )
             })
-            setAgencyList(objAgency.listeOfAgencies)
+        }, [])
+        
+        const editWilaya = (wilayaId, same) => {
+            console.log("wilaya : ", wilayaId, "bankId", bankName)
+            /* console.log(wilayaId, agencyListGlobal) */
+            if((wilayaId != wilaya || (wilayaId == wilaya && !same)) && wilayaId != 0){
+                setWilaya(wilayaId)
+                setAgencyList(agencyListGlobal.filter(element => {return element.wilaya == wilayaId}))
+            } else if((wilayaId != wilaya || (wilayaId == wilaya && !same)) && wilayaId == 0){
+                setWilaya(wilayaId)
+                setAgencyList(agencyListGlobal)
+            } 
+        }
+        const editAgency = (agencyId) => {
+            setAgency(agencyId)
         }
 
-        const handleButtonClickAgency = (e) => {
-            //send to controller
+        const editBankName = (bankId) =>{
+            
+            if(bankId != bankName){
+                setBankName(bankId)
+            }
         }
 
-        const handleButtonClickBankName = (e) =>{
+            useEffect(()=>{
+                if(bankName != 0){
+                    let tempList
+                    
+                    axios.get(process.env.NEXT_PUBLIC_API_URL + `/dgs/${bankName}`).then(response => {
+                        tempList = response.data.dgs
+                        tempList[0].id = -1
+                        return axios.get(process.env.NEXT_PUBLIC_API_URL + `/agencies/${bankName}`)
+                    }).then(response => {
+                        tempList = tempList.concat(response.data.agencies)
+                        setAgencyListGlobal(tempList)
+                    }).catch(err => {
+                        console.log(err.message)
+                    })
+                } else if(bankName == 0){
+                    
+                    if(agencyListGlobal.length != 0)
+                        {setAgencyListGlobal([])
+                        setAgencyList([])}
+                    if(agency != 0)
+                        {setAgency(0)}
+                    
+                }
+            }, [bankName])
             //send to controller
-        }
+        useEffect(()=>{
+            editWilaya(wilaya, false)
+        }, [agencyListGlobal])
+
+        useEffect(() => {
+
+        }, [wilaya])
         /* console.log("azul" + agencyList.listeOfAgencies[0].agencyId) */
         return(
             <div className={styles.container}>
-                <div className={styles.searchBankName}>
-                    <span>Nom de la banque</span>
-                    <select onChange={handleButtonClickBankName}>
-                        <option>option 1</option>
-                    </select>
+                <div className={styles.addAgency}>
+                    <div>
+                        <span>Nom de la banque</span>
+                        <select onClick={(e) => {editBankName(parseInt(e.target.value))}}>
+                            <option value="0">Sélectionner une banque</option>
+                            {bankList}
+                        </select>
+                    </div>
                 </div>
                 <div className={styles.searchAgency}>
                     <div>
                         <span>Wilaya</span>
-                        <select onChange={handleButtonClickWilaya}>
+                        <select onChange={(e) => editWilaya(parseInt(e.target.value), true)} >
+                            <option value="0">Sélectionner la wilaya</option>
                             <option value="16">16 - Alger</option>
                             <option value="01">01 - Adrar</option>
                             <option value="02">02 - Chlef</option>
@@ -90,22 +170,26 @@ function SearchBars ({handleClickAddAgency}){
                             <option value="46">46 - Aïn Témouchent</option>
                             <option value="47">47 - Ghardaïa</option>
                             <option value="48">48 - Relizane</option>
+                            
                         </select>
                     </div>
                     <div>
                         <span>Agence</span>
-                        <select onChange={handleButtonClickAgency}>
-                            <option>Sélectionner une agence</option>
+                        <select onChange={(e) => {editAgency(parseInt(e.target.value))}} >
+                            <option value="0">Sélectionner une agence</option>
                             {
                                 agencyList.map(element => 
-                                    <option key = {element.agencyId} value={element.agencyId}>{element.agencyName}</option>    
-                            )}
+                                    <option key = {element.id} value={element.id}>{element.address} {element.wilaya}</option>    
+                                    )}
                         </select>
                     </div>
-                    <button>
+                    <button className="shadow-xl hover:bg-sky-700" onClick={() => handleClickSearchHere()}>
                         <Image src={searchTool} alt="Icone"/> 
                         <span>Rechercher</span>
                     </button>                   
+                </div>
+                <div style={errStyle}>             
+                    vous n'avez pas encore choisi le nom de la banque
                 </div>
             </div>
         )

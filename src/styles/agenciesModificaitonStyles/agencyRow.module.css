@@ -42,6 +42,7 @@
     color: #144272;
     font-weight: 600;
     text-align: start;
+    padding-left: 0px;
   }
     .agencyRowAdressLocalisation > button:hover{
       color: #000000;

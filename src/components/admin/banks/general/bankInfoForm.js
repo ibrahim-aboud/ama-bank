@@ -1,0 +1,255 @@
+import React, { useState, useEffect, useRef } from "react";
+import axios from "axios";
+import { useRouter } from "next/router";
+import Image from "next/image";
+import { FiGlobe, FiUpload } from "react-icons/fi";
+import { AiOutlineInfoCircle } from "react-icons/ai";
+import { MdCancel } from "react-icons/md";
+import { HiCheckCircle } from "react-icons/hi";
+
+function BankInfoForm({ bankId }) {
+  const [bank, setBank] = useState(null);
+  const [oldInfo, setOldInfo] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [selectedImage, setSelectedImage] = useState("");
+  const [selectedFile, setSelectedFile] = useState();
+
+  const router = useRouter();
+  const logoInputRef = useRef();
+
+  // fetch bank data when loading the page for the first time
+  useEffect(() => {
+    if (!bankId) {
+      setBank(null);
+      return;
+    }
+
+    setLoading(true);
+    setSelectedFile(null);
+    setSelectedImage("");
+    logoInputRef.current.value = "";
+
+    axios
+      .get(process.env.NEXT_PUBLIC_API_URL + `/bank/${bankId}`)
+      .then((response) => {
+        setBank(response.data.bank);
+        setOldInfo(response.data.bank);
+
+        setError("");
+        setLoading(false);
+      })
+      .catch((e) => {
+        setError(e.response.data);
+        setLoading(false);
+      });
+  }, [bankId]);
+
+  // while fetching the data set bank's fiels to empty string instead of null or undefined
+  if (!bank) {
+    setBank({
+      id: "",
+      name: "",
+      description: "",
+      visitsCount: "",
+      websiteLink: "",
+      updateDate: "",
+    });
+  }
+
+  // get excuted when the form is submitted
+  async function sumbitHandler(event) {
+    event.preventDefault();
+    setLoading(true);
+
+    if (!bank || !bank.id) {
+      setError("Aucune banque n'est selectionée");
+      setLoading(false);
+      return;
+    }
+
+    try {
+      if (selectedFile) {
+        const fileExtension = selectedFile.name.split(".").pop();
+        const file = new File([selectedFile], `${bank.id}.${fileExtension}`);
+
+        const formData = new FormData();
+        formData.append("file", file);
+
+        await axios.post(
+          process.env.NEXT_PUBLIC_API_URL + "/bank/logo",
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+      }
+
+      // put request to the API to check user inputs and update the database
+      await axios.put(process.env.NEXT_PUBLIC_API_URL + "/banks", {
+        bank: { ...bank, updateDate: bank.updateDate.substring(0, 10) },
+      });
+
+      // when the data is updated
+      setError("");
+      router.reload();
+    } catch (e) {
+      setError(e.response?.data);
+    }
+
+    setLoading(false);
+  }
+
+  return (
+    <div className="mb-20 mt-5">
+      <div className="py-8 lg:mx-16 flex items-center justify-center lg:gap-14">
+        <div className="hidden lg:block h-[2px] bg-black w-[25%]" />
+
+        <div className="flex items-center justify-center gap-4 text-lg sm:text-xl md:text-3xl">
+          <AiOutlineInfoCircle className=" font-bold" />
+          <h3 className="font-bold">Informations générales sur la banque</h3>
+        </div>
+
+        <div className="hidden lg:block h-[2px] bg-black w-[25%]" />
+      </div>
+
+      <form className="flex flex-col items-center" onSubmit={sumbitHandler}>
+        <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
+          <label htmlFor="bank_name" className="block p-1">
+            Nom de la banque
+          </label>
+          <div className="bg-gray-100 p-4 rounded-md border flex items-center w-full">
+            <input
+              type="text"
+              name="bank_name"
+              id="bank_name"
+              placeholder="Ex: Natixis Algérie"
+              className="bg-gray-100 outline-none px-4 flex-1"
+              value={bank && bank.name}
+              onChange={(event) =>
+                setBank({ ...bank, name: event.target.value })
+              }
+            />
+          </div>
+        </div>
+
+        <div className="mx-5 mb-4 w-[90%] lg:w-[900px] lg:pr-[450px]">
+          <label htmlFor="bank_logo" className="block p-1 ">
+            Logo de la banque
+          </label>
+          <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center">
+            <input
+              type="file"
+              name="bank_logo"
+              id="bank_logo"
+              accept=".jpeg,.jpg,.png"
+              className="bg-gray-100 outline-none px-4 flex-1 w-full"
+              ref={logoInputRef}
+              onChange={({ target }) => {
+                if (target.files) {
+                  const file = target.files[0];
+                  setSelectedImage(file ? URL.createObjectURL(file) : null);
+                  setSelectedFile(file);
+                }
+              }}
+            />
+
+            {(selectedImage || (bank && bank.logoLink)) && (
+              <Image
+                src={
+                  selectedImage
+                    ? selectedImage
+                    : bank
+                    ? `${bank.logoLink}?${Math.random()}`
+                    : ""
+                }
+                alt="Preview"
+                width={400}
+                height={400}
+                className="mr-5 rounded-md h-auto max-w-[50px]"
+              />
+            )}
+
+            <FiUpload className="pr-2 text-gray-600" size={28} />
+          </div>
+        </div>
+
+        <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
+          <label htmlFor="description" className="block p-1">
+            Description de la banque
+          </label>
+          <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center">
+            <textarea
+              id="description"
+              name="bank_description"
+              className="bg-gray-100 w-full h-[300px] outline-none"
+              rows="4"
+              placeholder="Entrer un description..."
+              value={bank && bank.description}
+              onChange={(event) =>
+                setBank({ ...bank, description: event.target.value })
+              }
+            />
+          </div>
+        </div>
+
+        <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
+          <label htmlFor="bank_url" className="block p-1">
+            Lien du site Web
+          </label>
+          <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center">
+            <FiGlobe className="text-gray-600" size={24} />
+            <input
+              type="text"
+              name="bank_url"
+              id="bank_url"
+              placeholder="Ex: https://www.natixis.dz"
+              className="bg-gray-100 outline-none px-4 flex-1"
+              value={bank && bank.websiteLink}
+              onChange={(event) =>
+                setBank({ ...bank, websiteLink: event.target.value })
+              }
+            />
+          </div>
+        </div>
+
+        {error && (
+          <div className="text-rose-500 font-bold text-center overflow-hidden mt-2">
+            {error}
+          </div>
+        )}
+
+        <div className="mt-4 flex flex-col md:flex-row items-center justify-center gap-5 md:gap-10 w-full lg:w-[800px] lg:justify-between">
+          <button
+            type="submit"
+            disabled={loading}
+            className="mb-1 rounded-xl px-8 py-3 font-semibold bg-black text-white shadow-xl hover:bg-green-600 disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
+          >
+            Sauvegarder les modifications
+            <HiCheckCircle size={23} className="ml-2" />
+          </button>
+
+          <button
+            type="reset"
+            disabled={loading}
+            onClick={() => {
+              setBank(oldInfo);
+              setError("");
+              setSelectedFile(null);
+              setSelectedImage("");
+              logoInputRef.current.value = "";
+            }}
+            className="rounded-xl px-8 py-3 font-semibold bg-black text-white shadow-xl hover:bg-green-600 disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
+          >
+            Annuler les modifications
+            <MdCancel size={23} className="ml-2" />
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+}
+
+export default BankInfoForm;

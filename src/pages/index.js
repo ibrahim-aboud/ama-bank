@@ -5,9 +5,9 @@ import SuccesPopUp from "../components/editBankDataPage/success.js"
 import ModficationListe from "../components/editBankDataPage/modificationList.js"
 import AgencyListe from "../components/editBankDataPage/agencyListe.js"
 import Header from  "../components/editBankDataPage/headerListeOfModification.js"
-import SearchBars from "../components/editBankDataPage/searchBars.js"
-import EditBankData from "src/components/editBankDataPage/editBankData.js" */
-import EditBankDataClient from "src/components/editBankDataPageClient/editBankData.js"
+import SearchBars from "../components/editBankDataPage/searchBars.js"*/
+import EditBankData from "src/components/editBankDataPage/editBankData.js"
+/* import EditBankDataClient from "src/components/editBankDataPageClient/editBankData.js" */
 
 export default function Home() {
   return (
@@ -17,6 +17,7 @@ export default function Home() {
         <meta name="description" content="Banks Comparison" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
+
       </Head>
 
       <main>
@@ -29,8 +30,8 @@ export default function Home() {
 {/*         <Header />
         <SearchBars />
         <AgencyListe /> */}
-       {/*   <EditBankData />  */}
-        <EditBankDataClient />
+         <EditBankData /> 
+        {/* <EditBankDataClient /> */}
       </main>
     </> 
     

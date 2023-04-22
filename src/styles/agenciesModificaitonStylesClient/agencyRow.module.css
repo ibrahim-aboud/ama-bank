@@ -5,11 +5,12 @@
     background-color: white;
     padding: 1em;
     margin-left: 1.5em;
-    padding-right: 0px;
-    justify-content: space-around;
+    margin-right: 1.5em;
   /*   border-bottom: 3px solid rgba(0, 0, 0, 0.1); */
   }
-  
+  .agencyRow:hover {
+    background-color: #d6f5d6;
+  }
   .agencyRowBankLocalisation{
     display : flex;
     flex-direction: column;
@@ -36,12 +37,15 @@
     width : 55%;
   }
   
-  .agencyRowAdressLocalisation > a{
+  .agencyRowAdressLocalisation > button{
     text-decoration: underline;
     color: #144272;
     font-weight: 600;
-    
+    text-align: start;
   }
+    .agencyRowAdressLocalisation > button:hover{
+      color: #000000;
+    }
   
   .agencyRowAdressLocalisation > span :first-child,
   .agencyRowTelFax > span > span:first-of-type{
@@ -62,19 +66,42 @@
     align-items: center;
     justify-content: flex-start;
     gap: 0.5em;
-    margin-left: 18%;
+  
+  }
+  
+  .agencyRowModifyDelete{
+    display : flex;
+    justify-content: center;
+    width : 12%;
+    gap : 1.5em;
+  }
+  
+  .agencyRowModifyDelete img{
+    width : 1.2em;
+    height: auto;
   }
 
   .agencyRowTelFax, .agencyRowAdressLocalisation{
-    padding-top: 1em;
+    padding-top: 1em;;
+  }
+
+  .mapsApi{
+    display : none;
+    width : 50%;
+    height: 50%;
+    left : 25%;
+  }
+  .shadow{
+    display : none;
+    position : absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #000000C9;
   }
 
   @media only screen and (max-width : 1112px){
       .agencyRow{
         font-size : 16px;
-      }
-      .agencyRowTelFax > span{
-        margin-left: 0px;
       }
   }
   @media only screen and (max-width : 1013px){
@@ -85,12 +112,10 @@
   @media only screen and (max-width : 875px){
     .agencyRowTelFax{
       width : 55%;
-      margin-left: 15%;
     }
     .agencyRowAdressLocalisation{
       width : 45%;
     }
-
   }
 
   @media only screen and (max-width : 720px){
@@ -106,7 +131,10 @@
     .agencyRowTelFax{
       width : 100%;
       grid-area: telfax;
-      margin-left: 0px;
+    }
+    .agencyRowModifyDelete {
+      width : 100%;
+      grid-area: delmod;
     }
 /*     .agencyRowAdressLocalisation > span, .agencyRowTelFax > span{
       width : 100%;
@@ -133,6 +161,12 @@
     .agencyRowTelFax{
       width : 100%;
       grid-area: telfax;
+    }
+    .agencyRowModifyDelete {
+      width : 100%;
+      grid-area: delmod;
+      flex-direction: column;
+      align-items: center;
     }
 /*     .agencyRowAdressLocalisation > span, .agencyRowTelFax > span{
       width : 100%;
@@ -162,6 +196,10 @@
       width : 100%;
       padding-left: 1em;
       grid-area: telfax;
+    }
+    .agencyRowModifyDelete {
+      width : 100%;
+      grid-area: delmod;
     }
     .agencyRowAdressLocalisation > span, .agencyRowTelFax > span{
       width : 100%;

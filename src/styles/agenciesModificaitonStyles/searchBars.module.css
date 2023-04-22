@@ -82,6 +82,10 @@
     padding : 0.8em;
 }
 
+.addAgency > div > span, .searchAgency > div > span{
+    font-weight: 700;
+} 
+
 
 @media only screen and (max-width:770px){
     .container button > span{

@@ -9,6 +9,10 @@ import styles from "src/styles/agenciesModificaitonStyles/agencyRow.module.css"
 function AgencyRow(props){
     const[styleMap, setStyleMap] = useState(null);
     let style = {}, phone = "indisponible", fax = "indisponible"
+    let deleteStyle = {display : "block"}
+    if(props.record.id == -1){
+        deleteStyle = {display : "none"}
+    }
     if(props.record.fax != "null"){
         fax = props.record.fax
     }
@@ -40,7 +44,7 @@ function AgencyRow(props){
                     style={styleMap}
                 ></iframe>
             <div className={styles.agencyRowBankLocalisation}>
-                <Image src={props.agencyIcone}></Image>
+                <Image src={props.agencyIcone} alt="icone"></Image>
                 <span className={styles.agencyRowLocalisation}>{props.record.localisation}</span>
             </div>
             <div className={styles.agencyRowAdressLocalisation}>
@@ -64,10 +68,10 @@ function AgencyRow(props){
                 </span>
             </div>
             <div className={styles.agencyRowModifyDelete}>
-                <button onClick={props.handleEditAgencyInfo} >
+                <button onClick={() => props.handleEditAgencyInfo(props.record.id)} >
                     <Image src={penIcone}></Image>
                 </button>
-                <button onClick={() => props.handleDeleteAgency(props.record.id)}>
+                <button onClick={() => props.handleDeleteAgency(props.record.id)} style={deleteStyle} >
                     <Image src={basketIcon}></Image>
                 </button>
             </div>

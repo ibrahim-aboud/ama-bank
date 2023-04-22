@@ -52,15 +52,16 @@ function modificationListe(Props){
     const verifyData = () =>{
         return new Promise((resolve, reject) => {
             let errMsg = ""
-            if(bank_id == 0){
+            if(bankId == 0){
                 errMsg +=" choisir une banque!"
             } 
             if (wilaya == 0){
                 errMsg +=" choisir la wilaya de l'agence que vous souhaitez ajouter."
             }
-            if(adresse.length > 5){
+            if(adresse.length < 5){
                 errMsg += " l'adresse contient moins de 5 caractères."
-            } 
+            }
+            console.log(errMsg)
             if(errMsg.length > 0 ){
                  reject(errMsg)
             } else {
@@ -96,16 +97,26 @@ function modificationListe(Props){
                     })
                 
             } else {
-                axios.put(process.env.NEXT_PUBLIC_API_URL + '/agencies', objToSend)
-                .then(response => {
-                    console.log(response)
-                    })
-                .catch(err =>{
-                    console.log(err.message)
-                    })
+                if(Props.idAgency == -1){
+                    axios.put(process.env.NEXT_PUBLIC_API_URL + '/dgs', objToSend)
+                    .then(response => {
+                        console.log(response)
+                        })
+                    .catch(err =>{
+                        console.log(err.message)
+                        })
+                } else {
+                    axios.put(process.env.NEXT_PUBLIC_API_URL + '/agencies', objToSend)
+                    .then(response => {
+                        console.log(response)
+                        })
+                    .catch(err =>{
+                        console.log(err.message)
+                        })
+                }
             }
             setError("")
-            setEerrStyle ({display : "none"})
+            setErrStyle ({display : "none"})
             })
 
         .catch(err => {

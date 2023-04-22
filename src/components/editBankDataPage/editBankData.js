@@ -64,7 +64,6 @@ function EditBankDataPage(){
     }
 
     const handleDeleteAgency = (agencyId) => {
-        handleScroll()
         setStyle({
             backgroundColor : '#00000090',
             position : 'absolute',
@@ -110,7 +109,7 @@ function EditBankDataPage(){
         })
     }
 
-    const handleEditAgencyInfo = () => {
+    const handleEditAgencyInfo = (agencyId) => {
         setStyle({
             /* backgroundColor : '#00000090', */
             position : 'absolute',
@@ -123,7 +122,7 @@ function EditBankDataPage(){
             animationFillMode: 'forwards'
         })
         let record = {message1 : "Sauvegarder les modifications", message2 : "annuler", icone : modificationModImg }
-        setObjToRender(<ModificationListe record={record} handleAddAgencyAnnuler = {handleAnnuler}/>)
+        setObjToRender(<ModificationListe record={record} idAgency={agencyId} handleAddAgencyAnnuler = {handleAnnuler}/>)
    
 
     }

@@ -18,7 +18,8 @@ function InputBar(Props){
 /*                 setStyleErr({dipslay : "inline", color : "red"})
                 setErrBar("Ce n'est pas un lien de localisaiton!") */
             } else if(typeData == "Numéro de téléphone" && /^[+\d- ]+$/.test(data) && (
-                    (data.match(/\d/g).length == 12 && data[0] == "+") ||(data.match(/\d/g).length == 10 && data[0] == "0"))){
+                    (data.match(/\d/g).length == 12 && data[0] == "+") ||(data.match(/\d/g).length == 10 && data[0] == "0")
+                    ||(data.match(/\d/g).length == 11 && data[0] == "+") ||(data.match(/\d/g).length == 9 && data[0] == "0"))){
                 resolve(data)
 /*                 setStyleErr({dipslay : "inline", color : "red"})
                 setErrBar("Assurez-vous de fournir 10 chiffres dans le numéro ou 12 s'il commence par +213") */

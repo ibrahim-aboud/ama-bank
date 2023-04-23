@@ -1,0 +1,270 @@
+.footerContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.backToTop {
+    position: absolute;
+    background-color: rgba(118, 184, 151, 1);
+    color: #000;
+    margin-top: -20px;
+    margin-left: 40px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 24px;
+    line-height: 55px;
+    cursor: pointer;
+}
+
+.backToTop:before {
+    content: '\2191';
+    color: black;
+}
+
+.footer {
+    background-color: #111111;
+}
+
+.propos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 60px;
+    margin-bottom: -230px; 
+    margin-top: 40px;
+}
+
+.plateformeInfo{
+    margin-right: -38px;
+}
+
+.propos div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: auto;    
+}
+
+.proposImg{
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;   
+}
+
+.propos p {
+    margin: 0;
+    width: 350px;
+    color: white;
+    font-family: 'Nunito';    
+}
+
+.followUs p:first-child {
+    color: white;
+    font-family: 'Nunito';
+    margin-left: 100px;
+}
+
+.followUs p:last-child {
+    color: white;
+    font-family: 'Nunito';
+    margin-left: 110px;
+}
+
+.contactInfo{
+    margin-top: 40px;
+    margin-bottom: -170px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    margin-right: 120px;   
+}
+
+.contactInfo div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.contactInfoImg{
+    margin-right: 10px;
+    width: 35px;
+    height: 35px;
+}
+
+#mail{
+    margin-left: 40px;
+}
+
+.contactInfo p {
+    margin-left: 10px;
+    color: white;
+    font-family: 'Nunito';
+}
+
+.socialIcons {
+    display: flex;
+    margin-top: 30px;
+    margin-left: 50px;
+    margin-bottom: 30px;
+}
+
+.socialIcons a {
+    margin: 0 10px;
+}
+
+.socialIconsImg{
+    width: 40px;
+    height: 40px;
+}
+  
+.line{
+    margin-top: 70px;
+}
+
+.container {
+    margin-top: 30px;
+    max-width: 100%;
+    margin-bottom: 30px;
+}
+
+.footerContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footerLogo {
+    margin-left: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.companyInfo h4 {
+    margin: 0;
+    color: white;
+    font-family: 'Comfortaa';
+}
+
+.companyInfo{
+   margin-left: 20px;
+}
+
+.companyInfo p {
+    margin: 0;
+    font-size: 14px;
+    color: white;
+    font-family: 'Nunito';
+}
+
+.footerLinks {
+    margin-right: 60px;
+    list-style: none;
+    display: flex;
+}
+
+.footerLinks li {
+    text-decoration: underline;
+    margin-left: 40px;
+}
+
+.amaBank{
+    width: 80px;
+    height: 80px;
+}
+
+.footerLinks li a {
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
+    font-family: 'Nunito';
+}
+
+@media screen and (max-width: 1175px) {
+
+    .line{
+        margin-bottom: 50px;
+    }   
+
+    .socialMedia{
+        margin-top: 33px;
+    }
+    
+    .contactInfo{
+        margin-bottom: auto;
+    }
+
+    .footerContent{
+        flex-direction: column;
+    }
+
+    .footerLogo{
+        margin: 0;
+    }
+
+    .footerLinks{
+        display: block;
+    }
+
+    .footerLinks li{
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .contactInfo{
+        margin-top: 30px;
+        margin-left: 55px;
+        margin-right: 0;
+    }
+
+    .socialIcons{
+        margin-left: 0;
+        justify-content: center;
+    }
+
+    .followUs{
+        text-align: center;
+    }
+
+    .followUs p:first-child {
+        margin-left: 0;
+    }
+
+    .contactInfo{
+        margin: 0;
+        margin-top: 40px;
+    }
+   
+    .followUs p:last-child {
+        margin-left: 0;
+    }
+    
+    .propos {
+        margin: 0 auto;
+        text-align: center;
+        max-width: 350px;
+        margin-top: 40px;
+    }
+                  
+    .propos p {
+        margin-left: 10px;
+    }
+
+    .plateformeInfoImg{
+        margin-left: 95px;
+    }
+
+    #proposID{
+        margin-left: 65px;
+    }
+
+    .plateformeInfo p{
+        margin-left: -75px;
+    } 
+    
+    .container{
+        margin-top: -20px;
+    }
+}

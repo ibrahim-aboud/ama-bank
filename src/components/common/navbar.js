@@ -16,7 +16,7 @@ function Navbar() {
   }
   
   return (
-    <nav className={style.nav}>
+    <nav className={style.nav} id ="top">
       <div className={style.navbarLogo}>
         <Image className={style.img} src={siteLogo} alt="Amabank Logo"/>
         <h1>amaBank</h1>

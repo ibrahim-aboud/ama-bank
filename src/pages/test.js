@@ -41,12 +41,12 @@ function Test(){
                     "tarif": 0,
                     "period": 0
                 },
-                {
-                    "nom_prestation": "Fermeture compte sur livret" ,
-                    "categorie": "Fermeture Compte" ,
-                    "tarif": 0,
-                    "period": 0
-                }
+                // {
+                //     "nom_prestation": "Fermeture compte sur livret" ,
+                //     "categorie": "Fermeture Compte" ,
+                //     "tarif": 0,
+                //     "period": 0
+                // }
             ]
         )
     }
@@ -106,7 +106,7 @@ function Test(){
     return(
         <div className="test">
             <ListeCondition conditions={conditions} setConditions={setConditions}/>
-            <button onClick={clickHandler}>click me yes</button>
+            <button onClick={()=>clickHandler()}>click me yes</button>
         </div>
     )
 }

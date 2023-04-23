@@ -20,7 +20,6 @@ function EditBankDataPage(){
         display : 'none'
     })
     const[objToRender, setObjToRender] = useState(<></>)
-    const [scrollPosition, setScrollPosition] = useState(0);
     const [listeOfAgencies, setListeOfAgencies] = useState([])
     
     const handleScroll = () => {

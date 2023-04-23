@@ -3,6 +3,8 @@ import Bank from "@/server/models/bankModel";
 import ModelError from "@/lib/utils/ModelError";
 import isNotAdmin from "@/lib/utils/checkAdmin";
 import { errorMessages } from "@/lib/utils/errorMessages";
+import FilesHelpers from "@/lib/utils/FilesHelpers";
+import { banks_logos_folder, banks_images_folder} from "@/lib/utils/globals"
 
 export default class BanksController {
   async get(req, res) {
@@ -109,6 +111,8 @@ export default class BanksController {
 
         if (bank!=null){
             await Bank.deleteBank(id) ;
+            FilesHelpers.deleteFilesInDirectory_IgnoreExtension(`${id}.png`,banks_images_folder) ;
+            FilesHelpers.deleteFilesInDirectory_IgnoreExtension(`${id}.png`,banks_logos_folder) ;
             res.status(200).json({bank}) ;
         } else {
             throw new ModelError(errorMessages.wrongId,404) ;

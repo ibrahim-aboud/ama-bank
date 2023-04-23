@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import style from '@/styles/navbar.module.css';
 import Image from "next/image";
 import siteLogo from '../../../public/assets/logos/logo.png';
+import Link from 'next/link';
 
 function Navbar() {
 
@@ -22,12 +23,12 @@ function Navbar() {
         <h1>amaBank</h1>
       </div>
       <ul className={`${style.navbarLinks} ${active ? style.active : ''}`}>
-        <li><a href="#">Accueil</a></li>
-        <li><a href="#">Consulter</a></li>
-        <li><a href="#">Comparer</a></li>
-        <li><a href="#">Trouver une agence</a></li>
-        <li><a href="#">À propos</a></li>
-        <li><a href="#">Besoin d'aide?</a></li>
+        <li><Link href="#">Accueil</Link></li>
+        <li><Link href="#">Consulter</Link></li>
+        <li><Link href="#">Comparer</Link></li>
+        <li><Link href="#">Trouver une agence</Link></li>
+        <li><Link href="#">À propos</Link></li>
+        <li><Link href="#">Besoin d'aide?</Link></li>
       </ul>
       <div className={style.navbarHelp}>
         <a href="#">Besoin d'aide?</a>
@@ -39,7 +40,7 @@ function Navbar() {
       </div>
    </nav>
   );
-
+  
 }
 
 export default Navbar;

@@ -8,17 +8,20 @@ export const authOptions = {
       name: "credentials",
       async authorize(credentials, req) {
         const adminController = new AdminController();
-        return adminController.loginAdmin(
+
+        const user = await adminController.loginAdmin(
           credentials.username,
           credentials.password
         );
+
+        return user;
       },
     }),
   ],
   callbacks: {
     jwt: ({ token, user }) => {
       if (user) {
-        token.user = { role: "admin" };
+        token.user = user;
       }
 
       return token;

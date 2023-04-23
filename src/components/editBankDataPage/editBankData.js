@@ -23,10 +23,6 @@ function EditBankDataPage(){
     const [listeOfAgencies, setListeOfAgencies] = useState([])
     const [overFlowStyle, setOverFlowStyle] = useState(null)
     
-    const handleScroll = () => {
-        const position = window.pageYOffset;
-        setScrollPosition(position);
-    };
 
     const handleClickAddAgency = () => {
         setStyle({

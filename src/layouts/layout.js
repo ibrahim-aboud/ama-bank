@@ -2,6 +2,7 @@ import Head from "next/head";
 
 import Footer from "@/components/common/footer";
 import Navbar from "@/components/common/navbar";
+import Scrollbar from "@/components/common/scrollbar";
 
 function Layout({ children }) {
   return (
@@ -13,10 +14,12 @@ function Layout({ children }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="w-screen">
-        <Navbar />
-        {children}
-        <Footer />
+      <div className="w-screen h-screen">
+        <Scrollbar>
+          <Navbar />
+          {children}
+          <Footer />
+        </Scrollbar>
       </div>
     </>
   );

@@ -105,8 +105,21 @@ function modificationListe(Props){
                     })
                 
             } else {
-                console.log(Props.idAgency)
-                if(Props.idAgency == -1){
+                
+                if(Props.idAgency < 0){
+                    objToSend = {
+                        dg : {
+                            id : -Props.idAgency,
+                            bank_id : bankId,
+                            address : adresse,
+                            lat : null,
+                            lng : null,
+                            wilaya : wilaya,
+                            phone : phone,
+                            fax : fax,
+                            location_link : localisation               
+                        }
+                    }
                     axios.put(process.env.NEXT_PUBLIC_API_URL + '/dgs', objToSend)
                     .then(response => {
                         console.log(response)
@@ -115,10 +128,11 @@ function modificationListe(Props){
                         console.log(err.message)
                         })
                 } else {
+                    objToSend.agency.id = Props.idAgency
                     axios.put(process.env.NEXT_PUBLIC_API_URL + '/agencies', objToSend)
                     .then(response => {
                         console.log(response)
-                        })
+                         })
                     .catch(err =>{
                         console.log(err.message)
                         })
@@ -132,8 +146,12 @@ function modificationListe(Props){
             })
 
         .catch((errMsg) => {
-            setError(errMsg)
-            console.log("error", error)
+            try{
+                setError(errMsg)
+            }
+            catch(e){
+                setError(["Problème de connexion au serveur."])
+            }
             setErrStyle ( {display : "flex", 
                             color : "red", 
                             justifyContent : "center"

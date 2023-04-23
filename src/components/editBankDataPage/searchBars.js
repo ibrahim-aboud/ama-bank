@@ -79,7 +79,7 @@ function SearchBars ({handleClickAddAgency, handleClickSearch}){
                     
                     axios.get(process.env.NEXT_PUBLIC_API_URL + `/dgs/${bankName}`).then(response => {
                         tempList = response.data.dgs
-                        tempList[0].id = -1
+                        tempList[0].id = -tempList[0].id
                         return axios.get(process.env.NEXT_PUBLIC_API_URL + `/agencies/${bankName}`)
                     }).then(response => {
                         tempList = tempList.concat(response.data.agencies)

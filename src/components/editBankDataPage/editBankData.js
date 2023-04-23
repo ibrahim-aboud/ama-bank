@@ -9,6 +9,7 @@ import styles from "src/styles/agenciesModificaitonStyles/editBankData.module.cs
 import modificaitonAddImg from "public/assets/modificationsPage/addAgencyIcone.svg"
 import modificationModImg from "public/assets/modificationsPage/modificationListeCheck.svg"
 import axios from "axios"
+import agencyListe from "./agencyListe.js";
 //petit beuge, quand on supprime une agence et on fait la recherche sur la meme place lagence retounera
 function timeout(delay) {
     return new Promise( res => setTimeout(res, delay) );
@@ -104,7 +105,7 @@ function EditBankDataPage(){
         })
         setObjToRender(<SuccessCard handleAnnuler={handleAnnuler}/>)
         let strTemp
-        if(agencyId == -1){
+        if(agencyId < 0){
             strTemp = "dgs"
         } else {
             strTemp = "agencies"
@@ -136,12 +137,14 @@ function EditBankDataPage(){
         })
         setOverFlowStyle({overflowY : "hidden"})
         let record = {message1 : "Sauvegarder les modifications", message2 : "annuler", icone : modificationModImg }
-        setObjToRender(<ModificationListe record={record} idAgency={agencyId} handleAddAgencyAnnuler = {handleAnnuler}/>)
+        setObjToRender(<ModificationListe record={record} idAgency={agencyId} 
+            handleAddAgencyAnnuler = {handleAnnuler} />)
    
 
     }
 
     const handleClickSearch = (list) => {
+            console.log(list)
             setListeOfAgencies(list)
     }
       

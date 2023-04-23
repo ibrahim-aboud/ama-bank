@@ -15,18 +15,20 @@ function InputBar(Props){
                 resolve(data)
 /*                 setStyleErr({dipslay : "inline", color : "red"})
                 setErrBar("Ce n'est pas un lien de localisaiton!") */
-            } else if(typeData == "Numéro de téléphone" && /^[+\d- ]+$/.test(data) && (
+            } else if(typeData == "Numéro de téléphone" && (/^[+\d- ]+$/.test(data) && (
                     (data.match(/\d/g).length == 12 && data[0] == "+") ||(data.match(/\d/g).length == 10 && data[0] == "0")
-                    ||(data.match(/\d/g).length == 11 && data[0] == "+") ||(data.match(/\d/g).length == 9 && data[0] == "0"))){
+                    ||(data.match(/\d/g).length == 11 && data[0] == "+") ||(data.match(/\d/g).length == 9 && data[0] == "0"))) 
+                    || data.length == 0){
                 resolve(data)
 /*                 setStyleErr({dipslay : "inline", color : "red"})
                 setErrBar("Assurez-vous de fournir 10 chiffres dans le numéro ou 12 s'il commence par +213") */
-            } else if(typeData == "Fax" && /^[+\d- ]+$/.test(data) && (
-                    (data.match(/\d/g).length == 11 && data[0] == "+") ||(data.match(/\d/g).length == 9 && data[0] == "0"))){
+            } else if(typeData == "Fax" && (/^[+\d- ]+$/.test(data) && (
+                    (data.match(/\d/g).length == 11 && data[0] == "+") ||(data.match(/\d/g).length == 9 && data[0] == "0")))
+                    || data.length == 0){
                 resolve(data)
 /*                 setStyleErr({dipslay : "inline", color : "red"})
                 setErrBar("Assurez-vous de fournir 9 chiffres dans le numéro ou 11 s'il commence par +213") */
-            } else if(typeData == "Adresse *" && data.length > 5){
+            } else if(typeData == "Adresse *" && (data.length > 5) || (data.length == 0)){
                 resolve(data)
 A
             } 

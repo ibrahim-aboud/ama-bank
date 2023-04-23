@@ -26,10 +26,9 @@ function agencyListe({handleDeleteAgency, handleEditAgencyInfo, agencyList}){
 
       if(agencyList.length > 0 ){
           editErr({display : "none"})
-          if(agencyList[0].id == -1){
+          if(agencyList[0].id < 0){
           border = agencyList.length > 1
           agenciesList[0] =  <AgencyRow record={agencyList[0]} isDg={"Siège sociale : "} agencyIcone={dgIcone} style={{border}} handleDeleteAgency={handleDeleteAgency} handleEditAgencyInfo={handleEditAgencyInfo} />
-
         }
       } else {
           editErr({

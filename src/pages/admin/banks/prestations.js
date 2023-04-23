@@ -2,7 +2,8 @@
 import { useState } from "react";
 import AdminLayout from "@/layouts/adminLayout";
 import { getSession } from "next-auth/react";
-import LignePrestation from "@/components/admin/banks/conditionTarifaire/lignePrestation";
+import ListePrestations from "@/components/admin/banks/conditionTarifaire/listePrestations";
+import axios from "axios";
 function Prestations() {
 
   const [prestations,setPrestations]=useState(
@@ -60,7 +61,7 @@ function Prestations() {
 
   return(
     <div>
-      <LignePrestation prestation1={prestations[0]} prestation2={prestations[1]}/>
+      <ListePrestations prestations={prestations}/>
     </div>
   );
 }
@@ -80,6 +81,7 @@ export async function getServerSideProps(context) {
       },
     };
   }
+  
 
   return {
     props: { session },

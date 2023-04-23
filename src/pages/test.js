@@ -57,7 +57,6 @@ function Test(){
     
     return(
         <div className="test">
-            <LigneCondition condition1={conditions[0]} condition2={conditions[1]} first={true} single={false} />
             <ListeCondition conditions={conditions}/>
         </div>
     )

@@ -1,30 +1,33 @@
 .containerScnd{
     display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: space-around;
     border-bottom:1px solid #eeeeee;
     border-top: 1px solid #eeeeee;
     background-color: #fbfbfb;
     padding : 4vh 0;
+    width: 100vw;
 }
 .containerFrst{
     display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: space-around;
+    padding: 4vh 0;
+    width: 100vw;
 }
 .nomPrestation{
+    width: 50%;
+    text-align: center;
     color: #40916C;
     font-weight: 700;
     margin: 0 0;
-    text-align: center;
-    margin: 0 0;
+    padding: 0 0;
 }
 .tarifPrestation{
+    text-align: center;
+    width: 50%;
     flex-shrink: 0;
     font-weight: 700;
     margin: 0 0;
-    text-align: center;
-    margin : 0 0;
+    padding : 0 0;
     
 }
 
@@ -32,7 +35,9 @@
     display : flex;
     margin: 0 0;
     align-items: center;
-    margin: 0 10%;
+    justify-content: space-around;
+    width: 50%;
+    margin: 0 5%;
 }
 
 
@@ -40,15 +45,19 @@
     .containerFrst{
         flex-direction: column;
         align-items: center;
+        padding: 0 0;
     }
     .containerScnd{
         flex-direction: column;
         align-items: center;
         background-color: white;
         border: none;
+        padding : 0 0;
     }
     .nomTarifPrestation{
         padding: 4vh 0;
+        width: 100%;
+
     }
     .nomTarifPrestation:nth-child(2){
         border-bottom:1px solid #eeeeee;
@@ -57,10 +66,10 @@
 
     }
     .tarifPrestation{
-        width: 50vw;
+        width: 50%;
     }
     .nomPrestation{
-        width: 50vw;
+        width: 50%;
         padding :0 10vw;
     }
   }

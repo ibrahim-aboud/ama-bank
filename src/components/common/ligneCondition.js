@@ -30,7 +30,7 @@ function LigneCondition({condition1,condition2,first,single}){
                     <div className={style.tarifPrestation}>{getTarif(condition1.tarif) + getPeriod(condition1.period)}</div>
                 </div>
                 {
-                    single 
+                    !single 
                     &&
                     <div className={style.nomTarifPrestation}>
                         <div className={style.nomPrestation}>{condition2.nom_prestation}</div>

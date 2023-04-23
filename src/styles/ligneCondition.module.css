@@ -1,4 +1,13 @@
-.container{
+.containerScnd{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    border-bottom:1px solid #eeeeee;
+    border-top: 1px solid #eeeeee;
+    background-color: #fbfbfb;
+    padding : 4vh 0;
+}
+.containerFrst{
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
@@ -9,7 +18,6 @@
     margin: 0 0;
     text-align: center;
     margin: 0 0;
-   
 }
 .tarifPrestation{
     flex-shrink: 0;
@@ -29,5 +37,30 @@
 
 
 @media screen and (max-width: 800px) {
-    
+    .containerFrst{
+        flex-direction: column;
+        align-items: center;
+    }
+    .containerScnd{
+        flex-direction: column;
+        align-items: center;
+        background-color: white;
+        border: none;
+    }
+    .nomTarifPrestation{
+        padding: 4vh 0;
+    }
+    .nomTarifPrestation:nth-child(2){
+        border-bottom:1px solid #eeeeee;
+        border-top: 1px solid #eeeeee;
+        background-color: #fbfbfb;
+
+    }
+    .tarifPrestation{
+        width: 50vw;
+    }
+    .nomPrestation{
+        width: 50vw;
+        padding :0 10vw;
+    }
   }

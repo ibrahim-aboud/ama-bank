@@ -1,6 +1,6 @@
 import style from "@/styles/ligneCondition.module.css";
 
-function LigneCondition({condition1,condition2}){
+function LigneCondition({condition1,condition2,first,single}){
     function getPeriod(period){
         switch(period){
             case 0 : return "";
@@ -24,15 +24,20 @@ function LigneCondition({condition1,condition2}){
     }
     return (
         <div className="LignCondition">
-            <div className={style.container}>
+            <div className={ first ? style.containerFrst :style.containerScnd}>
                 <div className={style.nomTarifPrestation}>
                     <div className={style.nomPrestation}>{condition1.nom_prestation}</div>
                     <div className={style.tarifPrestation}>{getTarif(condition1.tarif) + getPeriod(condition1.period)}</div>
                 </div>
-                <div className={style.nomTarifPrestation}>
-                    <div className={style.nomPrestation}>{condition2.nom_prestation}</div>
-                    <div className={style.tarifPrestation}>{getTarif(condition2.tarif) + getPeriod(condition2.period) }</div>
-                </div>
+                {
+                    single 
+                    &&
+                    <div className={style.nomTarifPrestation}>
+                        <div className={style.nomPrestation}>{condition2.nom_prestation}</div>
+                        <div className={style.tarifPrestation}>{getTarif(condition2.tarif) + getPeriod(condition2.period) }</div>
+                    </div>
+                }
+                
             </div>
         </div>
     )

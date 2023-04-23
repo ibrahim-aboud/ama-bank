@@ -2,7 +2,11 @@ import AdminLayout from "@/layouts/adminLayout";
 import { getSession } from "next-auth/react";
 
 function Prestations() {
-  return <div>Prestations</div>;
+  return(
+    <div>
+      what's up
+    </div>
+  );
 }
 
 Prestations.getLayout = function PageLayout(page) {

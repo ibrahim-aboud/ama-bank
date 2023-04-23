@@ -25,7 +25,6 @@ function agencyListe({handleDeleteAgency, handleEditAgencyInfo, agencyList}){
 
     if (agencyList.length > 0) {
       editErr({ display: "none" });
-      console.log(agencyList)
       if (agencyList[0].id == -1) {
         border = agencyList.length > 1;
         agenciesList[0] = (

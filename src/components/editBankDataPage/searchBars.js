@@ -52,7 +52,6 @@ function SearchBars ({handleClickAddAgency, handleClickSearch}){
         }, [])
         
         const editWilaya = (wilayaId, same) => {
-            /* console.log(wilayaId, agencyListGlobal) */
             if((wilayaId != wilaya || (wilayaId == wilaya && !same)) && wilayaId != 0){
                 setWilaya(wilayaId)
                 setAgencyList(agencyListGlobal.filter(element => {return element.wilaya == wilayaId}))
@@ -104,7 +103,6 @@ function SearchBars ({handleClickAddAgency, handleClickSearch}){
         useEffect(() => {
 
         }, [wilaya])
-        /* console.log("azul" + agencyList.listeOfAgencies[0].agencyId) */
         return(
             <div className={styles.container}>
                 <div className={styles.addAgency}>

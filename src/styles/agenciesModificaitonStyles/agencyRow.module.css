@@ -40,14 +40,14 @@
     width : 55%;
   }
   
-  .agencyRowAdressLocalisation > button{
+  .agencyRowAdressLocalisation > a{
     text-decoration: underline;
     color: #144272;
     font-weight: 600;
     text-align: start;
     padding-left: 0px;
   }
-    .agencyRowAdressLocalisation > button:hover{
+    .agencyRowAdressLocalisation > a:hover{
       color: #000000;
     }
   

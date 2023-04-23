@@ -7,8 +7,6 @@ function InputBar(Props){
     const [style, setStyle] = useState(null)
     const [length, setLength] = useState(0)
     const [err, setErr] = useState(null)
-    const [styleErr, setStyleErr] = useState({display : "none"})
-    const [errBar, setErrBar] = useState(null)
 
     let  str
     const verifyData = (data, typeData) => {
@@ -47,7 +45,7 @@ A
             Props.record.handleInputs(e.target.value, Props.record.title)
             })
         .catch(error => {
-            console.log(err)
+            console.log(error.message)
             setErr({backgroundColor : "#ffbebe"})
             })
             Props.record.handleInputs("INVALID_VALUE", Props.record.title)
@@ -80,7 +78,6 @@ A
                 <span style={style}>{Props.record.placeHolder} </span>
                 {str}
             </span>
-            <div style={styleErr}>{errBar}</div>
         </div>
     )
 }

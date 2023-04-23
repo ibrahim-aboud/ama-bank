@@ -16,17 +16,23 @@ connection.connect((error) => {
     console.log('Connected to MySQL server.');
   });
   
-  let jsonData = require("../../../public/data/alsalambankagencies.json");
+  let jsonData = require("../../../public/data/agencies/alsalambankagencies.json");
   for(let i of jsonData.agencies){
             let fax = null, phone = null, locationLink = null
             if(i.agency_phone){
-                phone = '${i.agency_phone}'
+                phone = "'"
+                phone += i.agency_phone
+                phone += "'"
             }
             if(i.agency_fax){
-                fax = '${i.agency_fax}'
+                fax = "'"
+                fax += i.agency_fax
+                fax += "'"
             }
             if(i.agency_location_link){
-                locationLink = "${i.agency_location_link}"
+                locationLink = "'"
+                locationLink += i.agency_location_link
+                locationLink += "'"
             }
             insertQuery = `INSERT INTO ab_agencies VALUES (${null}, ${2}, '${i.agency_address}',
             ${i.agency_lat}, ${i.agency_lng}, ${16},

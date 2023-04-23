@@ -3,8 +3,8 @@ const mysql = require('mysql2');
 // create a connection to the MySQL server
 const connection = mysql.createConnection({
   host: 'localhost',
-  user: 'user',
-  password: 'user',
+  user: 'root',
+  password: 'Inzel@2004',
   database: 'db_amabank'
 });
 
@@ -40,7 +40,7 @@ for(let file of filesArray){
         let jsonData = require(file);//import the json file 
 
         //insert the bank infos
-        let insertQuery = `INSERT INTO ab_banks VALUES (${bank_id}, '${jsonData.bank_name}', ${null} ,${0}, 
+        let insertQuery = `INSERT INTO ab_banks VALUES (${bank_id}, '${jsonData.bank_name}', '${jsonData.bank_description}' ,${0}, 
                           '${jsonData.website_link}', '${jsonData.date_prestations}')`;
                                
         connection.query(insertQuery, (error, result) => {
@@ -51,7 +51,7 @@ for(let file of filesArray){
         //insert in ab_dgs
         insertQuery = `INSERT INTO ab_dgs VALUES (${null}, ${bank_id}, '${jsonData.dg_address}',
             ${jsonData.dg_lat}, ${jsonData.dg_lng}, ${jsonData.dg_wilaya},
-            '${jsonData.dg_phone}', '${jsonData.dg_fax}', ${null})`;
+            '${jsonData.dg_phone}', '${jsonData.dg_fax}', '${jsonData.dg_location_link}')`;
             
         connection.query(insertQuery, (error, result) => {
         if (error) throw error;

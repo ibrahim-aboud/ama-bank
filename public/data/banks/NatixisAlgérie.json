@@ -1,11 +1,11 @@
 {
     "bank_name" : "Natixis Algérie",
-    "bank_description": "",
+    "bank_description": "Natixis Algérie est une banque de droit algérien agrée par la Banque d''Algérie, Installée depuis 1999 implantées dans plusieurs wilayas. Adhérent à l''Association Bancaire et Établissement Bancaire (ABEF),organisation professionnelle qui représente toutes les banques implantées en Algérie.",
     "website_link": "https://natixis.groupebpce.com/",
     "dg_address": "Direction Générale Immeuble Le Ksar، 34/35 Zone d\\'affaires Mercure، Bab Ezzouar 16312",
     "dg_lat" : 36.71462190047448,
     "dg_lng" : 3.203240498645826,
-    "dg_location_link": "",
+    "dg_location_link": "https://www.google.com/maps/place/NATIXIS+ALGERIE/@36.7331156,2.8407408,10.96z/data=!4m10!1m2!2m1!1sNATIXIS+ALGERIE!3m6!1s0x128e51b932c06e95:0xe42f047c6565a188!8m2!3d36.7139187!4d3.2031959!15sCg9OQVRJWElTIEFMR0VSSUUiA4gBAZIBEGNvcnBvcmF0ZV9vZmZpY2XgAQA!16s%2Fg%2F11cncpwkln",
     "dg_wilaya": 16,
     "dg_phone": "021 54 90 15 / 021 54 90 16 / 021 54 91 99/ 021 54 91 95 / 05 56 70 60 44 / 021 54 90 15",
     "dg_fax" : "021 54 90 13 / 021 54 90 17 / 021 54 90 18",

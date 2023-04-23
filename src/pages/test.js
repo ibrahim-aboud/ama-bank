@@ -1,5 +1,6 @@
 import LigneCondition from "@/components/common/ligneCondition";
 import ListeCondition from "@/components/listeCondition";
+import axios from "axios";
 import { useState } from "react";
 function Test(){
     const clickHandler= ()=>{
@@ -41,12 +42,12 @@ function Test(){
                     "tarif": 0,
                     "period": 0
                 },
-                // {
-                //     "nom_prestation": "Fermeture compte sur livret" ,
-                //     "categorie": "Fermeture Compte" ,
-                //     "tarif": 0,
-                //     "period": 0
-                // }
+                {
+                    "nom_prestation": "Fermeture compte sur livret" ,
+                    "categorie": "Fermeture Compte" ,
+                    "tarif": 0,
+                    "period": 0
+                }
             ]
         )
     }
@@ -104,10 +105,13 @@ function Test(){
     )
     
     return(
-        <div className="test">
-            <ListeCondition conditions={conditions} setConditions={setConditions}/>
-            <button onClick={()=>clickHandler()}>click me yes</button>
-        </div>
+        <>
+            <div className="test">
+                <ListeCondition conditions={conditions}/>
+                <button onClick={()=>clickHandler()}>click me yes</button>
+            </div>
+        </>
     )
 }
+
 export default Test;

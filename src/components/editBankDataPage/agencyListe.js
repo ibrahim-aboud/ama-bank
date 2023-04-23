@@ -9,7 +9,11 @@ import emptyBox from "../../../public/assets/modificationsPage/emptyBox.png"
 function agencyListe({handleDeleteAgency, handleEditAgencyInfo, agencyList}){
 
     const [errStyle, setErrStyle] = useState(null)
-    
+    function editErr(obj){
+      useEffect(() => {
+          setErrStyle(obj)
+      })
+    }
     let border = true;
     let agenciesList = agencyList.map((dataElement, index, arr) => {
         
@@ -19,31 +23,30 @@ function agencyListe({handleDeleteAgency, handleEditAgencyInfo, agencyList}){
         return <AgencyRow record={dataElement} isDg={"Adress :"} agencyIcone={localisationIcon} style={{border}} handleDeleteAgency={handleDeleteAgency} handleEditAgencyInfo={handleEditAgencyInfo} />
     })
 
-    useEffect(() => {
-        if (agencyList.length > 0) {
-          setErrStyle({ display: "none" });
-          if (agencyList[0].id == -1) {
-            border = agencyList.length > 1;
-            agenciesList[0] = (
-              <AgencyRow
-                record={agencyList[0]}
-                isDg={"Siège sociale : "}
-                agencyIcone={dgIcone}
-                style={{ border }}
-              />
-            );
-          }
-        } else {
-          setErrStyle({
-            display: "flex",
-            gap: "10px",
-            justifyContent: "center",
-            alignItems: "center",
-            fontFamily: `"Nunito", sans-serif`,
-            fontSize: "25px",
-          });
-        }
-      }, [agencyList]);
+    if (agencyList.length > 0) {
+      editErr({ display: "none" });
+      console.log(agencyList)
+      if (agencyList[0].id == -1) {
+        border = agencyList.length > 1;
+        agenciesList[0] = (
+          <AgencyRow
+            record={agencyList[0]}
+            isDg={"Siège sociale : "}
+            agencyIcone={dgIcone}
+            style={{ border }}
+          />
+        );
+      }
+    } else {
+      editErr({
+        display: "flex",
+        gap: "10px",
+        justifyContent: "center",
+        alignItems: "center",
+        fontFamily: `"Nunito", sans-serif`,
+        fontSize: "25px",
+      });
+    }
 
 
     return(

@@ -5,6 +5,9 @@
     font-family: 'Nunito', sans-serif;
     padding : 5%;
     margin-bottom: 80px;
+    border-radius: 20px 20px 20px 20px;
+    background : transparent;
+    margin : 20px;
 }
 
 .addAgency, .searchAgency{
@@ -56,7 +59,7 @@
 .searchAgency > div{
     display: flex;
     flex-direction: column;
-    align-items:first baseline;
+    align-items:first-baseline;
     justify-content: center;
     flex-grow: 9;
 }

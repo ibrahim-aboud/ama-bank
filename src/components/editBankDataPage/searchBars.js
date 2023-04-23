@@ -52,7 +52,6 @@ function SearchBars ({handleClickAddAgency, handleClickSearch}){
         }, [])
         
         const editWilaya = (wilayaId, same) => {
-            console.log("wilaya : ", wilayaId, "bankId", bankName)
             /* console.log(wilayaId, agencyListGlobal) */
             if((wilayaId != wilaya || (wilayaId == wilaya && !same)) && wilayaId != 0){
                 setWilaya(wilayaId)
@@ -74,6 +73,7 @@ function SearchBars ({handleClickAddAgency, handleClickSearch}){
         }
 
             useEffect(()=>{
+                
                 if(bankName != 0){
                     let tempList
                     
@@ -87,15 +87,14 @@ function SearchBars ({handleClickAddAgency, handleClickSearch}){
                     }).catch(err => {
                         console.log(err.message)
                     })
-                } else if(bankName == 0){
+                } 
                     
-                    if(agencyListGlobal.length != 0)
-                        {setAgencyListGlobal([])
-                        setAgencyList([])}
-                    if(agency != 0)
-                        {setAgency(0)}
-                    
-                }
+                if(agencyListGlobal.length != 0)
+                    {setAgencyListGlobal([])
+                    setAgencyList([])}
+                if(agency != 0)
+                    {setAgency(0)}    
+                
             }, [bankName])
             //send to controller
         useEffect(()=>{

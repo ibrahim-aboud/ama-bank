@@ -9,6 +9,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+// temp
+import AddPrestPopup from "@/components/admin/add-prestation-popup";
+
 import {
   MdOutlineCompareArrows,
   MdOutlineClose,
@@ -19,7 +22,6 @@ import { TbListDetails } from "react-icons/tb";
 import Scrollbar from "@/components/common/scrollbar";
 
 function BankListElement(props) {
-  const [isGstBanksHidden, setIsGstBanksHidden] = useState(true);
 
   return (
     <div>
@@ -32,23 +34,28 @@ function BankListElement(props) {
             height={400}
             className="w-[40px] h-[40px] sm:w-[60px] sm:h-[60px] md:w-[80px] md:h-[80px] shadow-lg"
           />
-          <h2 className="font-bold sm:pl-[5%] sm:text-md smx:mt-2 lg:text-2xl">{props.name}</h2>
+          <h2 className="font-bold sm:pl-[5%] sm:text-md smx:mt-2 lg:text-2xl">
+            {props.name}
+          </h2>
         </div>
 
         <div className="flex smx:flex-col items-center">
-          <button className="rounded-xl px-5 smx:mb-1 smx:py-2 py-3 font-semibold bg-[#40916C] lg:mr-2 text-white shadow-md hover:bg-[#51b186] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300">
+          <button className="rounded-xl px-5 lg:mr-5 smx:mb-1 smx:py-2 py-3 font-semibold bg-[#40916C] text-white shadow-md hover:bg-[#51b186] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300">
             <h2 className="smx:hidden">Comparer avec une autre banque</h2>
             <h2 className="lg:hidden text-[0.7rem]">Comparer</h2>
             <MdOutlineCompareArrows size={23} className="ml-2 smx:hidden" />
             <MdOutlineCompareArrows size={17} className="ml-2 lg:hidden" />
           </button>
 
-          <button className="rounded-xl px-5 smx:py-2 py-3 font-semibold bg-[#40916C] text-white shadow-md hover:bg-[#51b186] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300">
+          <Link
+            href={`/bank/${props.id}`}
+            className="rounded-xl px-5 smx:py-2 py-3 font-semibold bg-[#40916C] text-white shadow-md hover:bg-[#51b186] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
+          >
             <h2 className="smx:hidden">Plus de details</h2>
             <h2 className="lg:hidden text-[0.7rem]">Details</h2>
             <TbListDetails size={23} className="ml-2 smx:hidden" />
             <TbListDetails size={17} className="ml-2 lg:hidden" />
-          </button>
+          </Link>
         </div>
       </div>
     </div>
@@ -57,7 +64,7 @@ function BankListElement(props) {
 
 function Slide(props) {
   return (
-    <Link href={props.url} target={`${props.url !== '' ? "_blank" : ""}`}>
+    <Link href={props.url} target={`${props.url !== "" ? "_blank" : ""}`}>
       <div
         className="pb-[50%] bg-cover bg-center"
         style={{ backgroundImage: `url(${props.imgUrl})` }}
@@ -78,23 +85,28 @@ function Slideshow() {
     slidesToScroll: 1,
   };
 
-  {/* add more slides here */}
+  {
+    /* add more slides here */
+  }
   const idToUrl = {
-    1: 'https://www.example.com',
-    2: 'https://www.google.com',
-    3: 'https://www.github.com',
-    4: '',
-    5: '',
-    6: '',
-    7: '',
+    1: "https://www.example.com",
+    2: "https://www.google.com",
+    3: "https://www.github.com",
+    4: "",
+    5: "",
+    6: "",
+    7: "",
   };
-  
+
   return (
     <div>
       <Slider {...settings}>
         {Object.keys(idToUrl).map((id) => (
           <div key={id}>
-            <Slide url={idToUrl[id]} imgUrl={`/assets/images/slideshow/${id}.png`} />
+            <Slide
+              url={idToUrl[id]}
+              imgUrl={`/assets/images/slideshow/${id}.png`}
+            />
           </div>
         ))}
       </Slider>
@@ -102,23 +114,35 @@ function Slideshow() {
   );
 }
 
-function Modal({ isVisible, setIsVisible }) {
+function FilterPopup({ isVisible, setIsVisible, filters, setFilters }) {
+  const [isAdding, setIsAdding] = useState(false);
+  const typeList = ["Inférieure à", "Égale à", "Supérieure à", "Comprise entre"];
+  const typeCompteList = ["Particuliers", "Professionnel", "Entreprise"];
+
+  const [filter, setFilter] = useState({
+    prestation: "",
+    typeCompte: 0,
+    type: 0,
+    value1: 0,
+    value2: 0
+  })
+
   if (!isVisible) return null;
   return (
     <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center ">
-      <div className="w-[1000px]">
-        <div className="bg-white rounded p-12 ">
-          <div className="flex w-full items-center px-2 mb-10">
+      <div className="w-[1200px]">
+        <div className="bg-white rounded p-12 flex flex-col items-center">
+          <div className={`flex w-full items-center px-2 ${filters.length == 0 ? "" : "mb-10"}`}>
             <button
               className="text-white py-1 px-2 bg-[#40916C] hover:bg-[#4fb487] hover:ease-in-out duration-100 rounded-lg flex items-center"
-              
+              onClick={() => {setIsAdding(!isAdding)}}
             >
               Ajouter un filtre
               <MdAdd size={25} />
             </button>
             <button
               className="text-white ml-2 py-1 px-2 bg-[#EA5455] hover:bg-[#f76565] hover:ease-in-out duration-100 rounded-lg flex items-center"
-      
+              onClick={() => {setFilters([])}}
             >
               Supprimer tous les filtres
               <MdDeleteForever size={25} />
@@ -126,6 +150,7 @@ function Modal({ isVisible, setIsVisible }) {
             <button
               className="text-black ml-auto hover:text-white place-self-end hover:bg-[#EA5455] hover:ease-in-out duration-100 rounded-lg"
               onClick={() => {
+                if (isAdding) setIsAdding(!isAdding);
                 setIsVisible(!isVisible);
               }}
             >
@@ -133,13 +158,110 @@ function Modal({ isVisible, setIsVisible }) {
             </button>
           </div>
           <div>
-            <FilterElement prestation={"Ouverture compte"} typeCompte={"Particuliers"} type={0} value1={"200"}/>
-            <FilterElement prestation={"Ouverture compte"} typeCompte={"Particuliers"} type={1} value1={"200"}/>
-            <FilterElement prestation={"Ouverture compte"} typeCompte={"Particuliers"} type={2} value1={"200"}/>
-            <FilterElement prestation={"Ouverture compte"} typeCompte={"Particuliers"} type={3} value1={"200"} value2={400}/>
+            {isAdding && (
+              <div className="flex items-center my-4 px-10">
+                <div className="flex border p-2 rounded mr-2">
+                  <label className=" text-gray-400 mr-3 font-bold" htmlFor="prestation">Prestation</label>
+                  <select
+                    id="prestation" 
+                    name="prestation"
+                    className="outline-none "
+                    onChange={(event) => {setFilter({...filter, prestation: event.target.value})}}
+                  >
+                    <option value="">Selectionner</option>
 
-          
-          
+                    {/* Smail, put here a map that iterates over the list of prestations */}
+                    <option value="Ouverture compte">Ouverture compte</option>
+                    <option value="Fermeture compte">Fermeture compte</option>
+                    <option value="Autre prestation">Autre prestation</option>
+                    <option value="Autre prestation 2">Autre prestation 2</option>
+                  </select>
+                </div>
+                <div className="flex border p-2 rounded mr-2">
+                  <label className=" text-gray-400 mr-3 font-bold" htmlFor="typeCompte">Type de compte</label>
+                  <select
+                    id="typeCompte" 
+                    name="typeCompte"
+                    className="outline-none "
+                    onChange={(event) => {setFilter({...filter, typeCompte: parseInt(event.target.value)})}}
+                  >
+                    <option value="">Selectionner</option>
+                    {typeCompteList.map((item, index) => (
+                      <option key={index} value={index}>{item}</option>
+                    ))}
+                  </select>
+                </div>
+                <div className="flex border p-2 rounded mr-2">
+                  <select 
+                    id="type"
+                    name="type"
+                    className="outline-none"
+                    onChange={(event) => {setFilter({...filter, type: parseInt(event.target.value)})}}
+                  >
+                    <option value="">Selectionner</option>
+                    {typeList.map((item, index) => (
+                      <option key={index} value={index}>{item}</option>
+                    ))}
+                  </select>
+                </div>
+                <div className="flex border p-2 rounded mr-2">
+                  <input
+                    className="mr-2 outline-none w-[50px]"
+                    id="value1"
+                    name="value1"
+                    placeholder="Gratuit" // attention men hadi @Smail
+                    onChange={(event) => {setFilter({...filter, value1: parseInt(event.target.value)})}}
+                  />
+                  <h2 className="text-gray-400 font-bold">DA</h2>
+                </div>
+                <div className={`flex border p-2 rounded mr-2 ${filter.type != 3 ? "hidden" : "visible"}`}>
+                <input
+                    className="mr-2 outline-none w-[50px]"
+                    id="value2"
+                    name="value2"
+                    placeholder="Gratuit" // attention men hadi @Smail
+                    onChange={(event) => {setFilter({...filter, value2: parseInt(event.target.value)})}}
+                  />
+                  <h2 className="text-gray-400 font-bold">DA</h2>
+                </div>
+                <div>
+                  <button
+                    className="text-white place-self-end bg-[#40916C] hover:bg-[#4fb487] hover:ease-in-out duration-100 rounded-full"
+                    onClick={() => {
+                      setFilters([...filters, filter])
+                      setIsAdding(!isAdding);
+                    }}
+                  >
+                    <MdAdd size={15} />
+                  </button>
+                </div>
+              </div>
+            )}
+            
+            {filters.map((filter, index) => (
+              <FilterElement
+                key={index}
+                prestation={filter.prestation}
+                typeCompte={filter.typeCompte}
+                type={filter.type}
+                value1={filter.value1}
+                value2={filter.value2}
+                onDelete={() => {
+                  const temp = [...filters];
+                  temp.splice(index, 1);
+                  setFilters(temp);
+                }}
+              />
+            ))}
+          </div>
+          <div>
+            <button
+              className={`${filters.length == 0 ? "hidden" : ""} rounded-xl p-2 lg:p-2 sm:p-4 mt-4 ml-2 font-semibold bg-gray-100 border border-gray-300 text-gray-600 hover:text-white hover:bg-[#40916C] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300`}
+              onClick={() => {setIsVisible(!isVisible)}}
+            >
+              Filtrer
+              <BiFilterAlt size={15} className="lg:ml-2" />
+            </button>
           </div>
         </div>
       </div>
@@ -147,13 +269,14 @@ function Modal({ isVisible, setIsVisible }) {
   );
 }
 
-function FilterElement({ prestation, typeCompte, type, value1, value2 }) {
+function FilterElement({ prestation, typeCompte, type, value1, value2, onDelete }) {
   const typeMap = {
     0: "Inférieure à",
     1: "Égale à",
     2: "Supérieure à",
-    3: "Comprise entre"
+    3: "Comprise entre",
   };
+  const typeCompteList = ["Particuliers", "Professionnel", "Entreprise"];
 
   return (
     <div className="flex items-center my-4 px-10">
@@ -163,20 +286,24 @@ function FilterElement({ prestation, typeCompte, type, value1, value2 }) {
       </div>
       <div className="flex border p-2 rounded mr-2">
         <h2 className=" text-gray-400 mr-3">Type de compte</h2>
-        <h2>{typeCompte}</h2>
+        <h2>{typeCompteList[typeCompte]}</h2>
       </div>
       <div className="flex border p-2 rounded mr-2">
-        <h2 className=" text-gray-400 w-28">{typeMap[type]}</h2>
+        <h2 className="text-gray-400">{typeMap[type]}</h2>
+        <h2 className="mr-2 ml-3">{value1}</h2><h2 className="text-gray-400">DA</h2>
       </div>
-      <div className="flex border p-2 rounded mr-2">
-        <h2 className="mr-2">{value1}</h2><h2 className="text-gray-400">DA</h2>
-      </div>
-      <div className={`flex border p-2 rounded mr-2 ${type != 3 ? "hidden" : "visible"}`}>
-        <h2 className="mr-2">{value2}</h2><h2 className="text-gray-400">DA</h2>
+      <div
+        className={`flex border p-2 rounded mr-2 ${
+          type != 3 ? "hidden" : "visible"
+        }`}
+      >
+        <h2 className="mr-2">{value2}</h2>
+        <h2 className="text-gray-400">DA</h2>
       </div>
       <div>
         <button
           className="text-white place-self-end bg-[#EA5455] hover:ease-in-out duration-100 rounded-full"
+          onClick={onDelete}
         >
           <MdOutlineClose size={15} />
         </button>
@@ -210,6 +337,10 @@ export default function Home({ banks }) {
     return null;
   }
   const [isVisible, setIsVisible] = useState(false);
+
+  const [filters, setFilters] = useState([]);
+
+  const [isVisibleTemp, setIsVisibleTemp] = useState(false);
 
   return (
     <div>
@@ -255,6 +386,7 @@ export default function Home({ banks }) {
                 {filteredList.map((bank) => (
                   <BankListElement
                     key={bank.id}
+                    id={bank.id}
                     name={bank.name}
                     logo_src={bank.logo_src}
                   />
@@ -265,7 +397,11 @@ export default function Home({ banks }) {
         </div>
       </div>
 
-      <Modal isVisible={isVisible} setIsVisible={setIsVisible} />
+      <FilterPopup isVisible={isVisible} setIsVisible={setIsVisible} filters={filters} setFilters={setFilters} />
+
+      {/* temp */}
+      <button className="rounded p-3 bg-orange-200" onClick={() => {setIsVisibleTemp(!isVisibleTemp)}}>TEMP TEST ADD PRESTATION</button>
+      <AddPrestPopup isVisible={isVisibleTemp} setIsVisible={setIsVisibleTemp} bankId={1}/>
     </div>
   );
 }

@@ -47,8 +47,8 @@ function AgencyRow(props){
                 <Image src={props.agencyIcone} alt="icone"></Image>
                 <span className={styles.agencyRowLocalisation}>{props.record.localisation}</span>
             </div>
-            <div className={styles.agencyRowAdressLocalisation}>
-                <span>
+            <div className={styles.agencyRowAdressLocalisation} >
+                <span >
                     <span>{props.isDg}</span>
                     <span>{props.record.address}</span>
                 </span>

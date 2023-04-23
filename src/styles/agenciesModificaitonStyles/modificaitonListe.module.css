@@ -10,12 +10,13 @@
     gap:2%;
     padding : 4em;
     width: 80%;
-    height: 1000px;
+    height: 700px;
     z-index: 1;
     border-radius: 10px;
     animation-name: animationSuccess;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
+    overflow-y: auto;
   }
   
   .dataInput{

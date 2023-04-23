@@ -205,13 +205,13 @@ function modificationListe(Props){
 
             <div style={errStyle}>{error}</div>
             <div className={styles.dataValidation}>
-                <button onClick={() => handleButtonClick()}>
+                <button onClick={() => handleButtonClick()} className = "shadow-xl" >
                     
                     <span className={styles.modificationListeButtonsMessage}>{Props.record.message1}</span>
                     <Image src={Props.record.icone} alt="icone"></Image>
                 
                 </button>
-                <button onClick={Props.handleAddAgencyAnnuler} >
+                <button onClick={Props.handleAddAgencyAnnuler} className = "shadow-xl" >
                     
                     <span className={styles.modificationListeButtonsMessage}>{Props.record.message2}</span>
                     <Image src={modificationListeDescard} alt="icone"></Image>

@@ -6,6 +6,9 @@
     padding: 1em;
     margin-left: 1.5em;
     margin-right: 1.5em;
+    margin-bottom: 10px;
+    border-radius: 10px 10px 10px 10px ;
+    background-color:#F5F5F5;
   /*   border-bottom: 3px solid rgba(0, 0, 0, 0.1); */
   }
   .agencyRow:hover {

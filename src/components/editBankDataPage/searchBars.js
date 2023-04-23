@@ -87,15 +87,15 @@ function SearchBars ({handleClickAddAgency, handleClickSearch}){
                     }).catch(err => {
                         console.log(err.message)
                     })
-                } else if(bankName == 0){
+      
                     
-                    if(agencyListGlobal.length != 0)
-                        {setAgencyListGlobal([])
-                        setAgencyList([])}
-                    if(agency != 0)
-                        {setAgency(0)}
+                if(agencyListGlobal.length != 0)
+                    {setAgencyListGlobal([])
+                    setAgencyList([])}
+                if(agency != 0)
+                    {setAgency(0)}
                     
-                }
+            }
             }, [bankName])
             //send to controller
         useEffect(()=>{

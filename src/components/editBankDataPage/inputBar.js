@@ -50,6 +50,7 @@ A
             console.log(err)
             setErr({backgroundColor : "#ffbebe"})
             })
+            Props.record.handleInputs("INVALID_VALUE", Props.record.title)
     }
 
     useEffect(() => {

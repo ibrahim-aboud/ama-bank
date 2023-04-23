@@ -17,7 +17,7 @@ function modificationListe(Props){
     const[fax, setFax] = useState(null)
     const[localisation, setLocalisation] = useState(null)
     const[bankList, setBankList] = useState(null)
-    const [error, setError] = useState(null)
+    const [error, setError] = useState([])
     const [errStyle, setErrStyle] = useState({display : "none"})
 
     useEffect(() => {
@@ -51,17 +51,25 @@ function modificationListe(Props){
 
     const verifyData = () =>{
         return new Promise((resolve, reject) => {
-            let errMsg = ""
+            let errMsg = []
             if(bankId == 0){
-                errMsg +=" choisir une banque!"
+                errMsg.push("- choisir une banque!")
             } 
             if (wilaya == 0){
-                errMsg +=" choisir la wilaya de l'agence que vous souhaitez ajouter."
+                errMsg.push("- choisir la wilaya de l'agence que vous souhaitez ajouter.")
             }
-            if(adresse.length < 5){
-                errMsg += " l'adresse contient moins de 5 caractères."
+            if(adresse == null || adresse.length < 5){
+                errMsg.push("- l'adresse contient moins de 5 caractères.")
             }
-            console.log(errMsg)
+            if(phone == "INVALID_VALUE"){
+                errMsg.push("- introduir un numéro de téléphone valid!")
+            }
+            if(fax == "INVALID_VALUE"){
+                errMsg.push("- introduir un numéro de fax valid!")
+            }
+            if(localisation == "INVALID_VALUE"){
+                errMsg.push("- introduir un lien de localisation valid!")
+            }
             if(errMsg.length > 0 ){
                  reject(errMsg)
             } else {
@@ -97,6 +105,7 @@ function modificationListe(Props){
                     })
                 
             } else {
+                console.log(Props.idAgency)
                 if(Props.idAgency == -1){
                     axios.put(process.env.NEXT_PUBLIC_API_URL + '/dgs', objToSend)
                     .then(response => {
@@ -115,19 +124,19 @@ function modificationListe(Props){
                         })
                 }
             }
-            setError("Opération bien éffectuée")
+            setError(["Opération bien éffectuée"])
             setErrStyle ( {display : "block", 
                             color : "green", 
                             textAlign: "center"
                         })
             })
 
-        .catch(err => {
-            console.log(err.message)
-            setError(err.message)
-            setErrStyle ( {display : "block", 
+        .catch((errMsg) => {
+            setError(errMsg)
+            console.log("error", error)
+            setErrStyle ( {display : "flex", 
                             color : "red", 
-                            textAlign: "center"
+                            justifyContent : "center"
                         })
             })
 
@@ -135,6 +144,7 @@ function modificationListe(Props){
 
     return(
         <div className={styles.dataModification}>
+            <div>{error}</div>
             <form className={styles.dataInput}>
                 <span className={styles.inputMessage}>Nom de la banque *</span>
                 <select name="bankName" className={styles.inputBlock} required onChange={(e)=>{setBankId(parseInt(e.target.value))}}>
@@ -203,7 +213,13 @@ function modificationListe(Props){
 
         </form>
 
-            <div style={errStyle}>{error}</div>
+            <div style={errStyle}>
+                <ul>
+                    {error.map(element => 
+                        <li>{element}</li>
+                    )}
+                </ul>
+            </div>
             <div className={styles.dataValidation}>
                 <button onClick={() => handleButtonClick()} className = "shadow-xl" >
                     

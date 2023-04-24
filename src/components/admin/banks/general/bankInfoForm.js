@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import ConfirmPopup from "@/components/admin/confirmPopup";
 import { FiGlobe, FiUpload } from "react-icons/fi";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { MdCancel } from "react-icons/md";
@@ -11,6 +12,7 @@ function BankInfoForm({ bankId }) {
   const [bank, setBank] = useState(null);
   const [oldInfo, setOldInfo] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [showConfirmPopup, setShowConfirmPopup] = useState(false);
   const [error, setError] = useState("");
   const [selectedLogo, setSelectedLogo] = useState("");
   const [selectedLogoFile, setSelectedLogoFile] = useState();
@@ -148,7 +150,12 @@ function BankInfoForm({ bankId }) {
         <div className="hidden lg:block h-[2px] bg-black w-[25%]" />
       </div>
 
-      <form className="flex flex-col items-center" onSubmit={sumbitHandler}>
+      <form
+        className="flex flex-col items-center"
+        onSubmit={(event) => {
+          event.preventDefault();
+        }}
+      >
         <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
           <label htmlFor="bank_name" className="block p-1">
             Nom de la banque
@@ -301,13 +308,24 @@ function BankInfoForm({ bankId }) {
 
         <div className="mt-4 flex flex-col md:flex-row items-center justify-center gap-5 md:gap-10 w-full lg:w-[800px] lg:justify-between">
           <button
-            type="submit"
             disabled={loading}
             className="mb-1 rounded-xl px-8 py-3 font-semibold bg-black text-white shadow-xl hover:bg-green-600 disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
+            onClick={(event) => {
+              event.preventDefault();
+              setShowConfirmPopup(true);
+            }}
           >
             Sauvegarder les modifications
             <HiCheckCircle size={23} className="ml-2" />
           </button>
+
+          {showConfirmPopup && (
+            <ConfirmPopup
+              message={"Voulez-vous confirmer les modifications ?"}
+              onConfirm={(e) => sumbitHandler(e)}
+              onExit={() => setShowConfirmPopup(false)}
+            />
+          )}
 
           <button
             type="reset"

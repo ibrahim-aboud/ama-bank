@@ -1,31 +1,44 @@
 
 import { MdOutlineClose } from "react-icons/md";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-export default function AddPrestPopup({ isVisible, setIsVisible, bankId }) {
+export default function AddPrestPopup({ isVisible, setIsVisible, bankId, prestationn, setPrestationn }) {
 
-    const [prestation, setPrestation] = useState(
-        {
-            name: "",
-            type: "",
-            tarif: 0,
-            period: 365,
-            bank_id: 0,
-            categorie_id: 0,
-            categorie_operation: ""
+    const [prestation, setPrestation] = useState();
+    const [categories, setCategories] = useState([]);
+    const [prestations, setPrestations] = useState();
+
+    useEffect(() => {
+        setPrestation(
+            {
+                name: "",
+                type: "",
+                tarif: 0,
+                period: 365,
+                bank_id: 0,
+                categorie_id: 0,
+                categorie_operation: ""
+            }
+        );
+        const fetchData = async () => {
+            const response1 = await axios.get(process.env.NEXT_PUBLIC_API_URL + "/categories");
+            setCategories(response1.data.categories);
+            //const response2 = await axios.get(process.env.NEXT_PUBLIC_API_URL + "/prestations");
         }
-    );
+        fetchData();
+
+    }, []);
 
     async function onAdd() {
         
         const prestationToSend = {...prestation, bank_id: bankId};
 
-        await axios.post(process.env.NEXT_PUBLIC_API_URL + "/prestations", {prestation: prestationToSend});
+        //await axios.post(process.env.NEXT_PUBLIC_API_URL + "/prestations", {prestation: prestationToSend});
 
         setIsVisible(!isVisible);
     }
 
-    const [categories, setCategories] = useState(['Ouverture Compte', 'Fermeture Compte', 'Tenue Compte', 'Versement', 'Virement', 'Retrait', 'Chèque', 'CIB', 'VISA', 'MASTERCARD']);
 
     if (!isVisible) return null;
     return (
@@ -45,7 +58,7 @@ export default function AddPrestPopup({ isVisible, setIsVisible, bankId }) {
                         >
                             <option value="">--- Catégorie prestation ---</option>
                             {categories.map((item, index) => (
-                                <option value={index}>{item}</option> // in case you forget, here you need to get the data from the db first, so replace this later
+                                <option value={index}>{item.name}</option> // in case you forget, here you need to get the data from the db first, so replace this later
                             ))}
                         </select>
 
@@ -96,6 +109,10 @@ export default function AddPrestPopup({ isVisible, setIsVisible, bankId }) {
                         <input 
                             id="tarif"
                             name="tarif"
+                            type="number"
+                            min="0" 
+                            max="1000000"
+                            step="1"
                             required
                             placeholder="Tarif (gratuit par defaut)"
                             className="rounded bg-gray-100 outline-none border pl-5 py-2"

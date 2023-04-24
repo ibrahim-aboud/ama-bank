@@ -12,11 +12,15 @@ function BankInfoForm({ bankId }) {
   const [oldInfo, setOldInfo] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [selectedLogo, setSelectedLogo] = useState("");
+  const [selectedLogoFile, setSelectedLogoFile] = useState();
+
   const [selectedImage, setSelectedImage] = useState("");
-  const [selectedFile, setSelectedFile] = useState();
+  const [selectedImageFile, setSelectedImageFile] = useState();
 
   const router = useRouter();
   const logoInputRef = useRef();
+  const imageInputRef = useRef();
 
   // fetch bank data when loading the page for the first time
   useEffect(() => {
@@ -26,9 +30,14 @@ function BankInfoForm({ bankId }) {
     }
 
     setLoading(true);
-    setSelectedFile(null);
-    setSelectedImage("");
+
+    setSelectedLogoFile(null);
+    setSelectedLogo("");
     logoInputRef.current.value = "";
+
+    setSelectedImageFile(null);
+    setSelectedImage("");
+    imageInputRef.current.value = "";
 
     axios
       .get(process.env.NEXT_PUBLIC_API_URL + `/bank/${bankId}`)
@@ -40,7 +49,7 @@ function BankInfoForm({ bankId }) {
         setLoading(false);
       })
       .catch((e) => {
-        setError(e.response.data);
+        setError(e.response?.data.error.message);
         setLoading(false);
       });
   }, [bankId]);
@@ -69,15 +78,39 @@ function BankInfoForm({ bankId }) {
     }
 
     try {
-      if (selectedFile) {
-        const fileExtension = selectedFile.name.split(".").pop();
-        const file = new File([selectedFile], `${bank.id}.${fileExtension}`);
+      if (selectedLogoFile) {
+        const fileExtension = selectedLogoFile.name.split(".").pop();
+        const file = new File(
+          [selectedLogoFile],
+          `${bank.id}.${fileExtension}`
+        );
 
         const formData = new FormData();
         formData.append("file", file);
 
         await axios.post(
           process.env.NEXT_PUBLIC_API_URL + "/bank/logo",
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+      }
+
+      if (selectedImageFile) {
+        const fileExtension = selectedImageFile.name.split(".").pop();
+        const file = new File(
+          [selectedImageFile],
+          `${bank.id}.${fileExtension}`
+        );
+
+        const formData = new FormData();
+        formData.append("file", file);
+
+        await axios.post(
+          process.env.NEXT_PUBLIC_API_URL + "/bank/image",
           formData,
           {
             headers: {
@@ -96,7 +129,7 @@ function BankInfoForm({ bankId }) {
       setError("");
       router.reload();
     } catch (e) {
-      setError(e.response?.data);
+      setError(e.response?.data.error.message);
     }
 
     setLoading(false);
@@ -135,44 +168,87 @@ function BankInfoForm({ bankId }) {
           </div>
         </div>
 
-        <div className="mx-5 mb-4 w-[90%] lg:w-[900px] lg:pr-[450px]">
-          <label htmlFor="bank_logo" className="block p-1 ">
-            Logo de la banque
-          </label>
-          <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center">
-            <input
-              type="file"
-              name="bank_logo"
-              id="bank_logo"
-              accept=".jpeg,.jpg,.png"
-              className="bg-gray-100 outline-none px-4 flex-1 w-full"
-              ref={logoInputRef}
-              onChange={({ target }) => {
-                if (target.files) {
-                  const file = target.files[0];
-                  setSelectedImage(file ? URL.createObjectURL(file) : null);
-                  setSelectedFile(file);
-                }
-              }}
-            />
-
-            {(selectedImage || (bank && bank.logoLink)) && (
-              <Image
-                src={
-                  selectedImage
-                    ? selectedImage
-                    : bank
-                    ? `${bank.logoLink}?${Math.random()}`
-                    : ""
-                }
-                alt="Preview"
-                width={400}
-                height={400}
-                className="mr-5 rounded-md h-auto max-w-[50px]"
+        <div className="mx-5 mb-4 w-[90%] lg:w-[900px] flex gap-4 flex-col md:flex-row justify-between">
+          <div className="">
+            <label htmlFor="bank_logo" className="block p-1 ">
+              Logo de la banque
+            </label>
+            <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center">
+              <input
+                type="file"
+                name="bank_logo"
+                id="bank_logo"
+                accept=".jpeg,.jpg,.png"
+                className="bg-gray-100 outline-none px-4 flex-1 w-full"
+                ref={logoInputRef}
+                onChange={({ target }) => {
+                  if (target.files) {
+                    const file = target.files[0];
+                    setSelectedLogo(file ? URL.createObjectURL(file) : null);
+                    setSelectedLogoFile(file);
+                  }
+                }}
               />
-            )}
 
-            <FiUpload className="pr-2 text-gray-600" size={28} />
+              {(selectedLogo || (bank && bank.logoLink)) && (
+                <Image
+                  src={
+                    selectedLogo
+                      ? selectedLogo
+                      : bank
+                      ? `${bank.logoLink}?${Math.random()}`
+                      : ""
+                  }
+                  alt="Preview"
+                  width={400}
+                  height={400}
+                  className="mr-5 rounded-md h-auto max-w-[50px]"
+                />
+              )}
+
+              <FiUpload className="pr-2 text-gray-600" size={28} />
+            </div>
+          </div>
+
+          <div className="">
+            <label htmlFor="bank_image" className="block p-1 ">
+              Image de la banque
+            </label>
+            <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center">
+              <input
+                type="file"
+                name="bank_image"
+                id="bank_image"
+                accept=".jpeg,.jpg,.png"
+                className="bg-gray-100 outline-none px-4 flex-1 w-full"
+                ref={imageInputRef}
+                onChange={({ target }) => {
+                  if (target.files) {
+                    const file = target.files[0];
+                    setSelectedImage(file ? URL.createObjectURL(file) : null);
+                    setSelectedImageFile(file);
+                  }
+                }}
+              />
+
+              {(selectedImage || (bank && bank.imageLink)) && (
+                <Image
+                  src={
+                    selectedImage
+                      ? selectedImage
+                      : bank
+                      ? `${bank.imageLink}?${Math.random()}`
+                      : ""
+                  }
+                  alt="Preview"
+                  width={400}
+                  height={400}
+                  className="mr-5 rounded-md h-auto max-w-[50px]"
+                />
+              )}
+
+              <FiUpload className="pr-2 text-gray-600" size={28} />
+            </div>
           </div>
         </div>
 

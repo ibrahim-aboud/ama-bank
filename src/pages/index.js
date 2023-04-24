@@ -256,7 +256,7 @@ export default function Home({ banks }) {
                   <BankListElement
                     key={bank.id}
                     name={bank.name}
-                    logo_src={bank.logo_src}
+                    logo_src={bank.logoLink}
                   />
                 ))}
               </div>

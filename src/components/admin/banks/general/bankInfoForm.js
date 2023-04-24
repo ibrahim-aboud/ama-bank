@@ -206,11 +206,11 @@ function BankInfoForm({ bankId }) {
                       ? `${bank.logoLink}?${Math.random()}`
                       : ""
                   }
-                  key={new Date().getTime()}
                   alt="Preview"
                   width={400}
                   height={400}
                   className="mr-5 rounded-md h-auto max-w-[50px]"
+                  suppressHydrationWarning
                 />
               )}
 
@@ -248,11 +248,11 @@ function BankInfoForm({ bankId }) {
                       ? `${bank.imageLink}?${Math.random()}`
                       : ""
                   }
-                  key={new Date().getTime()}
                   alt="Preview"
                   width={400}
                   height={400}
                   className="mr-5 rounded-md h-auto max-w-[50px]"
+                  suppressHydrationWarning
                 />
               )}
 

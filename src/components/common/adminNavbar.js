@@ -10,7 +10,7 @@ import { IoMdClose } from "react-icons/io";
 function AdminNavbar() {
   const [isGstBanksHidden, setIsGstBanksHidden] = useState(true);
   const [show, setShow] = useState(false);
-  const [logoLink, setLogoLink] = useState("/assets/logos/logo.png");
+  const [logoLink, setLogoLink] = useState("");
 
   useEffect(() => {
     axios
@@ -33,13 +33,13 @@ function AdminNavbar() {
       <div className="flex justify-between items-center">
         <div className="flex justify-center items-center gap-4">
           <Image
-            src={logoLink}
-            key={new Date().getTime()}
+            src={logoLink ? logoLink + "?" + Math.random() : ""}
             alt="logo"
             width={430}
             height={430}
             className="w-12"
             priority
+            suppressHydrationWarning
           />
 
           <h2 className="pt-1 text-xl font-comfortaa font-semibold">amaBank</h2>

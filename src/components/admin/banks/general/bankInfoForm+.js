@@ -96,15 +96,21 @@ function BankInfoFormADD() {
             }
           );
       }
+      if ("error" in response1.data){
+        setError("ERROR: bank already exists!");
+        //throw new Error("ERROR: bank already exists!")
+      }
+      else {
+        const dgToSend = {...dg, bank_id: data1.id};
+        await axios.post(process.env.NEXT_PUBLIC_API_URL + "/dgs", {dg: dgToSend});
 
-      const dgToSend = {...dg, bank_id: data1.id};
-      await axios.post(process.env.NEXT_PUBLIC_API_URL + "/dgs", {dg: dgToSend});
+        // when the data is updated
+        setError("");
+        router.replace("/admin/home");
+      }
 
-      // when the data is updated
-      setError("");
-      router.replace("/admin/home");
     } catch (e) {
-      setError(e.response?.data);
+      setError(e.response?.data.error.message);
     }
 
     setLoading(false);
@@ -224,7 +230,7 @@ function BankInfoFormADD() {
           <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center">
             <FiGlobe className="text-gray-600" size={24} />
             <input
-              type="text"
+              type="url"
               name="bank_url"
               id="bank_url"
               placeholder="Ex: https://www.natixis.dz"
@@ -296,10 +302,10 @@ function BankInfoFormADD() {
             <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center">
               <HiPhone className="text-gray-600" size={24} />
               <input
-                type="text"
+                type="tel"
                 name="dg_phone"
                 id="dg_phone"
-                placeholder="Ex: +213 21 98 53 99"
+                placeholder="Ex: 0 21 98 53 99 ou 0 556 54 23 76"
                 className="bg-gray-100 outline-none px-4 flex-1"
                 onChange={(event) =>
                     setDg({ ...dg, phone: event.target.value })
@@ -313,10 +319,10 @@ function BankInfoFormADD() {
             <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center">
               <MdFax className="text-gray-600" size={24} />
               <input
-                type="text"
+                type="tel"
                 name="dg_fax"
                 id="dg_fax"
-                placeholder="Ex: +213 21 98 53 99"
+                placeholder="Ex: 0 21 98 53 99"
                 className="bg-gray-100 outline-none px-4 flex-1"
                 onChange={(event) =>
                     setDg({ ...dg, fax: event.target.value })
@@ -330,7 +336,7 @@ function BankInfoFormADD() {
             <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center">
               <HiLocationMarker className="text-gray-600" size={24} />
               <input
-                type="text"
+                type="url"
                 name="dg_location_url"
                 id="dg_location_url"
                 placeholder="Ex: https://goo.gl/maps/onJ7hBd4oZ1fMpPj9"

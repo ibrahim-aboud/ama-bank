@@ -47,7 +47,6 @@ function Prestations({banks,categories}) {
       }
     ]
 
-  
   useEffect(() => {
     if(!selectedBankId) {
       setPrestations(null);
@@ -84,8 +83,7 @@ function Prestations({banks,categories}) {
         setPrestations(oldInfo.filter(function(prestation){return prestation.type===conditionTypes.filter(function(condition){return condition.id===conditionType})[0].name}));
       }
       if(selectedBankId!==null && conditionType!==null && selectedCategorieId !==null){
-        setPrestations(oldInfo.filter(function(prestation){return prestation.type===conditionType}));
-        setPrestations(prestations.filter(function(prestation){return prestation.categorie_id===selectedCategorieId}));
+        setPrestations(oldInfo.filter(function(prestation){return prestation.categorie_id===selectedCategorieId && prestation.type===conditionTypes.filter(function(condition){return condition.id===conditionType})[0].name}));
         console.log("here as well");
       }
 
@@ -100,28 +98,41 @@ function Prestations({banks,categories}) {
     <div>
       <div className={style.bankSearchBox}>
         <h2>Nom de la banque</h2>
-        <SearchBox
-          items={banks}
-          selectedId={selectedBankId}
-          setSelectedId={setSelectedBankId}
-          searchField={"name"}
-          autoSelect={true}
-        />
+        <div className={style.inputButton}>
+          <div className={style.searchBox}>
+            <SearchBox
+              items={banks}
+              selectedId={selectedBankId}
+              setSelectedId={setSelectedBankId}
+              searchField={"name"}
+              autoSelect={true}
+            />
+          </div>
+          <button className={style.button}>Ajouter une prestation</button>
+        </div>
       </div>
-      <SearchBox
-        items={categories}
-        selectedId={selectedCategorieId}
-        setSelectedId={setSelectedCategorieId}
-        searchField={"name"}
-        autoSelect={true}
-      />
-      <SearchBox
-        items={conditionTypes}
-        selectedId={conditionType}
-        setSelectedId={setCondtionType}
-        searchField={"name"}
-        autoSelect={true}
-      />
+      <div className={style.twoInputs}>
+        <div className={style.categorie}>
+          <h2>Categorie de la prestation</h2>
+          <SearchBox
+            items={categories}
+            selectedId={selectedCategorieId}
+            setSelectedId={setSelectedCategorieId}
+            searchField={"name"}
+            autoSelect={true}
+          />
+        </div>
+        <div className={style.type}>
+          <h2>Type de prestation</h2>
+          <SearchBox
+            items={conditionTypes}
+            selectedId={conditionType}
+            setSelectedId={setCondtionType}
+            searchField={"name"}
+            autoSelect={true}
+          />  
+        </div>
+      </div>
       <ListePrestations prestations={prestations}/>
     </div>
   );

@@ -36,7 +36,7 @@ export default class BanksController {
             // throw new ModelError(check.errorList[0],400) ;
         // }
 
-        //Aditional check (just to optimize) if the bank id really exists
+        //Aditional check (just to optimize) if the bank already exists
 
         var data = await Bank.getBankByName(bank.name) ;
         

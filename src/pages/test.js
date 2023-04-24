@@ -1,5 +1,5 @@
 import LigneCondition from "@/components/common/ligneCondition";
-import ListeCondition from "@/components/listeCondition";
+import ListeCondition from "@/components/prestations/listeCondition";
 import axios from "axios";
 import { useState } from "react";
 function Test(){

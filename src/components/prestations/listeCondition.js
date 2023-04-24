@@ -1,5 +1,4 @@
-import { useState } from "react";
-import LigneCondition from "./common/ligneCondition";
+import LigneCondition from "../common/ligneCondition";
 
 
 function ListeCondition({conditions}){

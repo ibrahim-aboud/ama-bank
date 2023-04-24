@@ -6,7 +6,7 @@ import ListePrestations from "@/components/admin/banks/conditionTarifaire/listeP
 import axios from "axios";
 import { useRouter } from "next/router";
 import SearchBox from "@/components/common/searchBox";
-function Prestations({banks}) {
+function Prestations({banks,categories}) {
   const router = useRouter();
   const{id} = router.query;
   console.log(id);
@@ -25,62 +25,15 @@ function Prestations({banks}) {
   }
 
   const [selectedBankId,setSelectedBankId] = useState(_getDefaultBankId);
-
-  const [prestations,setPrestations]=useState(
-    [
-        {
-            "nom_prestation": "Ouverture de compte et délivrance chéquier" ,
-            "categorie": "Ouverture Compte" ,
-            "tarif": 0,
-            "period": 0
-        } ,
-        {
-            "nom_prestation": "Frais de tenue de compte courant" ,
-            "categorie": "Tenue Compte" ,
-            "tarif": 2500,
-            "period": 90
-        } ,
-        {
-            "nom_prestation": "Frais de tenue de compte chèque" ,
-            "categorie": "Tenue Compte" ,
-            "tarif": 1000,
-            "period": 360
-        } ,
-        {
-            "nom_prestation": "Frais de tenue de compte sur livret" ,
-            "categorie": "Tenue Compte" ,
-            "tarif": 0,
-            "period": 0
-        } ,
-        {
-            "nom_prestation": "Fermeture compte courant" ,
-            "categorie": "Tenue Compte" ,
-            "tarif": 0,
-            "period": 0
-        },
-        {
-            "nom_prestation": "Fermeture compte chèque" ,
-            "categorie": "Fermeture Compte" ,
-            "tarif": 0,
-            "period": 0
-        },
-        {
-            "nom_prestation": "Fermeture compte sur livret" ,
-            "categorie": "Fermeture Compte" ,
-            "tarif": 0,
-            "period": 0
-        },
-        {
-            "nom_prestation": "Fermeture compte devise" ,
-            "categorie": "Fermeture Compte" ,
-            "tarif": 0,
-            "period": 0
-        }
-    ]
-  )
+  const [selectedCategorieId,setSelectedCategorieId] = useState(null);
+  const [prestations,setPrestations]=useState(null)
   const [oldInfo, setOldInfo] = useState(null);
   const [loading,setLoading] = useState(false);
   const [error,setError] = useState("");
+  const [conditionType,setCondtionType]=useState(null);
+
+  const conditionTypes=[{"name":"particulier"},{"name":"proffessionel"},{"name":"entreprise"}]
+
   
   useEffect(() => {
     if(!selectedBankId) {
@@ -102,6 +55,17 @@ function Prestations({banks}) {
         setLoading(false);
       });
   },[selectedBankId]);
+
+  function checkCategorieId(categorie_id,selectedCategorieId){
+    return categorie_id===selectedCategorieId;
+  }
+
+  useEffect(()=>{
+    if(oldInfo!==null){
+      setPrestations(oldInfo.filter(function(prestation){return prestation.categorie_id===selectedCategorieId}));
+    }
+   
+  },[selectedCategorieId])
   
 
   return(
@@ -116,6 +80,13 @@ function Prestations({banks}) {
           autoSelect={true}
         />
       </div>
+      <SearchBox
+          items={categories}
+          selectedId={selectedCategorieId}
+          setSelectedId={setSelectedCategorieId}
+          searchField={"name"}
+          autoSelect={true}
+        />
       <ListePrestations prestations={prestations}/>
     </div>
   );
@@ -128,7 +99,7 @@ Prestations.getLayout = function PageLayout(page) {
 export async function getServerSideProps(context) {
   const session = await getSession(context);
   var banks = [];
-
+  var categories = [];
   if (!session) {
     return {
       redirect: {
@@ -149,8 +120,19 @@ export async function getServerSideProps(context) {
     console.error(e.message);
   }
 
+  try {
+    const response = await axios.get(
+      process.env.NEXT_PUBLIC_API_URL + "/categories"
+    );
+
+    categories=response.data.categories;
+  }
+  catch(e){
+    console.error(e.message);
+  }
+
   return {
-    props: { banks },
+    props: { banks ,categories},
   };
 }
 

@@ -2,10 +2,10 @@ import { MdOutlineAddBox } from "react-icons/md";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-export default function AddPrestPopup({ isVisible, setIsVisible, bankId, prestationn, setPrestationn }) {
+export default function AddPrestPopup({ isVisible, setIsVisible, bankId }) {
 
-    const [prestation, setPrestation] = useState();
     const [categories, setCategories] = useState([]);
+    const [prestation,setPrestation] = useState([]);
     const [prestations, setPrestations] = useState([]);
     const [personalisedPrest, setPersonalisedPrest] = useState(false);
 

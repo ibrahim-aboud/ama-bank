@@ -1,5 +1,6 @@
 import { signOut } from "next-auth/react";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import { BiLogOut } from "react-icons/bi";
@@ -9,13 +10,31 @@ import { IoMdClose } from "react-icons/io";
 function AdminNavbar() {
   const [isGstBanksHidden, setIsGstBanksHidden] = useState(true);
   const [show, setShow] = useState(false);
+  const [logoLink, setLogoLink] = useState("/assets/logos/logo.png");
+
+  useEffect(() => {
+    axios
+      .get(process.env.NEXT_PUBLIC_API_URL + "/website")
+      .then((response) => {
+        if (response.data.infos.length > 0) {
+          const { logo } = response.data.infos[0];
+          if (logo) {
+            setLogoLink(logo);
+          }
+        }
+      })
+      .catch((error) => {
+        console.error(error.response?.data.error?.message);
+      });
+  }, []);
 
   return (
     <nav className="md:flex justify-between items-center w-screen bg-[#111111] text-[#ffffff] py-4 px-12 md:px-4 lg:px-12">
       <div className="flex justify-between items-center">
         <div className="flex justify-center items-center gap-4">
           <Image
-            src="/assets/logos/logo.png"
+            src={logoLink}
+            key={new Date().getTime()}
             alt="logo"
             width={430}
             height={430}

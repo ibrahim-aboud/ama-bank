@@ -1,0 +1,44 @@
+.bankSearchBox{
+    margin: 5vh 10vw;
+}
+
+.bankSearchBox h2{
+    margin: 1vh 1vw;
+    font-weight: 600;
+    font-size: 18px;
+}
+.inputButton{
+    display: flex;
+}
+.searchBox{
+    width: 75%;
+}
+.button{
+    background-color: #585858;
+    color : white;
+    width: 20%;
+    border-radius: 10px;
+    margin-left: 5%;
+}
+.twoInputs{
+    display: flex;
+    margin: 5vh 10vw;
+
+}
+.categorie{
+    width:47%;
+}
+.categorie h2{
+    margin: 1vh 1vw;
+    font-weight: 600;
+    font-size: 18px;
+}
+.type{
+    width:47%;
+    margin-left:6%;
+}
+.type h2{
+    margin: 1vh 1vw;
+    font-weight: 600;
+    font-size: 18px;
+}

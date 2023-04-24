@@ -40,7 +40,7 @@ export default function AddPrestPopup({ isVisible, setIsVisible, bankId, prestat
         console.log(prestationToSend);
 
         setIsVisible(!isVisible);
-        setPersonalisedPrest(!personalisedPrest);
+        setPersonalisedPrest(false);
     }
 
     if (!isVisible) return null;
@@ -71,7 +71,7 @@ export default function AddPrestPopup({ isVisible, setIsVisible, bankId, prestat
                                 id="nom_prest_custom"
                                 name="nom_prest_custom"
                                 type="text"
-                                required
+                                required={personalisedPrest}
                                 placeholder="Nouvelle prestation"
                                 className={`rounded bg-gray-100 outline-none border w-[450px] px-5 py-2 mt-3 ${personalisedPrest ? "" : "hidden"}`}
                                 onChange={(event) => {setPrestation({...prestation, name: event.target.value})}}
@@ -81,10 +81,10 @@ export default function AddPrestPopup({ isVisible, setIsVisible, bankId, prestat
                         <select
                             id="nom_prestation"
                             name="nom_prestation"
-                            required
+                            required={!personalisedPrest}
                             className={`rounded bg-gray-100 outline-none border w-[450px] pl-3 py-2 mt-3 ${personalisedPrest ? "hidden" : ""}`}
                             onChange={(event) => {
-                                if (event.target.value == "#NEW_CUSTOM") setPersonalisedPrest(!personalisedPrest);
+                                if (event.target.value == "#NEW_CUSTOM") setPersonalisedPrest(true);
                                 setPrestation({...prestation, name: event.target.value});
                             }} 
                         >
@@ -142,7 +142,7 @@ export default function AddPrestPopup({ isVisible, setIsVisible, bankId, prestat
                     </div>
                     <div className="flex mb-5 mt-5">
                         <button className="p-2 rounded border hover:bg-[#40916d9a] hover:ease-in-out duration-100">Ajouter</button>
-                        <button className="p-2 ml-4 rounded border hover:bg-red-100 hover:ease-in-out duration-100" onClick={() => {setIsVisible(!isVisible); setPersonalisedPrest(!personalisedPrest)}}>Annuler</button>
+                        <button className="p-2 ml-4 rounded border hover:bg-red-100 hover:ease-in-out duration-100" onClick={() => {setIsVisible(!isVisible); setPersonalisedPrest(false)}}>Annuler</button>
                     </div>
                 </form>
             </div>

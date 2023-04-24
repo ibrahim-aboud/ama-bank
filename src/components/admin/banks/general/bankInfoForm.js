@@ -199,6 +199,7 @@ function BankInfoForm({ bankId }) {
                       ? `${bank.logoLink}?${Math.random()}`
                       : ""
                   }
+                  key={new Date().getTime()}
                   alt="Preview"
                   width={400}
                   height={400}
@@ -240,6 +241,7 @@ function BankInfoForm({ bankId }) {
                       ? `${bank.imageLink}?${Math.random()}`
                       : ""
                   }
+                  key={new Date().getTime()}
                   alt="Preview"
                   width={400}
                   height={400}
@@ -313,9 +315,14 @@ function BankInfoForm({ bankId }) {
             onClick={() => {
               setBank(oldInfo);
               setError("");
-              setSelectedFile(null);
-              setSelectedImage("");
+
+              setSelectedLogoFile(null);
+              setSelectedLogo("");
               logoInputRef.current.value = "";
+
+              setSelectedImageFile(null);
+              setSelectedImage("");
+              imageInputRef.current.value = "";
             }}
             className="rounded-xl px-8 py-3 font-semibold bg-black text-white shadow-xl hover:bg-green-600 disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
           >

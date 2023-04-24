@@ -30,13 +30,22 @@ export default function AddPrestPopup({ isVisible, setIsVisible, bankId }) {
 
     }, []);
 
-    async function onAdd() {
-        
+    async function onAdd(event) {
+        event.preventDefault();
         var prestationToSend = {...prestation, bank_id: bankId};
-        prestationToSend = {...prestationToSend, categorie_operation: categories.find(item => item.id === prestation.categorie_id).name}; 
-
-        //await axios.post(process.env.NEXT_PUBLIC_API_URL + "/prestations", {prestation: prestationToSend});
-        setPrestation(prestationToSend);
+        prestationToSend = {...prestationToSend, categorie_operation: "Gestion et tenue de compte"}; 
+        console.log(prestationToSend);
+        console.log(bankId)
+        console.log(categories.find(item => item.id === prestation.categorie_id).name);
+        await axios
+            .post(process.env.NEXT_PUBLIC_API_URL + "/prestations", {prestation: prestationToSend})
+            .then((response) => {
+                //console.log(response.data.token);
+                return response.data.token;
+            })
+            .catch((error) => {
+                console.log(error);
+            });
 
         setIsVisible(!isVisible);
         setPersonalisedPrest(false);
@@ -45,7 +54,7 @@ export default function AddPrestPopup({ isVisible, setIsVisible, bankId }) {
     if (!isVisible) return null;
     return (
         <div>
-            <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center ">
+            <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center z-50">
                 <form onSubmit={onAdd} className="bg-white rounded flex flex-col items-center w-[700px]">
                     <div className="bg-[#40916de3] text-white w-full flex justify-center items-center py-4 rounded-t mb-5">
                         <MdOutlineAddBox size={25} />
@@ -105,9 +114,9 @@ export default function AddPrestPopup({ isVisible, setIsVisible, bankId }) {
                                 onChange={(event) => {setPrestation({...prestation, type: event.target.value})}}
                             >
                                 <option value="">--- Type ---</option>
-                                <option value="Particuliers">Particuliers</option>
-                                <option value="Professionnels">Professionnels</option>
-                                <option value="Entreprise">Entreprise</option>
+                                <option value="particulier">Particuliers</option>
+                                <option value="professionnel">Professionnels</option>
+                                <option value="entreprise">Entreprise</option>
                             </select>
 
                             <select
@@ -140,7 +149,7 @@ export default function AddPrestPopup({ isVisible, setIsVisible, bankId }) {
                         />
                     </div>
                     <div className="flex mb-5 mt-5">
-                        <button className="p-2 rounded border hover:bg-[#40916d9a] hover:ease-in-out duration-100">Ajouter</button>
+                        <button className="p-2 rounded border hover:bg-[#40916d9a] hover:ease-in-out duration-100" onClick={onAdd}>Ajouter</button>
                         <button className="p-2 ml-4 rounded border hover:bg-red-100 hover:ease-in-out duration-100" onClick={() => {setIsVisible(!isVisible); setPersonalisedPrest(false)}}>Annuler</button>
                     </div>
                 </form>

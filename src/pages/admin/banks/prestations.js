@@ -6,6 +6,7 @@ import ListePrestations from "@/components/admin/banks/conditionTarifaire/listeP
 import axios from "axios";
 import { useRouter } from "next/router";
 import SearchBox from "@/components/common/searchBox";
+import AddPrestPopup from "@/components/admin/add-prestation-popup";
 function Prestations({banks,categories}) {
   const router = useRouter();
   const{id} = router.query;
@@ -31,6 +32,8 @@ function Prestations({banks,categories}) {
   const [loading,setLoading] = useState(false);
   const [error,setError] = useState("");
   const [conditionType,setCondtionType]=useState(null);
+  const [addPopUp,setAddPopUp]=useState(false);
+
 
   const conditionTypes=[
       { 
@@ -96,6 +99,7 @@ function Prestations({banks,categories}) {
 
   return(
     <div>
+      <AddPrestPopup isVisible={addPopUp} setIsVisible={setAddPopUp} bankId={selectedBankId}/>
       <div className={style.bankSearchBox}>
         <h2>Nom de la banque</h2>
         <div className={style.inputButton}>
@@ -108,7 +112,7 @@ function Prestations({banks,categories}) {
               autoSelect={true}
             />
           </div>
-          <button className={style.button}>Ajouter une prestation</button>
+          <button className={style.button} onClick={()=>{if(!selectedBankId){alert("Veuillez selectionner une banque avant !")}else{setAddPopUp(true)}}}>Ajouter une prestation</button>
         </div>
       </div>
       <div className={style.twoInputs}>

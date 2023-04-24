@@ -104,7 +104,7 @@ function BankListElement({ id, name, logo_src, isDeleting, setIsDeleting, onDele
         </div>
 
         <button
-          onClick={deleteHandler}
+          // onClick={deleteHandler}
           className="rounded-xl px-5 py-3 font-semibold bg-[#EA5455] text-white shadow-md hover:bg-[#e24141] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
         >
           Supprimer la banque

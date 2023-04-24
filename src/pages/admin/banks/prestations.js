@@ -32,7 +32,20 @@ function Prestations({banks,categories}) {
   const [error,setError] = useState("");
   const [conditionType,setCondtionType]=useState(null);
 
-  const conditionTypes=[{"name":"particulier"},{"name":"proffessionel"},{"name":"entreprise"}]
+  const conditionTypes=[
+      { 
+        "id":1,
+        "name":"particulier"
+      }, 
+      {
+        "id":2,
+        "name":"professionnel"
+      }, 
+      {
+        "id":3,
+        "name":"entreprise"
+      }
+    ]
 
   
   useEffect(() => {
@@ -61,12 +74,27 @@ function Prestations({banks,categories}) {
   }
 
   useEffect(()=>{
-    if(oldInfo!==null){
-      setPrestations(oldInfo.filter(function(prestation){return prestation.categorie_id===selectedCategorieId}));
+    if(oldInfo!==null ){
+      if(selectedBankId!==null && conditionType===null && selectedCategorieId!==null){
+        setPrestations(oldInfo.filter(function(prestation){return prestation.categorie_id===selectedCategorieId}));
+        console.log("here")
+      }
+      if(selectedBankId!==null && conditionType!==null && selectedCategorieId ===null){
+        console.log("here too")
+        setPrestations(oldInfo.filter(function(prestation){return prestation.type===conditionTypes.filter(function(condition){return condition.id===conditionType})[0].name}));
+      }
+      if(selectedBankId!==null && conditionType!==null && selectedCategorieId !==null){
+        setPrestations(oldInfo.filter(function(prestation){return prestation.type===conditionType}));
+        setPrestations(prestations.filter(function(prestation){return prestation.categorie_id===selectedCategorieId}));
+        console.log("here as well");
+      }
+
+      console.log(selectedCategorieId);
+      console.log(conditionType);
+      console.log(prestations);
     }
-   
-  },[selectedCategorieId])
-  
+  },[selectedCategorieId,conditionType])
+
 
   return(
     <div>
@@ -81,12 +109,19 @@ function Prestations({banks,categories}) {
         />
       </div>
       <SearchBox
-          items={categories}
-          selectedId={selectedCategorieId}
-          setSelectedId={setSelectedCategorieId}
-          searchField={"name"}
-          autoSelect={true}
-        />
+        items={categories}
+        selectedId={selectedCategorieId}
+        setSelectedId={setSelectedCategorieId}
+        searchField={"name"}
+        autoSelect={true}
+      />
+      <SearchBox
+        items={conditionTypes}
+        selectedId={conditionType}
+        setSelectedId={setCondtionType}
+        searchField={"name"}
+        autoSelect={true}
+      />
       <ListePrestations prestations={prestations}/>
     </div>
   );

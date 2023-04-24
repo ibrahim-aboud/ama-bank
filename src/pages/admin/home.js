@@ -10,6 +10,9 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import Scrollbar from "@/components/common/scrollbar";
 
+// temp
+import AddPrestPopup from "@/components/admin/add-prestation-popup";
+
 function ConfirmDelete({ id, name, isDeleting, setIsDeleting }) {
   async function deleteBank(id) {
     try {
@@ -122,6 +125,7 @@ function Home({ banks }) {
   const [isDeleting, setIsDeleting] = useState(false);
   const [idToDelete, setIdToDelete] = useState(0);
   const [nameToDelete, setNameToDelete] = useState("");
+  const [isVisibleTemp, setIsVisibleTemp] = useState(false);
 
   return (
     <div className="flex flex-col items-center h-screen mt-14">
@@ -187,6 +191,10 @@ function Home({ banks }) {
           </div>
         </div>
         <ConfirmDelete id={idToDelete} name={nameToDelete} isDeleting={isDeleting} setIsDeleting={setIsDeleting} />
+
+        {/* temp */}
+        <button className="rounded p-3 bg-orange-200" onClick={() => {setIsVisibleTemp(!isVisibleTemp)}}>TEMP TEST ADD PRESTATION</button>
+        <AddPrestPopup isVisible={isVisibleTemp} setIsVisible={setIsVisibleTemp} bankId={1}/>
     </div>
   );
 }

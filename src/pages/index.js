@@ -9,9 +9,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// temp
-import AddPrestPopup from "@/components/admin/add-prestation-popup";
-
 import {
   MdOutlineCompareArrows,
   MdOutlineClose,
@@ -340,8 +337,6 @@ export default function Home({ banks }) {
 
   const [filters, setFilters] = useState([]);
 
-  const [isVisibleTemp, setIsVisibleTemp] = useState(false);
-
   return (
     <div>
       <div className="mt-1">
@@ -398,10 +393,6 @@ export default function Home({ banks }) {
       </div>
 
       <FilterPopup isVisible={isVisible} setIsVisible={setIsVisible} filters={filters} setFilters={setFilters} />
-
-      {/* temp */}
-      <button className="rounded p-3 bg-orange-200" onClick={() => {setIsVisibleTemp(!isVisibleTemp)}}>TEMP TEST ADD PRESTATION</button>
-      <AddPrestPopup isVisible={isVisibleTemp} setIsVisible={setIsVisibleTemp} bankId={1}/>
     </div>
   );
 }

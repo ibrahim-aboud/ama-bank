@@ -1,5 +1,5 @@
 import style from "@/styles/prestations.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AdminLayout from "@/layouts/adminLayout";
 import { getSession } from "next-auth/react";
 import ListePrestations from "@/components/admin/banks/conditionTarifaire/listePrestations";
@@ -9,6 +9,7 @@ import SearchBox from "@/components/common/searchBox";
 function Prestations({banks}) {
   const router = useRouter();
   const{id} = router.query;
+  console.log(id);
   function _getDefaultBankId(){
     if(
       id !== null &&
@@ -77,6 +78,31 @@ function Prestations({banks}) {
         }
     ]
   )
+  const [oldInfo, setOldInfo] = useState(null);
+  const [loading,setLoading] = useState(false);
+  const [error,setError] = useState("");
+  
+  useEffect(() => {
+    if(!selectedBankId) {
+      setPrestations(null);
+      return;
+    }
+    setLoading(true);
+    axios
+      .get(process.env.NEXT_PUBLIC_API_URL+`/prestations/${selectedBankId}`)
+      .then((response)=>{
+        setPrestations(response.data.prestations);
+        setOldInfo(response.data.prestations);
+
+        setError("");
+        setLoading(false);
+      })
+      .catch((e)=>{
+        setError(e.response.data);
+        setLoading(false);
+      });
+  },[selectedBankId]);
+  
 
   return(
     <div>
@@ -87,6 +113,7 @@ function Prestations({banks}) {
           selectedId={selectedBankId}
           setSelectedId={setSelectedBankId}
           searchField={"name"}
+          autoSelect={true}
         />
       </div>
       <ListePrestations prestations={prestations}/>
@@ -101,6 +128,7 @@ Prestations.getLayout = function PageLayout(page) {
 export async function getServerSideProps(context) {
   const session = await getSession(context);
   var banks = [];
+
   if (!session) {
     return {
       redirect: {
@@ -109,10 +137,12 @@ export async function getServerSideProps(context) {
       },
     };
   }
+
   try {
     const response = await axios.get(
-      process.env.NEXT_PUBLIC_API_URL +"/banks"
+      process.env.NEXT_PUBLIC_API_URL + "/banks"
     );
+
     banks=response.data.banks;
   }
   catch(e){

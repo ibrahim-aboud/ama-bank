@@ -32,15 +32,17 @@ function AdminNavbar() {
     <nav className="md:flex justify-between items-center w-screen bg-[#111111] text-[#ffffff] py-4 px-12 md:px-4 lg:px-12">
       <div className="flex justify-between items-center">
         <div className="flex justify-center items-center gap-4">
-          <Image
-            src={logoLink ? logoLink + "?" + Math.random() : ""}
-            alt="logo"
-            width={430}
-            height={430}
-            className="w-12"
-            priority
-            suppressHydrationWarning
-          />
+          {logoLink && (
+            <Image
+              src={logoLink + "?" + Math.random()}
+              alt="logo"
+              width={430}
+              height={430}
+              className="w-12"
+              priority
+              suppressHydrationWarning
+            />
+          )}
 
           <h2 className="pt-1 text-xl font-comfortaa font-semibold">amaBank</h2>
         </div>

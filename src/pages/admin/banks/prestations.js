@@ -7,6 +7,9 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import SearchBox from "@/components/common/searchBox";
 import AddPrestPopup from "@/components/admin/add-prestation-popup";
+import ScrollBar from "react-perfect-scrollbar";
+
+
 function Prestations({banks,categories}) {
   const router = useRouter();
   const{id} = router.query;
@@ -138,6 +141,7 @@ function Prestations({banks,categories}) {
         </div>
       </div>
       <ListePrestations prestations={prestations}/>
+      
     </div>
   );
 }

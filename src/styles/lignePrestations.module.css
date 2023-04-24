@@ -73,10 +73,20 @@
 
     }
     .tarifPrestation{
-        width: 50%;
+        width: 40%;
     }
     .nomPrestation{
-        width: 50%;
+        width: 40%;
         padding :0 10vw;
     }
+    .pencil{
+        font-size: 27px;
+        width:10%;
+    }
+    .bin{
+        font-size:27px;
+        color: #EA5455;
+        width: 10%;
+    }
   }
+

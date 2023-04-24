@@ -1,13 +1,27 @@
 import style from "@/styles/lignePrestations.module.css";
 import { RiPencilFill } from "react-icons/ri";
+import { useState } from "react";
 import {MdDeleteForever} from "react-icons/md";
+import DeletePrestation from "./deletePrestation";
 
 function LignePrestation({prestation1,prestation2,first,single}){
-    function deletePrestation(prestation){
-        console.log("you deleted the prestation : "+prestation.name);
+
+    const [delPopUp1,setDelPopUp1]=useState(false);
+    const [delPopUp2,setDelPopUp2]=useState(false);
+    const [edtPopUp1,setEdtPopUp1]=useState(false);
+    const [edtPopUp2,setEdtPopUp2]=useState(false);
+
+    function deletePrestation1(){
+        setDelPopUp1(true);
     }
-    function editPrestation(prestation){
-        console.log("you edited the prestation : "+prestation.name);
+    function deletePrestation2(){
+        setDelPopUp2(true);
+    }
+    function editPrestation1(){
+        setEdtPopUp2(true);
+    }
+    function editPrestation2(){
+        setEdtPopUp2(true);
     }
     function getPeriod(period){
         switch(period){
@@ -32,12 +46,14 @@ function LignePrestation({prestation1,prestation2,first,single}){
     }
     return (
         <div>
+            <DeletePrestation isVisible={delPopUp1} setIsVisible={setDelPopUp1} prestation={prestation1} />
+            <DeletePrestation isVisible={delPopUp2} setIsVisible={setDelPopUp2} prestation={prestation2} />
             <div className={ first ? style.containerFrst :style.containerScnd}>
                 <div className={style.nomTarifPrestation}>
                     <div className={style.nomPrestation}>{prestation1.name}</div>
                     <div className={style.tarifPrestation}>{getTarif(prestation1.tarif) + getPeriod(prestation1.period)}</div>
-                    <div className={style.pencil}><button onClick={()=>editPrestation(prestation1)}><RiPencilFill/></button></div>
-                    <div className={style.bin}><button onClick={()=>deletePrestation(prestation1)}><MdDeleteForever/></button></div>
+                    <div className={style.pencil}><button onClick={()=>editPrestation1()}><RiPencilFill/></button></div>
+                    <div className={style.bin}><button onClick={()=>deletePrestation1()}><MdDeleteForever/></button></div>
                 </div>
 
                 {
@@ -46,8 +62,8 @@ function LignePrestation({prestation1,prestation2,first,single}){
                     <div className={style.nomTarifPrestation}>
                         <div className={style.nomPrestation}>{prestation2.name}</div>
                         <div className={style.tarifPrestation}>{getTarif(prestation2.tarif) + getPeriod(prestation2.period) }</div>
-                        <div className={style.pencil}><button onClick={()=>editPrestation(prestation2)}><RiPencilFill/></button></div>
-                        <div className={style.bin}><button onClick={()=>deletePrestation(prestation2)}><MdDeleteForever/></button></div>
+                        <div className={style.pencil}><button onClick={()=>editPrestation2()}><RiPencilFill/></button></div>
+                        <div className={style.bin}><button onClick={()=>deletePrestation2()}><MdDeleteForever/></button></div>
                     </div>
                     
                 }

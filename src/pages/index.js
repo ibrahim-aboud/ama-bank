@@ -6,8 +6,8 @@ import Link from "next/link";
 import { BiFilterAlt } from "react-icons/bi";
 import Image from "next/image";
 // import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 
 import {
   MdOutlineCompareArrows,

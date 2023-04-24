@@ -37,7 +37,6 @@ export default function AddPrestPopup({ isVisible, setIsVisible, bankId, prestat
 
         //await axios.post(process.env.NEXT_PUBLIC_API_URL + "/prestations", {prestation: prestationToSend});
         setPrestation(prestationToSend);
-        console.log(prestationToSend);
 
         setIsVisible(!isVisible);
         setPersonalisedPrest(false);

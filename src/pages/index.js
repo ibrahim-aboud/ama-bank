@@ -99,7 +99,7 @@ function Slideshow() {
 
   return (
     <div>
-      <Slider {...settings}>
+      {/* <Slider {...settings}>
         {Object.keys(idToUrl).map((id) => (
           <div key={id}>
             <Slide
@@ -108,7 +108,7 @@ function Slideshow() {
             />
           </div>
         ))}
-      </Slider>
+      </Slider> */}
     </div>
   );
 }

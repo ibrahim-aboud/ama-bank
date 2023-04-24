@@ -1,10 +1,29 @@
-
+import style from "@/styles/prestations.module.css";
 import { useState } from "react";
 import AdminLayout from "@/layouts/adminLayout";
 import { getSession } from "next-auth/react";
 import ListePrestations from "@/components/admin/banks/conditionTarifaire/listePrestations";
 import axios from "axios";
-function Prestations() {
+import { useRouter } from "next/router";
+import SearchBox from "@/components/common/searchBox";
+function Prestations({banks}) {
+  const router = useRouter();
+  const{id} = router.query;
+  function _getDefaultBankId(){
+    if(
+      id !== null &&
+      id !== undefined &&
+      !isNan(id) &&
+      id>=0 &&
+      Number.isInteger(parseInt(id))
+    ){
+      return parseInt(id);
+    }
+    // return banks && banks.length > 0 ? banks[0].id : null;
+    return null;
+  }
+
+  const [selectedBankId,setSelectedBankId] = useState(_getDefaultBankId);
 
   const [prestations,setPrestations]=useState(
     [
@@ -61,6 +80,15 @@ function Prestations() {
 
   return(
     <div>
+      <div className={style.bankSearchBox}>
+        <h2>Nom de la banque</h2>
+        <SearchBox
+          items={banks}
+          selectedId={selectedBankId}
+          setSelectedId={setSelectedBankId}
+          searchField={"name"}
+        />
+      </div>
       <ListePrestations prestations={prestations}/>
     </div>
   );
@@ -72,7 +100,7 @@ Prestations.getLayout = function PageLayout(page) {
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
-
+  var banks = [];
   if (!session) {
     return {
       redirect: {
@@ -81,10 +109,18 @@ export async function getServerSideProps(context) {
       },
     };
   }
-  
+  try {
+    const response = await axios.get(
+      process.env.NEXT_PUBLIC_API_URL +"/banks"
+    );
+    banks=response.data.banks;
+  }
+  catch(e){
+    console.error(e.message);
+  }
 
   return {
-    props: { session },
+    props: { banks },
   };
 }
 

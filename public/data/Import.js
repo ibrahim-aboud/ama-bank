@@ -4,11 +4,10 @@ const mysql = require('mysql2');
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'PassWord',
-  database: 'DataBase'
+  password: 'Inzel@2004',
+  database: 'db_amabank'
 });
 
-let filesArray = ['../../../public/data/NatixisAlgérie.json', '../../../public/data/TRUSTBank.json', '../../../public/data/SocieteGenerale.json'];//liste of files
 // connect to the MySQL server
 connection.connect((error) => {
   if (error) {
@@ -29,6 +28,7 @@ for(let categoryName of category) {
 }
 
 
+let filesArray = ['./NatixisAlgérie.json', './TRUSTBank.json', './SocieteGenerale.json'];//liste of files
 let bank_id = 1;//manuellement pour mettre les relations entre les tables
 
 for(let file of filesArray){

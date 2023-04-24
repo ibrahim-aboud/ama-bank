@@ -1,0 +1,70 @@
+.container{
+    display: flex;
+    padding-left: 2em;
+    padding-right: 2em;
+    width:100%;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.container > span:nth-child(1), .container > span:nth-child(3){
+    border-bottom: 2px solid black;
+    flex-grow: 1;
+}
+
+.container > span:nth-child(2){
+    display: flex;
+    position: relative;
+    top : 0.5em;
+    font-family: 'Nunito', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    width :690px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.container > span:nth-child(2) img{
+    width: 1em;
+    height: auto;
+}
+
+@media only screen and (max-width: 950px){
+    .container > span:nth-child(2) {
+        font-size: 27px;
+        width : 500px;
+    }
+}
+
+@media only screen and (max-width: 730px){
+    .container > span:nth-child(2) {
+        font-size: 20px;
+        width : 400px;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .container{
+        padding-top: 10px;
+    }
+    .container > span:nth-child(2){
+        font-size: 15px;
+    }
+    .container > span:nth-child(1), .container > span:nth-child(3){
+        border-bottom: none;
+    }
+
+    .container > span:nth-child(2){
+        width : 80%;
+        padding-bottom: 0.5em;
+        border-bottom: 3px solid rgba(0, 0, 0, 0.4);
+    }
+    
+}
+@media only screen and (max-width:430px){
+    .container > span:nth-child(2){
+        text-align:  center;
+    }
+}

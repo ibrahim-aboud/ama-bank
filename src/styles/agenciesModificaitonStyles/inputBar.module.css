@@ -1,0 +1,50 @@
+.inputComponent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: first baseline;
+    width: 100%;
+}
+
+.inputBar{
+    display : flex;
+    width:  100%;
+    align-items: center;
+    position: relative;
+    margin-top: 0.5em;
+    margin-bottom: 2.5em;
+    font-family: 'Nunito', sans-serif;
+
+}
+
+.inputBar > input{
+    position: relative;
+    left : 0px;
+    width : inherit;
+    border: 0.5px solid #F5F5F5;
+    padding: 0.8em;
+    font-weight: 400;
+    background-color: #F5F5F5;
+}
+
+.inputBar > img, .inputBar > span{
+    position: absolute;
+    margin-left: 0.7em;
+    z-index: 1;
+}
+
+.inputBar > span{
+    margin-left: 2.8em;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+    display: inline;
+}
+
+@media only screen and (max-width: 700px) {
+    .inputBar > span{
+        display : none;
+    }
+    .inputBar > img{
+        opacity : 0.6;
+    }
+  }

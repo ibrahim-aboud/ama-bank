@@ -19,3 +19,4 @@ export default async function dbQuery(query, values) {
 
   return rows;
 }
+//.env

@@ -5,7 +5,7 @@ import {MdDeleteForever} from "react-icons/md";
 import DeletePrestation from "./deletePrestation";
 import ModifyPrestation from "./modifyPrestation";
 
-function LignePrestation({prestation1,prestation2,first,single}){
+function LignePrestation({prestation1,prestation2,first,single,refresh}){
 
     const [delPopUp1,setDelPopUp1]=useState(false);
     const [delPopUp2,setDelPopUp2]=useState(false);
@@ -47,10 +47,10 @@ function LignePrestation({prestation1,prestation2,first,single}){
     }
     return (
         <div>
-            <DeletePrestation isVisible={delPopUp1} setIsVisible={setDelPopUp1} prestation={prestation1} />
-            <DeletePrestation isVisible={delPopUp2} setIsVisible={setDelPopUp2} prestation={prestation2} />
-            <ModifyPrestation isVisible={edtPopUp1} setIsVisible={setEdtPopUp1} prestation={prestation1} />
-            <ModifyPrestation isVisible={edtPopUp2} setIsVisible={setEdtPopUp2} prestation={prestation2} />
+            <DeletePrestation isVisible={delPopUp1} setIsVisible={setDelPopUp1} prestation={prestation1} refresh={refresh}/>
+            <DeletePrestation isVisible={delPopUp2} setIsVisible={setDelPopUp2} prestation={prestation2} refresh={refresh}/>
+            <ModifyPrestation isVisible={edtPopUp1} setIsVisible={setEdtPopUp1} />
+            <ModifyPrestation isVisible={edtPopUp2} setIsVisible={setEdtPopUp2} />
             <div className={ first ? style.containerFrst :style.containerScnd}>
                 <div className={style.nomTarifPrestation}>
                     <div className={style.nomPrestation}>{prestation1.name}</div>

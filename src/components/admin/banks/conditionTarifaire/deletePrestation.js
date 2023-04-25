@@ -1,16 +1,19 @@
 import { MdDeleteForever, MdOutlineAddBox } from "react-icons/md";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useRouter } from "next/router";
 
-function DeletePrestation({ isVisible, setIsVisible, prestation }) {
+function DeletePrestation({ isVisible, setIsVisible, prestation ,refresh}) {
     
-
+    const router = useRouter();
     async function onDelete(event) {
 
         event.preventDefault();
         const res = await axios.delete(process.env.NEXT_PUBLIC_API_URL + `/prestations/${prestation.id}`, { prestation: prestation }); 
         res.data.json;
         setIsVisible(!isVisible);
+        //refresh();
+        router.reload();
     }
 
     if (!isVisible) return null;

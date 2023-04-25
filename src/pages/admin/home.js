@@ -95,7 +95,7 @@ function BankListElement({ id, name, logo_src, isDeleting, setIsDeleting, onDele
               Agencies
             </Link>
             <Link
-              href="/admin/banks/prestations"
+              href={`/admin/banks/prestations?id=${id}`}
               className="w-48 text-center py-1 hover:bg-gray-100 hover:text-black hover:rounded-xl"
             >
               Conditions Tarifaires

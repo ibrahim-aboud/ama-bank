@@ -2,9 +2,10 @@ import { MdOutlineAddBox } from "react-icons/md";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { BiPencil } from "react-icons/bi";
+import { useRouter } from "next/router";
 
 export default function AddPrestPopup({ isVisible, setIsVisible, prestation }) {
-
+    const router = useRouter();
     const [categories, setCategories] = useState([]);
     const [personalisedPrest, setPersonalisedPrest] = useState(false);
     const [prestations,setPrestations] = useState(prestation);
@@ -37,6 +38,7 @@ export default function AddPrestPopup({ isVisible, setIsVisible, prestation }) {
 
         setIsVisible(!isVisible);
         setPersonalisedPrest(false);
+        router.reload();
     }
 
     if (!isVisible) return null;

@@ -14,7 +14,7 @@ function General({ banks }) {
   function _getDefaultBankId() {
     if (
       id !== null &&
-      id !== undefined &&
+      id !== undefined && 
       !isNaN(id) &&
       id >= 0 &&
       Number.isInteger(parseInt(id))

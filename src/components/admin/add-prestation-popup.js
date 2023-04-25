@@ -1,10 +1,27 @@
 import { MdOutlineAddBox } from "react-icons/md";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useRouter } from "next/router";
 
 export default function AddPrestPopup({ isVisible, setIsVisible, bankId }) {
-
+    const router = useRouter();
     const [categories, setCategories] = useState([]);
+    const [categorieOperations,setCategorieOperations] = useState(
+        [
+            {
+                "id":1,
+                "name":"Gestion et tenue de compte"
+            },
+            {
+                "id":2,
+                "name":"Opération de paiement"
+            },
+            {
+                "id":3,
+                "name":"Monétique"
+            }
+        ]
+    );
     const [prestation,setPrestation] = useState([]);
     const [prestations, setPrestations] = useState([]);
     const [personalisedPrest, setPersonalisedPrest] = useState(false);
@@ -38,7 +55,7 @@ export default function AddPrestPopup({ isVisible, setIsVisible, bankId }) {
     async function onAdd(event) {
         event.preventDefault();
         var prestationToSend = {...prestation, bank_id: bankId};
-        prestationToSend = {...prestationToSend, categorie_operation: "Gestion et tenue de compte"}; 
+        prestationToSend = {...prestationToSend,categorie_operation:"Gestion et tenue de compte"};
         console.log(prestationToSend);
         console.log(bankId)
         console.log(categories.find(item => item.id === prestation.categorie_id).name);
@@ -54,6 +71,7 @@ export default function AddPrestPopup({ isVisible, setIsVisible, bankId }) {
 
         setIsVisible(!isVisible);
         setPersonalisedPrest(false);
+        router.reload();
     }
 
     if (!isVisible) return null;
@@ -76,6 +94,19 @@ export default function AddPrestPopup({ isVisible, setIsVisible, bankId }) {
                             <option value="">--- Catégorie prestation ---</option>
                             {categories.map((item) => (
                                 <option key={item.id} value={item.id}>{item.name}</option>
+                            ))}
+                        </select>
+
+                        <select
+                            id="categorie"
+                            name="categorie"
+                            required
+                            className="rounded bg-gray-100 outline-none border w-[450px] pl-3 py-2"
+                            onChange={(event) => {setPrestation({...prestation, categorie_operation: event.target.value})}}
+                        >
+                            <option value="">--- Catégorie prestation ---</option>
+                            {categorieOperations.map((item) => (
+                                <option key={item.id} value={item.name}>{item.name}</option>
                             ))}
                         </select>
 

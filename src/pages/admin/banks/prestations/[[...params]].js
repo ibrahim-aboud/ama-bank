@@ -10,6 +10,13 @@ import AddPrestPopup from "@/components/admin/add-prestation-popup";
 import ModifyPrestation from "@/components/admin/banks/conditionTarifaire/modifyPrestation"
 
 function Prestations({banks,categories}) {
+  function refresh() {
+    const tmp = selectedBankId;
+    setSelectedBankId(null);
+    console.log(selectedBankId);
+    setSelectedBankId(tmp);
+    console.log(selectedBankId);
+  }
   const router = useRouter();
   const{id} = router.query;
   console.log(id);
@@ -17,7 +24,7 @@ function Prestations({banks,categories}) {
     if(
       id !== null &&
       id !== undefined &&
-      !isNan(id) &&
+      !isNaN(id) &&
       id>=0 &&
       Number.isInteger(parseInt(id))
     ){
@@ -35,7 +42,6 @@ function Prestations({banks,categories}) {
   const [error,setError] = useState("");
   const [conditionType,setCondtionType]=useState(null);
   const [addPopUp,setAddPopUp]=useState(false);
-
 
   const conditionTypes=[
       { 
@@ -57,6 +63,16 @@ function Prestations({banks,categories}) {
       setPrestations(null);
       return;
     }
+    if(
+        id == null ||
+        id == undefined ||
+        isNaN(id) ||
+        id<0 ||
+        Number.isInteger(parseInt(id))
+      ){
+        router.push(`/admin/banks/prestations?id=${selectedBankId}`);
+        return ;
+      }
     setLoading(true);
     axios
       .get(process.env.NEXT_PUBLIC_API_URL+`/prestations/${selectedBankId}`)
@@ -71,6 +87,7 @@ function Prestations({banks,categories}) {
         setError(e.response.data);
         setLoading(false);
       });
+      
   },[selectedBankId]);
 
   function checkCategorieId(categorie_id,selectedCategorieId){
@@ -139,7 +156,7 @@ function Prestations({banks,categories}) {
           />  
         </div>
       </div>
-      <ListePrestations prestations={prestations}/>
+      <ListePrestations prestations={prestations} refresh={refresh}/>
       
     </div>
   );

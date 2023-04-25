@@ -4,7 +4,7 @@ import ModelError from "@/lib/utils/ModelError";
 import isNotAdmin from "@/lib/utils/checkAdmin";
 import { errorMessages } from "@/lib/utils/errorMessages";
 import FilesHelpers from "@/lib/utils/FilesHelpers";
-import { banks_logos_folder, banks_images_folder} from "@/lib/utils/globals"
+import globals from "@/lib/utils/globals"
 
 export default class BanksController {
   async get(req, res) {
@@ -98,6 +98,7 @@ export default class BanksController {
 
   async delete(req,res){
     const {id} = req.query ;
+    const {banks_images_folder, banks_logos_folder} = globals ;
     try {
         if (await isNotAdmin(req,res)){
             throw new ModelError(errorMessages.unauthorized,401) ;

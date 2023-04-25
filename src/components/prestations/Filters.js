@@ -18,15 +18,10 @@ const Filters = ({types_comptes, types_prestations, prestations, setPrestations,
     }
 
     const handleChange = (event)=>{
-        // const {value,id} = event.target ;
-        // if (event.target.checked){
-        //     var newPrestations = prestations.filter(prst=>{
-        //         return map.get(prst.categorie_id) == value ;
-        //     })
-        // } else {
-
-        // }
-        // setPrestations(newPrestations) ;
+        const {value} = event.target ;
+        setPrestations(prestations.filter(prst=>{
+            return prst.type==value
+        }))
     }
 
 
@@ -38,7 +33,7 @@ const Filters = ({types_comptes, types_prestations, prestations, setPrestations,
                     <select name={styles.types_comptes_selectbar} id="types_prestations_selectbar" className={styles.types_comptes_selectbar}>
                     {
                         types_comptes.map((type,index)=>(
-                            <option value={type} key={index}>
+                            <option value={type} key={index} onChange={handleChange}>
                                 {type[0].charAt(0).toUpperCase() + type.slice(1)}
                             </option>
                         ))

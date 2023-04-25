@@ -28,6 +28,8 @@ function Consulter({ types_comptes, types_prestations, banks}) {
 
   const [selectedBankId, setSelectedBankId] = useState(_getDefaultBankId());
   const [conditions,setConditions] = useState(null) ;
+  const [FilteredConditions,setFilteredConditions] = useState(null) ;
+
 
   useEffect(()=>{
       if (!selectedBankId) {
@@ -37,7 +39,8 @@ function Consulter({ types_comptes, types_prestations, banks}) {
 
       axios.get(process.env.NEXT_PUBLIC_API_URL + `/prestations/${selectedBankId}`)
       .then((response)=>{
-          setConditions(response.data.prestations)
+          setConditions(response.data.prestations) ;
+          setFilteredConditions(response.data.prestations) ;
       })
       .catch(err=>{
 
@@ -46,6 +49,7 @@ function Consulter({ types_comptes, types_prestations, banks}) {
 
   if (!conditions) {
     setConditions([]) ;
+    setFilteredConditions([]) ;
   }
     
     return (
@@ -61,7 +65,7 @@ function Consulter({ types_comptes, types_prestations, banks}) {
         </div>  
         
         <div className="">
-          <Filters types_comptes={types_comptes} types_prestations={types_prestations} prestations={conditions} setPrestations={setConditions}></Filters>
+          <Filters types_comptes={types_comptes} types_prestations={types_prestations} prestations={conditions} setPrestations={setFilteredConditions}></Filters>
         </div>
 
           <div>
@@ -69,7 +73,7 @@ function Consulter({ types_comptes, types_prestations, banks}) {
           </div>
     
           <div>
-            <List conditions={conditions} />
+            <List conditions={FilteredConditions} />
           </div>
 
       </main>

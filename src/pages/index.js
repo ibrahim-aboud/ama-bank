@@ -63,7 +63,7 @@ function Slide(props) {
   return (
     <Link href={props.url} target={`${props.url !== "" ? "_blank" : ""}`}>
       <div
-        className="pb-[50%] bg-cover bg-center"
+        className="pb-[35%] bg-cover bg-center"
         style={{ backgroundImage: `url(${props.imgUrl})` }}
       />
     </Link>

@@ -85,9 +85,9 @@ export default class Agency {
 
         try {
             const {id_agencyIns ,bank_idIns ,addressIns ,latIns ,lngIns ,wilayaIns ,phoneIns ,faxIns ,location_linkIns}
-            = dbQuery("SELECT FROM db_amabank_archive.ab_agencies WHERE id_agency=(?)", [id])
+            = await dbQuery("SELECT * FROM db_amabank.ab_agencies WHERE id_agency=(?)", [id])
 
-            var dataToAchive = dbQuery(
+            var dataToAchive = await dbQuery(
                 "INSERT INTO db_amabank_archive.ab_agencies VALUES((?), (?), (?), (?), (?), (?), (?), (?), (?), (?), (?))", 
                 [null, id_agencyIns, bank_idIns, addressIns, latIns, lngIns, wilayaIns, phoneIns, faxIns, location_linkIns, null]
                 )
@@ -103,18 +103,20 @@ export default class Agency {
     static async deleteAgency(id){
         try {
             
-            const {id_agency ,bank_id ,address ,lat ,lng ,wilaya ,phone ,fax ,location_link}
-                 = dbQuery("SELECT FROM db_amabank_archive.ab_agencies WHERE id_agency=(?)", [id])
+            
+/*             const row = await dbQuery("SELECT * FROM db_amabank.ab_agencies WHERE id_agency=(?)", [id])
+            console.log(row[0])
+            const {id_agency ,bank_id ,address ,lat ,lng ,wilaya ,phone ,fax ,location_link} = row[0] 
 
-            var dataToAchive = dbQuery(
-                "INSERT INTO ab_agencies VALUES((?), (?), (?), (?), (?), (?), (?), (?), (?), (?), (?))", 
+            var dataToAchive = await dbQuery(
+                "INSERT INTO db_amabank_archive.ab_agencies VALUES((?), (?), (?), (?), (?), (?), (?), (?), (?), (?), (?))", 
                 [null, id_agency, bank_id, address, lat, lng, wilaya, phone, fax, location_link, null]
-                )
-            var data = dbQuery("DELETE FROM db_amabank.ab_agencies WHERE id_agency=(?)",[id]) ;
+                ) */
+            var data = await dbQuery("DELETE FROM db_amabank.ab_agencies WHERE id_agency=(?)",[id]) ;
         } catch(err){
             throw new ModelError(errorMessages.serverError,500) ;
         }
 
-        return {data, dataToAchive} ;
+        return data ;
     }
 }

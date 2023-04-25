@@ -7,8 +7,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import SearchBox from "@/components/common/searchBox";
 import AddPrestPopup from "@/components/admin/add-prestation-popup";
-import ScrollBar from "react-perfect-scrollbar";
-
+import ModifyPrestation from "@/components/admin/banks/conditionTarifaire/modifyPrestation"
 
 function Prestations({banks,categories}) {
   const router = useRouter();

@@ -3,6 +3,7 @@ import { RiPencilFill } from "react-icons/ri";
 import { useState } from "react";
 import {MdDeleteForever} from "react-icons/md";
 import DeletePrestation from "./deletePrestation";
+import ModifyPrestation from "./modifyPrestation";
 
 function LignePrestation({prestation1,prestation2,first,single}){
 
@@ -18,7 +19,7 @@ function LignePrestation({prestation1,prestation2,first,single}){
         setDelPopUp2(true);
     }
     function editPrestation1(){
-        setEdtPopUp2(true);
+        setEdtPopUp1(true);
     }
     function editPrestation2(){
         setEdtPopUp2(true);
@@ -48,6 +49,8 @@ function LignePrestation({prestation1,prestation2,first,single}){
         <div>
             <DeletePrestation isVisible={delPopUp1} setIsVisible={setDelPopUp1} prestation={prestation1} />
             <DeletePrestation isVisible={delPopUp2} setIsVisible={setDelPopUp2} prestation={prestation2} />
+            <ModifyPrestation isVisible={edtPopUp1} setIsVisible={setEdtPopUp1} prestation={prestation1} />
+            <ModifyPrestation isVisible={edtPopUp2} setIsVisible={setEdtPopUp2} prestation={prestation2} />
             <div className={ first ? style.containerFrst :style.containerScnd}>
                 <div className={style.nomTarifPrestation}>
                     <div className={style.nomPrestation}>{prestation1.name}</div>

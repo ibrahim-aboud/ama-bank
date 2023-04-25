@@ -1,3 +1,4 @@
+import ScrollBar from "react-perfect-scrollbar";
 import LignePrestation from "./lignePrestation";
 
 function ListePrestations({prestations}){
@@ -14,12 +15,14 @@ function ListePrestations({prestations}){
     
     
     return (
-        <div>
-            <ul>
-                {componentList}
-            </ul>
-            
-        </div>
+        <ScrollBar>
+            <div className="flex px-[20%] flex-col items-center h-screen mt-14">
+                <ul>
+                    {componentList}
+                </ul>
+            </div>
+        </ScrollBar>
+        
         
     )
 }

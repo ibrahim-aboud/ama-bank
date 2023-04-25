@@ -24,7 +24,12 @@ export default function AddPrestPopup({ isVisible, setIsVisible, bankId }) {
         const fetchData = async () => {
             const response1 = await axios.get(process.env.NEXT_PUBLIC_API_URL + "/categories");
             setCategories(response1.data.categories);
-            //const response2 = await axios.get(process.env.NEXT_PUBLIC_API_URL + "/prestations");
+            const response2 = await axios.get(process.env.NEXT_PUBLIC_API_URL + "/prestations");
+            var result = [];
+            response2.data.prestations.map((prestation) => {result.push(prestation.name)});
+            const uniqueNamesSet = new Set(result);
+            result = Array.from(uniqueNamesSet);
+            setPrestations(result);
         }
         fetchData();
 
@@ -99,10 +104,9 @@ export default function AddPrestPopup({ isVisible, setIsVisible, bankId }) {
                             <option value="">--- Nom prestation ---</option>
                             <option value="#NEW_CUSTOM">Nouvelle prestation personnalisée</option>
 
-                            <option value="Ouverture compte">Ouverture compte</option>  {/* in case you forget, here you need to get the data from the db first, so replace this later */}
-                            <option value="Fermeture compte">Fermeture compte</option>
-                            <option value="Autre prestation">Autre prestation</option>
-                            <option value="Autre prestation 2">Autre prestation 2</option>
+                            {prestations.map((item, index) => (
+                                <option key={index} value={item}>{item}</option>
+                            ))}
                         </select>
                         
                         <div className="flex justify-between my-3">

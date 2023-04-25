@@ -98,7 +98,7 @@ export default class BanksController {
 
   async delete(req,res){
     const {id} = req.query ;
-    const {banks_images_folder, banks_logos_folder} = globals ;
+    const {banks_images_folder, banks_logos_folder} = globals;
     try {
         if (await isNotAdmin(req,res)){
             throw new ModelError(errorMessages.unauthorized,401) ;
@@ -112,8 +112,8 @@ export default class BanksController {
 
         if (bank!=null){
             await Bank.deleteBank(id) ;
-            FilesHelpers.deleteFilesInDirectory_IgnoreExtension(`${id}.png`,banks_images_folder) ;
-            FilesHelpers.deleteFilesInDirectory_IgnoreExtension(`${id}.png`,banks_logos_folder) ;
+            FilesHelpers.deleteFilesInDirectory_IgnoreExtension(`${id}.png`,banks_images_folder);
+            FilesHelpers.deleteFilesInDirectory_IgnoreExtension(`${id}.png`,banks_logos_folder);
             res.status(200).json({bank}) ;
         } else {
             throw new ModelError(errorMessages.wrongId,404) ;

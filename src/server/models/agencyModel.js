@@ -81,25 +81,40 @@ export default class Agency {
     }
 
     static async modifyAgency(agency){
-        const {id,bank_id ,address ,lat ,lng ,wilaya ,phone ,fax ,location_link} = agency ;
+        const {id ,bank_id ,address ,lat ,lng ,wilaya ,phone ,fax ,location_link} = agency ;
 
         try {
-            var data = await dbQuery("UPDATE ab_agencies SET agency_bank_id=(?),agency_address=(?),agency_lat=(?),agency_lng=(?),agency_wilaya=(?),agency_phone=(?),agency_fax=(?),agency_location_link=(?) WHERE id_agency=(?)",[bank_id ,address ,lat ,lng ,wilaya ,phone ,fax ,location_link,id])
+            const {id_agencyIns ,bank_idIns ,addressIns ,latIns ,lngIns ,wilayaIns ,phoneIns ,faxIns ,location_linkIns}
+            = dbQuery("SELECT FROM db_amabank_archive.ab_agencies WHERE id_agency=(?)", [id])
+
+            var dataToAchive = dbQuery(
+                "INSERT INTO db_amabank_archive.ab_agencies VALUES((?), (?), (?), (?), (?), (?), (?), (?), (?), (?), (?))", 
+                [null, id_agencyIns, bank_idIns, addressIns, latIns, lngIns, wilayaIns, phoneIns, faxIns, location_linkIns, null]
+                )
+
+            var data = await dbQuery("UPDATE db_amabank.ab_agencies SET agency_bank_id=(?),agency_address=(?),agency_lat=(?),agency_lng=(?),agency_wilaya=(?),agency_phone=(?),agency_fax=(?),agency_location_link=(?) WHERE id_agency=(?)",[bank_id ,address ,lat ,lng ,wilaya ,phone ,fax ,location_link,id])
         } catch(err){
             throw new ModelError(errorMessages.serverError,500) ; 
         }
 
-        return data ;
+        return {data, dataToAchive} ;
     }
 
     static async deleteAgency(id){
         try {
-            var data = dbQuery("DELETE FROM ab_agencies WHERE id_agency=(?)",[id]) ;
+            
+            const {id_agency ,bank_id ,address ,lat ,lng ,wilaya ,phone ,fax ,location_link}
+                 = dbQuery("SELECT FROM db_amabank_archive.ab_agencies WHERE id_agency=(?)", [id])
 
+            var dataToAchive = dbQuery(
+                "INSERT INTO ab_agencies VALUES((?), (?), (?), (?), (?), (?), (?), (?), (?), (?), (?))", 
+                [null, id_agency, bank_id, address, lat, lng, wilaya, phone, fax, location_link, null]
+                )
+            var data = dbQuery("DELETE FROM db_amabank.ab_agencies WHERE id_agency=(?)",[id]) ;
         } catch(err){
             throw new ModelError(errorMessages.serverError,500) ;
         }
 
-        return data ;
+        return {data, dataToAchive} ;
     }
 }

@@ -14,7 +14,9 @@ export default function EditBankDataPage() {
         </Head>
   
         <main>
+
            <EditBankData /> 
+
         </main>
       </> 
       

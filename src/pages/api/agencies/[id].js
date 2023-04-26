@@ -3,7 +3,6 @@ import AgenciesController from "@/server/controllers/agencies/agenciesController
 
 export default async function handler(req,res){
     const controller = new AgenciesController();
-
     if (req.method=="GET"){
         await controller.get(req,res);
     } else if (req.method =="DELETE") {

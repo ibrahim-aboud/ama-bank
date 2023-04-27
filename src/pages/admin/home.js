@@ -6,6 +6,7 @@ import { getSession } from "next-auth/react";
 import { TbHomeCog } from "react-icons/tb";
 import { MdAddCircle, MdDeleteForever } from "react-icons/md";
 import { FaAngleDown } from "react-icons/fa";
+import { RiDeleteBin6Line } from "react-icons/ri";
 import axios from "axios";
 import { useRouter } from "next/router";
 import Scrollbar from "@/components/common/scrollbar";
@@ -23,9 +24,13 @@ function ConfirmDelete({ id, name, isDeleting, setIsDeleting, filteredList, setF
   if (!isDeleting) return null;
   return (
     <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center z-40">
-      <div className="w-[400px]">
-        <div className="bg-white rounded p-10 flex flex-col justify-center items-center">
-          <h2 className="mb-10 font-semibold">Voulez-vous supprimer "{name}"?</h2>
+      <div className="w-[350px] sm:w-[500px]">
+        <div className="py-4 rounded-t-md bg-red-500 text-white flex justify-center items-center">
+          <RiDeleteBin6Line size={23} className="mr-3" />
+          <h2>Suppression définitive d'une banque</h2>
+        </div>
+        <div className="bg-white rounded-b-md sm:px-10 pb-5 sm:pb-10 pt-4 sm:pt-8 flex flex-col justify-center items-center">
+          <h2 className="mb-8 font-semibold">Voulez-vous supprimer "{name}"?</h2>
           <div>
               <button className="bg-gray-200 p-2 rounded border mr-10 hover:bg-gray-100 font-medium" onClick={async () => {
                   await deleteBank(id);

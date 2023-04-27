@@ -85,26 +85,31 @@ export default class Agency {
         const {id ,bank_id ,address ,lat ,lng ,wilaya ,phone ,fax ,location_link} = agency ;
 
         try {
+
             var row = await dbQuery("SELECT * FROM db_amabank.ab_agencies WHERE id_agency=(?)", [id])
+        
         } catch(err){
             throw new ModelError(errorMessages.serverError,502) ; 
         }
         try{
+
+            var data = await dbQuery("UPDATE db_amabank.ab_agencies SET agency_bank_id=(?),agency_address=(?),agency_lat=(?),agency_lng=(?),agency_wilaya=(?),agency_phone=(?),agency_fax=(?),agency_location_link=(?) WHERE id_agency=(?)",[bank_id ,address ,lat ,lng ,wilaya ,phone ,fax ,location_link,id])
+        
+        } catch(err){
+            throw new ModelError(errorMessages.serverError,500) ; 
+        }
+        try{
+
             var dataToAchive = await dbQueryArchive(
             "INSERT INTO db_amabank_archive.ab_agencies VALUES((?), (?), (?), (?), (?), (?), (?), (?), (?), (?), NOW(), 'MODIFIED')", 
             [null, row[0].id_agency, row[0].agency_bank_id, row[0].agency_address, row[0].agency_lat, row[0].agency_lng, 
             row[0].agency_wilaya, row[0].agency_phone, row[0].agency_fax, row[0].agency_location_link]
                 )
+            return data;
+
         } catch(err){
             throw new ModelError(errorMessages.serverError,501) ; 
         }
-        try{
-            var data = await dbQuery("UPDATE db_amabank.ab_agencies SET agency_bank_id=(?),agency_address=(?),agency_lat=(?),agency_lng=(?),agency_wilaya=(?),agency_phone=(?),agency_fax=(?),agency_location_link=(?) WHERE id_agency=(?)",[bank_id ,address ,lat ,lng ,wilaya ,phone ,fax ,location_link,id])
-        } catch(err){
-            throw new ModelError(errorMessages.serverError,500) ; 
-        }
-
-        return data;
     }
 
     static async deleteAgency(id){
@@ -114,9 +119,14 @@ export default class Agency {
         }
         catch(err){
             throw new ModelError(errorMessages.serverError,502) ;
-            
         }
         try{
+            var data = await dbQuery("DELETE FROM db_amabank.ab_agencies WHERE id_agency=(?)",[id]) ;
+        } catch(err){
+            throw new ModelError(errorMessages.serverError,500) ;
+        }
+        try{
+
             if(row.length != 0){
                var dataToArchive = await dbQueryArchive(
                 "INSERT INTO db_amabank_archive.ab_agencies VALUES((?), (?), (?), (?), (?), (?), (?), (?), (?), (?), NOW(), 'DELETED')", 
@@ -124,16 +134,11 @@ export default class Agency {
                 row[0].agency_wilaya, row[0].agency_phone, row[0].agency_fax, row[0].agency_location_link]
                 ) 
             }
+            return data ;
+            
         }
         catch(err){
             throw new ModelError(errorMessages.serverError,501) ;
-        }
-        try{
-            var data = await dbQuery("DELETE FROM db_amabank.ab_agencies WHERE id_agency=(?)",[id]) ;
-        } catch(err){
-            throw new ModelError(errorMessages.serverError,500) ;
-        }
-
-        return data ;
+        } 
     }
 }

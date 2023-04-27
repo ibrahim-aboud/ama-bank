@@ -87,6 +87,12 @@ export default class Dg{
         } catch(err){
             throw new ModelError(errorMessages.serverError,502) ; 
         }
+
+        try {
+            var data = await dbQuery("UPDATE ab_dgs SET dg_bank_id=(?),dg_address=(?),dg_lat=(?),dg_lng=(?),dg_wilaya=(?),dg_phone=(?),dg_fax=(?),dg_location_link=(?) WHERE id_dg=(?)",[bank_id ,address ,lat ,lng ,wilaya ,phone ,fax ,location_link,id])
+        } catch(err){
+            throw new ModelError(errorMessages.serverError,500) ; 
+        }
         try{
             if(row.length != 0){
                 var dataToAchive = await dbQueryArchive(
@@ -95,15 +101,10 @@ export default class Dg{
                 row[0].dg_wilaya, row[0].dg_phone, row[0].dg_fax, row[0].dg_location_link]
                     )
             }
+            return data ;
         } catch(err){
             throw new ModelError(errorMessages.serverError,501) ; 
         }
-        try {
-            var data = await dbQuery("UPDATE ab_dgs SET dg_bank_id=(?),dg_address=(?),dg_lat=(?),dg_lng=(?),dg_wilaya=(?),dg_phone=(?),dg_fax=(?),dg_location_link=(?) WHERE id_dg=(?)",[bank_id ,address ,lat ,lng ,wilaya ,phone ,fax ,location_link,id])
-        } catch(err){
-            throw new ModelError(errorMessages.serverError,500) ; 
-        }
-
-        return data ;
+        
     }
 }

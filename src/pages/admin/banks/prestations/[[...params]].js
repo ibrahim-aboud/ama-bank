@@ -63,16 +63,16 @@ function Prestations({banks,categories}) {
       setPrestations(null);
       return;
     }
-    if(
-        id == null ||
-        id == undefined ||
-        isNaN(id) ||
-        id<0 ||
-        Number.isInteger(parseInt(id))
-      ){
-        router.push(`/admin/banks/prestations?id=${selectedBankId}`);
-        return ;
-      }
+    // if(
+    //     id == null ||
+    //     id == undefined ||
+    //     isNaN(id) ||
+    //     id<0 ||
+    //     Number.isInteger(parseInt(id))
+    //   ){
+    //     router.push(`/admin/banks/prestations?id=${selectedBankId}`);
+    //     return ;
+    //   }
     setLoading(true);
     axios
       .get(process.env.NEXT_PUBLIC_API_URL+`/prestations/${selectedBankId}`)

@@ -71,7 +71,7 @@ export default function AddPrestPopup({ isVisible, setIsVisible, bankId }) {
 
         setIsVisible(!isVisible);
         setPersonalisedPrest(false);
-        router.reload();
+        //router.reload();
     }
 
     if (!isVisible) return null;
@@ -89,7 +89,9 @@ export default function AddPrestPopup({ isVisible, setIsVisible, bankId }) {
                             name="categorie"
                             required
                             className="rounded bg-gray-100 outline-none border w-[450px] pl-3 py-2"
-                            onChange={(event) => {setPrestation({...prestation, categorie_id: parseInt(event.target.value)})}}
+                            onChange={(event) => {
+                                console.log(event.target.value);
+                                setPrestation({...prestation, categorie_id: parseInt(event.target.value)})}}
                         >
                             <option value="">--- Catégorie prestation ---</option>
                             {categories.map((item) => (

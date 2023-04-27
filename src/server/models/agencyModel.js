@@ -1,5 +1,6 @@
 import ModelError from "@/lib/utils/ModelError";
 import dbQuery from "../db/connect";
+import dbQueryArchive from "../db/connectArchiv";
 import { errorMessages } from "@/lib/utils/errorMessages";
 
 export default class Agency {
@@ -84,37 +85,66 @@ export default class Agency {
         const {id ,bank_id ,address ,lat ,lng ,wilaya ,phone ,fax ,location_link} = agency ;
 
         try {
-            const {id_agencyIns ,bank_idIns ,addressIns ,latIns ,lngIns ,wilayaIns ,phoneIns ,faxIns ,location_linkIns}
-            = dbQuery("SELECT FROM db_amabank_archive.ab_agencies WHERE id_agency=(?)", [id])
 
-            var dataToAchive = dbQuery(
-                "INSERT INTO db_amabank_archive.ab_agencies VALUES((?), (?), (?), (?), (?), (?), (?), (?), (?), (?), (?))", 
-                [null, id_agencyIns, bank_idIns, addressIns, latIns, lngIns, wilayaIns, phoneIns, faxIns, location_linkIns, null]
-                )
+            var row = await dbQuery("SELECT * FROM db_amabank.ab_agencies WHERE id_agency=(?)", [id])
+        
+        } catch(err){
+            throw new ModelError(errorMessages.serverError,502) ; 
+        }
+        try{
 
             var data = await dbQuery("UPDATE db_amabank.ab_agencies SET agency_bank_id=(?),agency_address=(?),agency_lat=(?),agency_lng=(?),agency_wilaya=(?),agency_phone=(?),agency_fax=(?),agency_location_link=(?) WHERE id_agency=(?)",[bank_id ,address ,lat ,lng ,wilaya ,phone ,fax ,location_link,id])
+        
         } catch(err){
             throw new ModelError(errorMessages.serverError,500) ; 
         }
+        try{
 
-        return {data, dataToAchive} ;
+            var dataToArchive = await dbQueryArchive(
+            "INSERT INTO db_amabank_archive.ab_agencies VALUES((?), (?), (?), (?), (?), (?), (?), (?), (?), (?), NOW(), 'MODIFIED')", 
+            [null, row[0].id_agency, row[0].agency_bank_id, row[0].agency_address, row[0].agency_lat, row[0].agency_lng, 
+            row[0].agency_wilaya, row[0].agency_phone, row[0].agency_fax, row[0].agency_location_link]
+                )
+            return {
+                data : data,
+                dataToArchive : dataToArchive
+            };
+
+        } catch(err){
+            throw new ModelError(errorMessages.serverError,501) ; 
+        }
     }
 
     static async deleteAgency(id){
-        try {
+        try {   
             
-            const {id_agency ,bank_id ,address ,lat ,lng ,wilaya ,phone ,fax ,location_link}
-                 = dbQuery("SELECT FROM db_amabank_archive.ab_agencies WHERE id_agency=(?)", [id])
-
-            var dataToAchive = dbQuery(
-                "INSERT INTO ab_agencies VALUES((?), (?), (?), (?), (?), (?), (?), (?), (?), (?), (?))", 
-                [null, id_agency, bank_id, address, lat, lng, wilaya, phone, fax, location_link, null]
-                )
-            var data = dbQuery("DELETE FROM db_amabank.ab_agencies WHERE id_agency=(?)",[id]) ;
+            var row = await dbQuery("SELECT * FROM db_amabank.ab_agencies WHERE id_agency=(?)", [id])
+        }
+        catch(err){
+            throw new ModelError(errorMessages.serverError,502) ;
+        }
+        try{
+            var data = await dbQuery("DELETE FROM db_amabank.ab_agencies WHERE id_agency=(?)",[id]) ;
         } catch(err){
             throw new ModelError(errorMessages.serverError,500) ;
         }
+        try{
 
-        return {data, dataToAchive} ;
+            if(row.length != 0){
+               var dataToArchive = await dbQueryArchive(
+                "INSERT INTO db_amabank_archive.ab_agencies VALUES((?), (?), (?), (?), (?), (?), (?), (?), (?), (?), NOW(), 'DELETED')", 
+                [null, row[0].id_agency, row[0].agency_bank_id, row[0].agency_address, row[0].agency_lat, row[0].agency_lng, 
+                row[0].agency_wilaya, row[0].agency_phone, row[0].agency_fax, row[0].agency_location_link]
+                ) 
+            }
+            return {
+                data : data,
+                dataToArchive : dataToArchive
+            };
+            
+        }
+        catch(err){
+            throw new ModelError(errorMessages.serverError,501) ;
+        } 
     }
 }

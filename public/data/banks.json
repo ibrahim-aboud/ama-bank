@@ -1,0 +1,603 @@
+{
+    "bank_name" : "name of the bank",
+    "website_link": "https://example.com",
+    "dg_address": "address here",
+    "dg_lat" : 10.5 ,
+    "dg_lng" : 11.5,
+    "dg_wilaya": 16,
+    "dg_phone": "021 64 87 44",
+    "dg_fax" : "023 55 66 78",
+    "date_prestations": "2023-03-16",
+
+    "prestations_indiv": {
+        "compte": [
+            {
+                "nom_prestation": "Ouverture de compte et délivrance chéquier" ,
+                "categorie": "ouverture de compte" ,
+                "tarif": 0,
+                "period": 360
+            } ,
+            {
+                "nom_prestation": "Frais de tenue de compte courant" ,
+                "categorie": "tenue de compte" ,
+                "tarif": 1000,
+                "period": 360
+            } ,
+            {
+                "nom_prestation": "Frais de tenue de compte chèque" ,
+                "categorie": "tenue de compte" ,
+                "tarif": 500,
+                "period": 360
+            } ,
+            {
+                "nom_prestation": "Frais de tenue de compte sur livret" ,
+                "categorie": "tenue de compte" ,
+                "tarif": 0,
+                "period": 360
+            } ,
+            {
+                "nom_prestation": "Tenue de compte en devise" ,
+                "categorie": "tenue de compte" ,
+                "tarif": 0,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Fermeture compte courant" ,
+                "categorie": "fermeture de compte" ,
+                "tarif": 0,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Fermeture compte chèque" ,
+                "categorie": "fermeture de compte" ,
+                "tarif": 0,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Fermeture compte sur livret" ,
+                "categorie": "fermeture de compte" ,
+                "tarif": null,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Fermeture compte devise" ,
+                "categorie": "fermeture de compte" ,
+                "tarif": 0,"period": 360
+            }
+        ] ,
+        "paiement": [
+            {
+                "nom_prestation": "Versement espèces Client-agence" ,
+                "categorie": "Versement",
+                "tarif": 0,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Versement espèces Tiers" ,
+                "categorie": "Versement",
+                "tarif": 0,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Versement espèces déplacées" ,
+                "categorie": "Versement",
+                "tarif": 0,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Virement reçu d'un compte de la même agence" ,
+                "categorie": "Virement",
+                "tarif": 0,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Virement devise reçue de l'étranger" ,
+                "categorie": "Virement",
+                "tarif": null,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Virement de compte à compte (même agence)" ,
+                "categorie": "Virement",
+                "tarif": 0,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Virement ordonné en faveur client d'une autre agence" ,
+                "categorie": "Virement",
+                "tarif": 0,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Retrait espèces aux guichets d'une autre agence" ,
+                "categorie": "Retrait",
+                "tarif": null,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Émission de chèque de banque" ,
+                "categorie": "chèque",
+                "tarif": 0,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Émission Chèque de banque déplacée" ,
+                "categorie": "chèque",
+                "tarif": 0,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Annulation de chèque de banque" ,
+                "categorie": "chèque",
+                "tarif": 0,
+                "period": 360
+            }
+        ] ,
+        "monetique": {
+            "carte CIB": [
+                {
+                    "nom_prestation": "Émission de la première carte",
+                    "tarif": 0,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Renouvèlement",
+                    "tarif": null,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Reconfection",
+                    "tarif": 0,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Réédition du code secret",
+                    "tarif": 0,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Commission de retrait sur DAB de la banque",
+                    "tarif": 0,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Commission de retrait sur DAB confrère",
+                    "tarif": 0,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Commission de paiement sur TPE/Client",
+                    "tarif": null,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Commission de paiement sur TPE/Commerçant",
+                    "tarif": 0,
+                    "period": 360
+                }
+            ] ,
+            "carte internationale": [
+                {
+                    "nom_prestation": "Octroi",
+                    "tarif": null,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Mise en opposition",
+                    "tarif": 0,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Reconfection",
+                    "tarif": 0,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Réédition du code secret",
+                    "tarif": 500,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Changement de code PIN",
+                    "tarif": null,
+                    "period": 360
+                }
+            ]
+        }
+    } ,
+
+
+    "prestations_prof":   {
+        "compte": [
+            {
+                "nom_prestation": "Ouverture de compte et délivrance chéquier" ,
+                "categorie": "ouverture de compte" ,
+                "tarif": 0,
+                "period": 360
+            } ,
+            {
+                "nom_prestation": "Frais de tenue de compte courant" ,
+                "categorie": "tenue de compte" ,
+                "tarif": 1000,
+                "period": 360
+            } ,
+            {
+                "nom_prestation": "Frais de tenue de compte chèque" ,
+                "categorie": "tenue de compte" ,
+                "tarif": 500,
+                "period": 360
+            } ,
+            {
+                "nom_prestation": "Frais de tenue de compte sur livret" ,
+                "categorie": "tenue de compte" ,
+                "tarif": 0,
+                "period": 360
+            } ,
+            {
+                "nom_prestation": "Tenue de compte en devise" ,
+                "categorie": "tenue de compte" ,
+                "tarif": 0,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Fermeture compte courant" ,
+                "categorie": "fermeture de compte" ,
+                "tarif": 0,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Fermeture compte chèque" ,
+                "categorie": "fermeture de compte" ,
+                "tarif": 0,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Fermeture compte sur livret" ,
+                "categorie": "fermeture de compte" ,
+                "tarif": null,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Fermeture compte devise" ,
+                "categorie": "fermeture de compte" ,
+                "tarif": 0,"period": 360
+            }
+        ] ,
+        "paiement": [
+            {
+                "nom_prestation": "Versement espèces Client-agence" ,
+                "categorie": "Versement",
+                "tarif": 0,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Versement espèces Tiers" ,
+                "categorie": "Versement",
+                "tarif": 0,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Versement espèces déplacées" ,
+                "categorie": "Versement",
+                "tarif": 0,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Virement reçu d'un compte de la même agence" ,
+                "categorie": "Virement",
+                "tarif": 0,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Virement devise reçue de l'étranger" ,
+                "categorie": "Virement",
+                "tarif": null,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Virement de compte à compte (même agence)" ,
+                "categorie": "Virement",
+                "tarif": 0,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Virement ordonné en faveur client d'une autre agence" ,
+                "categorie": "Virement",
+                "tarif": 0,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Retrait espèces aux guichets d'une autre agence" ,
+                "categorie": "Retrait",
+                "tarif": null,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Émission de chèque de banque" ,
+                "categorie": "chèque",
+                "tarif": 0,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Émission Chèque de banque déplacée" ,
+                "categorie": "chèque",
+                "tarif": 0,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Annulation de chèque de banque" ,
+                "categorie": "chèque",
+                "tarif": 0,
+                "period": 360
+            }
+        ] ,
+        "monetique": {
+            "carte CIB": [
+                {
+                    "nom_prestation": "Émission de la première carte",
+                    "tarif": 0,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Renouvèlement",
+                    "tarif": null,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Reconfection",
+                    "tarif": 0,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Réédition du code secret",
+                    "tarif": 0,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Commission de retrait sur DAB de la banque",
+                    "tarif": 0,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Commission de retrait sur DAB confrère",
+                    "tarif": 0,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Commission de paiement sur TPE/Client",
+                    "tarif": null,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Commission de paiement sur TPE/Commerçant",
+                    "tarif": 0,
+                    "period": 360
+                }
+            ] ,
+            "carte internationale": [
+                {
+                    "nom_prestation": "Octroi",
+                    "tarif": null,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Mise en opposition",
+                    "tarif": 0,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Reconfection",
+                    "tarif": 0,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Réédition du code secret",
+                    "tarif": 500,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Changement de code PIN",
+                    "tarif": null,
+                    "period": 360
+                }
+            ]
+        }
+    }  ,
+
+    "prestations_ets":   {
+        "compte": [
+            {
+                "nom_prestation": "Ouverture de compte et délivrance chéquier" ,
+                "categorie": "ouverture de compte" ,
+                "tarif": 0,
+                "period": 360
+            } ,
+            {
+                "nom_prestation": "Frais de tenue de compte courant" ,
+                "categorie": "tenue de compte" ,
+                "tarif": 1000,
+                "period": 360
+            } ,
+            {
+                "nom_prestation": "Frais de tenue de compte chèque" ,
+                "categorie": "tenue de compte" ,
+                "tarif": 500,
+                "period": 360
+            } ,
+            {
+                "nom_prestation": "Frais de tenue de compte sur livret" ,
+                "categorie": "tenue de compte" ,
+                "tarif": 0,
+                "period": 360
+            } ,
+            {
+                "nom_prestation": "Tenue de compte en devise" ,
+                "categorie": "tenue de compte" ,
+                "tarif": 0,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Fermeture compte courant" ,
+                "categorie": "fermeture de compte" ,
+                "tarif": 0,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Fermeture compte chèque" ,
+                "categorie": "fermeture de compte" ,
+                "tarif": 0,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Fermeture compte sur livret" ,
+                "categorie": "fermeture de compte" ,
+                "tarif": null,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Fermeture compte devise" ,
+                "categorie": "fermeture de compte" ,
+                "tarif": 0,"period": 360
+            }
+        ] ,
+        "paiement": [
+            {
+                "nom_prestation": "Versement espèces Client-agence" ,
+                "categorie": "Versement",
+                "tarif": 0,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Versement espèces Tiers" ,
+                "categorie": "Versement",
+                "tarif": 0,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Versement espèces déplacées" ,
+                "categorie": "Versement",
+                "tarif": 0,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Virement reçu d'un compte de la même agence" ,
+                "categorie": "Virement",
+                "tarif": 0,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Virement devise reçue de l'étranger" ,
+                "categorie": "Virement",
+                "tarif": null,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Virement de compte à compte (même agence)" ,
+                "categorie": "Virement",
+                "tarif": 0,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Virement ordonné en faveur client d'une autre agence" ,
+                "categorie": "Virement",
+                "tarif": 0,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Retrait espèces aux guichets d'une autre agence" ,
+                "categorie": "Retrait",
+                "tarif": null,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Émission de chèque de banque" ,
+                "categorie": "chèque",
+                "tarif": 0,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Émission Chèque de banque déplacée" ,
+                "categorie": "chèque",
+                "tarif": 0,
+                "period": 360
+            },
+            {
+                "nom_prestation": "Annulation de chèque de banque" ,
+                "categorie": "chèque",
+                "tarif": 0,
+                "period": 360
+            }
+        ] ,
+        "monetique": {
+            "carte CIB": [
+                {
+                    "nom_prestation": "Émission de la première carte",
+                    "tarif": 0,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Renouvèlement",
+                    "tarif": null,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Reconfection",
+                    "tarif": 0,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Réédition du code secret",
+                    "tarif": 0,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Commission de retrait sur DAB de la banque",
+                    "tarif": 0,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Commission de retrait sur DAB confrère",
+                    "tarif": 0,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Commission de paiement sur TPE/Client",
+                    "tarif": null,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Commission de paiement sur TPE/Commerçant",
+                    "tarif": 0,
+                    "period": 360
+                }
+            ] ,
+            "carte internationale": [
+                {
+                    "nom_prestation": "Octroi",
+                    "tarif": null,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Mise en opposition",
+                    "tarif": 0,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Reconfection",
+                    "tarif": 0,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Réédition du code secret",
+                    "tarif": 500,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Changement de code PIN",
+                    "tarif": null,
+                    "period": 360
+                }
+            ]
+        }
+    } 
+}

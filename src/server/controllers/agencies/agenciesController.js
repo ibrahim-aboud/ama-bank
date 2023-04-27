@@ -85,6 +85,7 @@ export default class AgenciesController{
     }
 
     async delete(req,res){
+        
         const {id} = req.query ;
         try {
             if (await isNotAdmin(req,res)){

@@ -8,12 +8,6 @@ const connection = mysql.createConnection({
   database: 'db_amabank'
 });
 
-let filesArray = [
-    '../../../public/data/banks/NatixisAlgérie.json',
-    '../../../public/data/banks/TRUSTBank.json',
-    '../../../public/data/banks/SocieteGenerale.json'
-];//liste of files
-
 // connect to the MySQL server
 connection.connect((error) => {
   if (error) {
@@ -34,13 +28,14 @@ for(let categoryName of category) {
 }
 
 
+let filesArray = ['./NatixisAlgérie.json', './TRUSTBank.json', './SocieteGenerale.json'];//liste of files
 let bank_id = 1;//manuellement pour mettre les relations entre les tables
 
 for(let file of filesArray){
         let jsonData = require(file);//import the json file 
 
         //insert the bank infos
-        let insertQuery = `INSERT INTO ab_banks VALUES (${bank_id}, '${jsonData.bank_name}', '${jsonData.bank_description}' ,${0}, 
+        let insertQuery = `INSERT INTO ab_banks VALUES (${bank_id}, '${jsonData.bank_name}', ${null} ,${0}, 
                           '${jsonData.website_link}', '${jsonData.date_prestations}')`;
                                
         connection.query(insertQuery, (error, result) => {
@@ -51,7 +46,7 @@ for(let file of filesArray){
         //insert in ab_dgs
         insertQuery = `INSERT INTO ab_dgs VALUES (${null}, ${bank_id}, '${jsonData.dg_address}',
             ${jsonData.dg_lat}, ${jsonData.dg_lng}, ${jsonData.dg_wilaya},
-            '${jsonData.dg_phone}', '${jsonData.dg_fax}', '${jsonData.dg_location_link}')`;
+            '${jsonData.dg_phone}', '${jsonData.dg_fax}', ${null})`;
             
         connection.query(insertQuery, (error, result) => {
         if (error) throw error;
@@ -61,7 +56,6 @@ for(let file of filesArray){
         let typePrestation = ["particulier", "professionnel", "entreprise"];//
         let categoryOperation = ["Gestion et tenue de compte", "Opération de paiement", "Monétique"]
         const tabTypePrestations = [jsonData.prestations_indiv, jsonData.prestations_prof, jsonData.prestations_ets]//ahya smail nta sbabna derna 5 boucles
-        
         let cpt = 0;//Savoir quelle type de prestation
         for(let i of tabTypePrestations){//boucler sur le fichier jSon
             let idCatigorie = 0;//categories id
@@ -85,7 +79,7 @@ for(let file of filesArray){
                     //Il faut decider si on ajoute CARTE CIB...
                     for(let k in jData){
                         //CIB et CARTE INTERNATIONAL, ...
-                        let kData = jData[k]
+                        kData = jData[k]
                         for(let element of kData){
                             
                             if(element.tarif != null){
@@ -102,8 +96,8 @@ for(let file of filesArray){
                 }
                 idCatigorie++;
             }
-            cpt++;//i can use the bank id but to make things clear i wont
         }
+        cpt++;//i can use the bank id but to make things clear i wont
         bank_id++;
     }
 
@@ -113,6 +107,5 @@ connection.end((error) => {
     console.error('Error disconnecting from the MySQL server:', error);
     return;
   }
-
   console.log('Disconnected from MySQL server.');
 });

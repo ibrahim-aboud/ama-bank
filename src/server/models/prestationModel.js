@@ -122,12 +122,15 @@ export default class Prestation{
         }
         try{
   
-            var dataToAchive = await dbQueryArchive(
+            var dataToArchivePres = await dbQueryArchive(
             "INSERT INTO db_amabank_archive.ab_prestations VALUES((?), (?), (?), (?), (?), (?), (?), (?), (?), NOW(), 'MODIFIED')", 
             [null, row[0].id_prestation, row[0].prestation_bank_id, row[0].prestation_name, row[0].prestation_categorie_id, row[0].prestation_type, 
             row[0].prestation_tarif, row[0].prestation_period, row[0].prestation_categorie_operation]
                 )
-            return data;
+            return {
+                data : data,
+                archiveDataPres : dataToArchivePres,
+            };
         } catch(err){
             throw new ModelError(errorMessages.serverError,501) ; 
         }
@@ -151,12 +154,15 @@ export default class Prestation{
         }
         try{
 
-            var dataToAchive = await dbQueryArchive(
+            var dataToArchivePres = await dbQueryArchive(
             "INSERT INTO db_amabank_archive.ab_prestations VALUES((?), (?), (?), (?), (?), (?), (?), (?), (?), NOW(), 'DELETED')", 
             [null, row[0].id_prestation, row[0].prestation_bank_id, row[0].prestation_name, row[0].prestation_categorie_id, row[0].prestation_type, 
             row[0].prestation_tarif, row[0].prestation_period, row[0].prestation_categorie_operation]
                 )
-            return data ;
+            return {
+                data : data,
+                archiveDataPres : dataToArchivePres,
+            };
         } catch(err){
             throw new ModelError(errorMessages.serverError,501) ; 
         }

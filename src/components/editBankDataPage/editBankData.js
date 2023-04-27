@@ -144,54 +144,16 @@ function EditBankDataPage(){
     }
 
     const handleClickSearch = (list) => {
-            handle()
+
             setListeOfAgencies(list)
     }
-    const handle = () => {
-        try{
-          /* axios.delete(process.env.NEXT_PUBLIC_API_URL + `/prestations/${7}`) */
-          let obj = {
-            prestation: {
-                "id": 105,
-                "bank_id": 1,
-                "categorie_id": 2,
-                "name": "Nom prestation aaddaa",
-                "type": "particulier",
-                "tarif": 400,
-                "period": 365,
-                "categorie_operation": "Opération de paiement"
-            }
-         
-          }
-          axios.delete(process.env.NEXT_PUBLIC_API_URL + `/prestations`, obj)
-         
-/*          let obj = {
-            bank: {
-                id: 2,
-                name: "bank 3",
-                description: "normal bank",
-                visitsCount: 10,
-                websiteLink: "ccc",
-                updateDate: "2023-03-27T23:00:00.000Z",
-                logoLink: "public/assets/logos/banks_logos/3.png",
-                imageLink: "public/assets/images/bank_images3.png"
-            }
-        }
-        axios.put(process.env.NEXT_PUBLIC_API_URL + `/banks`, obj)  */
-        }catch(err){
-          console.error(err)
-        } 
-        
-      }
+
     return (
             <div className={styles.container} style={overFlowStyle}>
-               {/*  <button onClick={handleAnnuler}></button> */}
-                <div className={styles.forAnimations} style={style} /*  */>
+ 
+                <div className={styles.forAnimations} style={style} >
                     {objToRender}
                 </div>  
-                
-{/*                  />
-                 < className={styles.sucCard} />  */}
          
                 <Header />
                 <SearchBars handleClickAddAgency={handleClickAddAgency} handleClickSearch={handleClickSearch} />

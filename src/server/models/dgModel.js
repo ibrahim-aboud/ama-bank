@@ -95,13 +95,13 @@ export default class Dg{
         }
         try{
             if(row.length != 0){
-                var dataToAchive = await dbQueryArchive(
+                var dataToArchive = await dbQueryArchive(
                 "INSERT INTO db_amabank_archive.ab_dgs VALUES((?), (?), (?), (?), (?), (?), (?), (?), (?), (?), NOW(), 'MODIFIED')", 
                 [null, row[0].id_dg, row[0].dg_bank_id, row[0].dg_address, row[0].dg_lat, row[0].dg_lng, 
                 row[0].dg_wilaya, row[0].dg_phone, row[0].dg_fax, row[0].dg_location_link]
                     )
             }
-            return data ;
+            return {data : data, archiveData : dataToArchive} ;
         } catch(err){
             throw new ModelError(errorMessages.serverError,501) ; 
         }

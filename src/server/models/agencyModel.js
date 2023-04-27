@@ -100,12 +100,15 @@ export default class Agency {
         }
         try{
 
-            var dataToAchive = await dbQueryArchive(
+            var dataToArchive = await dbQueryArchive(
             "INSERT INTO db_amabank_archive.ab_agencies VALUES((?), (?), (?), (?), (?), (?), (?), (?), (?), (?), NOW(), 'MODIFIED')", 
             [null, row[0].id_agency, row[0].agency_bank_id, row[0].agency_address, row[0].agency_lat, row[0].agency_lng, 
             row[0].agency_wilaya, row[0].agency_phone, row[0].agency_fax, row[0].agency_location_link]
                 )
-            return data;
+            return {
+                data : data,
+                dataToArchive : dataToArchive
+            };
 
         } catch(err){
             throw new ModelError(errorMessages.serverError,501) ; 
@@ -134,7 +137,10 @@ export default class Agency {
                 row[0].agency_wilaya, row[0].agency_phone, row[0].agency_fax, row[0].agency_location_link]
                 ) 
             }
-            return data ;
+            return {
+                data : data,
+                dataToArchive : dataToArchive
+            };
             
         }
         catch(err){

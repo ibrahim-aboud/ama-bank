@@ -71,7 +71,7 @@ export default function AddPrestPopup({ isVisible, setIsVisible, bankId }) {
 
         setIsVisible(!isVisible);
         setPersonalisedPrest(false);
-        //router.reload();
+        router.reload();
     }
 
     if (!isVisible) return null;

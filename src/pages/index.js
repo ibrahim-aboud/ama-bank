@@ -36,8 +36,8 @@ function BankListElement(props) {
           </h2>
         </div>
 
-        <div className="flex smx:flex-col items-center">
-          <button className="rounded-xl px-5 lg:mr-5 smx:mb-1 smx:py-2 py-3 font-semibold bg-[#40916C] text-white shadow-md hover:bg-[#51b186] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300">
+        <div className="flex flex-col md:flex-row items-center">
+          <button className="rounded-xl px-5 md:mr-2 lg:mr-5 mb-1 md:mb-0 smx:py-2 py-3 font-semibold bg-[#40916C] text-white shadow-md hover:bg-[#51b186] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300">
             <h2 className="smx:hidden">Comparer avec une autre banque</h2>
             <h2 className="lg:hidden text-[0.7rem]">Comparer</h2>
             <MdOutlineCompareArrows size={23} className="ml-2 smx:hidden" />
@@ -63,7 +63,7 @@ function Slide(props) {
   return (
     <Link href={props.url} target={`${props.url !== "" ? "_blank" : ""}`}>
       <div
-        className="pb-[35%] bg-cover bg-center"
+        className="pb-[50%] md:pb-[35%] bg-cover bg-center"
         style={{ backgroundImage: `url(${props.imgUrl})` }}
       />
     </Link>
@@ -339,14 +339,14 @@ export default function Home({ banks }) {
 
   return (
     <div>
-      <div className="mt-1">
+      <div className="mt-[1px]">
         <Slideshow />
       </div>
 
       <div>
-        <div className="flex flex-col items-center my-14 py-[1%] px-[10%]">
-          <div className="flex items-center mb-5 md:mb-16">
-            <div className=" mb-4 xs:w-[300px] sm:w-[500px] lg:w-[800px] lgx:w-[1000px]">
+        <div className="flex flex-col items-center my-14 py-[1%] px-[3%] lg:px-[10%]">
+          <div className="flex items-center justify-center mb-5 md:mb-16 w-full sm:w-[95%]">
+            <div className=" mb-4 w-full lg:w-[800px] lgx:w-[1000px]">
               <h2 className="p-1 text-[1rem]">Nom de la banque</h2>
               <div className="px-3 md:px-7 py-1 sm:px-4 sm:py-2 rounded-md border shadow-sm flex items-center w-full bg-gray-100">
                 <div className="w-full">
@@ -364,7 +364,7 @@ export default function Home({ banks }) {
             </div>
             <div>
               <button
-                className="rounded-xl p-3 lg:px-8 sm:p-4 mt-4 ml-2 font-semibold bg-gray-100 border border-gray-300 text-gray-600 hover:text-white hover:bg-[#40916C] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
+                className="rounded-xl p-3 lg:px-8 sm:p-4 mt-4 ml-2 md:ml-10 font-semibold bg-gray-100 border border-gray-300 text-gray-600 hover:text-white hover:bg-[#40916C] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
                 onClick={() => {
                   setIsVisible(!isVisible);
                 }}
@@ -375,7 +375,7 @@ export default function Home({ banks }) {
             </div>
           </div>
 
-          <div className="w-[340px] xs:w-[400px] sm:w-[600px] md:w-[700px] lg:w-[1000px] lgx:w-[1200px] h-[540px]">
+          <div className="w-full lg:w-[1000px] lgx:w-[1200px] h-[500px] md:h-[660px]">
             <Scrollbar>
               <div className="w-full bg-[#d9d9d928] py-10 md:py-16 rounded-md">
                 {filteredList.map((bank) => (

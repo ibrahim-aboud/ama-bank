@@ -34,7 +34,7 @@ connection.connect((error) => {
                 locationLink += i.agency_location_link
                 locationLink += "'"
             }
-            insertQuery = `INSERT INTO ab_agencies VALUES (${null}, ${2}, '${i.agency_address}',
+            insertQuery = `INSERT INTO ab_agencies VALUES (${null}, ${1}, '${i.agency_address}',
             ${i.agency_lat}, ${i.agency_lng}, ${16},
             ${phone}, ${fax}, ${locationLink})`;
             

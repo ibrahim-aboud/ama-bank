@@ -29,22 +29,22 @@ function ConfirmDelete({ id, name, isDeleting, setIsDeleting, filteredList, setF
           <RiDeleteBin6Line size={23} className="mr-3" />
           <h2>Suppression définitive d'une banque</h2>
         </div>
-        <div className="bg-white rounded-b-md sm:px-10 pb-5 sm:pb-10 pt-4 sm:pt-8 flex flex-col justify-center items-center">
+        <div className="bg-white rounded-b-md pt-4 sm:pt-8 flex flex-col justify-center items-center">
           <h2 className="mb-8 font-semibold">Voulez-vous supprimer "{name}"?</h2>
-          <div>
-              <button className="bg-gray-200 p-2 rounded border mr-10 hover:bg-gray-100 font-medium" onClick={async () => {
-                  await deleteBank(id);
-                  //router.reload();
-                  const filtered = filteredList.filter((bank) => {return bank.id !== id});
-                  setFilteredList(filtered);
+          <div className="w-full">
+            <button className="w-1/2 bg-gray-200 p-2 rounded-bl-md border border-gray-300 text-gray-700 hover:bg-gray-100 font-medium" onClick={async () => {
+                await deleteBank(id);
+                //router.reload();
+                const filtered = filteredList.filter((bank) => {return bank.id !== id});
+                setFilteredList(filtered);
 
-                  setIsDeleting(!isDeleting);
-              }}>
-                  Confirmer
-              </button>
-              <button className="bg-gray-200 p-2 rounded border hover:bg-gray-100 font-medium" onClick={() => {setIsDeleting(!isDeleting)}}>
-                  Annuler
-              </button>
+                setIsDeleting(!isDeleting);
+            }}>
+                Confirmer
+            </button>
+            <button className="w-1/2 bg-gray-200 p-2 rounded-br-md border border-gray-300 text-gray-700 hover:bg-gray-100 font-medium" onClick={() => {setIsDeleting(!isDeleting)}}>
+                Annuler
+            </button>
           </div>
         </div>
       </div>

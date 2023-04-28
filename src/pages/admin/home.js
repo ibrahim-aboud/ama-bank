@@ -8,18 +8,24 @@ import { MdAddCircle, MdDeleteForever } from "react-icons/md";
 import { FaAngleDown } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import axios from "axios";
-import { useRouter } from "next/router";
 import Scrollbar from "@/components/common/scrollbar";
+import SuccessFeedback from "@/components/common/feedback_popups/success";
+import FailFeedback from "@/components/common/feedback_popups/fail";
 
-function ConfirmDelete({ id, name, isDeleting, setIsDeleting, filteredList, setFilteredList }) {
+function ConfirmDelete({ id, name, isDeleting, setIsDeleting, filteredList, setFilteredList, setIsSuccessful, setIsFeedbackVisible }) {
   async function deleteBank(id) {
     try {
-      const response = await axios.delete(process.env.NEXT_PUBLIC_API_URL + `/banks/${id}`)
+      await axios.delete(process.env.NEXT_PUBLIC_API_URL + `/banks/${id}`);
+      setIsSuccessful(true);
+      setIsFeedbackVisible(true);
+      setTimeout(() => {setIsFeedbackVisible(false), setIsSuccessful(false)}, 3000);
     } catch (e) {
-      console.log(e.message)
+      console.log(e.message);
+      setIsFeedbackVisible(true);
+      setIsSuccessful(false);
+      setTimeout(() => {setIsFeedbackVisible(false), setIsSuccessful(false)}, 3000);
     }
   }
-  const router = useRouter();
 
   if (!isDeleting) return null;
   return (
@@ -34,10 +40,8 @@ function ConfirmDelete({ id, name, isDeleting, setIsDeleting, filteredList, setF
           <div className="w-full">
             <button className="w-1/2 bg-gray-200 p-2 rounded-bl-md border border-gray-300 text-gray-700 hover:bg-gray-100 font-medium" onClick={async () => {
                 await deleteBank(id);
-                //router.reload();
                 const filtered = filteredList.filter((bank) => {return bank.id !== id});
                 setFilteredList(filtered);
-
                 setIsDeleting(!isDeleting);
             }}>
                 Confirmer
@@ -52,7 +56,7 @@ function ConfirmDelete({ id, name, isDeleting, setIsDeleting, filteredList, setF
   );
 }
 
-function BankListElement({ id, name, logo_src, isDeleting, setIsDeleting, onDelete }) {
+function BankListElement({ id, name, logo_src, isDeleting, setIsDeleting, onDelete, isFeedbackVisible, isSuccessful }) {
   const [isGstBanksHidden, setIsGstBanksHidden] = useState(true);
 
   return (
@@ -114,6 +118,8 @@ function BankListElement({ id, name, logo_src, isDeleting, setIsDeleting, onDele
           <MdDeleteForever size={23} className="lg:ml-2" />
         </button>
       </div>
+      <SuccessFeedback message={"Suppression avec succès"} isVisible={isFeedbackVisible} isSuccessful={isSuccessful} />
+      <FailFeedback message={"Échec"} isVisible={isFeedbackVisible} isSuccessful={isSuccessful} />
     </div>
   );
 }
@@ -133,6 +139,8 @@ function Home({ banks }) {
   const [isDeleting, setIsDeleting] = useState(false);
   const [idToDelete, setIdToDelete] = useState(0);
   const [nameToDelete, setNameToDelete] = useState("");
+  const [isSuccessful, setIsSuccessful] = useState(false);
+  const [isFeedbackVisible, setIsFeedbackVisible] = useState(false);
 
   return (
     <div className="flex flex-col items-center h-screen mt-5 sm:mt-14">
@@ -185,6 +193,8 @@ function Home({ banks }) {
                     logo_src={bank.logoLink}
                     isDeleting={isDeleting}
                     setIsDeleting={setIsDeleting}
+                    isFeedbackVisible={isFeedbackVisible}
+                    isSuccessful={isSuccessful}
                     onDelete={() => {
                       setIdToDelete(bank.id);
                       setNameToDelete(bank.name);
@@ -195,7 +205,7 @@ function Home({ banks }) {
             </Scrollbar>
           </div>
         </div>
-        <ConfirmDelete id={idToDelete} name={nameToDelete} isDeleting={isDeleting} setIsDeleting={setIsDeleting} filteredList={filteredList} setFilteredList={setFilteredList} />
+        <ConfirmDelete id={idToDelete} name={nameToDelete} isDeleting={isDeleting} setIsDeleting={setIsDeleting} filteredList={filteredList} setFilteredList={setFilteredList} setIsSuccessful={setIsSuccessful} setIsFeedbackVisible={setIsFeedbackVisible} />
     </div>
   );
 }

@@ -10,6 +10,8 @@ import { HiCheckCircle, HiPhone, HiLocationMarker, HiSearch } from "react-icons/
 import { RiBankFill } from "react-icons/ri";
 import { wilayas } from "@/lib/utils/wilayaMap";
 import Link from "next/link";
+import SuccessFeedback from "@/components/common/feedback_popups/success";
+import FailFeedback from "@/components/common/feedback_popups/fail";
 
 function BankInfoFormADD() {
   const [loading, setLoading] = useState(false);
@@ -49,6 +51,9 @@ function BankInfoFormADD() {
     };
     reader.readAsDataURL(file);
   };
+
+  const [addSuccess, setAddSuccess] = useState(false);
+  const [isFeedbackVisible, setIsFeedbackVisible] = useState(false);
 
   // get excuted when the form is submitted
   async function sumbitHandler(event) {
@@ -98,7 +103,9 @@ function BankInfoFormADD() {
       }
       if ("error" in response1.data){
         setError("ERROR: bank already exists!");
-        //throw new Error("ERROR: bank already exists!")
+        setAddSuccess(false);
+        setIsFeedbackVisible(true);
+        setTimeout(() => {setAddSuccess(false); setIsFeedbackVisible(false)}, 2000);
       }
       else {
         const dgToSend = {...dg, bank_id: data1.id};
@@ -106,11 +113,17 @@ function BankInfoFormADD() {
 
         // when the data is updated
         setError("");
+        setAddSuccess(true);
+        setIsFeedbackVisible(true);
+        setTimeout(() => {setAddSuccess(false); setIsFeedbackVisible(false)}, 2000);
         router.replace("/admin/home");
       }
 
     } catch (e) {
       setError(e.response?.data.error.message);
+      setAddSuccess(false);
+      setIsFeedbackVisible(true);
+      setTimeout(() => {setAddSuccess(false); setIsFeedbackVisible(false)}, 2000);
     }
 
     setLoading(false);
@@ -349,11 +362,11 @@ function BankInfoFormADD() {
           </div>
         </div>
 
-        {error && (
+        {/* {error && (
           <div className="text-rose-500 font-bold text-center overflow-hidden mt-2">
             {error}
           </div>
-        )}
+        )} */}
 
         <div className="mt-4 flex flex-col md:flex-row items-center justify-center gap-5 md:gap-10 w-full lg:w-[800px] lg:justify-between">
           <button
@@ -423,6 +436,8 @@ function BankInfoFormADD() {
             Annuler
             <MdCancel size={23} className="ml-2" />
           </Link>
+          <SuccessFeedback message={"Banque ajoutée avec succès"} isSuccessful={addSuccess} isVisible={isFeedbackVisible} />
+          <FailFeedback message={error} isSuccessful={addSuccess} isVisible={isFeedbackVisible} />
         </div>
       </form>
     </div>

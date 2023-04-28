@@ -16,16 +16,9 @@ import twitterIcon from "../../public/assets/figures/greenTwitter.svg";
 import linkedInIcon from "../../public/assets/figures/greenLinkedIn.svg";
 import socials from "../../public/assets/figures/Socials.svg";
 import { useState } from 'react';
+import axios from 'axios';
 
-export default function AboutUS () {
-
-    const[phoneNumber,setPhoneNumber] = useState("+213 21 98 53 99");
-    const[faxNumber,setFaxNumber] = useState("+213 21 98 53 99");
-    const[mail,setMail] = useState("Support@amaBank.com");
-    const [fbLink, setFbLink] = useState("https://www.facebook.com");
-    const [igLink, setIgLink] = useState("https://www.instagram.com");
-    const [twitterLink, setTwitterLink] = useState("https://twitter.com");
-    const [linkedInLink, setLinkedInLink] = useState("https://www.linkedin.com");
+export default function AboutUS ({ infos }) {
 
     return (
 
@@ -49,7 +42,7 @@ export default function AboutUS () {
                         Nous vous aidons à prendre une décision en comparant les prestations de deux banques de votre choix.   
                     </p>
                     <a href="#" target="_blank" className={style.btnGreen2}>
-                        <Image src={cmpImg} alt="Someonediscoveringbanks" classname={style.cmpIcon}/><span className={style.btnText2}>Comparer entre deux banques</span>
+                        <Image src={cmpImg} alt="Someonediscoveringbanks" className={style.cmpIcon}/><span className={style.btnText2}>Comparer entre deux banques</span>
                     </a>
                 </div>
             </div>
@@ -77,15 +70,15 @@ export default function AboutUS () {
                     <div className={style.coordonnees}>
                         <div>
                             <Image src={greenPhoneIcon} alt="phone" className={style.coordsimgs}/>
-                            <p className={style.adjust}>{phoneNumber}</p>
+                            <p className={style.adjust}>{infos.phone}</p>
                         </div>
                         <div className={style.mail}>
                             <Image src={greenMailIcon} alt="mail" className={style.coordsimgs}/>
-                            <p>{mail}</p>
+                            <p>{infos.email}</p>
                         </div>
                         <div>
                             <Image src={greenFaxIcon} alt="fax" className={style.coordsimgs}/>
-                            <p className={style.adjust}>{faxNumber}</p>
+                            <p className={style.adjust}>{infos.fax}</p>
                         </div>
                     </div>
                 </div>
@@ -96,10 +89,10 @@ export default function AboutUS () {
                 <div className={style.content5}>
                     <p className={style.soutenir}>Soutenez-nous et maintenez le site web actif en nous suivant sur les réseaux sociaux.</p>
                     <div className={style.socials}>
-                        <a href={fbLink} target="_blank"><Image src={fbIcon} alt="FacebookIcon" className={style.socialsImgs}/></a>
-                        <a href={igLink} target="_blank"><Image src={igIcon} alt="InstagramIcon" className={style.socialsImgs}/></a>
-                        <a href={twitterLink} target="_blank"><Image src={twitterIcon} alt="TwitterIcon" className={style.socialsImgs}/></a>
-                        <a href={linkedInLink} target="_blank"><Image src={linkedInIcon} alt="LinkedInIcon" className={style.socialsImgs}/></a>
+                        <a href={infos.facebook_link} target="_blank"><Image src={fbIcon} alt="FacebookIcon" className={style.socialsImgs}/></a>
+                        <a href={infos.instagram_link} target="_blank"><Image src={igIcon} alt="InstagramIcon" className={style.socialsImgs}/></a>
+                        <a href={infos.twitter_link} target="_blank"><Image src={twitterIcon} alt="TwitterIcon" className={style.socialsImgs}/></a>
+                        <a href={infos.linkedin_link} target="_blank"><Image src={linkedInIcon} alt="LinkedInIcon" className={style.socialsImgs}/></a>
                     </div>
                 </div>
             </div>
@@ -107,3 +100,20 @@ export default function AboutUS () {
         </section>
     );
 }
+
+export async function getServerSideProps(context) {
+
+    try {
+      const response = await axios.get(
+        process.env.NEXT_PUBLIC_API_URL + "/website"
+      );
+  
+      var infos = response.data.infos[0];
+    } catch (e) {
+      console.error(e.response.data.error.message);
+    }
+  
+    return {
+      props: { infos },
+    };
+  }

@@ -11,6 +11,7 @@ import {RxReload} from "react-icons/rx"
 import ModifyPrestation from "@/components/admin/banks/conditionTarifaire/modifyPrestation"
 
 function Prestations({banks,categories}) {
+  
   const[fetch,setFetch]=useState(false);
   // these 3 functions modify the interface part
   function addPrestation(prestation){

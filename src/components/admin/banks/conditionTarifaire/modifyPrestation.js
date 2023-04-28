@@ -5,7 +5,15 @@ import { BiPencil } from "react-icons/bi";
 import { useRouter } from "next/router";
 
 export default function AddPrestPopup({ isVisible, setIsVisible, prestation , editPrestation}) {
-
+    function getTarif(tarif){
+        if (tarif===0){
+            return "GRATUIT";
+        }
+        else if (tarif > 0){
+            return tarif + " DA";
+        }
+        else return "non défini";
+    }
     const [categorieOperations,setCategorieOperations] = useState(
         [
             {
@@ -165,7 +173,7 @@ export default function AddPrestPopup({ isVisible, setIsVisible, prestation , ed
                             max="1000000"
                             step="1"
                             required
-                            placeholder={`Tarif Actuel : ${prestation.tarif}`}
+                            placeholder={`Tarif Actuel : ${getTarif(prestation.tarif)}`}
                             className="rounded bg-gray-100 outline-none border px-5 py-2"
                             onChange={(event) => {setPrestations({...prestations, tarif: parseInt(event.target.value)})}}
                         />

@@ -102,7 +102,7 @@ function BankInfoFormADD() {
           );
       }
       if ("error" in response1.data){
-        setError("ERROR: bank already exists!");
+        setError("ERREUR: Banque déja existante!");
         setAddSuccess(false);
         setIsFeedbackVisible(true);
         setTimeout(() => {setAddSuccess(false); setIsFeedbackVisible(false)}, 2000);
@@ -116,7 +116,7 @@ function BankInfoFormADD() {
         setAddSuccess(true);
         setIsFeedbackVisible(true);
         setTimeout(() => {setAddSuccess(false); setIsFeedbackVisible(false)}, 2000);
-        router.replace("/admin/home");
+        setTimeout(() => {router.replace("/admin/home")}, 1000);
       }
 
     } catch (e) {

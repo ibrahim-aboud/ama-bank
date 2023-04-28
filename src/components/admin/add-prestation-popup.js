@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 
-export default function AddPrestPopup({ isVisible, setIsVisible, bankId }) {
+export default function AddPrestPopup({ isVisible, setIsVisible, bankId, addPrestation }) {
     const router = useRouter();
     
     // categorie is sousCategorie
@@ -75,7 +75,7 @@ export default function AddPrestPopup({ isVisible, setIsVisible, bankId }) {
 
         setIsVisible(!isVisible);
         setPersonalisedPrest(false);
-        router.reload();
+        addPrestation(prestationToSend);
     }
 
     if (!isVisible) return null;

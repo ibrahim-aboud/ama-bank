@@ -4,7 +4,7 @@ import axios from "axios";
 import { BiPencil } from "react-icons/bi";
 import { useRouter } from "next/router";
 
-export default function AddPrestPopup({ isVisible, setIsVisible, prestation }) {
+export default function AddPrestPopup({ isVisible, setIsVisible, prestation , editPrestation}) {
 
     const [categorieOperations,setCategorieOperations] = useState(
         [
@@ -56,7 +56,7 @@ export default function AddPrestPopup({ isVisible, setIsVisible, prestation }) {
 
         setIsVisible(!isVisible);
         setPersonalisedPrest(false);
-        router.reload();
+        editPrestation(prestation);
     }
 
     if (!isVisible) return null;

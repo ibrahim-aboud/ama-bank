@@ -11,6 +11,22 @@ import {RxReload} from "react-icons/rx"
 import ModifyPrestation from "@/components/admin/banks/conditionTarifaire/modifyPrestation"
 
 function Prestations({banks,categories}) {
+  const[fetch,setFetch]=useState(false);
+  // these 3 functions modify the interface part
+  function addPrestation(prestation){
+    //setOldInfo(current => [...current, prestation]);
+    setFetch(!fetch);
+  }
+  function editPrestation(prestation){
+    setFetch(!fetch);
+  }
+  function deletePrestation(prestation){
+    setOldInfo(oldValues => {
+      return oldValues.filter(current => current.id !== prestation.id)
+    })
+  }
+
+
   function refresh() {
     const tmp = selectedBankId;
     setSelectedBankId(null);
@@ -107,7 +123,7 @@ function Prestations({banks,categories}) {
         setLoading(false);
       });
       
-  },[selectedBankId]);
+  },[selectedBankId,fetch]);
 
   function checkCategorieId(categorie_id,selectedCategorieId){
     return categorie_id===selectedCategorieId;
@@ -155,12 +171,12 @@ function Prestations({banks,categories}) {
       }
 
     }
-  },[selectedCategorieId,conditionType,selectedBigCategorieId])
+  },[selectedCategorieId,conditionType,selectedBigCategorieId,oldInfo])
 
 
   return(
     <div>
-      <AddPrestPopup isVisible={addPopUp} setIsVisible={setAddPopUp} bankId={selectedBankId}/>
+      <AddPrestPopup isVisible={addPopUp} setIsVisible={setAddPopUp} bankId={selectedBankId} addPrestation={addPrestation}/>
       <div className={style.bankSearchBox}>
         <h2>Nom de la banque</h2>
         <div className={style.inputButton}>
@@ -179,7 +195,10 @@ function Prestations({banks,categories}) {
             onClick={()=>{
               setSelectedCategorieId(null);
               setCondtionType(null);
-              setSelectedBigCategorieId(null)}}>
+              setSelectedBigCategorieId(null)
+              }
+            }
+              >
             <div className={style.reloadButton}>
               <RxReload/>
             </div>
@@ -191,7 +210,7 @@ function Prestations({banks,categories}) {
       </div>
       <div className={style.threeInputs}>
         <div className={style.categorieOperation}>
-          <h2>Categorie de la prestation</h2>
+          <h2>Categorie</h2>
           <SearchBox
               items={categorieOperations}
               selectedId={selectedBigCategorieId}
@@ -201,7 +220,7 @@ function Prestations({banks,categories}) {
           />
         </div>
         <div className={style.categorie}>
-          <h2>Sous categorie de la prestation</h2>
+          <h2>{"Sous categorie"}</h2>
           <SearchBox
             items={categories}
             selectedId={selectedCategorieId}
@@ -211,7 +230,8 @@ function Prestations({banks,categories}) {
           />
         </div>
         <div className={style.type}>
-          <h2>Type de prestation</h2>
+          <h2>Type
+          </h2>
           <SearchBox
             items={conditionTypes}
             selectedId={conditionType}
@@ -221,7 +241,7 @@ function Prestations({banks,categories}) {
           />  
         </div>
       </div>
-      <ListePrestations prestations={prestations} refresh={refresh}/>
+      <ListePrestations prestations={prestations} deletePrestation={deletePrestation}  editPrestation={editPrestation}/>
       
     </div>
   );

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 
-function DeletePrestation({ isVisible, setIsVisible, prestation ,refresh}) {
+function DeletePrestation({ isVisible, setIsVisible, prestation ,deletePrestation}) {
     
     const router = useRouter();
     async function onDelete(event) {
@@ -12,8 +12,7 @@ function DeletePrestation({ isVisible, setIsVisible, prestation ,refresh}) {
         const res = await axios.delete(process.env.NEXT_PUBLIC_API_URL + `/prestations/${prestation.id}`, { prestation: prestation }); 
         res.data.json;
         setIsVisible(!isVisible);
-        //refresh();
-        router.reload();
+        deletePrestation(prestation);
     }
 
     if (!isVisible) return null;

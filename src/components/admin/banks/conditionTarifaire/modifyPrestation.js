@@ -56,7 +56,7 @@ export default function AddPrestPopup({ isVisible, setIsVisible, prestation , ed
 
         setIsVisible(!isVisible);
         setPersonalisedPrest(false);
-        editPrestation(prestation);
+        editPrestation(prestation)
     }
 
     if (!isVisible) return null;

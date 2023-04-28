@@ -30,13 +30,13 @@ function Prestations({banks,categories}) {
   function refresh() {
     const tmp = selectedBankId;
     setSelectedBankId(null);
-    console.log(selectedBankId);
+
     setSelectedBankId(tmp);
-    console.log(selectedBankId);
+
   }
   const router = useRouter();
   const{id} = router.query;
-  console.log(id);
+
   function _getDefaultBankId(){
     if(
       id !== null &&
@@ -133,36 +133,36 @@ function Prestations({banks,categories}) {
     if(oldInfo!==null ){
       if(selectedBankId!==null && conditionType===null && selectedCategorieId!==null && selectedBigCategorieId===null){
         setPrestations(oldInfo.filter(function(prestation){return prestation.categorie_id===selectedCategorieId}));
-        console.log("here")
+
       }
       else
       if(selectedBankId!==null && conditionType!==null && selectedCategorieId ===null && selectedBigCategorieId===null){
-        console.log("here too")
+
         setPrestations(oldInfo.filter(function(prestation){return prestation.type===conditionTypes.filter(function(condition){return condition.id===conditionType})[0].name}));
       }
       else
       if(selectedBankId!==null && conditionType!==null && selectedCategorieId !==null && selectedBigCategorieId===null){
         setPrestations(oldInfo.filter(function(prestation){return prestation.categorie_id===selectedCategorieId && prestation.type===conditionTypes.filter(function(condition){return condition.id===conditionType})[0].name}));
-        console.log("here as well");
+
       }
       else
       if(selectedBankId!==null && conditionType===null && selectedCategorieId!==null && selectedBigCategorieId!==null){
         setPrestations(oldInfo.filter(function(prestation){return prestation.categorie_id===selectedCategorieId && prestation.categorie_operation===categorieOperations.find(item => item.id===selectedBigCategorieId).name}));
-        console.log("here")
+        
       }
       else
       if(selectedBankId!==null && conditionType!==null && selectedCategorieId===null && selectedBigCategorieId!==null){
-        console.log("here too")
+      
         setPrestations(oldInfo.filter(function(prestation){return prestation.type===conditionTypes.filter(function(condition){return condition.id===conditionType})[0].name && prestation.categorie_operation===categorieOperations.find(item => item.id===selectedBigCategorieId).name}));
       }
       else
       if(selectedBankId!==null && conditionType!==null && selectedCategorieId!==null && selectedBigCategorieId!==null){
         setPrestations(oldInfo.filter(function(prestation){return prestation.categorie_id===selectedCategorieId && prestation.type===conditionTypes.filter(function(condition){return condition.id===conditionType})[0].name && prestation.categorie_operation===categorieOperations.find(item => item.id===selectedBigCategorieId).name}));
-        console.log("here as well");
+      
       }
       else
       if(selectedBankId!==null && conditionType===null && selectedCategorieId===null && selectedBigCategorieId!==null){
-        console.log("the last final one");
+       
         setPrestations(oldInfo.filter(function(prestation){return  prestation.categorie_operation===categorieOperations.find(item => item.id===selectedBigCategorieId).name}));
       }
       else

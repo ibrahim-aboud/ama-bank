@@ -23,7 +23,7 @@ function ConfirmDelete({ id, name, isDeleting, setIsDeleting, filteredList, setF
 
   if (!isDeleting) return null;
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center z-40">
+    <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center z-50">
       <div className="w-[350px] sm:w-[500px]">
         <div className="py-4 rounded-t-md bg-red-500 text-white flex justify-center items-center">
           <RiDeleteBin6Line size={23} className="mr-3" />
@@ -58,7 +58,7 @@ function BankListElement({ id, name, logo_src, isDeleting, setIsDeleting, onDele
   return (
     <div>
       <div className="flex justify-center items-center mb-5 md:mb-10">
-        <div className="flex flex-col sm:flex-row sm:items-center w-[150px] sm:w-[400px]">
+        <div className="flex flex-col sm:flex-row sm:items-center w-[150px] sm:w-[400px] lgx:w-[550px]">
           <Image
             src={logo_src}
             alt={`${name} logo`}
@@ -70,7 +70,7 @@ function BankListElement({ id, name, logo_src, isDeleting, setIsDeleting, onDele
         </div>
 
         <div
-          className="flex justify-center items-center gap-2 relative cursor-pointer rounded-xl bg-[#40916C] hover:bg-[#46a078] text-white shadow-md p-3 sm:p-4 lg:py-3 lg:px-5 mr-3 hover:ease-in-out duration-300"
+          className="flex justify-center items-center gap-2 relative cursor-pointer rounded-xl bg-[#40916C] hover:bg-[#46a078] text-white hover:shadow-md p-3 sm:p-4 lg:py-3 lg:px-4 mr-3 hover:ease-in-out duration-300"
           onClick={() => setIsGstBanksHidden(!isGstBanksHidden)}
         >
           <span className="smx:hidden">Modifier les informations</span>
@@ -82,30 +82,30 @@ function BankListElement({ id, name, logo_src, isDeleting, setIsDeleting, onDele
           <div
             className={`${
               isGstBanksHidden ? "hidden" : "flex"
-            } absolute z-40 bg-[#40916dfa] text-white flex-col justify-center items-center top-12 px-6 py-2 rounded-xl animate-fade-in`}
+            } absolute z-40 bg-[#57a381fa] text-white flex-col justify-center items-center top-12 rounded-b-xl animate-fade-in hover:shadow-md`}
           >
             <Link
               href={`/admin/banks/general?id=${id}`}
-              className="w-48 text-center py-1 hover:bg-gray-100 hover:text-black hover:rounded-xl"
+              className="w-full text-center py-1 px-6 hover:bg-gray-100 hover:text-black"
             >
               Informations Générales
             </Link>
             <Link
               href="/admin/banks/agencies"
-              className="w-48 text-center py-1 hover:bg-gray-100 hover:text-black hover:rounded-xl"
+              className="w-full text-center py-1 px-6 hover:bg-gray-100 hover:text-black"
             >
-              Agencies
+              Agences
             </Link>
             <Link
               href="/admin/banks/prestations"
-              className="w-48 text-center py-1 hover:bg-gray-100 hover:text-black hover:rounded-xl"
+              className="w-full text-center py-1 px-6 hover:bg-gray-100 hover:text-black hover:rounded-b-xl"
             >
               Conditions Tarifaires
             </Link>
           </div>
         </div>
 
-        <button className="rounded-xl p-2 sm:p-3 lg:px-5 lg:py-3 font-semibold bg-[#EA5455] text-white shadow-md hover:bg-[#e24141] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300" onClick={() => {
+        <button className="rounded-xl p-2 sm:p-3 lg:px-4 lg:py-3 font-semibold bg-[#EA5455] text-white hover:shadow-md hover:bg-[#ff5c5c] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300" onClick={() => {
           onDelete();
           setIsDeleting(!isDeleting);
         }
@@ -174,7 +174,7 @@ function Home({ banks }) {
             </Link>
           </div>
 
-          <div className="w-[340px] xs:w-[400px] sm:w-[600px] md:w-[700px] lg:w-[1000px] lgx:w-[1200px] h-[540px] md:mb-32">
+          <div className="w-[340px] xs:w-[400px] sm:w-[600px] md:w-[700px] lg:w-[1000px] lgx:w-[1200px] h-[400px] sm:h-[540px] md:mb-32">
             <Scrollbar>
               <div className="w-full bg-[#d9d9d928] py-16 rounded-md">
                 {filteredList.map((bank) => (

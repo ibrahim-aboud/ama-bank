@@ -1,0 +1,124 @@
+import bankInfoValidator from "@/lib/validations/bankInfoValidator";
+import Bank from "@/server/models/bankModel";
+import ModelError from "@/lib/utils/ModelError";
+import isNotAdmin from "@/lib/utils/checkAdmin";
+import { errorMessages } from "@/lib/utils/errorMessages";
+
+export default class BanksController {
+  async get(req, res) {
+    try {
+      var banks = await Bank.getAllBanks();      
+      res.status(200).json({ banks });
+
+    } catch (err) {
+      res.status(err.status).json({error: err}) ;
+    }
+  }
+
+  async add (req,res){
+        
+    try {
+        if (await isNotAdmin(req,res)){
+            throw new ModelError(errorMessages.unauthorized,401) ;
+        }
+        
+        const {bank} = req.body ; 
+
+        if (bank==undefined){
+            throw new ModelError(errorMessages.missingResource,400);
+        }
+
+        // var check = bankInfoValidator(prestation) ;
+        
+        // if (check.error){
+            // throw new ModelError(check.errorList[0],400) ;
+        // }
+
+        //Aditional check (just to optimize) if the bank id really exists
+
+        var data = await Bank.getBankByName(bank.name) ;
+        
+        if (data!=null){
+            throw new ModelError(errorMessages.existant, 200) ;
+        }
+        
+        data = await Bank.insertBank(bank) ;
+
+        var result = await Bank.getBankById(data.insertId) ;
+
+        res.status(200).json(result) ;
+    } catch(err){
+        res.status(err.status).json({error: err}) ;
+    }
+
+    return ;
+
+}
+
+  async modify(req,res){
+        
+  try {
+      if (await isNotAdmin(req,res)){
+          throw new ModelError(errorMessages.unauthorized,401) ;
+      }
+
+      const {bank} = req.body ; 
+
+      if (bank==undefined){
+          throw new ModelError(errorMessages.missingResource,400);
+      }
+
+      // var check = bankInfoValidator(bank) ;
+
+      //additional check
+      // if (!("id" in prestation)){
+      //     throw new ModelError(errorMessages.missingID,400) ;
+      // } else if 
+      // if(check.error){
+      //     throw new ModelError(check.errorList[0],400) ;
+      // } 
+      
+
+      var data = await Bank.updateBank(bank) ;
+      
+      if (data.affectedRows==1){
+          var result = await Bank.getBankById(bank.id) ;
+          res.status(200).json({bank: result}) ;
+          return ;
+      } else {
+          throw new ModelError(errorMessages.inexistant,404) ;
+      }
+    } catch(err){
+        res.status(err.status).json({error: err}) ;
+    }
+    return
+  }
+
+  async delete(req,res){
+    const {id} = req.query ;
+    try {
+        if (await isNotAdmin(req,res)){
+            throw new ModelError(errorMessages.unauthorized,401) ;
+        }
+        
+        if (isNaN(id)){
+            throw new ModelError(errorMessages.wrongId, 404) ;
+        }
+
+        var bank = await Bank.getBankById(id) ;
+
+        if (bank!=null){
+            await Bank.deleteBank(id) ;
+            res.status(200).json({bank}) ;
+        } else {
+            throw new ModelError(errorMessages.wrongId,404) ;
+        }
+        
+    } catch(err){
+        res.status(err.status).json({error: err}) ;
+    }
+
+    return ;
+}
+
+}

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import ConfirmPopup from "@/components/admin/confirmPopup";
 import { FiGlobe, FiUpload } from "react-icons/fi";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { MdCancel } from "react-icons/md";
@@ -11,12 +12,17 @@ function BankInfoForm({ bankId }) {
   const [bank, setBank] = useState(null);
   const [oldInfo, setOldInfo] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [showConfirmPopup, setShowConfirmPopup] = useState(false);
   const [error, setError] = useState("");
+  const [selectedLogo, setSelectedLogo] = useState("");
+  const [selectedLogoFile, setSelectedLogoFile] = useState();
+
   const [selectedImage, setSelectedImage] = useState("");
-  const [selectedFile, setSelectedFile] = useState();
+  const [selectedImageFile, setSelectedImageFile] = useState();
 
   const router = useRouter();
   const logoInputRef = useRef();
+  const imageInputRef = useRef();
 
   // fetch bank data when loading the page for the first time
   useEffect(() => {
@@ -26,9 +32,14 @@ function BankInfoForm({ bankId }) {
     }
 
     setLoading(true);
-    setSelectedFile(null);
-    setSelectedImage("");
+
+    setSelectedLogoFile(null);
+    setSelectedLogo("");
     logoInputRef.current.value = "";
+
+    setSelectedImageFile(null);
+    setSelectedImage("");
+    imageInputRef.current.value = "";
 
     axios
       .get(process.env.NEXT_PUBLIC_API_URL + `/bank/${bankId}`)
@@ -40,7 +51,7 @@ function BankInfoForm({ bankId }) {
         setLoading(false);
       })
       .catch((e) => {
-        setError(e.response.data);
+        setError(e.response?.data.error.message);
         setLoading(false);
       });
   }, [bankId]);
@@ -69,15 +80,39 @@ function BankInfoForm({ bankId }) {
     }
 
     try {
-      if (selectedFile) {
-        const fileExtension = selectedFile.name.split(".").pop();
-        const file = new File([selectedFile], `${bank.id}.${fileExtension}`);
+      if (selectedLogoFile) {
+        const fileExtension = selectedLogoFile.name.split(".").pop();
+        const file = new File(
+          [selectedLogoFile],
+          `${bank.id}.${fileExtension}`
+        );
 
         const formData = new FormData();
         formData.append("file", file);
 
         await axios.post(
           process.env.NEXT_PUBLIC_API_URL + "/bank/logo",
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+      }
+
+      if (selectedImageFile) {
+        const fileExtension = selectedImageFile.name.split(".").pop();
+        const file = new File(
+          [selectedImageFile],
+          `${bank.id}.${fileExtension}`
+        );
+
+        const formData = new FormData();
+        formData.append("file", file);
+
+        await axios.post(
+          process.env.NEXT_PUBLIC_API_URL + "/bank/image",
           formData,
           {
             headers: {
@@ -96,7 +131,7 @@ function BankInfoForm({ bankId }) {
       setError("");
       router.reload();
     } catch (e) {
-      setError(e.response?.data);
+      setError(e.response?.data.error.message);
     }
 
     setLoading(false);
@@ -115,7 +150,12 @@ function BankInfoForm({ bankId }) {
         <div className="hidden lg:block h-[2px] bg-black w-[25%]" />
       </div>
 
-      <form className="flex flex-col items-center" onSubmit={sumbitHandler}>
+      <form
+        className="flex flex-col items-center"
+        onSubmit={(event) => {
+          event.preventDefault();
+        }}
+      >
         <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
           <label htmlFor="bank_name" className="block p-1">
             Nom de la banque
@@ -135,44 +175,89 @@ function BankInfoForm({ bankId }) {
           </div>
         </div>
 
-        <div className="mx-5 mb-4 w-[90%] lg:w-[900px] lg:pr-[450px]">
-          <label htmlFor="bank_logo" className="block p-1 ">
-            Logo de la banque
-          </label>
-          <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center">
-            <input
-              type="file"
-              name="bank_logo"
-              id="bank_logo"
-              accept=".jpeg,.jpg,.png"
-              className="bg-gray-100 outline-none px-4 flex-1 w-full"
-              ref={logoInputRef}
-              onChange={({ target }) => {
-                if (target.files) {
-                  const file = target.files[0];
-                  setSelectedImage(file ? URL.createObjectURL(file) : null);
-                  setSelectedFile(file);
-                }
-              }}
-            />
-
-            {(selectedImage || (bank && bank.logoLink)) && (
-              <Image
-                src={
-                  selectedImage
-                    ? selectedImage
-                    : bank
-                    ? `${bank.logoLink}?${Math.random()}`
-                    : ""
-                }
-                alt="Preview"
-                width={400}
-                height={400}
-                className="mr-5 rounded-md h-auto max-w-[50px]"
+        <div className="mx-5 mb-4 w-[90%] lg:w-[900px] flex gap-4 flex-col md:flex-row justify-between">
+          <div className="">
+            <label htmlFor="bank_logo" className="block p-1 ">
+              Logo de la banque
+            </label>
+            <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center">
+              <input
+                type="file"
+                name="bank_logo"
+                id="bank_logo"
+                accept=".jpeg,.jpg,.png"
+                className="bg-gray-100 outline-none px-4 flex-1 w-full"
+                ref={logoInputRef}
+                onChange={({ target }) => {
+                  if (target.files) {
+                    const file = target.files[0];
+                    setSelectedLogo(file ? URL.createObjectURL(file) : null);
+                    setSelectedLogoFile(file);
+                  }
+                }}
               />
-            )}
 
-            <FiUpload className="pr-2 text-gray-600" size={28} />
+              {(selectedLogo || (bank && bank.logoLink)) && (
+                <Image
+                  src={
+                    selectedLogo
+                      ? selectedLogo
+                      : bank
+                      ? `${bank.logoLink}?${Math.random()}`
+                      : ""
+                  }
+                  alt="Preview"
+                  width={400}
+                  height={400}
+                  className="mr-5 rounded-md h-auto max-w-[50px]"
+                  suppressHydrationWarning
+                />
+              )}
+
+              <FiUpload className="pr-2 text-gray-600" size={28} />
+            </div>
+          </div>
+
+          <div className="">
+            <label htmlFor="bank_image" className="block p-1 ">
+              Image de la banque
+            </label>
+            <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center">
+              <input
+                type="file"
+                name="bank_image"
+                id="bank_image"
+                accept=".jpeg,.jpg,.png"
+                className="bg-gray-100 outline-none px-4 flex-1 w-full"
+                ref={imageInputRef}
+                onChange={({ target }) => {
+                  if (target.files) {
+                    const file = target.files[0];
+                    setSelectedImage(file ? URL.createObjectURL(file) : null);
+                    setSelectedImageFile(file);
+                  }
+                }}
+              />
+
+              {(selectedImage || (bank && bank.imageLink)) && (
+                <Image
+                  src={
+                    selectedImage
+                      ? selectedImage
+                      : bank
+                      ? `${bank.imageLink}?${Math.random()}`
+                      : ""
+                  }
+                  alt="Preview"
+                  width={400}
+                  height={400}
+                  className="mr-5 rounded-md h-auto max-w-[50px]"
+                  suppressHydrationWarning
+                />
+              )}
+
+              <FiUpload className="pr-2 text-gray-600" size={28} />
+            </div>
           </div>
         </div>
 
@@ -223,13 +308,24 @@ function BankInfoForm({ bankId }) {
 
         <div className="mt-4 flex flex-col md:flex-row items-center justify-center gap-5 md:gap-10 w-full lg:w-[800px] lg:justify-between">
           <button
-            type="submit"
             disabled={loading}
             className="mb-1 rounded-xl px-8 py-3 font-semibold bg-black text-white shadow-xl hover:bg-green-600 disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
+            onClick={(event) => {
+              event.preventDefault();
+              setShowConfirmPopup(true);
+            }}
           >
             Sauvegarder les modifications
             <HiCheckCircle size={23} className="ml-2" />
           </button>
+
+          {showConfirmPopup && (
+            <ConfirmPopup
+              message={"Voulez-vous confirmer les modifications ?"}
+              onConfirm={(e) => sumbitHandler(e)}
+              onExit={() => setShowConfirmPopup(false)}
+            />
+          )}
 
           <button
             type="reset"
@@ -237,9 +333,14 @@ function BankInfoForm({ bankId }) {
             onClick={() => {
               setBank(oldInfo);
               setError("");
-              setSelectedFile(null);
-              setSelectedImage("");
+
+              setSelectedLogoFile(null);
+              setSelectedLogo("");
               logoInputRef.current.value = "";
+
+              setSelectedImageFile(null);
+              setSelectedImage("");
+              imageInputRef.current.value = "";
             }}
             className="rounded-xl px-8 py-3 font-semibold bg-black text-white shadow-xl hover:bg-green-600 disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
           >

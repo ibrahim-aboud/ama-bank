@@ -49,8 +49,8 @@ function LignePrestation({prestation1,prestation2,first,single,refresh}){
         <div>
             <DeletePrestation isVisible={delPopUp1} setIsVisible={setDelPopUp1} prestation={prestation1} refresh={refresh}/>
             <DeletePrestation isVisible={delPopUp2} setIsVisible={setDelPopUp2} prestation={prestation2} refresh={refresh}/>
-            <ModifyPrestation isVisible={edtPopUp1} setIsVisible={setEdtPopUp1} />
-            <ModifyPrestation isVisible={edtPopUp2} setIsVisible={setEdtPopUp2} />
+            <ModifyPrestation isVisible={edtPopUp1} setIsVisible={setEdtPopUp1} prestation={prestation1}/>
+            <ModifyPrestation isVisible={edtPopUp2} setIsVisible={setEdtPopUp2} prestation={prestation2}/>
             <div className={ first ? style.containerFrst :style.containerScnd}>
                 <div className={style.nomTarifPrestation}>
                     <div className={style.nomPrestation}>{prestation1.name}</div>

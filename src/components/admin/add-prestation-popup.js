@@ -5,7 +5,11 @@ import { useRouter } from "next/router";
 
 export default function AddPrestPopup({ isVisible, setIsVisible, bankId }) {
     const router = useRouter();
+    
+    // categorie is sousCategorie
     const [categories, setCategories] = useState([]);
+
+    // categorieOperation is categorie
     const [categorieOperations,setCategorieOperations] = useState(
         [
             {
@@ -89,21 +93,6 @@ export default function AddPrestPopup({ isVisible, setIsVisible, bankId }) {
                             name="categorie"
                             required
                             className="rounded bg-gray-100 outline-none border w-[450px] pl-3 py-2"
-                            onChange={(event) => {
-                                console.log(event.target.value);
-                                setPrestation({...prestation, categorie_id: parseInt(event.target.value)})}}
-                        >
-                            <option value="">--- Catégorie prestation ---</option>
-                            {categories.map((item) => (
-                                <option key={item.id} value={item.id}>{item.name}</option>
-                            ))}
-                        </select>
-
-                        <select
-                            id="categorie"
-                            name="categorie"
-                            required
-                            className="rounded bg-gray-100 outline-none border w-[450px] pl-3 py-2"
                             onChange={(event) => {setPrestation({...prestation, categorie_operation: event.target.value})}}
                         >
                             <option value="">--- Catégorie prestation ---</option>
@@ -111,6 +100,23 @@ export default function AddPrestPopup({ isVisible, setIsVisible, bankId }) {
                                 <option key={item.id} value={item.name}>{item.name}</option>
                             ))}
                         </select>
+
+                        <select
+                            id="sousCategorie"
+                            name="sousCategorie"
+                            required
+                            className="rounded bg-gray-100 outline-none border w-[450px] pl-3 py-2 mt-4"
+                            onChange={(event) => {
+                                console.log(event.target.value);
+                                setPrestation({...prestation, categorie_id: parseInt(event.target.value)})}}
+                        >
+                            <option value="">--- Sous-catégorie ---</option>
+                            {categories.map((item) => (
+                                <option key={item.id} value={item.id}>{item.name}</option>
+                            ))}
+                        </select>
+
+                        
 
                         {personalisedPrest && (
                             <input 

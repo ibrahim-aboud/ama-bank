@@ -5,6 +5,24 @@ import { BiPencil } from "react-icons/bi";
 import { useRouter } from "next/router";
 
 export default function AddPrestPopup({ isVisible, setIsVisible, prestation }) {
+
+    const [categorieOperations,setCategorieOperations] = useState(
+        [
+            {
+                "id":1,
+                "name":"Gestion et tenue de compte"
+            },
+            {
+                "id":2,
+                "name":"Opération de paiement"
+            },
+            {
+                "id":3,
+                "name":"Monétique"
+            }
+        ]
+    );
+
     const router = useRouter();
     const [categories, setCategories] = useState([]);
     const [personalisedPrest, setPersonalisedPrest] = useState(false);
@@ -56,6 +74,20 @@ export default function AddPrestPopup({ isVisible, setIsVisible, prestation }) {
                             name="categorie"
                             required
                             className="rounded bg-gray-100 outline-none border w-[450px] pl-3 py-2"
+                            onChange={(event) => {setPrestations({...prestations, categorie_operation: event.target.value})}}
+                        >
+                            <option value="">{categorieOperations.find(item => item.name === prestation.categorie_operation).name}</option>
+                            {categorieOperations.map((item) => (
+                                <option key={item.id} value={item.name}>{item.name}</option>
+                            ))}
+                        </select>
+
+
+                        <select
+                            id="sousCategorie"
+                            name="sousCategorie"
+                            required
+                            className="rounded bg-gray-100 outline-none border w-[450px] pl-3 py-2 mt-4"
                             onChange={(event) => {setPrestations({...prestations, categorie_id: parseInt(event.target.value)})}}
                         >
                             <option value="">{categories.find(item => item.id === prestation.categorie_id).name}</option>

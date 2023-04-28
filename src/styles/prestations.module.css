@@ -1,6 +1,24 @@
 .bankSearchBox{
     margin: 5vh 10vw;
 }
+.reload{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #40916c;
+    text-align: center;
+    font-size: xx-large;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0;
+    margin-right:0;
+}
+.reload:hover{
+    background-color: #62b791;
+}
+
 
 .bankSearchBox h2{
     margin: 1vh 1vw;
@@ -11,36 +29,49 @@
     display: flex;
 }
 .searchBox{
-    width: 75%;
+    width: 70%;
 }
 .button{
     background-color: #585858;
     color : white;
     width: 20%;
     border-radius: 10px;
-    margin-left: 5%;
+    margin-left: 3%;
+    margin-right: 2%;
 }
-.twoInputs{
+.threeInputs{
     display: flex;
     margin: 5vh 10vw;
 
 }
 .categorie{
-    width:47%;
+    width:30%;
+    margin-right: 5%;
+    margin-left:5%;
 }
 .categorie h2{
     margin: 1vh 1vw;
     font-weight: 600;
     font-size: 18px;
+    
 }
 .type{
-    width:47%;
-    margin-left:6%;
+    width:30%;
+    
 }
 .type h2{
     margin: 1vh 1vw;
     font-weight: 600;
     font-size: 18px;
+}
+.categorieOperation{
+    width: 30%;
+}
+.categorieOperation h2{
+    margin: 1vh 1vw;
+    font-weight: 600;
+    font-size: 18px;
+
 }
 
 @media screen and (max-width: 600px) {

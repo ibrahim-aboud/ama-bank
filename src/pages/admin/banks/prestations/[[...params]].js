@@ -7,6 +7,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import SearchBox from "@/components/common/searchBox";
 import AddPrestPopup from "@/components/admin/add-prestation-popup";
+import {RxReload} from "react-icons/rx"
 import ModifyPrestation from "@/components/admin/banks/conditionTarifaire/modifyPrestation"
 
 function Prestations({banks,categories}) {
@@ -34,6 +35,23 @@ function Prestations({banks,categories}) {
     return null;
   }
 
+  const [categorieOperations,setCategorieOperations] = useState(
+    [
+        {
+            "id":1,
+            "name":"Gestion et tenue de compte"
+        },
+        {
+            "id":2,
+            "name":"Opération de paiement"
+        },
+        {
+            "id":3,
+            "name":"Monétique"
+        }
+    ]
+);
+
   const [selectedBankId,setSelectedBankId] = useState(_getDefaultBankId);
   const [selectedCategorieId,setSelectedCategorieId] = useState(null);
   const [prestations,setPrestations]=useState(null)
@@ -42,6 +60,7 @@ function Prestations({banks,categories}) {
   const [error,setError] = useState("");
   const [conditionType,setCondtionType]=useState(null);
   const [addPopUp,setAddPopUp]=useState(false);
+  const [selectedBigCategorieId,setSelectedBigCategorieId]=useState(null);
 
   const conditionTypes=[
       { 
@@ -96,24 +115,47 @@ function Prestations({banks,categories}) {
 
   useEffect(()=>{
     if(oldInfo!==null ){
-      if(selectedBankId!==null && conditionType===null && selectedCategorieId!==null){
+      if(selectedBankId!==null && conditionType===null && selectedCategorieId!==null && selectedBigCategorieId===null){
         setPrestations(oldInfo.filter(function(prestation){return prestation.categorie_id===selectedCategorieId}));
         console.log("here")
       }
-      if(selectedBankId!==null && conditionType!==null && selectedCategorieId ===null){
+      else
+      if(selectedBankId!==null && conditionType!==null && selectedCategorieId ===null && selectedBigCategorieId===null){
         console.log("here too")
         setPrestations(oldInfo.filter(function(prestation){return prestation.type===conditionTypes.filter(function(condition){return condition.id===conditionType})[0].name}));
       }
-      if(selectedBankId!==null && conditionType!==null && selectedCategorieId !==null){
+      else
+      if(selectedBankId!==null && conditionType!==null && selectedCategorieId !==null && selectedBigCategorieId===null){
         setPrestations(oldInfo.filter(function(prestation){return prestation.categorie_id===selectedCategorieId && prestation.type===conditionTypes.filter(function(condition){return condition.id===conditionType})[0].name}));
         console.log("here as well");
       }
+      else
+      if(selectedBankId!==null && conditionType===null && selectedCategorieId!==null && selectedBigCategorieId!==null){
+        setPrestations(oldInfo.filter(function(prestation){return prestation.categorie_id===selectedCategorieId && prestation.categorie_operation===categorieOperations.find(item => item.id===selectedBigCategorieId).name}));
+        console.log("here")
+      }
+      else
+      if(selectedBankId!==null && conditionType!==null && selectedCategorieId===null && selectedBigCategorieId!==null){
+        console.log("here too")
+        setPrestations(oldInfo.filter(function(prestation){return prestation.type===conditionTypes.filter(function(condition){return condition.id===conditionType})[0].name && prestation.categorie_operation===categorieOperations.find(item => item.id===selectedBigCategorieId).name}));
+      }
+      else
+      if(selectedBankId!==null && conditionType!==null && selectedCategorieId!==null && selectedBigCategorieId!==null){
+        setPrestations(oldInfo.filter(function(prestation){return prestation.categorie_id===selectedCategorieId && prestation.type===conditionTypes.filter(function(condition){return condition.id===conditionType})[0].name && prestation.categorie_operation===categorieOperations.find(item => item.id===selectedBigCategorieId).name}));
+        console.log("here as well");
+      }
+      else
+      if(selectedBankId!==null && conditionType===null && selectedCategorieId===null && selectedBigCategorieId!==null){
+        console.log("the last final one");
+        setPrestations(oldInfo.filter(function(prestation){return  prestation.categorie_operation===categorieOperations.find(item => item.id===selectedBigCategorieId).name}));
+      }
+      else
+      if(selectedBankId!==null && conditionType===null && selectedCategorieId===null && selectedBigCategorieId===null){
+        setPrestations(oldInfo);
+      }
 
-      console.log(selectedCategorieId);
-      console.log(conditionType);
-      console.log(prestations);
     }
-  },[selectedCategorieId,conditionType])
+  },[selectedCategorieId,conditionType,selectedBigCategorieId])
 
 
   return(
@@ -132,11 +174,34 @@ function Prestations({banks,categories}) {
             />
           </div>
           <button className={style.button} onClick={()=>{if(!selectedBankId){alert("Veuillez selectionner une banque avant !")}else{setAddPopUp(true)}}}>Ajouter une prestation</button>
+          <button 
+            className={style.reload} 
+            onClick={()=>{
+              setSelectedCategorieId(null);
+              setCondtionType(null);
+              setSelectedBigCategorieId(null)}}>
+            <div className={style.reloadButton}>
+              <RxReload/>
+            </div>
+          </button>
         </div>
+        
+        
+
       </div>
-      <div className={style.twoInputs}>
-        <div className={style.categorie}>
+      <div className={style.threeInputs}>
+        <div className={style.categorieOperation}>
           <h2>Categorie de la prestation</h2>
+          <SearchBox
+              items={categorieOperations}
+              selectedId={selectedBigCategorieId}
+              setSelectedId={setSelectedBigCategorieId}
+              searchField={"name"}
+              autoSelect={true}
+          />
+        </div>
+        <div className={style.categorie}>
+          <h2>Sous categorie de la prestation</h2>
           <SearchBox
             items={categories}
             selectedId={selectedCategorieId}

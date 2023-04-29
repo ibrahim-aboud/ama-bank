@@ -368,11 +368,11 @@ function BankInfoFormADD() {
           </div>
         )} */}
 
-        <div className="mt-4 flex flex-col md:flex-row items-center justify-center gap-5 md:gap-10 w-full lg:w-[800px] lg:justify-between">
+        <div className="mt-4 flex flex-col md:flex-row gap-2 items-center justify-center w-full lg:w-[800px]">
           <button
             type="submit"
             disabled={loading}
-            className="mb-1 rounded-xl px-8 py-3 font-semibold bg-black text-white hover:shadow-xl hover:bg-[#40916C] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
+            className="rounded-xl w-11/12 md:w-auto justify-center sm:px-8 py-3 font-semibold bg-black text-white hover:shadow-2xl hover:bg-[#40916C] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
           >
             Ajouter la banque
             <HiCheckCircle size={23} className="ml-2" />
@@ -384,13 +384,13 @@ function BankInfoFormADD() {
             onClick={() => {
               setIsResetting(!isResetting);
             }}
-            className="rounded-xl px-8 py-3 font-semibold bg-black text-white hover:shadow-xl hover:bg-[#daa250] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
+            className="rounded-xl w-11/12 md:w-auto justify-center sm:px-8 py-3 font-semibold bg-black text-white hover:shadow-2xl hover:bg-[#daa250] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
           >
             Effacer le formulaire
             <FaUndo size={20} className="ml-2" />
           </button>
             {isResetting && (
-              <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center ">
+              <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center z-50">
                 <div className="w-[400px]">
                   <div className="bg-white rounded p-10 flex flex-col justify-center items-center">
                     <h2 className="mb-10 font-semibold">Voulez-vous réinitialiser le formulaire?</h2>
@@ -432,7 +432,7 @@ function BankInfoFormADD() {
                 </div>
               </div>
             )}
-          <Link href="/admin/home" className="mb-1 rounded-xl px-8 py-3 font-semibold bg-black text-white hover:shadow-xl hover:bg-[#EA5455] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300">
+          <Link href="/admin/home" className="rounded-xl w-11/12 md:w-auto justify-center sm:px-8 py-3 font-semibold bg-black text-white hover:shadow-2xl hover:bg-[#EA5455] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300">
             Annuler
             <MdCancel size={23} className="ml-2" />
           </Link>

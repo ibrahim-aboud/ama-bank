@@ -30,13 +30,13 @@ export default class BanksController {
             throw new ModelError(errorMessages.missingResource,400);
         }
 
-        // var check = bankInfoValidator(prestation) ;
+        var check = bankInfoValidator(bank) ;
         
-        // if (check.error){
-            // throw new ModelError(check.errorList[0],400) ;
-        // }
+        if (check.error){
+            throw new ModelError(check.errorList[0],400) ;
+        }
 
-        //Aditional check (just to optimize) if the bank id really exists
+        // Aditional check (just to optimize) if the bank id really exists
 
         var data = await Bank.getBankByName(bank.name) ;
         
@@ -70,16 +70,16 @@ export default class BanksController {
           throw new ModelError(errorMessages.missingResource,400);
       }
 
-      // var check = bankInfoValidator(bank) ;
+      var check = bankInfoValidator(bank) ;
+        
+        if (check.error){
+            throw new ModelError(check.errorList[0],400) ;
+        }
 
       //additional check
-      // if (!("id" in prestation)){
-      //     throw new ModelError(errorMessages.missingID,400) ;
-      // } else if 
-      // if(check.error){
-      //     throw new ModelError(check.errorList[0],400) ;
-      // } 
-      
+      if (!("id" in bank)){
+          throw new ModelError(errorMessages.missingID,400) ;
+      }
 
       var data = await Bank.updateBank(bank) ;
       

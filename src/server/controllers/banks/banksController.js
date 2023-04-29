@@ -41,7 +41,7 @@ export default class BanksController {
         var data = await Bank.getBankByName(bank.name) ;
         
         if (data!=null){
-            throw new ModelError(errorMessages.existant, 200) ;
+            throw new ModelError(errorMessages.existant, 409) ;
         }
         
         data = await Bank.insertBank(bank) ;

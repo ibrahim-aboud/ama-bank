@@ -52,7 +52,7 @@ export default class PrestationsController {
 
 
             if (data!=null){
-                throw new ModelError(errorMessages.existant, 200) ;
+                throw new ModelError(errorMessages.existant, 409) ;
             }
             
             data = await Prestation.insertPrestation(prestation) ;

@@ -11,7 +11,7 @@ import { useRouter } from "next/router";
 import Scrollbar from "@/components/common/scrollbar";
 
 // temp
-import AddPrestPopup from "@/components/admin/add-prestation-popup";
+import AddPrestPopup from "@/components/admin/banks/conditionTarifaire/add-prestation-popup";
 
 function ConfirmDelete({ id, name, isDeleting, setIsDeleting }) {
   async function deleteBank(id) {

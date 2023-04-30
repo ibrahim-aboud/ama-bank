@@ -6,7 +6,7 @@ import ListePrestations from "@/components/admin/banks/conditionTarifaire/listeP
 import axios from "axios";
 import { useRouter } from "next/router";
 import SearchBox from "@/components/common/searchBox";
-import AddPrestPopup from "@/components/admin/add-prestation-popup";
+import AddPrestPopup from "@/components/admin/banks/conditionTarifaire/add-prestation-popup";
 import {RxReload} from "react-icons/rx";
 import ModifyPrestation from "@/components/admin/banks/conditionTarifaire/modifyPrestation"
 

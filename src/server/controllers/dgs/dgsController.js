@@ -70,7 +70,7 @@ export default class DgsController{
 
             var data = await Dg.modifyDg(dg) ;
 
-            if (data.affectedRows==1){
+            if (data.data.affectedRows==1){
                 var result = await Dg.getDgById(dg.id) ;
                 res.status(200).json({dg: result}) ;
                 return ;

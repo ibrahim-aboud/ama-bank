@@ -9,5 +9,5 @@ export default async function isNotAdmin(req, res) {
     !session.user.role ||
     session.user.role !== "admin";
 
-  return false;
+  return result;
 }

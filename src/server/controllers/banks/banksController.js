@@ -81,7 +81,7 @@ export default class BanksController {
 
       var data = await Bank.updateBank(bank) ;
       
-      if (data.affectedRows==1){
+      if (data.data.affectedRows==1){
           var result = await Bank.getBankById(bank.id) ;
           res.status(200).json({bank: result}) ;
           return ;

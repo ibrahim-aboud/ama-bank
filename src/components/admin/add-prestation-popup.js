@@ -60,13 +60,9 @@ export default function AddPrestPopup({ isVisible, setIsVisible, bankId, addPres
         event.preventDefault();
         var prestationToSend = {...prestation, bank_id: bankId};
         prestationToSend = {...prestationToSend,categorie_operation:"Gestion et tenue de compte"};
-        console.log(prestationToSend);
-        console.log(bankId)
-        console.log(categories.find(item => item.id === prestation.categorie_id).name);
         axios
             .post(process.env.NEXT_PUBLIC_API_URL + "/prestations", {prestation: prestationToSend})
             .then((response) => {
-                console.log(response.data);
                 addPrestation(response.data.prestation);
                 return response.data.token;
 

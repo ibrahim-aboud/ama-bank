@@ -25,7 +25,7 @@ import ModifyPrestation from "@/components/admin/banks/conditionTarifaire/modify
 
     // Update the state with the new array
     setOldInfo(newArray);
-    console.log(prestation);
+
     //setFetch(!fetch);
   }
   function deletePrestation(prestation){

@@ -50,8 +50,7 @@ export default function ModifyPrestation({ isVisible, setIsVisible, prestation ,
         event.preventDefault();
         var prestationToSend = {...prestations};
         prestationToSend = {...prestationToSend};
-        console.log("debug hi yes") ;
-        console.log(prestationToSend)
+
         await axios
             .put(process.env.NEXT_PUBLIC_API_URL + "/prestations", {prestation: prestationToSend})
             .then((response) => {

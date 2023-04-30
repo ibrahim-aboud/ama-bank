@@ -43,7 +43,8 @@ function EditBankDataPage(){
         })
         setOverFlowStyle({overflowY : "hidden"})
         let record = {message1 : "Ajouter une agence", message2 : "annuler", icone : modificaitonAddImg}
-        setObjToRender(<ModificationListe record={record} handleAddAgencyAnnuler = {handleAnnuler}/>)
+        setObjToRender(<ModificationListe record={record} handleAddAgencyAnnuler = {handleAnnuler} 
+            handleUpdateScreen = {handleUpdateScreen}/>)
     }
 
     const handleAnnuler = () => {
@@ -138,13 +139,54 @@ function EditBankDataPage(){
         setOverFlowStyle({overflowY : "hidden"})
         let record = {message1 : "Sauvegarder les modifications", message2 : "annuler", icone : modificationModImg }
         setObjToRender(<ModificationListe record={record} idAgency={agencyId} 
-            handleAddAgencyAnnuler = {handleAnnuler} />)
+            handleAddAgencyAnnuler = {handleAnnuler} handleUpdateScreen = {handleUpdateScreen}/>)
    
 
     }
+    const handleUpdateScreen = (objToSend, type) => {
+        
+        if(listeOfAgencies.length > 0){
+            
+            switch(type) {
+                
+                case "EditAgency":
+                    if(listeOfAgencies[0].id == objToSend.agency.id){
+                        let index = listeOfAgencies.findIndex(element => 
+                            element.id == objToSend.agency.id
+                       )
+                       console.log(index)
+                        let tempList = listeOfAgencies
+                       tempList[index] = objToSend.agency
+                       console.log(tempList)
+                       setListeOfAgencies(tempList)
+                    }
 
+                    break;
+                case "EditDg" :
+                    if(listeOfAgencies[0].id == objToSend.dg.id){
+                        let index = listeOfAgencies.findIndex(element => 
+                            element.id < 0
+                    )
+                    
+                    let tempList = listeOfAgencies
+                    tempList[index] = objToSend.dg
+                    setListeOfAgencies(tempList)
+                     }
+                    break;
+                case "AddAgency" :
+                    if(listeOfAgencies[0].id == objToSend.agency.id){
+                        let tempList = listeOfAgencies
+                        tempList.push(objToSend.agency)
+                        console.log(tempList)
+                        setListeOfAgencies(tempList)
+                    } 
+                   break;
+            }
+        }
+
+        
+    }
     const handleClickSearch = (list) => {
-
             setListeOfAgencies(list)
     }
 

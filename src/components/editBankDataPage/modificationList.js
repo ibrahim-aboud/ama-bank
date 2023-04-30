@@ -98,6 +98,7 @@ function modificationListe(Props){
             if(Props.record.message1 != "Sauvegarder les modifications"){
                 axios.post(process.env.NEXT_PUBLIC_API_URL + '/agencies', objToSend)
                 .then(response => {
+                   /*  Props.handleUpdateScreen(objToSend, "AddAgency") */
                     console.log(response)
                     })
                 .catch(err =>{
@@ -122,6 +123,7 @@ function modificationListe(Props){
                     }
                     axios.put(process.env.NEXT_PUBLIC_API_URL + '/dgs', objToSend)
                     .then(response => {
+                        /* Props.handleUpdateScreen(objToSend, "EditDg") */
                         console.log(response)
                         })
                     .catch(err =>{
@@ -131,9 +133,11 @@ function modificationListe(Props){
                     objToSend.agency.id = Props.idAgency
                     axios.put(process.env.NEXT_PUBLIC_API_URL + '/agencies', objToSend)
                     .then(response => {
+                        Props.handleUpdateScreen(objToSend, "EditAgency")
                         console.log(response)
                          })
                     .catch(err =>{
+
                         console.log(err.message)
                         })
                 }
@@ -162,7 +166,6 @@ function modificationListe(Props){
 
     return(
         <div className={styles.dataModification}>
-            <div>{error}</div>
             <form className={styles.dataInput}>
                 <span className={styles.inputMessage}>Nom de la banque *</span>
                 <select name="bankName" className={styles.inputBlock} required onChange={(e)=>{setBankId(parseInt(e.target.value))}}>

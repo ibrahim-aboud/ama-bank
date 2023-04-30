@@ -8,7 +8,7 @@ function NewBank() {
   const session = useSession();
 
   return (
-    <div>
+    <div className="mt-5 mb-24">
       <BankInfoFormADD />
     </div>
   );

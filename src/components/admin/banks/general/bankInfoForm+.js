@@ -10,6 +10,8 @@ import { HiCheckCircle, HiPhone, HiLocationMarker, HiSearch } from "react-icons/
 import { RiBankFill } from "react-icons/ri";
 import { wilayas } from "@/lib/utils/wilayaMap";
 import Link from "next/link";
+import SuccessFeedback from "@/components/common/feedback_popups/success";
+import FailFeedback from "@/components/common/feedback_popups/fail";
 
 function BankInfoFormADD() {
   const [loading, setLoading] = useState(false);
@@ -49,6 +51,9 @@ function BankInfoFormADD() {
     };
     reader.readAsDataURL(file);
   };
+
+  const [addSuccess, setAddSuccess] = useState(false);
+  const [isFeedbackVisible, setIsFeedbackVisible] = useState(false);
 
   // get excuted when the form is submitted
   async function sumbitHandler(event) {
@@ -96,15 +101,29 @@ function BankInfoFormADD() {
             }
           );
       }
+      if ("error" in response1.data){
+        setError("ERREUR: banque déja existante!");
+        setAddSuccess(false);
+        setIsFeedbackVisible(true);
+        setTimeout(() => {setAddSuccess(false); setIsFeedbackVisible(false)}, 2000);
+      }
+      else {
+        const dgToSend = {...dg, bank_id: data1.id};
+        await axios.post(process.env.NEXT_PUBLIC_API_URL + "/dgs", {dg: dgToSend});
 
-      const dgToSend = {...dg, bank_id: data1.id};
-      await axios.post(process.env.NEXT_PUBLIC_API_URL + "/dgs", {dg: dgToSend});
+        // when the data is updated
+        setError("");
+        setAddSuccess(true);
+        setIsFeedbackVisible(true);
+        setTimeout(() => {setAddSuccess(false); setIsFeedbackVisible(false)}, 2000);
+        setTimeout(() => {router.replace("/admin/home")}, 1000);
+      }
 
-      // when the data is updated
-      setError("");
-      router.replace("/admin/home");
     } catch (e) {
-      setError(e.response?.data);
+      setError(e.response?.data.error.message);
+      setAddSuccess(false);
+      setIsFeedbackVisible(true);
+      setTimeout(() => {setAddSuccess(false); setIsFeedbackVisible(false)}, 2000);
     }
     setLoading(false);
   }
@@ -114,7 +133,7 @@ function BankInfoFormADD() {
   const formRef = useRef(null);
 
   return (
-    <div className="mb-20 mt-5">
+    <div>
 
       <form className="flex flex-col items-center" onSubmit={sumbitHandler} ref={formRef}>
         <div className="py-8 lg:mx-16 flex items-center justify-center lg:gap-14 w-full">
@@ -131,7 +150,7 @@ function BankInfoFormADD() {
           <label htmlFor="bank_name" className="block p-1">
             Nom de la banque<span className="text-red-500 font-bold text-xl">*</span>
           </label>
-          <div className="bg-gray-100 p-4 rounded-md border flex items-center w-full">
+          <div className="bg-gray-100 p-4 rounded-md border focus-within:border-green-800 flex items-center w-full">
             <input
               type="text"
               name="bank_name"
@@ -149,7 +168,7 @@ function BankInfoFormADD() {
         <div className="flex flex-col md:flex-row w-[90%] lg:w-[900px]">
             <div className="md:mx-5 mb-4 md:w-[50%] md:ml-auto">
                 <label className="p-1" htmlFor="bank_logo">Logo de la banque</label>
-                <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center">
+                <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center focus-within:border-green-800">
                     <input
                         type="file"
                         name="bank_logo"
@@ -174,7 +193,7 @@ function BankInfoFormADD() {
             
             <div className="md:mx-5 mb-4 md:w-[50%] md:mr-auto">
                 <label className="p-1" htmlFor="bank_image">Image de la banque (Preview)</label>
-                <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center">
+                <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center focus-within:border-green-800">
                     <input
                         type="file"
                         name="bank_image"
@@ -202,7 +221,7 @@ function BankInfoFormADD() {
           <label htmlFor="description" className="block p-1">
             Description de la banque
           </label>
-          <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center">
+          <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center focus-within:border-green-800">
             <textarea
               id="description"
               name="bank_description"
@@ -220,10 +239,10 @@ function BankInfoFormADD() {
           <label htmlFor="bank_url" className="block p-1">
             Lien du site Web
           </label>
-          <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center">
+          <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center focus-within:border-green-800">
             <FiGlobe className="text-gray-600" size={24} />
             <input
-              type="text"
+              type="url"
               name="bank_url"
               id="bank_url"
               placeholder="Ex: https://www.natixis.dz"
@@ -251,7 +270,7 @@ function BankInfoFormADD() {
         <div className="flex flex-col items-center w-full">
           <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
             <label className="p-1" htmlFor="wilaya">Wilaya<span className="text-red-500 font-bold text-xl">*</span></label>
-            <div className="bg-gray-100 w-full px-4 py-3 rounded-md border flex items-center">
+            <div className="bg-gray-100 w-full px-4 py-3 rounded-md border flex items-center focus-within:border-green-800">
               <HiSearch className="text-gray-600" size={24} />
               <select
                 id="wilaya"
@@ -274,7 +293,7 @@ function BankInfoFormADD() {
 
           <div className="mx-5 mb-4  w-[90%] lg:w-[900px]">
             <label className="p-1" htmlFor="dg_address">Adresse du siège social<span className="text-red-500 font-bold text-xl">*</span></label>
-            <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center">
+            <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center focus-within:border-green-800">
               <RiBankFill className="text-gray-600" size={24} />
               <input
                 type="text"
@@ -292,13 +311,13 @@ function BankInfoFormADD() {
 
           <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
             <label className="p-1" htmlFor="dg_phone">Numéro de téléphone</label>
-            <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center">
+            <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center focus-within:border-green-800">
               <HiPhone className="text-gray-600" size={24} />
               <input
-                type="text"
+                type="tel"
                 name="dg_phone"
                 id="dg_phone"
-                placeholder="Ex: +213 21 98 53 99"
+                placeholder="Ex: 0 21 98 53 99 ou 0 556 54 23 76"
                 className="bg-gray-100 outline-none px-4 flex-1"
                 onChange={(event) =>
                     setDg({ ...dg, phone: event.target.value })
@@ -309,13 +328,13 @@ function BankInfoFormADD() {
 
           <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
             <label className="p-1" htmlFor="dg_fax">Fax</label>
-            <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center">
+            <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center focus-within:border-green-800">
               <MdFax className="text-gray-600" size={24} />
               <input
-                type="text"
+                type="tel"
                 name="dg_fax"
                 id="dg_fax"
-                placeholder="Ex: +213 21 98 53 99"
+                placeholder="Ex: 0 21 98 53 99"
                 className="bg-gray-100 outline-none px-4 flex-1"
                 onChange={(event) =>
                     setDg({ ...dg, fax: event.target.value })
@@ -326,10 +345,10 @@ function BankInfoFormADD() {
 
           <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
             <label className="p-1" htmlFor="dg_localtion_url">Localisation GPS (Lien vers Google Maps)</label>
-            <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center">
+            <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center focus-within:border-green-800">
               <HiLocationMarker className="text-gray-600" size={24} />
               <input
-                type="text"
+                type="url"
                 name="dg_location_url"
                 id="dg_location_url"
                 placeholder="Ex: https://goo.gl/maps/onJ7hBd4oZ1fMpPj9"
@@ -342,17 +361,17 @@ function BankInfoFormADD() {
           </div>
         </div>
 
-        {error && (
+        {/* {error && (
           <div className="text-rose-500 font-bold text-center overflow-hidden mt-2">
             {error}
           </div>
-        )}
+        )} */}
 
-        <div className="mt-4 flex flex-col md:flex-row items-center justify-center gap-5 md:gap-10 w-full lg:w-[800px] lg:justify-between">
+        <div className="mt-4 flex flex-col md:flex-row gap-2 items-center justify-center w-full lg:w-[800px]">
           <button
             type="submit"
             disabled={loading}
-            className="mb-1 rounded-xl px-8 py-3 font-semibold bg-black text-white hover:shadow-xl hover:bg-[#40916C] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
+            className="rounded-xl w-11/12 md:w-auto justify-center sm:px-8 py-3 font-semibold bg-black text-white hover:shadow-2xl hover:bg-[#40916C] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
           >
             Ajouter la banque
             <HiCheckCircle size={23} className="ml-2" />
@@ -364,18 +383,22 @@ function BankInfoFormADD() {
             onClick={() => {
               setIsResetting(!isResetting);
             }}
-            className="rounded-xl px-8 py-3 font-semibold bg-black text-white hover:shadow-xl hover:bg-[#daa250] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
+            className="rounded-xl w-11/12 md:w-auto justify-center sm:px-8 py-3 font-semibold bg-black text-white hover:shadow-2xl hover:bg-[#daa250] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
           >
             Effacer le formulaire
             <FaUndo size={20} className="ml-2" />
           </button>
             {isResetting && (
-              <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center ">
-                <div className="w-[400px]">
-                  <div className="bg-white rounded p-10 flex flex-col justify-center items-center">
-                    <h2 className="mb-10 font-semibold">Voulez-vous réinitialiser le formulaire?</h2>
-                    <div>
-                        <button className="bg-gray-200 p-2 rounded border mr-10 hover:bg-gray-100 font-medium" onClick={() => {
+              <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center z-50">
+                <div className="w-[350px] sm:w-[500px]">
+                  <div className="py-4 rounded-t-md bg-[#dfa01a] text-white flex justify-center items-center">
+                    <FaUndo size={20} className="mr-3" />
+                    <h2>Réinitialisation du formulaire</h2>
+                  </div>
+                  <div className="bg-white rounded-b-md pt-4 sm:pt-8 flex flex-col justify-center items-center">
+                    <h2 className="mb-8 font-semibold">Voulez-vous réinitialiser le formulaire?</h2>
+                    <div className="w-full">
+                        <button className="w-1/2 bg-gray-200 p-2 rounded-bl-md border border-gray-300 text-gray-700 hover:bg-gray-100 font-medium" onClick={() => {
                             formRef.current.reset();
                             
                             setError("");
@@ -404,7 +427,7 @@ function BankInfoFormADD() {
                         }}>
                             Confirmer
                         </button>
-                        <button className="bg-gray-200 p-2 rounded border hover:bg-gray-100 font-medium" onClick={() => {setIsResetting(!isResetting)}}>
+                        <button className="w-1/2 bg-gray-200 p-2 rounded-br-md border border-gray-300 text-gray-700 hover:bg-gray-100 font-medium" onClick={() => {setIsResetting(!isResetting)}}>
                             Annuler
                         </button>
                     </div>
@@ -412,10 +435,12 @@ function BankInfoFormADD() {
                 </div>
               </div>
             )}
-          <Link href="/admin/home" className="mb-1 rounded-xl px-8 py-3 font-semibold bg-black text-white hover:shadow-xl hover:bg-[#EA5455] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300">
+          <Link href="/admin/home" className="rounded-xl w-11/12 md:w-auto justify-center sm:px-8 py-3 font-semibold bg-black text-white hover:shadow-2xl hover:bg-[#EA5455] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300">
             Annuler
             <MdCancel size={23} className="ml-2" />
           </Link>
+          <SuccessFeedback message={"Banque ajoutée avec succès"} isSuccessful={addSuccess} isVisible={isFeedbackVisible} />
+          <FailFeedback message={error} isSuccessful={addSuccess} isVisible={isFeedbackVisible} />
         </div>
       </form>
     </div>

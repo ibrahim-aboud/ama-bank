@@ -1,0 +1,64 @@
+{
+    "correspondenceListe" : [
+        {
+            "wilaya" : null,
+            "listeOfAgencies" : [
+                {
+                "agencyName" : "All the agencies",
+                 "agencyId" : 0
+                }
+            ]
+        },
+        {
+            "wilaya" : 16,
+            "listeOfAgencies" : [
+                {
+                    "agencyName" : "Agency116",
+                     "agencyId" : 1
+                },
+                {
+                    "agencyName" : "Agency216",
+                     "agencyId" : 2
+                },
+                {
+                    "agencyName" : "Agency316",
+                     "agencyId" : 3
+                }
+            ]
+        },
+        {
+            "wilaya" : 22,
+            "listeOfAgencies" : [
+                {
+                    "agencyName" : "Agency122",
+                     "agencyId" : 4
+                },
+                {
+                    "agencyName" : "Agency222",
+                     "agencyId" : 5
+                },
+                {
+                    "agencyName" : "Agency322",
+                     "agencyId" : 6
+                }
+            ]
+        },
+        {
+            "wilaya" : 6,
+            "listeOfAgencies" : [
+                {
+                    "agencyName" : "Agency106",
+                     "agencyId" : 7
+                },
+                {
+                    "agencyName" : "Agency206",
+                     "agencyId" : 8
+                },
+                {
+                    "agencyName" : "Agency306",
+                     "agencyId" : 9
+                }
+            ]
+        }
+    ]
+}

@@ -1,4 +1,4 @@
-export const globals = {
+const globals = {
   requiredKeys: {
     prestation: [
       "bank_id",
@@ -35,4 +35,8 @@ export const globals = {
     "Opération de paiement",
     "Monétique",
   ],
+  banks_images_folder : "./public/assets/images/banks_images" ,
+  banks_logos_folder :"./public/assets/logos/banks_logos"
 };
+
+export default globals ;

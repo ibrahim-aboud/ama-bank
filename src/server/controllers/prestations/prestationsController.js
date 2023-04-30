@@ -6,6 +6,15 @@ import ModelError from "@/lib/utils/ModelError";
 
 export default class PrestationsController {
 
+    async getAll(req,res){
+        try {
+            var data = await Prestation.getEverything() ;
+            res.status(200).json({prestations: data}) ;
+        }catch(err){
+            res.status(err.status).json({error: err}) ;
+        }
+    }
+
     async get(req,res){
         const {id} = req.query ;
         try {

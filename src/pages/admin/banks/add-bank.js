@@ -1,11 +1,20 @@
 import AdminLayout from "@/layouts/adminLayout";
-import { getSession } from "next-auth/react";
+import { getSession, useSession } from "next-auth/react";
+import BankInfoFormADD from "@/components/admin/banks/general/bankInfoForm+";
 
-function Prestations() {
-  return <div>Prestations</div>;
+function NewBank() {
+  
+
+  const session = useSession();
+
+  return (
+    <div className="mt-5 mb-24">
+      <BankInfoFormADD />
+    </div>
+  );
 }
 
-Prestations.getLayout = function PageLayout(page) {
+NewBank.getLayout = function PageLayout(page) {
   return <AdminLayout>{page}</AdminLayout>;
 };
 
@@ -26,4 +35,4 @@ export async function getServerSideProps(context) {
   };
 }
 
-export default Prestations;
+export default NewBank;

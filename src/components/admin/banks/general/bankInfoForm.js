@@ -127,7 +127,7 @@ function BankInfoForm({ bankId }) {
 
       // when the data is updated
       setError("");
-      router.reload();
+      router.push("/admin/home");
     } catch (e) {
       setError(e.response?.data.error.message);
     }

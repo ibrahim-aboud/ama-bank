@@ -4,7 +4,7 @@ import axios from "axios";
 import { BiPencil } from "react-icons/bi";
 import { useRouter } from "next/router";
 
-export default function AddPrestPopup({ isVisible, setIsVisible, prestation , editPrestation}) {
+export default function ModifyPrestation({ isVisible, setIsVisible, prestation , editPrestation}) {
     function getTarif(tarif){
         if (tarif===0){
             return "GRATUIT";
@@ -64,7 +64,7 @@ export default function AddPrestPopup({ isVisible, setIsVisible, prestation , ed
 
         setIsVisible(!isVisible);
         setPersonalisedPrest(false);
-        editPrestation(prestation)
+        editPrestation(prestationToSend);
     }
 
     if (!isVisible) return null;

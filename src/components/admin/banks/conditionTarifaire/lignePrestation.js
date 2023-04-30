@@ -6,11 +6,13 @@ import DeletePrestation from "./deletePrestation";
 import ModifyPrestation from "./modifyPrestation";
 
 function LignePrestation({prestation1,prestation2,first,single,deletePrestation,editPrestation}){
-
+   
     const [delPopUp1,setDelPopUp1]=useState(false);
     const [delPopUp2,setDelPopUp2]=useState(false);
     const [edtPopUp1,setEdtPopUp1]=useState(false);
     const [edtPopUp2,setEdtPopUp2]=useState(false);
+
+
 
     function deletePrestation1(){
         setDelPopUp1(true);
@@ -49,8 +51,8 @@ function LignePrestation({prestation1,prestation2,first,single,deletePrestation,
         <div>
             <DeletePrestation isVisible={delPopUp1} setIsVisible={setDelPopUp1} prestation={prestation1} deletePrestation={deletePrestation}/>
             <DeletePrestation isVisible={delPopUp2} setIsVisible={setDelPopUp2} prestation={prestation2} deletePrestation={deletePrestation}/>
-            <ModifyPrestation isVisible={edtPopUp1} setIsVisible={setEdtPopUp1} prestation={prestation1} editPrestation={editPrestation}/>
-            <ModifyPrestation isVisible={edtPopUp2} setIsVisible={setEdtPopUp2} prestation={prestation2} editPrestation={editPrestation}/>
+            <ModifyPrestation isVisible={edtPopUp1} setIsVisible={setEdtPopUp1} prestation={prestation1} editPrestation={editPrestation} />
+            <ModifyPrestation isVisible={edtPopUp2} setIsVisible={setEdtPopUp2} prestation={prestation2} editPrestation={editPrestation} />
             <div className={ first ? style.containerFrst :style.containerScnd}>
                 <div className={style.nomTarifPrestation}>
                     <div className={style.nomPrestation}>{prestation1.name}</div>

@@ -7,11 +7,10 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import SearchBox from "@/components/common/searchBox";
 import AddPrestPopup from "@/components/admin/add-prestation-popup";
-import {RxReload} from "react-icons/rx"
+import {RxReload} from "react-icons/rx";
 import ModifyPrestation from "@/components/admin/banks/conditionTarifaire/modifyPrestation"
 
-function Prestations({banks,categories}) {
-  
+ function Prestations({banks,categories}) {
   const[fetch,setFetch]=useState(false);
   // these 3 functions modify the interface part
   function addPrestation(prestation){
@@ -19,7 +18,15 @@ function Prestations({banks,categories}) {
     setFetch(!fetch);
   }
   function editPrestation(prestation){
-    setFetch(!fetch);
+    // Create a new array with the updated object
+    const newArray = oldInfo.map(item =>
+      item.id === prestation.id ? prestation : item
+    );
+
+    // Update the state with the new array
+    setOldInfo(newArray);
+    console.log(prestation);
+    //setFetch(!fetch);
   }
   function deletePrestation(prestation){
     setOldInfo(oldValues => {

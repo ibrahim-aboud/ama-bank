@@ -106,7 +106,6 @@ function BankInfoFormADD() {
     } catch (e) {
       setError(e.response?.data);
     }
-
     setLoading(false);
   }
 

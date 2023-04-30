@@ -2,10 +2,15 @@ import { MdDeleteForever, MdOutlineAddBox } from "react-icons/md";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
+import Fail from "@/components/common/feedback_popups/fail.js";
+import Success from "@/components/common/feedback_popups/success.js";
 
 function DeletePrestation({ isVisible, setIsVisible, prestation ,deletePrestation}) {
     
     const router = useRouter();
+    const [message,setMessage]=useState("");
+    const [feedbackVisible,setIsFeedbackVisible]=useState(false);
+    const [isSuccessful,setIsSuccessful]=useState(false);
     async function onDelete(event) {
 
         event.preventDefault();
@@ -13,9 +18,19 @@ function DeletePrestation({ isVisible, setIsVisible, prestation ,deletePrestatio
         res.data.json;
         setIsVisible(!isVisible);
         deletePrestation(prestation);
+        setIsSuccessful(true);
+        setIsFeedbackVisible(true);
+        setMessage("Prestation supprimée avec succée");
+
+        setTimeout(() => {setIsSuccessful(false); setIsFeedbackVisible(false);setMessage("")}, 2000);
     }
 
-    if (!isVisible) return null;
+    if (!isVisible) return (
+        <div>
+            <Fail message={message} isVisible={feedbackVisible} isSuccessful={isSuccessful} />
+            <Success message={message} isVisible={feedbackVisible} isSuccessful={isSuccessful} />
+        </div>
+    );
     return (
         <div>
             <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center z-50">

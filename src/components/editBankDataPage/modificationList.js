@@ -123,7 +123,7 @@ function modificationListe(Props){
                     }
                     axios.put(process.env.NEXT_PUBLIC_API_URL + '/dgs', objToSend)
                     .then(response => {
-                        /* Props.handleUpdateScreen(objToSend, "EditDg") */
+                        Props.handleUpdateScreen(objToSend, "EditDg")
                         console.log(response)
                         })
                     .catch(err =>{

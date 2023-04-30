@@ -181,7 +181,7 @@ function SearchBars ({handleClickAddAgency, handleClickSearch}){
                             <option value="0">Sélectionner une agence</option>
                             {
                                 agencyList.map(element => 
-                                    <option key = {element.id} value={element.id}>{element.address} {element.wilaya}</option>    
+                                    <option key = {element.id} value={element.id}>{element.wilaya} : {element.address}</option>    
                                     )}
                         </select>
                     </div>

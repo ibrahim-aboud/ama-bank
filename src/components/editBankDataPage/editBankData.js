@@ -150,11 +150,11 @@ function EditBankDataPage(){
             switch(type) {
                 
                 case "EditAgency":
-                    if(listeOfAgencies[0].id == objToSend.agency.id){
+                    if(listeOfAgencies[0].bank_id == objToSend.agency.bank_id){
+                        
                         let index = listeOfAgencies.findIndex(element => 
                             element.id == objToSend.agency.id
                        )
-                       console.log(index)
                         let tempList = listeOfAgencies
                        tempList[index] = objToSend.agency
                        console.log(tempList)
@@ -163,7 +163,7 @@ function EditBankDataPage(){
 
                     break;
                 case "EditDg" :
-                    if(listeOfAgencies[0].id == objToSend.dg.id){
+                    if(listeOfAgencies[0].bank_id == objToSend.dg.bank_id){
                         let index = listeOfAgencies.findIndex(element => 
                             element.id < 0
                     )
@@ -174,12 +174,7 @@ function EditBankDataPage(){
                      }
                     break;
                 case "AddAgency" :
-                    if(listeOfAgencies[0].id == objToSend.agency.id){
-                        let tempList = listeOfAgencies
-                        tempList.push(objToSend.agency)
-                        console.log(tempList)
-                        setListeOfAgencies(tempList)
-                    } 
+        
                    break;
             }
         }

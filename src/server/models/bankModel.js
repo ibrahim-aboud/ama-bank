@@ -1,7 +1,6 @@
 import FilesHelpers from "@/lib/utils/FilesHelpers";
 import ModelError from "../../lib/utils/ModelError";
 import dbQuery from "../db/connect";
-import dbQueryArchive from "../db/connectArchiv";
 import { errorMessages } from "@/lib/utils/errorMessages";
 
 export default class Bank {
@@ -126,15 +125,7 @@ export default class Bank {
   }
 
   static async updateBank(bank) {
-    try{
-
-      var row = await dbQuery("SELECT * FROM db_amabank.ab_banks WHERE id_bank=(?)", [bank.id])
-
-    } catch(err){
-      throw new ModelError(errorMessages.serverError, 502);
-    }
     try {
-
       var data = await dbQuery(
         "UPDATE ab_banks SET bank_name=(?), bank_description=(?), bank_visits_count=(?), bank_website_link=(?) WHERE id_bank=(?)",
         [
@@ -146,124 +137,20 @@ export default class Bank {
           bank.id,
         ]
       );
-
     } catch (err) {
       throw new ModelError(errorMessages.serverError, 500);
     }
-    try{
 
-      var dataToArchive = await dbQueryArchive(
-      "INSERT INTO db_amabank_archive.ab_banks VALUES((?), (?), (?), (?), (?), (?), (?), NOW(), 'MODIFIED')", 
-      [null, row[0].id_bank, row[0].bank_name, row[0].bank_description, row[0].bank_visits_count, row[0].bank_website_link, 
-      row[0].bank_update_date]
-          )
-      return {
-        data : data,
-        dataToArchive : dataToArchive
-      };
-    } catch(err){
-        throw new ModelError(errorMessages.serverError,501) ; 
-    }
-
+    return data;
   }
 
   static async deleteBank(id) {
-    try{
-
-      var row = await dbQuery("SELECT * FROM db_amabank.ab_banks WHERE id_bank=(?)", [id])
-
-    } catch(err){
-      throw new ModelError(errorMessages.serverError, 502);
-    }
-    try{
-
-      var rowPres = await dbQuery("SELECT * FROM db_amabank.ab_prestations WHERE prestation_bank_id=(?)", [id])
-    
-    } catch(err){
-        throw new ModelError(errorMessages.serverError,503) ; 
-    }
-
-    try{
-
-      var rowAgen = await dbQuery("SELECT * FROM db_amabank.ab_agencies WHERE agency_bank_id=(?)", [id])
-    
-    } catch(err){
-        throw new ModelError(errorMessages.serverError,505) ; 
-    }
-    try{
-
-      var rowDg = await dbQuery("SELECT * FROM db_amabank.ab_dgs WHERE dg_bank_id=(?)", [id])
-    
-    } catch(err){
-        throw new ModelError(errorMessages.serverError,507) ; 
-    }
     try {
-
       var data = await dbQuery("DELETE FROM ab_banks WHERE id_bank=(?)", [id]);
-
     } catch (err) {
       throw new ModelError(errorMessages.serverError, 500);
     }
-    
-    try{
 
-      var dataToAchive = await dbQueryArchive(
-      "INSERT INTO db_amabank_archive.ab_banks VALUES((?), (?), (?), (?), (?), (?), (?), NOW(), 'DELETED')", 
-      [null, row[0].id_bank, row[0].bank_name, row[0].bank_description, row[0].bank_visits_count, row[0].bank_website_link, 
-      row[0].bank_update_date]
-          )
-
-  } catch(err){
-      throw new ModelError(errorMessages.serverError,501) ; 
-  }
-    try{
-
-      for(let i in rowAgen){
-      var dataToArchiveAgencies = await dbQueryArchive(
-        "INSERT INTO db_amabank_archive.ab_agencies VALUES((?), (?), (?), (?), (?), (?), (?), (?), (?), (?), NOW(), 'INSERTED')", 
-        [null, rowAgen[i].id_agency, rowAgen[i].agency_bank_id, rowAgen[i].agency_address, rowAgen[i].agency_lat, rowAgen[i].agency_lng, 
-        rowAgen[i].agency_wilaya, rowAgen[i].agency_phone, rowAgen[i].agency_fax, rowAgen[i].agency_location_link]
-        ) 
-    }
-
-    } catch(err){
-        throw new ModelError(errorMessages.serverError,506) ; 
-    }
-
-    try{
-
-      for(let i in rowPres){
-        var dataToInsertPres = await dbQueryArchive(
-          "INSERT INTO db_amabank_archive.ab_prestations VALUES((?), (?), (?), (?), (?), (?), (?), (?), (?), NOW(), 'INSERTED')", 
-          [null, rowPres[i].id_prestation, rowPres[i].prestation_bank_id, rowPres[i].prestation_name, rowPres[i].prestation_categorie_id, rowPres[i].prestation_type, 
-          rowPres[i].prestation_tarif, rowPres[i].prestation_period, rowPres[i].prestation_categorie_operation]
-              )
-      }
-
-  } catch(err){
-      throw new ModelError(errorMessages.serverError,504) ; 
-  }
-    try{
-
-      if(rowDg.length != 0){
-        var dataToArchiveDgs = await dbQueryArchive(
-            "INSERT INTO db_amabank_archive.ab_dgs VALUES((?), (?), (?), (?), (?), (?), (?), (?), (?), (?), NOW(), 'INSERTED')", 
-            [null, rowDg[0].id_dg, rowDg[0].dg_bank_id, rowDg[0].dg_address, rowDg[0].dg_lat, rowDg[0].dg_lng, 
-            rowDg[0].dg_wilaya, rowDg[0].dg_phone, rowDg[0].dg_fax, rowDg[0].dg_location_link]
-                )
-      }
-      return {
-        data : data,
-        dataToArchiveDg : dataToArchiveDgs,
-        dataToArchivePres : dataToInsertPres,
-        dataToArchiveAgencies : dataToArchiveAgencies,
-        dataToAchive : dataToAchive
-      }
-
-    } catch(err){
-        throw new ModelError(errorMessages.serverError,508) ; 
-    }
-
-    
+    return data;
   }
 }

@@ -65,11 +65,11 @@ const Filters = ({types_comptes, types_prestations, prestations, setPrestations,
     }
 
   return (
-    <div className={styles.container} >
-            <div className={styles.filters}>
-                <div className={styles.type_compte_container}>
-                    <label className={styles.type_compte_label}>Type de compte</label>
-                    <select name={styles.types_comptes_selectbar} ref={selectBar} className={styles.types_comptes_selectbar} onChange={handleSelect}>
+    <div className="w-full" >
+            <div className="w-full flex justify-between">
+                <div className="p-4 flex justify-between bg-gray-100 border rounded-lg border-gray-300 w-[45%]">
+                    <label className="">Type de compte</label>
+                    <select name="type_compte" ref={selectBar} className="bg-gray-100" onChange={handleSelect}>
                     {
                         types_comptes.map((type,index)=>(
                             <option value={type} key={index} selected>
@@ -79,16 +79,16 @@ const Filters = ({types_comptes, types_prestations, prestations, setPrestations,
                     }
                     </select>
                 </div>
-                <div className={styles.type_prestation_container}>
-                    <label className={styles.types_prestations_label}>
+                <div className="flex justify-between p-4 bg-gray-100 border rounded-lg w-[45%] border-gray-300">
+                    <label className="">
                         Type Prestations
                     </label>
-                    <div className={styles.T} onClick={handleClick} onChange={(event)=>{handleChange(event)}} >
+                    <div className="" onClick={handleClick} onChange={(event)=>{handleChange(event)}} >
                         <Image src="/assets/icons/icon1.svg" alt="arrow" ref={arrow} width={30} height={30} />
                     </div>
                 </div>
             </div>
-            <div className={styles.checkBoxes} style={{display:"none"}} ref={checkboxes}>
+            <div className="" ref={checkboxes}>
                 <form action="" ref={checkForm} onChange={handleChange}>
                     {
                         types_prestations.map((val,index)=>(
@@ -100,7 +100,6 @@ const Filters = ({types_comptes, types_prestations, prestations, setPrestations,
                     }
                 </form>
             </div>
-            
         </div>
   );
 };

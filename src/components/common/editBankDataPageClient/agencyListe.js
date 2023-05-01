@@ -37,8 +37,6 @@ function agencyListe({handleDeleteAgency, handleEditAgencyInfo, agencyList}){
           />
         );
       }
-  
-
 
     return(
         <div>

@@ -1,9 +1,9 @@
 import React, {useState} from "react"
 import Image from "next/image"
-import telIcone from "../../../public/assets/modificationsPage/telGreenIcon.svg"
-import faxIcon from "../../../public/assets/modificationsPage/faxGreenIcon.svg"
-import penIcone from "../../../public/assets/modificationsPage/penIcon.svg"
-import basketIcon from "../../../public/assets/modificationsPage/deleteBasketIcon.svg"
+import telIcone from "public/assets/modificationsPage/telGreenIcon.svg"
+import faxIcon from "public/assets/modificationsPage/faxGreenIcon.svg"
+import penIcone from "public/assets/modificationsPage/penIcon.svg"
+import basketIcon from "public/assets/modificationsPage/deleteBasketIcon.svg"
 import styles from "src/styles/agenciesModificaitonStyles/agencyRow.module.css"
 
 function AgencyRow(props){

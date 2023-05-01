@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from "react"
 import AgencyRow from "./agencyRow.js"
 import Image from "next/image"
-import dataAgencies from "../../../public/data/agenciesListe.json"
+import dataAgencies from "public/data/agenciesListe.json"
 import dgIcone from "public/assets/modificationsPage/dgIcone.svg"
-import  localisationIcon from "../../../public/assets/modificationsPage/localisationGreenIcon.svg"
-import emptyBox from "../../../public/assets/modificationsPage/emptyBox.png"
+import  localisationIcon from "public/assets/modificationsPage/localisationGreenIcon.svg"
+import emptyBox from "public/assets/modificationsPage/emptyBox.png"
 
 function agencyListe({handleDeleteAgency, handleEditAgencyInfo, agencyList}){
 

@@ -1,6 +1,6 @@
 import React from "react"
 import Head from "next/head"
-import EditBankData from "src/components/editBankDataPage/editBankData.js"
+import EditBankData from "src/components/admin/editBankDataPage/editBankData.js"
 
 export default function EditBankDataPage() {
     return (

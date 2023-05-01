@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image"
-import crossImg from "../../../public/assets/modificationsPage/crossDelete.svg"
-import basketImg from "../../../public/assets/modificationsPage/deleteIcon.svg"
+import crossImg from "public/assets/modificationsPage/crossDelete.svg"
+import basketImg from "public/assets/modificationsPage/deleteIcon.svg"
 import styles from "src/styles/agenciesModificaitonStyles/deleteConfirmation.module.css"
 function deleteConfirmation({handleAnnuler, handleButtonDeleteAgency, agencyId}){
     return(

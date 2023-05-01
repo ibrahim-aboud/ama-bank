@@ -5,8 +5,9 @@ import ListePrestationsLogos from "./ListePrestationsLogos.js"
 import Image from "next/image"
 import emptyBox from "public/assets/comparaisonPage/emptyBox.png"
 import axios from "axios"
-function ComparaisonListe({bank1, bank2, prestationsBank1, prestationsBank2}){
-    let prestationsBank1, prestationsBank2
+
+function ComparaisonListe({bank1, bank2 , prestationsBank1, prestationsBank2}){
+    // let prestationsBank1, prestationsBank2
     let prestationsData = {
 /*      bank1Name : "Natixis Algérie",
         bank2Name : "BNP Paribas",  */

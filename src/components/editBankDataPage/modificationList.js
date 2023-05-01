@@ -7,6 +7,8 @@ import localisationIcon from "../../../public/assets/modificationsPage/localisat
 import modificationListeDescard from "../../../public/assets/modificationsPage/modificationListeDescard.svg"
 import styles from "src/styles/agenciesModificaitonStyles/modificaitonListe.module.css"
 import InputBar from "./inputBar"
+import FailFdBack from "src/components/common/feedback_popups/fail.js"
+import SuccessFdBack from "src/components/common/feedback_popups/success.js"
 import axios from "axios"
 
 function modificationListe(Props){
@@ -18,7 +20,7 @@ function modificationListe(Props){
     const[localisation, setLocalisation] = useState(null)
     const[bankList, setBankList] = useState(null)
     const [error, setError] = useState([])
-    const [errStyle, setErrStyle] = useState({display : "none"})
+    const [errStyle, setErrStyle] = useState(false)
 
     useEffect(() => {
         axios.get(process.env.NEXT_PUBLIC_API_URL + `/banks`)
@@ -53,22 +55,22 @@ function modificationListe(Props){
         return new Promise((resolve, reject) => {
             let errMsg = []
             if(bankId == 0){
-                errMsg.push("- choisir une banque!")
+                errMsg.push(" choisir une banque!")
             } 
             if (wilaya == 0){
-                errMsg.push("- choisir la wilaya de l'agence que vous souhaitez ajouter.")
+                errMsg.push(" choisir la wilaya de l'agence que vous souhaitez ajouter.")
             }
             if(adresse == null || adresse.length < 5){
-                errMsg.push("- l'adresse contient moins de 5 caractères.")
+                errMsg.push(" l'adresse contient moins de 5 caractères.")
             }
             if(phone == "INVALID_VALUE"){
-                errMsg.push("- introduir un numéro de téléphone valid!")
+                errMsg.push(" introduir un numéro de téléphone valid!")
             }
             if(fax == "INVALID_VALUE"){
-                errMsg.push("- introduir un numéro de fax valid!")
+                errMsg.push(" introduir un numéro de fax valid!")
             }
             if(localisation == "INVALID_VALUE"){
-                errMsg.push("- introduir un lien de localisation valid!")
+                errMsg.push(" introduir un lien de localisation valid!")
             }
             if(errMsg.length > 0 ){
                  reject(errMsg)
@@ -143,10 +145,7 @@ function modificationListe(Props){
                 }
             }
             setError(["Opération bien éffectuée"])
-            setErrStyle ( {display : "block", 
-                            color : "green", 
-                            textAlign: "center"
-                        })
+            setErrStyle ( true)
             })
 
         .catch((errMsg) => {
@@ -156,10 +155,7 @@ function modificationListe(Props){
             catch(e){
                 setError(["Problème de connexion au serveur."])
             }
-            setErrStyle ( {display : "flex", 
-                            color : "red", 
-                            justifyContent : "center"
-                        })
+            setErrStyle (true)
             })
 
     }
@@ -231,16 +227,40 @@ function modificationListe(Props){
                 <InputBar  record={{title:"Numéro de téléphone" , placeHolder:"Ex: +213 21 98 53 99", icone:telIcone ,type:"tel", handleInputs:handleInputs}}/>
                 <InputBar  record={{title:"Fax" , placeHolder:"Ex: +213 21 98 53 99", icone:faxIcone ,type:"tel", handleInputs:handleInputs}}/>
                 <InputBar  record={{title:"Localisation" , placeHolder:"Ex: https://goo.gl/maps/onJ7hBd4oZ1fMpPj9", icone:localisationIcon ,type:"url", handleInputs:handleInputs}}/>
-
         </form>
 
-            <div style={errStyle}>
-                <ul>
-                    {error.map(element => 
-                        <li>{element}</li>
-                    )}
-                </ul>
-            </div>
+    
+            {error[0] !== "Opération bien éffectuée" ? (
+                <FailFdBack
+                message={
+                    <button onClick={() => {
+                    setErrStyle(false);
+                    }}>
+                    <ul style={{ textAlign: "start" }}>
+                        {error.map((element) => (
+                        <li style={{ marginLeft: "5px" }}>{element}</li>
+                        ))}
+                    </ul>
+                    </button>
+                }
+                isSuccessful={false}
+                isVisible={errStyle}
+                />
+            ) : (
+                <SuccessFdBack
+                message={
+                    <button onClick={() => {
+                    setErrStyle(false);
+                    }}>
+                    Success
+                    </button>
+                }
+                isSuccessful={true}
+                isVisible={errStyle}
+                />
+            )}
+
+
             <div className={styles.dataValidation}>
                 <button onClick={() => handleButtonClick()} className = "shadow-xl" >
                     

@@ -31,9 +31,12 @@ export default function websiteInfoValidator(websiteInfos) {
     error = true;
     errorList.push("Le champ phone n'a pas été rempli");
   } else {
-    if (!/^0\d{3}\s\d{2}\s\d{2}\s\d{2}$/.test(phone)) {
+    if (
+      !/^0\d{3}\s\d{2}\s\d{2}\s\d{2}$/.test(phone) &&
+      !/^\+(?:[0-9]\s?){6,14}[0-9]$/.test(phone)
+    ) {
       error = true;
-      errorList.push("le numero du tel est invalide, usage: [0xxx xx xx xx]");
+      errorList.push("le numero du tel est invalide");
     }
   }
 
@@ -41,9 +44,12 @@ export default function websiteInfoValidator(websiteInfos) {
     error = true;
     errorList.push("Le champ fax n'a pas été rempli");
   } else {
-    if (!/^0\d{3}\s\d{2}\s\d{2}\s\d{2}$/.test(fax)) {
+    if (
+      !/^0\d{3}\s\d{2}\s\d{2}\s\d{2}$/.test(fax) &&
+      !/^\+(?:[0-9]\s?){6,14}[0-9]$/.test(fax)
+    ) {
       error = true;
-      errorList.push("le numero du fax est invalide, usage: [0xxx xx xx xx]");
+      errorList.push("le numero du fax est invalide");
     }
   }
 

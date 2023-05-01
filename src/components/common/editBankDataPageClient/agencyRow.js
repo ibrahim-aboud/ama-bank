@@ -1,8 +1,8 @@
 import React, {useState} from "react"
 import Image from "next/image"
-import telIcone from "../../../public/assets/modificationsPage/telGreenIcon.svg"
-import faxIcon from "../../../public/assets/modificationsPage/faxGreenIcon.svg" 
-import styles from "src/styles/agenciesModificaitonStyles/agencyRow.module.css"
+import telIcone from "public/assets/modificationsPage/telGreenIcon.svg"
+import faxIcon from "public/assets/modificationsPage/faxGreenIcon.svg" 
+import styles from "src/styles/agenciesModificaitonStylesClient/agencyRow.module.css"
 
 function AgencyRow(props){
     let style = {}, phone = "indisponible", fax = "indisponible"

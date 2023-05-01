@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from "react"
 import AgencyRow from "./agencyRow.js"
 import Image from "next/image"
-import dataAgencies from "../../../public/data/agenciesListe.json"
 import dgIcone from "public/assets/modificationsPage/dgIcone.svg"
-import  localisationIcon from "../../../public/assets/modificationsPage/localisationGreenIcon.svg"
-import emptyBox from "../../../public/assets/modificationsPage/emptyBox.png"
+import  localisationIcon from "public/assets/modificationsPage/localisationGreenIcon.svg"
+import emptyBox from "public/assets/modificationsPage/emptyBox.png"
 
 function agencyListe({handleDeleteAgency, handleEditAgencyInfo, agencyList}){
 
@@ -12,7 +11,7 @@ function agencyListe({handleDeleteAgency, handleEditAgencyInfo, agencyList}){
     function editErr(obj){
       useEffect(() => {
           setErrStyle(obj)
-      })
+      }, [])
     }
     let border = true;
     let agenciesList = agencyList.map((dataElement, index, arr) => {
@@ -25,6 +24,7 @@ function agencyListe({handleDeleteAgency, handleEditAgencyInfo, agencyList}){
 
     if (agencyList.length > 0) {
       editErr({ display: "none" });
+      console.log("agencyListe : ", agencyList)
       if (agencyList[0].id == -1) {
         border = agencyList.length > 1;
         agenciesList[0] = (

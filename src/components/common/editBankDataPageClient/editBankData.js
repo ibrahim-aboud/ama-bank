@@ -2,8 +2,8 @@ import React, {useState} from "react";
 import AgencyListe from "./agencyListe.js"
 import Header from  "./headerListeOfModification.js"
 import SearchBars from "./searchBars.js"
-import styles from "src/styles/agenciesModificaitonStyles/editBankData.module.css"
-import axios from "axios"
+import styles from "src/styles/agenciesModificaitonStylesClient/editBankData.module.css"
+
 //petit beuge, quand on supprime une agence et on fait la recherche sur la meme place lagence retounera
 function timeout(delay) {
     return new Promise( res => setTimeout(res, delay) );
@@ -30,12 +30,10 @@ function EditBankDataPage(){
 
     return (
             <div className={styles.container}>
-               {/*  <button onClick={handleAnnuler}></button> */}
                 <div className={styles.forAnimations} style={style} /*  */>
                     {objToRender}
                 </div>  
-{/*                  />
-                 < className={styles.sucCard} />  */}
+
                 
                 <Header />
                 <SearchBars  handleClickSearch={handleClickSearch} />

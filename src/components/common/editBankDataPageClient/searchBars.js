@@ -1,11 +1,7 @@
 import React, {useState, useEffect} from "react"
 import Image from "next/image"
-import addIcone from "public/assets/modificationsPage/addAgencyIcone.svg"
 import searchTool from "public/assets/modificationsPage/searchTool.svg"
-import styles from "src/styles/agenciesModificaitonStyles/searchBars.module.css"
-import choiceListe from "public/data/wilayaAgencies.json"
-import agencyListe from "./agencyListe"
-import { handleClientScriptLoad } from "next/script"
+import styles from "src/styles/agenciesModificaitonStylesClient/searchBars.module.css"
 import axios from "axios"
 
 function SearchBars ({handleClickAddAgency, handleClickSearch}){
@@ -33,9 +29,15 @@ function SearchBars ({handleClickAddAgency, handleClickSearch}){
             {
                 setErrStyle({display : "none"})
                 if(agency == 0){
-                handleClickSearch(agencyList)
+                    handleClickSearch(agencyList)
                 } else{
-                    handleClickSearch([agencyList.find(element => element.id == agency)])
+                    let element = agencyList.find(element => element.id == agency)
+                    if(element == undefined){
+                        handleClickSearch([])
+                    } else {
+                        handleClickSearch([element])
+                    }
+                    
                 }
             }
         }
@@ -44,7 +46,7 @@ function SearchBars ({handleClickAddAgency, handleClickSearch}){
             axios.get(process.env.NEXT_PUBLIC_API_URL + `/banks`)
             .then(response =>{
                 setBankList(response.data.banks.map(element =>{
-                    return <option value={element.id} >{element.name}</option>
+                    return <option key = {element.id} value={element.id} >{element.name}</option>
                 }))
             }).catch(err => {
                 console.log( err.message )
@@ -58,7 +60,8 @@ function SearchBars ({handleClickAddAgency, handleClickSearch}){
             } else if((wilayaId != wilaya || (wilayaId == wilaya && !same)) && wilayaId == 0){
                 setWilaya(wilayaId)
                 setAgencyList(agencyListGlobal)
-            } 
+            }  
+            
         }
         const editAgency = (agencyId) => {
             setAgency(agencyId)

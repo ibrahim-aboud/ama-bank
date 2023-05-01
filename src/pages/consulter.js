@@ -67,7 +67,7 @@ function Consulter({ types_comptes, types_prestations, banks}) {
     
     return (
       <main className={styles.container}>
-        <div className="mt-8 mb-8 mx-16 lg:px-[150px]">
+        <div className="mt-8 mb-8 mx-16 lg:px-[150px] lgx:px-[250px]">
           <h2 className="font-semibold md:text-xl ml-2 mb-2">Nom de la banque</h2>
           <SearchBox
             items={banks}
@@ -77,7 +77,7 @@ function Consulter({ types_comptes, types_prestations, banks}) {
           />
         </div>  
         
-        <div className="">
+        <div className="w-full">
           <Filters types_comptes={types_comptes} types_prestations={types_prestations} prestations={conditions} setPrestations={setFilteredConditions} bank_id={selectedBankId}></Filters>
         </div>
 

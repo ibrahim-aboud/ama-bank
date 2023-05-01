@@ -37,14 +37,27 @@ export default function AddPrestPopup({ isVisible, setIsVisible, bankId, addPres
     const [prestation,setPrestation] = useState([]);
     const [prestations, setPrestations] = useState([]);
     const [personalisedPrest, setPersonalisedPrest] = useState(false);
-    const categorie_operation = ["Gestion et tenue de compte","Opération de paiement","Monétique"]
+    const categorie_operation = ["Gestion et tenue de compte","Opération de paiement","Monétique"];
+
+    useEffect(()=>{
+        setPrestation(
+            {
+                name: "",
+                type: "",
+                tarif: 0,
+                period: null,
+                bank_id: 0,
+                categorie_id: 0,
+                categorie_operation: ""
+            })
+    },[isVisible])
     useEffect(() => {
         setPrestation(
             {
                 name: "",
                 type: "",
                 tarif: 0,
-                period: 365,
+                period: null,
                 bank_id: 0,
                 categorie_id: 0,
                 categorie_operation: ""
@@ -67,29 +80,38 @@ export default function AddPrestPopup({ isVisible, setIsVisible, bankId, addPres
     function onAdd(event) {
         event.preventDefault();
         var prestationToSend = {...prestation, bank_id: bankId};
-        prestationToSend = {...prestationToSend,categorie_operation:"Gestion et tenue de compte"};
-        axios
-            .post(process.env.NEXT_PUBLIC_API_URL + "/prestations", {prestation: prestationToSend})
-            .then((response) => {
-                addPrestation(response.data.prestation);
-                setIsSuccessful(true);
-                setIsFeedbackVisible(true);
-                setMessage("Prestation ajoutée avec succée");
-                return response.data.token;
-                
-            })
-            .catch((error) => {
-                //error.response.data.error.message
-                //error.response.data.error.status
-                setIsSuccessful(false);
-                setIsFeedbackVisible(true);
-                setMessage("Erreur d'insertion");
-                console.log(error);
-            });
-        setIsVisible(!isVisible);
-        setPersonalisedPrest(false);
-        
-        setTimeout(() => {setIsSuccessful(false); setIsFeedbackVisible(false);setMessage("")}, 2000);
+        if(prestationToSend.name==="" || prestationToSend.type ==="" || prestationToSend.period===null || prestationToSend.categorie_id ===0 || prestationToSend.categorie_operation===""){
+            setIsSuccessful(false);
+            setIsFeedbackVisible(true);
+            setMessage("Erreur d'insertion");
+            setIsVisible(!isVisible);
+            setPersonalisedPrest(false);
+            setTimeout(() => {setIsSuccessful(false); setIsFeedbackVisible(false);setMessage("")}, 2000);
+        }
+        else{
+            axios
+                .post(process.env.NEXT_PUBLIC_API_URL + "/prestations", {prestation: prestationToSend})
+                .then((response) => {
+                    console.log(addPrestation(response.data.prestation));
+                    setIsSuccessful(true);
+                    setIsFeedbackVisible(true);
+                    setMessage("Prestation ajoutée avec succée");
+                    return response.data.token;
+                    
+                })
+                .catch((error) => {
+                    //error.response.data.error.message
+                    //error.response.data.error.status
+                    setIsSuccessful(false);
+                    setIsFeedbackVisible(true);
+                    setMessage("Erreur d'insertion");
+                    console.log(error);
+                });
+            setIsVisible(!isVisible);
+            setPersonalisedPrest(false);
+            
+            setTimeout(() => {setIsSuccessful(false); setIsFeedbackVisible(false);setMessage("")}, 2000);
+        }
     }
 
     if (!isVisible) return (

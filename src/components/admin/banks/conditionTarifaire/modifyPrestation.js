@@ -5,11 +5,10 @@ import { BiPencil } from "react-icons/bi";
 import { useRouter } from "next/router";
 import Fail from "@/components/common/feedback_popups/fail.js";
 import Success from "@/components/common/feedback_popups/success.js";
-
 export default function ModifyPrestation({ isVisible, setIsVisible, prestation , editPrestation}) {
     const [message,setMessage]=useState("");
     const [feedbackVisible,setIsFeedbackVisible]=useState(false);
-    const [isSuccessful,setIsSuccessful]=useState(false); 
+    const [isSuccessful,setIsSuccessful]=useState(false);
     function getCategorieName(prestation){
         let categName = "";
         try{
@@ -21,7 +20,6 @@ export default function ModifyPrestation({ isVisible, setIsVisible, prestation ,
         return categName;
         
     }
-
     function getTarif(tarif){
         if (tarif===0){
             return "GRATUIT";
@@ -47,27 +45,29 @@ export default function ModifyPrestation({ isVisible, setIsVisible, prestation ,
             }
         ]
     );
-
     const router = useRouter();
     const [categories, setCategories] = useState([]);
     const [personalisedPrest, setPersonalisedPrest] = useState(false);
     const [prestations,setPrestations] = useState(prestation);
+    const [prestationList,setPrestationList]=useState([]);
     const categorie_operation = ["Gestion et tenue de compte","Opération de paiement","Monétique"];
     useEffect(() => {
         const fetchData = async () => {
             const response1 = await axios.get(process.env.NEXT_PUBLIC_API_URL + "/categories");
             setCategories(response1.data.categories);
-            //const response2 = await axios.get(process.env.NEXT_PUBLIC_API_URL + "/prestations");
+            const response2 = await axios.get(process.env.NEXT_PUBLIC_API_URL + "/prestations");
+            var result = [];
+            response2.data.prestations.map((prestation) => {result.push(prestation.name)});
+            const uniqueNamesSet = new Set(result);
+            result = Array.from(uniqueNamesSet);
+            setPrestationList(result);
         }
         fetchData();
-
     }, []);
-
     async function onAdd(event) {
         event.preventDefault();
         var prestationToSend = {...prestations};
         prestationToSend = {...prestationToSend};
-
         await axios
             .put(process.env.NEXT_PUBLIC_API_URL + "/prestations", {prestation: prestationToSend})
             .then((response) => {
@@ -83,13 +83,11 @@ export default function ModifyPrestation({ isVisible, setIsVisible, prestation ,
                 setMessage("Erreur de modification");
                 console.log(error);
             });
-
         setIsVisible(!isVisible);
         setPersonalisedPrest(false);
         editPrestation(prestationToSend);
         setTimeout(() => {setIsSuccessful(false); setIsFeedbackVisible(false);setMessage("")}, 2000);
     }
-
     if (!isVisible) return (
         <div>
             <Fail message={message} isVisible={feedbackVisible} isSuccessful={isSuccessful} />
@@ -117,8 +115,6 @@ export default function ModifyPrestation({ isVisible, setIsVisible, prestation ,
                                 <option key={item.id} value={item.name}>{item.name}</option>
                             ))}
                         </select>
-
-
                         <select
                             id="sousCategorie"
                             name="sousCategorie"
@@ -131,7 +127,6 @@ export default function ModifyPrestation({ isVisible, setIsVisible, prestation ,
                                 <option key={item.id} value={item.id}>{item.name}</option>
                             ))}
                         </select>
-
                         {personalisedPrest && (
                             <input 
                                 id="nom_prest_custom"
@@ -143,7 +138,6 @@ export default function ModifyPrestation({ isVisible, setIsVisible, prestation ,
                                 onChange={(event) => {setPrestations({...prestations, name: event.target.value})}}
                             />
                         )}
-
                         <select
                             id="nom_prestation"
                             name="nom_prestation"
@@ -156,11 +150,9 @@ export default function ModifyPrestation({ isVisible, setIsVisible, prestation ,
                         >
                             <option value="">{prestation.name}</option>
                             <option value="#NEW_CUSTOM">Nouvelle prestation personnalisée</option>
-
-                            <option value="Ouverture compte">Ouverture compte</option>  {/* in case you forget, here you need to get the data from the db first, so replace this later */}
-                            <option value="Fermeture compte">Fermeture compte</option>
-                            <option value="Autre prestation">Autre prestation</option>
-                            <option value="Autre prestation 2">Autre prestation 2</option>
+                            {prestationList.map((item, index) => (
+                                <option key={index} value={item}>{item}</option>
+                            ))}
                         </select>
                         
                         <div className="flex justify-between my-3">
@@ -176,7 +168,6 @@ export default function ModifyPrestation({ isVisible, setIsVisible, prestation ,
                                 <option value="professionnel">Professionnels</option>
                                 <option value="entreprise">Entreprise</option>
                             </select>
-
                             <select
                                 id="nom_prestation"
                                 required
@@ -192,7 +183,6 @@ export default function ModifyPrestation({ isVisible, setIsVisible, prestation ,
                                 <option value="360">Par an</option>
                             </select>
                         </div>
-
                         <input 
                             id="tarif"
                             name="tarif"

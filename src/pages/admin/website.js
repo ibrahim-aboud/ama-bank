@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
 import axios from "axios";
 import Image from "next/image";
-import { useRouter } from "next/router";
 import AdminLayout from "@/layouts/adminLayout";
 import ConfirmPopup from "@/components/admin/confirmPopup";
 import { getSession } from "next-auth/react";
@@ -15,16 +14,19 @@ import {
   AiFillLinkedin,
   AiFillTwitterSquare,
 } from "react-icons/ai";
+import SuccessFeedback from "@/components/common/feedback_popups/success";
+import FailFeedback from "@/components/common/feedback_popups/fail";
+import websiteInfoValidator from "@/lib/validations/websiteInfoValidator";
 
 function Website({ infos }) {
   const [websiteInfos, setWebsiteInfos] = useState(infos);
   const [loading, setLoading] = useState(false);
   const [showConfirmPopup, setShowConfirmPopup] = useState(false);
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
   const [selectedLogo, setSelectedLogo] = useState("");
   const [selectedLogoFile, setSelectedLogoFile] = useState(null);
 
-  const router = useRouter();
   const logoInputRef = useRef();
 
   async function sumbitHandler(event) {
@@ -59,8 +61,13 @@ function Website({ infos }) {
       });
 
       // when the data is updated
+      setShowConfirmPopup(false);
+
       setError("");
-      router.reload();
+      setSuccess(true);
+      setTimeout(() => {
+        setSuccess(false);
+      }, 3000);
     } catch (e) {
       setError(e.response?.data.error?.message);
     }
@@ -92,7 +99,7 @@ function Website({ infos }) {
           <label htmlFor="logo" className="block p-1 ">
             Logo
           </label>
-          <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center">
+          <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center focus-within:border-green-800">
             <input
               type="file"
               name="logo"
@@ -129,13 +136,12 @@ function Website({ infos }) {
             <FiUpload className="pr-2 text-gray-600" size={28} />
           </div>
         </div>
-
         {/* description */}
         <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
           <label htmlFor="description" className="block p-1">
             Description du site
           </label>
-          <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center">
+          <div className="bg-gray-100 w-full p-4 rounded-md border flex items-center focus-within:border-green-800">
             <textarea
               id="description"
               name="description"
@@ -151,13 +157,12 @@ function Website({ infos }) {
             />
           </div>
         </div>
-
         {/* phone */}
         <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
           <label htmlFor="phone" className="block p-1">
             Numéro de téléphone
           </label>
-          <div className="bg-gray-100 p-4 rounded-md border flex items-center w-full">
+          <div className="bg-gray-100 p-4 rounded-md border flex items-center w-full focus-within:border-green-800">
             <FiPhoneCall className="pr-2 text-gray-600" size={28} />
 
             <input
@@ -175,13 +180,12 @@ function Website({ infos }) {
             <MdEdit className="pr-2 text-gray-600" size={28} />
           </div>
         </div>
-
         {/* fax */}
         <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
           <label htmlFor="fax" className="block p-1">
             Fax
           </label>
-          <div className="bg-gray-100 p-4 rounded-md border flex items-center w-full">
+          <div className="bg-gray-100 p-4 rounded-md border flex items-center w-full focus-within:border-green-800">
             <MdFax className="pr-2 text-gray-600" size={28} />
 
             <input
@@ -199,13 +203,12 @@ function Website({ infos }) {
             <MdEdit className="pr-2 text-gray-600" size={28} />
           </div>
         </div>
-
         {/* email */}
         <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
           <label htmlFor="email" className="block p-1">
             Adresse mail
           </label>
-          <div className="bg-gray-100 p-4 rounded-md border flex items-center w-full">
+          <div className="bg-gray-100 p-4 rounded-md border flex items-center w-full focus-within:border-green-800">
             <MdEmail className="pr-2 text-gray-600" size={28} />
 
             <input
@@ -223,13 +226,12 @@ function Website({ infos }) {
             <MdEdit className="pr-2 text-gray-600" size={28} />
           </div>
         </div>
-
         {/* facebook */}
         <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
           <label htmlFor="facebook" className="block p-1">
             Lien Facebook
           </label>
-          <div className="bg-gray-100 p-4 rounded-md border flex items-center w-full">
+          <div className="bg-gray-100 p-4 rounded-md border flex items-center w-full focus-within:border-green-800">
             <AiFillFacebook className="pr-2 text-gray-600" size={28} />
 
             <input
@@ -250,13 +252,12 @@ function Website({ infos }) {
             <MdEdit className="pr-2 text-gray-600" size={28} />
           </div>
         </div>
-
         {/* linkedin */}
         <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
           <label htmlFor="linkedin" className="block p-1">
             Lien LinkedIn
           </label>
-          <div className="bg-gray-100 p-4 rounded-md border flex items-center w-full">
+          <div className="bg-gray-100 p-4 rounded-md border flex items-center w-full focus-within:border-green-800">
             <AiFillLinkedin className="pr-2 text-gray-600" size={28} />
 
             <input
@@ -277,13 +278,12 @@ function Website({ infos }) {
             <MdEdit className="pr-2 text-gray-600" size={28} />
           </div>
         </div>
-
         {/* twitter */}
         <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
           <label htmlFor="twitter" className="block p-1">
             Lien Twitter
           </label>
-          <div className="bg-gray-100 p-4 rounded-md border flex items-center w-full">
+          <div className="bg-gray-100 p-4 rounded-md border flex items-center w-full focus-within:border-green-800">
             <AiFillTwitterSquare className="pr-2 text-gray-600" size={28} />
 
             <input
@@ -304,13 +304,12 @@ function Website({ infos }) {
             <MdEdit className="pr-2 text-gray-600" size={28} />
           </div>
         </div>
-
         {/* instagram */}
         <div className="mx-5 mb-4 w-[90%] lg:w-[900px]">
           <label htmlFor="instagram" className="block p-1">
             Lien Instagram
           </label>
-          <div className="bg-gray-100 p-4 rounded-md border flex items-center w-full">
+          <div className="bg-gray-100 p-4 rounded-md border flex items-center w-full focus-within:border-green-800">
             <BsInstagram className="pr-2 text-gray-600" size={28} />
 
             <input
@@ -332,11 +331,12 @@ function Website({ infos }) {
           </div>
         </div>
 
-        {error && (
-          <div className="text-rose-500 font-bold text-center overflow-hidden mt-2">
-            {error}
-          </div>
-        )}
+        <FailFeedback message={error} isVisible={error} isSuccessful={!error} />
+        <SuccessFeedback
+          message={"Les information sont mise à jour avec succès"}
+          isVisible={success}
+          isSuccessful={success}
+        />
 
         <div className="mt-4 flex flex-col md:flex-row items-center justify-center gap-5 md:gap-10 w-full lg:w-[800px] lg:justify-between">
           <button
@@ -344,7 +344,13 @@ function Website({ infos }) {
             className="mb-1 rounded-xl px-8 py-3 font-semibold bg-black text-white shadow-xl hover:bg-green-600 disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
             onClick={(event) => {
               event.preventDefault();
-              setShowConfirmPopup(true);
+              const check = websiteInfoValidator(websiteInfos);
+              if (check.error) {
+                setError(check.errorList[0]);
+                setTimeout(() => {
+                  setError("");
+                }, 3000);
+              } else setShowConfirmPopup(true);
             }}
           >
             Sauvegarder les modifications
@@ -355,7 +361,10 @@ function Website({ infos }) {
             <ConfirmPopup
               message={"Voulez-vous confirmer les modifications ?"}
               onConfirm={(e) => sumbitHandler(e)}
-              onExit={() => setShowConfirmPopup(false)}
+              onExit={() => {
+                setError("");
+                setShowConfirmPopup(false);
+              }}
             />
           )}
 

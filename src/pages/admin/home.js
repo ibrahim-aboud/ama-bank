@@ -131,7 +131,13 @@ function Home({ banks }) {
   const [filteredList, setFilteredList] = useState([]);
 
   useEffect(() => {
-    setFilteredList(banks.filter((bank) =>
+    const temp = banks;
+    temp.sort((bank1, bank2) => {
+      if (bank1.name.toLowerCase() < bank2.name.toLowerCase()) return -1;
+      else if (bank1.name.toLowerCase() > bank2.name.toLowerCase()) return 1;
+      else return 0;
+    })
+    setFilteredList(temp.filter((bank) =>
       bank.name.toLowerCase().includes(searchQuery.toLowerCase())
     ));
   }, [searchQuery])

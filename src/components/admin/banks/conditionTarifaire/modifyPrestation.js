@@ -9,7 +9,19 @@ import Success from "@/components/common/feedback_popups/success.js";
 export default function ModifyPrestation({ isVisible, setIsVisible, prestation , editPrestation}) {
     const [message,setMessage]=useState("");
     const [feedbackVisible,setIsFeedbackVisible]=useState(false);
-    const [isSuccessful,setIsSuccessful]=useState(false);
+    const [isSuccessful,setIsSuccessful]=useState(false); 
+    function getCategorieName(prestation){
+        let categName = "";
+        try{
+             categName = categories.find(item => item.id === prestation.categorie_id).name
+        }
+        catch(e){
+            return "";
+        }
+        return categName;
+        
+    }
+
     function getTarif(tarif){
         if (tarif===0){
             return "GRATUIT";
@@ -114,7 +126,7 @@ export default function ModifyPrestation({ isVisible, setIsVisible, prestation ,
                             className="rounded bg-gray-100 outline-none border w-[450px] pl-3 py-2 mt-4"
                             onChange={(event) => {setPrestations({...prestations, categorie_id: parseInt(event.target.value)})}}
                         >
-                            <option value="">{categories.find(item => item.id === prestation.categorie_id).name}</option>
+                            <option value="">{getCategorieName(prestation)}</option>
                             {categories.map((item) => (
                                 <option key={item.id} value={item.id}>{item.name}</option>
                             ))}

@@ -49,10 +49,10 @@ export default function Home({ banks, prestations, categories}) {
       <div className="mt-[1px]">
         <Slideshow />
       </div>
-
-      <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} isVisible={isVisible} setIsVisible={setIsVisible}  ></Search>
-
-      <BankList filteredList={filteredList}/>
+      <div className="flex flex-col items-center my-14 py-[1%] px-[3%] lg:px-[10%]">
+        <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} isVisible={isVisible} setIsVisible={setIsVisible} />
+        <BankList filteredList={filteredList}/>
+      </div>
 
       <FilterPopup isVisible={isVisible} setIsVisible={setIsVisible} filters={filters} setFilters={setFilters} prestations={prestations} categories={categories} banks={banks} setFilteredBanks={setFilteredBanks} />
     </div>

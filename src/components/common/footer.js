@@ -12,6 +12,7 @@ import faxIcon from "../../../public/assets/figures/FaxIcon.svg";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import axios from "axios";
+import { HiArrowNarrowUp } from 'react-icons/hi'
 
 function Footer() {
   const [infos, setinfos] = useState({
@@ -38,14 +39,6 @@ function Footer() {
       );
   }, []);
 
-  // const[phoneNumber,setPhoneNumber] = useState("+213 21 98 53 99");
-  // const[faxNumber,setFaxNumber] = useState("+213 21 98 53 99");
-  // const[mail,setMail] = useState("Support@amaBank.com");
-  // const [fbLink, setFbLink] = useState("https://www.facebook.com");
-  // const [igLink, setIgLink] = useState("https://www.instagram.com");
-  // const [twitterLink, setTwitterLink] = useState("https://twitter.com");
-  // const [linkedInLink, setLinkedInLink] = useState("https://www.linkedin.com");
-
   function getCurrentYear() {
     return new Date().getFullYear();
   }
@@ -53,7 +46,7 @@ function Footer() {
   return (
     <div className={style.footerContainer}>
       <footer className={style.footer}>
-        <Link className={style.backToTop} href="#top"></Link>
+        <Link className={style.backToTop} href="#top"><HiArrowNarrowUp className="ml-[13px] mt-[12px]" size={25} /></Link>
         <div className={style.propos}>
           <div className={style.plateformeInfo} id={style.proposID}>
             <Image src={about} alt="Propos" className={style.proposImg}></Image>
@@ -61,10 +54,7 @@ function Footer() {
           </div>
           <div>
             <p>
-              amaBank est une plateforme de comparaison des offres de
-              prestataires bancaires actifs en Algérie. Elle offre la
-              possibilité de consulter toutes les informations relatives à
-              l’ouverture, la fermeture et la gestion d’un compte bancaire.
+              {infos.description}
             </p>
           </div>
         </div>
@@ -147,19 +137,19 @@ function Footer() {
             </div>
             <ul className={style.footerLinks}>
               <li>
-                <Link href="#">Accueil</Link>
+                <Link href="/">Accueil</Link>
               </li>
               <li>
-                <Link href="#">Consulter</Link>
+                <Link href="/consulter">Consulter</Link>
               </li>
               <li>
-                <Link href="#">Comparer</Link>
+                <Link href="/compare">Comparer</Link>
               </li>
               <li>
-                <Link href="#">Trouver une agence</Link>
+                <Link href="/rechercherLesAgences">Trouver une agence</Link>
               </li>
               <li>
-                <Link href="#">À propos</Link>
+                <Link href="/aboutUs">À propos</Link>
               </li>
               <li>
                 <Link href="#">Besoin d'aide?</Link>

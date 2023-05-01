@@ -3,6 +3,7 @@ import style from '@/styles/navbar.module.css';
 import Image from "next/image";
 import siteLogo from '../../../public/assets/logos/logo.png';
 import Link from 'next/link';
+import { CgMenu, CgClose } from 'react-icons/cg'
 
 function Navbar() {
 
@@ -23,20 +24,19 @@ function Navbar() {
         <h1>amaBank</h1>
       </div>
       <ul className={`${style.navbarLinks} ${active ? style.active : ''}`}>
-        <li><Link href="#">Accueil</Link></li>
-        <li><Link href="#">Consulter</Link></li>
-        <li><Link href="#">Comparer</Link></li>
-        <li><Link href="#">Trouver une agence</Link></li>
-        <li><Link href="#">À propos</Link></li>
+        <li><Link href="/">Accueil</Link></li>
+        <li><Link href="/consulter">Consulter</Link></li>
+        <li><Link href="/compare">Comparer</Link></li>
+        <li><Link href="/rechercherLesAgences">Trouver une agence</Link></li>
+        <li><Link href="/aboutUs">À propos</Link></li>
         <li><Link href="#">Besoin d'aide?</Link></li>
       </ul>
       <div className={style.navbarHelp}>
-        <a href="#">Besoin d'aide?</a>
+        <Link href="#">Besoin d'aide?</Link>
       </div>
-      <div className={`${style.navbarToggle} ${active ? style.active : ''}`} onClick={toggleMenu}>
-        <span></span>
-        <span></span>
-        <span></span>
+      <div onClick={toggleMenu}>
+        <CgMenu className={`text-white mr-3 lg:hidden ${active ? "hidden" : ""}`} size={30} />
+        <CgClose className={`text-white mr-3 ${active ? "" : "hidden"}`} size={30} />
       </div>
    </nav>
   );

@@ -15,7 +15,7 @@ import igIcon from "../../public/assets/figures/greenIg.svg";
 import twitterIcon from "../../public/assets/figures/greenTwitter.svg";
 import linkedInIcon from "../../public/assets/figures/greenLinkedIn.svg";
 import socials from "../../public/assets/figures/Socials.svg";
-import { useState } from 'react';
+import Link from 'next/link';
 import axios from 'axios';
 
 export default function AboutUS ({ infos }) {
@@ -28,9 +28,9 @@ export default function AboutUS ({ infos }) {
                 <Image src={exploreImg} alt="Someonediscoveringbanks" className={style.finding}/>
                 <div className={style.content}>
                     <p className={style.decouvrir}>Découvrez la totalité des banques actives en Algérie et consulter leurs conditions tarifaires.</p>
-                    <a href="#" target="_blank" className={style.btnGreen}>
+                    <Link href="/" target="_blank" className={style.btnGreen}>
                         <Image src={searchImg} alt="SearchIcon" className={style.srcIcon}/>
-                        <span className={style.btnText}>Explorer les banques</span></a>
+                        <span className={style.btnText}>Explorer les banques</span></Link>
                 </div>
             </div>
 
@@ -41,9 +41,9 @@ export default function AboutUS ({ infos }) {
                         Vous trouvez des difficultés à choisir entre deux banques différentes ?
                         Nous vous aidons à prendre une décision en comparant les prestations de deux banques de votre choix.   
                     </p>
-                    <a href="#" target="_blank" className={style.btnGreen2}>
+                    <Link href="/compare" target="_blank" className={style.btnGreen2}>
                         <Image src={cmpImg} alt="Someonediscoveringbanks" className={style.cmpIcon}/><span className={style.btnText2}>Comparer entre deux banques</span>
-                    </a>
+                    </Link>
                 </div>
             </div>
 
@@ -54,9 +54,9 @@ export default function AboutUS ({ infos }) {
                         Vous avez pu trouver la banque qui répond à vos exigences?
                         Commencez à cherchez l’agence la plus proche de votre domicile.
                     </p>
-                    <a href="#" target="_blank" className={style.btnGreen}>
+                    <Link href="/rechercherLesAgences" target="_blank" className={style.btnGreen}>
                         <Image src={locationIcon} alt="LocationIcon" className={style.srcIcon}/>
-                        <span className={style.btnText}>Trouver une agence</span></a>
+                        <span className={style.btnText}>Trouver une agence</span></Link>
                 </div>
             </div>
 
@@ -89,10 +89,10 @@ export default function AboutUS ({ infos }) {
                 <div className={style.content5}>
                     <p className={style.soutenir}>Soutenez-nous et maintenez le site web actif en nous suivant sur les réseaux sociaux.</p>
                     <div className={style.socials}>
-                        <a href={infos.facebook_link} target="_blank"><Image src={fbIcon} alt="FacebookIcon" className={style.socialsImgs}/></a>
-                        <a href={infos.instagram_link} target="_blank"><Image src={igIcon} alt="InstagramIcon" className={style.socialsImgs}/></a>
-                        <a href={infos.twitter_link} target="_blank"><Image src={twitterIcon} alt="TwitterIcon" className={style.socialsImgs}/></a>
-                        <a href={infos.linkedin_link} target="_blank"><Image src={linkedInIcon} alt="LinkedInIcon" className={style.socialsImgs}/></a>
+                        <Link href={infos.facebook_link} target="_blank"><Image src={fbIcon} alt="FacebookIcon" className={style.socialsImgs}/></Link>
+                        <Link href={infos.instagram_link} target="_blank"><Image src={igIcon} alt="InstagramIcon" className={style.socialsImgs}/></Link>
+                        <Link href={infos.twitter_link} target="_blank"><Image src={twitterIcon} alt="TwitterIcon" className={style.socialsImgs}/></Link>
+                        <Link href={infos.linkedin_link} target="_blank"><Image src={linkedInIcon} alt="LinkedInIcon" className={style.socialsImgs}/></Link>
                     </div>
                 </div>
             </div>

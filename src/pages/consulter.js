@@ -66,34 +66,35 @@ function Consulter({ types_comptes, types_prestations, banks}) {
   }
     
     return (
-      <main className="px-[10%]">
-        <div className="my-8">
+      <main>
+        <div className="mt-8 mb-4 md:mb-8 px-[10%]">
           <h2 className="font-semibold md:text-xl ml-2 mb-2">Nom de la banque</h2>
           <SearchBox
             items={banks}
             selectedId={selectedBankId}
             setSelectedId={setSelectedBankId}
             searchField="name"
+            autoSelect={true}
           />
         </div>  
         
-        <div className="w-full">
+        <div className="w-full mb-10 md:mb-24 px-[10%]">
           <Filters types_comptes={types_comptes} types_prestations={types_prestations} prestations={conditions} setPrestations={setFilteredConditions} bank_id={selectedBankId}></Filters>
         </div>
 
-          <div>
-            <NameAndLogo bank_id={selectedBankId}/>
-          </div>
-    
-          <div>
-            <List conditions={FilteredConditions} />
-          </div>
+        <div className="mb-10">
+          <NameAndLogo bank_id={selectedBankId}/>
+        </div>
+  
+        <div>
+          <List conditions={FilteredConditions} />
+        </div>
 
-          {selectedBankId && (
-            <div>
-              <Infos website={(bank && bank.websiteLink) || ""} />
-            </div>
-          )}
+        {selectedBankId && (
+          <div>
+            <Infos website={(bank && bank.websiteLink) || ""} />
+          </div>
+        )}
 
       </main>
     );

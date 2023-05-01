@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import styles from "@/styles/NameLogo.module.css"
 import axios from "axios";
 
 const NameAndLogo = ({bank_id}) => {
@@ -23,12 +22,12 @@ const NameAndLogo = ({bank_id}) => {
     },[bank_id]) ;
     
     return (
-        <div className={styles.nameLogo}>
+        <div className="flex justify-center">
             {bank && (
-                <>
-                    <Image src={bank.logoLink} width={150} height={150} alt="bank_logo" ></Image>
-                    <h1>{bank.name}</h1>
-                </>
+                <div className="flex items-center">
+                    <Image className="w-[120px] h-[120px] mr-3 rounded-md" src={bank.logoLink} width={150} height={150} alt="bank_logo" ></Image>
+                    <h1 className="font-bold text-xl">{bank.name}</h1>
+                </div>
             )}
         </div>
      );

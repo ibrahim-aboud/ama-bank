@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
-import Image from "next/image"
-import styles from "@/styles/Filters.module.css"
 import { useRef } from "react";
+import { FaAngleDown } from "react-icons/fa";
 
 const Filters = ({types_comptes, types_prestations, prestations, setPrestations, bank_id}) => {
     const arrow = useRef(null) ;
@@ -10,16 +9,6 @@ const Filters = ({types_comptes, types_prestations, prestations, setPrestations,
     const checkForm = useRef(null) ;
     const [common, setCommon] = useState(null) ;
     // const [localPrestations, setLocalPrestations] = useState([]) ;
-
-    const handleClick = ()=>{
-        if (checkboxes.current.style.display != 'none'){
-            checkboxes.current.style.display = "none" ;
-            arrow.current.style.transform = "rotate(0deg)" ;
-        } else {
-            checkboxes.current.style.display = "block" ;
-            arrow.current.style.transform = "rotate(180deg)" ;
-        }
-    }
 
     const handleSelect = ()=>{
         var val = selectBar.current.value ;
@@ -64,10 +53,12 @@ const Filters = ({types_comptes, types_prestations, prestations, setPrestations,
         }
     }
 
+    const [isGstBanksHidden, setIsGstBanksHidden] = useState(true);
+
   return (
     <div className="w-full" >
-            <div className="w-full flex justify-between">
-                <div className="p-4 flex justify-between bg-gray-100 border rounded-lg border-gray-300 w-[45%]">
+            <div className="w-full flex flex-col md:flex-row md:justify-between">
+                <div className="p-4 mb-4 md:mb-0 flex justify-between bg-gray-100 border rounded-lg border-gray-300 md:w-[45%]">
                     <label className="">Type de compte</label>
                     <select name="type_compte" ref={selectBar} className="bg-gray-100" onChange={handleSelect}>
                     {
@@ -79,26 +70,39 @@ const Filters = ({types_comptes, types_prestations, prestations, setPrestations,
                     }
                     </select>
                 </div>
-                <div className="flex justify-between p-4 bg-gray-100 border rounded-lg w-[45%] border-gray-300">
+                <div className="flex justify-between p-4 bg-gray-100 border rounded-lg md:w-[45%] border-gray-300">
                     <label className="">
                         Type Prestations
                     </label>
-                    <div className="" onClick={handleClick} onChange={(event)=>{handleChange(event)}} >
-                        <Image src="/assets/icons/icon1.svg" alt="arrow" ref={arrow} width={30} height={30} />
+                    <div
+                        className="flex justify-center items-center relative cursor-pointer rounded-xl hover:ease-in-out duration-300"
+                        onClick={() => setIsGstBanksHidden(!isGstBanksHidden)}
+                    >
+                        {isGstBanksHidden ? (
+                            <FaAngleDown />
+                        ) : (
+                            <FaAngleDown className="rotate-180" />
+                        )}
+                        <div
+                            ref={checkboxes}
+                            className={`${
+                            isGstBanksHidden ? "hidden" : "flex"
+                            } absolute z-40 bg-gray-100 text-black flex-col border justify-center items-center top-11 right-0 animate-fade-in shadow-md`}
+                        >
+                            <form action="" ref={checkForm} onChange={handleChange}>
+                                {
+                                    types_prestations.map((val,index)=>(
+                                        <div key={index} className="w-[300px] flex text-center py-1 px-6 hover:bg-gray-200 hover:text-black" value={val}>
+                                            <input type="checkbox" className="mr-3" id={index} value={val}/>
+                                            <label htmlFor={index}>{val}</label>
+                                        </div>
+                                    ))
+                                }
+                            </form>
+                        </div>
                     </div>
+                    
                 </div>
-            </div>
-            <div className="" ref={checkboxes}>
-                <form action="" ref={checkForm} onChange={handleChange}>
-                    {
-                        types_prestations.map((val,index)=>(
-                            <div key={index} className={styles.check} value={val}>
-                                <input type="checkbox" id={index} value={val}/>
-                                <label htmlFor={index}>{val}</label>
-                            </div>
-                        ))
-                    }
-                </form>
             </div>
         </div>
   );

@@ -89,6 +89,7 @@
     flex-direction: column;
     align-items: center;
     background-color: #111;
+    z-index: 999;
   }
 
   .navbarLinks li a {

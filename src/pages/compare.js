@@ -6,8 +6,6 @@ const Compare = ({types_comptes,types_prestations}) => {
 
     const [FilteredConditions,setFilteredConditions] = useState([]) ;
 
-    
-
     return (
       <div>
         <Filter types_comptes={types_comptes} types_prestations={types_prestations} prestations={conditions} setPrestations={setFilteredConditions}></Filter>

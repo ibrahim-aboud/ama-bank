@@ -3,9 +3,6 @@ import Image from "next/image"
 import addIcone from "public/assets/modificationsPage/addAgencyIcone.svg"
 import searchTool from "public/assets/modificationsPage/searchTool.svg"
 import styles from "src/styles/agenciesModificaitonStyles/searchBars.module.css"
-import choiceListe from "public/data/wilayaAgencies.json"
-import agencyListe from "./agencyListe"
-import { handleClientScriptLoad } from "next/script"
 import Failed from "src/components/common/feedback_popups/fail.js"
 import axios from "axios"
 
@@ -41,7 +38,7 @@ function SearchBars ({handleClickAddAgency, handleClickSearch}){
             axios.get(process.env.NEXT_PUBLIC_API_URL + `/banks`)
             .then(response =>{
                 setBankList(response.data.banks.map(element =>{
-                    return <option value={element.id} >{element.name}</option>
+                    return <option key={element.id} value={element.id} >{element.name}</option>
                 }))
             }).catch(err => {
                 console.log( err.message )

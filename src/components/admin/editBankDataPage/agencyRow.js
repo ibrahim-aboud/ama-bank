@@ -41,22 +41,22 @@ function AgencyRow(props){
             </div>
             <div className={styles.agencyRowTelFax}>
                 <span>
-                    <Image src={telIcone}></Image>
+                    <Image src={telIcone} alt = "icone"></Image>
                     <span>Téléphone : </span>
                     <span>{phone}</span>
                 </span>
                 <span>
-                    <Image src={faxIcon}></Image>
+                    <Image src={faxIcon} alt = "icone"></Image>
                     <span>Fax : </span>
                     <span>{fax}</span>
                 </span>
             </div>
             <div className={styles.agencyRowModifyDelete}>
                 <button onClick={() => props.handleEditAgencyInfo(props.record.id)} >
-                    <Image src={penIcone}></Image>
+                    <Image src={penIcone} alt = "icone"></Image>
                 </button>
                 <button onClick={() => props.handleDeleteAgency(props.record.id)} style={deleteStyle} >
-                    <Image src={basketIcon}></Image>
+                    <Image src={basketIcon} alt = "icone"></Image>
                 </button>
             </div>
         </span>

@@ -24,7 +24,7 @@ function deleteConfirmation({handleAnnuler, handleButtonDeleteAgency, agencyId})
                     <button className={styles.spanDiscard} onClick={handleAnnuler}>Annule</button>
                 </div>
                 <div className={styles.divDelete}>
-                    <button classeName={styles.spanDelete} onClick={()=>handleButtonDeleteAgency(agencyId)} >Supprimer</button>
+                    <button className={styles.spanDelete} onClick={()=>handleButtonDeleteAgency(agencyId)} >Supprimer</button>
                 </div>
             </div>
         </div>

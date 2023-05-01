@@ -49,7 +49,6 @@ A
             Props.record.handleInputs(resolve, Props.record.title)
             })
         .catch(error => {
-            console.log(error)
             setErr({backgroundColor : "#ffbebe"})
             })
             Props.record.handleInputs("INVALID_VALUE", Props.record.title)

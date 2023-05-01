@@ -237,8 +237,8 @@ function modificationListe(Props){
                     setErrStyle(false);
                     }}>
                     <ul style={{ textAlign: "start" }}>
-                        {error.map((element) => (
-                        <li style={{ marginLeft: "5px" }}>{element}</li>
+                        {error.map((element, index) => (
+                        <li key = {index} style={{ marginLeft: "5px" }}>{element}</li>
                         ))}
                     </ul>
                     </button>

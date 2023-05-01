@@ -9,8 +9,7 @@ import styles from "src/styles/agenciesModificaitonStyles/editBankData.module.cs
 import modificaitonAddImg from "public/assets/modificationsPage/addAgencyIcone.svg"
 import modificationModImg from "public/assets/modificationsPage/modificationListeCheck.svg"
 import axios from "axios"
-import agencyListe from "./agencyListe.js";
-//petit beuge, quand on supprime une agence et on fait la recherche sur la meme place lagence retounera
+
 function timeout(delay) {
     return new Promise( res => setTimeout(res, delay) );
 }
@@ -157,7 +156,6 @@ function EditBankDataPage(){
                        )
                         let tempList = listeOfAgencies
                        tempList[index] = objToSend.agency
-                       console.log(tempList)
                        setListeOfAgencies(tempList)
                     }
 

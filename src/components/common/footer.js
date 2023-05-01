@@ -9,26 +9,32 @@ import lkdIcon from '../../../public/assets/figures/LinkedInIcon.svg';
 import phneIcon from '../../../public/assets/figures/PhoneIcon.svg';
 import mailIcon from '../../../public/assets/figures/EmailIcon.svg';
 import faxIcon from '../../../public/assets/figures/FaxIcon.svg';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import axios from 'axios';
 
 function Footer() {
+  var infos;
+  useEffect(async () => {
+    try {
+      const response = await axios.get(
+        process.env.NEXT_PUBLIC_API_URL + "/website"
+      );
+  
+      infos = response.data.infos[0];
+      console.log(infos);
+    } catch (e) {
+      console.error(e.response.data.error.message);
+    }
+  }, [])
 
-  const[phoneNumber,setPhoneNumber] = useState("+213 21 98 53 99");
-  const[faxNumber,setFaxNumber] = useState("+213 21 98 53 99");
-  const[mail,setMail] = useState("Support@amaBank.com");
-  const [fbLink, setFbLink] = useState("https://www.facebook.com");
-  const [igLink, setIgLink] = useState("https://www.instagram.com");
-  const [twitterLink, setTwitterLink] = useState("https://twitter.com");
-  const [linkedInLink, setLinkedInLink] = useState("https://www.linkedin.com");
-
-
-  function scrollToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  }
+  // const[phoneNumber,setPhoneNumber] = useState("+213 21 98 53 99");
+  // const[faxNumber,setFaxNumber] = useState("+213 21 98 53 99");
+  // const[mail,setMail] = useState("Support@amaBank.com");
+  // const [fbLink, setFbLink] = useState("https://www.facebook.com");
+  // const [igLink, setIgLink] = useState("https://www.instagram.com");
+  // const [twitterLink, setTwitterLink] = useState("https://twitter.com");
+  // const [linkedInLink, setLinkedInLink] = useState("https://www.linkedin.com");
 
   function getCurrentYear() {
     return new Date().getFullYear();
@@ -54,15 +60,15 @@ function Footer() {
         <div className={style.contactInfo}>
           <div>
             <Image src={phneIcon} alt="Phone" className={style.contactInfoImg}></Image>
-            <p>{phoneNumber}</p>
+            <p>{infos.phone}</p>
           </div>
           <div>
             <Image src={mailIcon} alt="Email" className={style.contactInfoImg} id={style.mail}></Image>
-            <p>{mail}</p>
+            <p>{infos.email}</p>
           </div>
           <div>
             <Image src={faxIcon} alt="Fax" className={style.contactInfoImg}></Image>
-            <p>{faxNumber}</p>   
+            <p>{infos.fax}</p>   
           </div>
         </div>
         <div className={style.socialMedia}>
@@ -71,10 +77,10 @@ function Footer() {
             <p>réseaux sociaux</p>
           </div>
           <div className={style.socialIcons}>
-            <Link href={fbLink} target="_blank"><Image src={fbIcon} alt="Facebook" className={style.socialIconsImg}></Image></Link>
-            <Link href={twitterLink} target="_blank"><Image src={twtIcon} alt="Twitter" className={style.socialIconsImg}></Image></Link>
-            <Link href={igLink} target="_blank"><Image src={igIcon} alt="Instagram" className={style.socialIconsImg}></Image></Link>
-            <Link href={linkedInLink} target="_blank"><Image src={lkdIcon} alt="LinkedIn" className={style.socialIconsImg}></Image></Link>
+            <Link href={infos.facebook_link} target="_blank"><Image src={fbIcon} alt="Facebook" className={style.socialIconsImg}></Image></Link>
+            <Link href={infos.twitter_link} target="_blank"><Image src={twtIcon} alt="Twitter" className={style.socialIconsImg}></Image></Link>
+            <Link href={infos.instagram_link} target="_blank"><Image src={igIcon} alt="Instagram" className={style.socialIconsImg}></Image></Link>
+            <Link href={infos.linkedin_link} target="_blank"><Image src={lkdIcon} alt="LinkedIn" className={style.socialIconsImg}></Image></Link>
           </div>
         </div>
         <hr className={style.line}/>

@@ -14,6 +14,29 @@ export default class Prestation{
         this.categorie_operation = categorie_operation ;
     }
 
+    static async getEverything(){
+        try {
+            var data = await dbQuery("SELECT * from ab_prestations") ;
+        } catch(err){
+            throw new ModelError(errorMessages.serverError,500) ;
+        }
+
+        var result = data.map(prest=>{
+            return new Prestation(
+                prest.id_prestation ,
+                prest.prestation_bank_id,
+                prest.prestation_categorie_id,
+                prest.prestation_name,
+                prest.prestation_type,
+                prest.prestation_tarif,
+                prest.prestation_period,
+                prest.prestation_categorie_operation
+            )
+        })
+
+        return result
+    }
+
     static async getAllPrestations(id){
         var data = [] ;
         try{
@@ -92,7 +115,9 @@ export default class Prestation{
         try {
             const {bank_id,categorie_id,name,type,tarif,period,categorie_operation}= prestation ;
 
+            console.log("data") ;
             data = await dbQuery("INSERT INTO ab_prestations(prestation_bank_id,prestation_name,prestation_categorie_id,prestation_type,prestation_tarif,prestation_period,prestation_categorie_operation) VALUES (?,?,?,?,?,?,?)",[bank_id,name,categorie_id,type,tarif,period,categorie_operation]) ;
+
 
         } catch(err){
             throw new ModelError(errorMessages.serverError,500) ;
@@ -125,5 +150,35 @@ export default class Prestation{
         }
 
         return data ;
+    }
+
+    static async getAllTypes(){
+        try {
+            var data = await dbQuery("SELECT DISTINCT prestation_type FROM ab_prestations") ;
+            
+        } catch(err){
+            throw new ModelError(errorMessages.serverError,500) ;
+        }
+
+        var result = data.map(type=>{
+            return type.prestation_type ;
+        })
+
+        return result ; 
+    }
+
+    static async getAllCategories(){
+        try {
+            var data = await dbQuery("SELECT DISTINCT prestation_categorie_operation FROM ab_prestations") ;
+            
+        } catch(err){
+            throw new ModelError(errorMessages.serverError,500) ;
+        }
+
+        var result = data.map(categorie=>{
+            return categorie.prestation_categorie_operation ;
+        })
+
+        return result ; 
     }
 }

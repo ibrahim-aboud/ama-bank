@@ -3,6 +3,8 @@ import Bank from "@/server/models/bankModel";
 import ModelError from "@/lib/utils/ModelError";
 import isNotAdmin from "@/lib/utils/checkAdmin";
 import { errorMessages } from "@/lib/utils/errorMessages";
+import FilesHelpers from "@/lib/utils/FilesHelpers";
+import globals from "@/lib/utils/globals"
 
 export default class BanksController {
   async get(req, res) {
@@ -28,18 +30,18 @@ export default class BanksController {
             throw new ModelError(errorMessages.missingResource,400);
         }
 
-        // var check = bankInfoValidator(prestation) ;
+        var check = bankInfoValidator(bank) ;
         
-        // if (check.error){
-            // throw new ModelError(check.errorList[0],400) ;
-        // }
+        if (check.error){
+            throw new ModelError(check.errorList[0],400) ;
+        }
 
-        //Aditional check (just to optimize) if the bank id really exists
+        // Aditional check (just to optimize) if the bank id really exists
 
         var data = await Bank.getBankByName(bank.name) ;
         
         if (data!=null){
-            throw new ModelError(errorMessages.existant, 200) ;
+            throw new ModelError(errorMessages.existant, 409) ;
         }
         
         data = await Bank.insertBank(bank) ;
@@ -68,16 +70,16 @@ export default class BanksController {
           throw new ModelError(errorMessages.missingResource,400);
       }
 
-      // var check = bankInfoValidator(bank) ;
+      var check = bankInfoValidator(bank) ;
+        
+        if (check.error){
+            throw new ModelError(check.errorList[0],400) ;
+        }
 
       //additional check
-      // if (!("id" in prestation)){
-      //     throw new ModelError(errorMessages.missingID,400) ;
-      // } else if 
-      // if(check.error){
-      //     throw new ModelError(check.errorList[0],400) ;
-      // } 
-      
+      if (!("id" in bank)){
+          throw new ModelError(errorMessages.missingID,400) ;
+      }
 
       var data = await Bank.updateBank(bank) ;
       
@@ -96,6 +98,7 @@ export default class BanksController {
 
   async delete(req,res){
     const {id} = req.query ;
+    const {banks_images_folder, banks_logos_folder} = globals ;
     try {
         if (await isNotAdmin(req,res)){
             throw new ModelError(errorMessages.unauthorized,401) ;
@@ -109,6 +112,8 @@ export default class BanksController {
 
         if (bank!=null){
             await Bank.deleteBank(id) ;
+            FilesHelpers.deleteFilesInDirectory_IgnoreExtension(`${id}.png`,banks_images_folder) ;
+            FilesHelpers.deleteFilesInDirectory_IgnoreExtension(`${id}.png`,banks_logos_folder) ;
             res.status(200).json({bank}) ;
         } else {
             throw new ModelError(errorMessages.wrongId,404) ;

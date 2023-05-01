@@ -89,6 +89,28 @@
     font-weight: 700;
 } 
 
+.mySelect {
+    /* Add styles for the select element */
+    background-color: #FFFFFF;
+    color: #333333;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 16px;
+    width: 200px;
+  }
+
+  .myOption {
+    /* Add styles for the option elements */
+
+    padding: 8px;
+    font-size: 16px;
+  }
+
+  .myOption:hover {
+    /* Add styles for the option elements on hover */
+    background-color: #38A169;
+  }
 
 @media only screen and (max-width:770px){
     .container button > span{

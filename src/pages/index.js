@@ -1,15 +1,16 @@
 import { getSession } from "next-auth/react";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slideshow from "@/components/common/slideshow";
-import FilterPopup from "@/components/common/filterPopup";
+import Slideshow from "@/components/home-client/slideshow";
+import FilterPopup from "@/components/home-client/filterPopup";
 import Search from "@/components/home-client/Search";
 import BankList from "@/components/home-client/bankList";
+import createCategoriesMap from "@/lib/utils/createCategoriesMap";
 
 
-export default function Home({ banks }) {
+export default async function Home({ banks, prestations, categories}) {
   const [searchQuery, setSearchQuery] = useState("");
 
   const filteredList = banks.filter((bank) =>
@@ -19,6 +20,28 @@ export default function Home({ banks }) {
   const [isVisible, setIsVisible] = useState(false);
 
   const [filters, setFilters] = useState([]);
+
+  const [filteredBanks, setFilteredBanks] = useState(banks) ;
+
+  var map = await createCategoriesMap(prestations) ;
+
+  var categorieNames = categories.map(c=>{
+    return c.name
+  })
+
+  useEffect(()=>{
+    var res=[] ;
+    prestations.map(prst=>{
+      if (map.get(prst.categorie_id) in categorieNames) {
+        res.push(prst.bank_id)
+      }
+    })
+
+    setFilteredBanks(filteredBanks.filter(bank=>{
+      return bank.id in res
+    }))
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },filters) ;
 
   return (
     <div>
@@ -30,8 +53,7 @@ export default function Home({ banks }) {
 
       <BankList filteredList={filteredList}/>
 
-
-      <FilterPopup isVisible={isVisible} setIsVisible={setIsVisible} filters={filters} setFilters={setFilters} />
+      <FilterPopup isVisible={isVisible} setIsVisible={setIsVisible} filters={filters} setFilters={setFilters} prestations={prestations} categories={categories} banks={banks} setFilteredBanks={setFilteredBanks} />
     </div>
   );
 }
@@ -39,18 +61,33 @@ export default function Home({ banks }) {
 export async function getServerSideProps(context) {
   const session = await getSession(context);
   var banks = [];
+  var prestations = [] ;
+  var categories = [] ;
 
   try {
-    const response = await axios.get(
+    var response = await axios.get(
       process.env.NEXT_PUBLIC_API_URL + "/banks"
     );
 
     banks = response.data.banks;
+
+    response = await axios.get(
+      process.env.NEXT_PUBLIC_API_URL + "/prestations"
+    )
+
+    prestations = response.data.prestations
+
+    response = await axios.get(
+      process.env.NEXT_PUBLIC_API_URL + "/categories"
+    )
+
+    categories = response.data.categories 
+
   } catch (e) {
     console.error(e.message);
   }
 
   return {
-    props: { banks },
+    props: { banks, categories, prestations},
   };
 }

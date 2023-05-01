@@ -3,7 +3,7 @@ import { MdOutlineClose, MdDeleteForever, MdAdd } from 'react-icons/md';
 import { BiFilterAlt } from "react-icons/bi";
 import { useState } from "react";
 
-export default function FilterPopup({ isVisible, setIsVisible, filters, setFilters }) {
+export default function FilterPopup({ isVisible, setIsVisible, filters, setFilters, prestations,categories, banks,setFilteredBanks }) {
     const [isAdding, setIsAdding] = useState(false);
     const typeList = ["Inférieure à", "Égale à", "Supérieure à", "Comprise entre"];
     const typeCompteList = ["Particuliers", "Professionnel", "Entreprise"];
@@ -58,12 +58,9 @@ export default function FilterPopup({ isVisible, setIsVisible, filters, setFilte
                       onChange={(event) => {setFilter({...filter, prestation: event.target.value})}}
                     >
                       <option value="">Selectionner</option>
-  
-                      {/* Smail, put here a map that iterates over the list of prestations */}
-                      <option value="Ouverture compte">Ouverture compte</option>
-                      <option value="Fermeture compte">Fermeture compte</option>
-                      <option value="Autre prestation">Autre prestation</option>
-                      <option value="Autre prestation 2">Autre prestation 2</option>
+                      {categories.map((c,index)=>(
+                        <option value={c.name} key={index} >{c.name}</option>
+                      ))}
                     </select>
                   </div>
                   <div className="flex border p-2 rounded mr-2">

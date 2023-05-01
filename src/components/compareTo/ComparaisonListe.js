@@ -2,6 +2,8 @@ import React, {useState, useEffect} from "react"
 //import prestationsData from "../../../public/data/prestationsData.json"
 import ComparaisonListeRow from "./ComparaisonListeRow.js"
 import ListePrestationsLogos from "./ListePrestationsLogos.js"
+import Image from "next/image"
+import emptyBox from "public/assets/comparaisonPage/emptyBox.png"
 import axios from "axios"
 function ComparaisonListe({bank1, bank2, prestationsBank1, prestationsBank2}){
     let prestationsBank1, prestationsBank2
@@ -13,6 +15,7 @@ function ComparaisonListe({bank1, bank2, prestationsBank1, prestationsBank2}){
         data : []
     }
     const [prestationsDataJSX, setPrestationsDataJSX] = useState([])
+    const [errStyle, setErrStyle] = useState({display : "none"})
     function period(integer){
         if(integer == 1){
             return "/Jr"
@@ -112,6 +115,18 @@ function ComparaisonListe({bank1, bank2, prestationsBank1, prestationsBank2}){
                     }
                 }
             }
+            if(cpt1 == 0 || cpt2 == 0){
+                setErrStyle({
+                    display : "flex", 
+                    gap : "10px",
+                    justifyContent : "center",
+                    alignItems : "center",
+                    fontFamily : `"Nunito", sans-serif`,
+                    fontSize : "25px"
+                })
+            } else {
+                setErrStyle({display : "none"})
+            }
             let greyBackground = true;
             setPrestationsDataJSX(prestationsData.data.map((prestation) =>{
                 greyBackground = !greyBackground;
@@ -127,7 +142,10 @@ function ComparaisonListe({bank1, bank2, prestationsBank1, prestationsBank2}){
         <div className="listePrestations">
             <ListePrestationsLogos object={prestationsData} img1Name={bank1.logoLink} img2Name={bank2.logoLink} />
             <span> {prestationsDataJSX.length != 0 && prestationsDataJSX}</span>
-           
+            <div style={errStyle}>
+                <Image src={emptyBox} alt="icon" style={{ height: '2em', width: 'auto' }} />
+                <span >Liste vide!</span>
+             </div>
         </div>
     )
 }

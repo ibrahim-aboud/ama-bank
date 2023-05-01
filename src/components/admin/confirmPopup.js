@@ -7,10 +7,15 @@ export default function ConfirmPopup({
   onExit,
 }) {
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center z-50">
+    <div
+      className={`fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center z-50`}
+    >
       <div className="w-[350px] sm:w-[500px]">
         <div
-          className={`py-4 rounded-t-md bg-[${color}] text-white flex justify-center items-center`}
+          className={`py-4 rounded-t-md text-white flex justify-center items-center`}
+          style={{
+            backgroundColor: color,
+          }}
         >
           {icon}
           <h2>{title}</h2>

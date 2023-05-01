@@ -341,7 +341,7 @@ function Website({ infos }) {
         <div className="mt-4 flex flex-col md:flex-row items-center justify-center gap-5 md:gap-10 w-full lg:w-[800px] lg:justify-between">
           <button
             disabled={loading}
-            className="mb-1 rounded-xl px-8 py-3 font-semibold bg-black text-white shadow-xl hover:bg-green-600 disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
+            className="mb-1 rounded-xl px-8 py-3 font-semibold bg-black text-white shadow-xl hover:bg-[#40916C] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
             onClick={(event) => {
               event.preventDefault();
               const check = websiteInfoValidator(websiteInfos);
@@ -361,7 +361,7 @@ function Website({ infos }) {
             <ConfirmPopup
               title="Sauvegarder les modifications"
               icon={<HiCheckCircle size={20} className="mr-3" />}
-              color="#dfa01a"
+              color="#40916C"
               message={"Voulez-vous confirmer les modifications ?"}
               onConfirm={(e) => sumbitHandler(e)}
               onExit={() => {
@@ -381,7 +381,7 @@ function Website({ infos }) {
               setSelectedLogo("");
               logoInputRef.current.value = "";
             }}
-            className="rounded-xl px-8 py-3 font-semibold bg-black text-white shadow-xl hover:bg-green-600 disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
+            className="rounded-xl px-8 py-3 font-semibold bg-black text-white shadow-xl hover:bg-[#40916C] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
           >
             Annuler les modifications
             <MdCancel size={23} className="ml-2" />

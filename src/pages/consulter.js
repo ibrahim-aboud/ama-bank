@@ -6,6 +6,7 @@ import Filters from "@/components/prestations/Filters";
 import styles from "@/styles/prestations.module.css";
 import List from "@/components/prestations/List";
 import NameAndLogo from "@/components/prestations/NameAndLogo";
+import Infos from "@/components/prestations/infos";
 
 function Consulter({ types_comptes, types_prestations, banks}) {
   const router = useRouter();
@@ -27,6 +28,8 @@ function Consulter({ types_comptes, types_prestations, banks}) {
   }
 
   const [selectedBankId, setSelectedBankId] = useState(_getDefaultBankId());
+  
+  
   const [conditions,setConditions] = useState(null) ;
   const [FilteredConditions,setFilteredConditions] = useState(null) ;
 
@@ -65,7 +68,7 @@ function Consulter({ types_comptes, types_prestations, banks}) {
         </div>  
         
         <div className="">
-          <Filters types_comptes={types_comptes} types_prestations={types_prestations} prestations={conditions} setPrestations={setFilteredConditions}></Filters>
+          <Filters types_comptes={types_comptes} types_prestations={types_prestations} prestations={conditions} setPrestations={setFilteredConditions} bank_id={selectedBankId}></Filters>
         </div>
 
           <div>
@@ -74,6 +77,10 @@ function Consulter({ types_comptes, types_prestations, banks}) {
     
           <div>
             <List conditions={FilteredConditions} />
+          </div>
+
+          <div>
+            <Infos></Infos>
           </div>
 
       </main>

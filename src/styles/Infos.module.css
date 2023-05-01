@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.sub_container {
+    background-color: #40916C;
+    padding: 2%;
+    height: 10vh;
+    width: 30%;
+    margin: 1%;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.sub_container *{
+    margin: 1%;
+    padding: 1%;
+}
+
+.text {
+    color: white;
+}

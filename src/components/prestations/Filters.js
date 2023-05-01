@@ -3,9 +3,13 @@ import Image from "next/image"
 import styles from "@/styles/Filters.module.css"
 import { useRef } from "react";
 
-const Filters = ({types_comptes, types_prestations, prestations, setPrestations, map}) => {
+const Filters = ({types_comptes, types_prestations, prestations, setPrestations, bank_id}) => {
     const arrow = useRef(null) ;
     const checkboxes = useRef(null);
+    const selectBar = useRef(null) ;
+    const checkForm = useRef(null) ;
+    const [common, setCommon] = useState(null) ;
+    // const [localPrestations, setLocalPrestations] = useState([]) ;
 
     const handleClick = ()=>{
         if (checkboxes.current.style.display != 'none'){
@@ -17,23 +21,58 @@ const Filters = ({types_comptes, types_prestations, prestations, setPrestations,
         }
     }
 
-    const handleChange = (event)=>{
-        const {value} = event.target ;
-        setPrestations(prestations.filter(prst=>{
-            return prst.type==value
-        }))
+    const handleSelect = ()=>{
+        var val = selectBar.current.value ;
+        var localPrestations =  prestations.filter((prst)=>{
+            return prst.type.toUpperCase() == val.toUpperCase() ;
+        }) ;
+
+        checkForm.current.childNodes.forEach(node=>{
+            node.childNodes[0].checked = false ;
+        })
+
+        setPrestations(localPrestations) ;
+        setCommon(localPrestations) ;
     }
 
+    useEffect(()=>{
+        handleSelect() ;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [prestations]) ;
+
+    const handleChange = ()=>{
+        var finals = [] ;
+        var checks  = checkForm.current.childNodes ;
+        var num = 0 ;
+
+        checks.forEach(element => {
+            if (element.childNodes[0].checked){
+                var newPrestations = common.filter(prst=>{
+                    return prst.categorie_operation == element.childNodes[0].value
+                })
+                finals = [...finals,...newPrestations] ; 
+                num=num+1 ;
+            } else {
+                num=num-1 ;
+            }
+        });
+        
+        if (num>-2){
+            setPrestations(finals) ;
+        } else {
+            setPrestations(common) ;
+        }
+    }
 
   return (
     <div className={styles.container} >
             <div className={styles.filters}>
                 <div className={styles.type_compte_container}>
                     <label className={styles.type_compte_label}>Type de compte</label>
-                    <select name={styles.types_comptes_selectbar} id="types_prestations_selectbar" className={styles.types_comptes_selectbar}>
+                    <select name={styles.types_comptes_selectbar} ref={selectBar} className={styles.types_comptes_selectbar} onChange={handleSelect}>
                     {
                         types_comptes.map((type,index)=>(
-                            <option value={type} key={index} onChange={handleChange}>
+                            <option value={type} key={index} selected>
                                 {type[0].charAt(0).toUpperCase() + type.slice(1)}
                             </option>
                         ))
@@ -44,17 +83,17 @@ const Filters = ({types_comptes, types_prestations, prestations, setPrestations,
                     <label className={styles.types_prestations_label}>
                         Type Prestations
                     </label>
-                    <div className={styles.T} onClick={handleClick}>
+                    <div className={styles.T} onClick={handleClick} onChange={(event)=>{handleChange(event)}} >
                         <Image src="/assets/icons/icon1.svg" alt="arrow" ref={arrow} width={30} height={30} />
                     </div>
                 </div>
             </div>
             <div className={styles.checkBoxes} style={{display:"none"}} ref={checkboxes}>
-                <form action="">
+                <form action="" ref={checkForm} onChange={handleChange}>
                     {
                         types_prestations.map((val,index)=>(
-                            <div key={index} className={styles.check}>
-                                <input type="checkbox" id={index} value={val} onChange={handleChange}/>
+                            <div key={index} className={styles.check} value={val}>
+                                <input type="checkbox" id={index} value={val}/>
                                 <label htmlFor={index}>{val}</label>
                             </div>
                         ))

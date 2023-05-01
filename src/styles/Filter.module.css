@@ -1,0 +1,142 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+/************ Type de compte filter ************/
+.type_compte_container {
+    background-color: rgba(0,0,0,0.8);
+    border-radius: 10px;
+}
+.type_compte_label {
+    color: rgba(255,255,255,0.8);
+}
+.type_compte_container > select {
+    background-color: transparent;
+    color: #fffcfc ;
+    font-weight: bold;
+    border: none;
+}
+
+/************ Type de prestation filter ************/
+.type_prestation_container {
+    border: 1px solid rgba(0,0,0,0.25)  ;
+    border-radius: 10px;
+}
+
+.types_prestations_selectbar {
+    background-color: transparent;
+    border: none;
+}
+/************ Start filter styles ************/
+.start_filter {
+    background-color: #40916c ;
+    border-radius: 40px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease-in-out;
+}
+
+.start_compare_btn {
+    width: 100%;
+    padding: 2%;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-weight: bold;
+}
+
+.start_filter:hover{
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+/************ CheckBoxes styles ************/
+.checkBoxes {
+        display: none;
+        border: 1px solid rgba(0,0,0,0.25) ;
+        border-radius: 10px;
+        margin: 1%;
+        padding: 1%;
+        width: 20em;
+}
+
+.check > input {
+    margin: 2%;
+}
+
+.check > label:hover {
+    color: #40916c;
+    font-weight: bold;
+}
+
+
+
+@media screen and (max-width: 800px) {
+
+    /* Styles of filters */
+    .filters {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .filters > div {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        width: 90%;
+        margin: 2%;
+        padding: 2% ;
+    }
+
+    /************ Start filter styles ************/
+    .start_filter {
+        width: 90%;
+        margin: 2%;
+    }
+
+    .param {
+        display: none;
+    }
+}
+
+
+@media screen and (min-width: 800px) {
+    /* Styles of filters */
+    .filters {
+        display: flex;
+        width: 50em;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+
+    .filters > div {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        width: 22em;
+        margin: 1%;
+        padding: 1% ;
+    }
+
+    /************ Start filter styles ************/
+    .start_filter {
+        width: 35em;
+        margin: 1%;
+    }
+    
+    .start_compare_btn {
+        display: flex;
+        justify-content: space-between ;
+        align-items: center;
+        padding-left: 25px;
+    }
+    
+    .param {
+        padding-right: 25px;
+    }
+}

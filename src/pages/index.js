@@ -28,12 +28,13 @@ export default function Home({ banks, prestations, categories, object  }) {
     }
   });
 
+  
   const [isVisible, setIsVisible] = useState(false);
-
+  
   const [filters, setFilters] = useState([]);
 
-  const [filteredBanks, setFilteredBanks] = useState(banks) ;
-
+  
+  const [filteredBanks, setFilteredBanks] = useState(filteredList) ;
 
   var categorieNames = categories.map(c=>{
     return c.name ;
@@ -48,11 +49,9 @@ export default function Home({ banks, prestations, categories, object  }) {
       }
     })
 
-    console.log(res) ;
-
-    setFilteredBanks(filteredBanks.filter(bank=>{
-      return bank.id in res
-    }))
+    // setFilteredBanks(filteredBanks.filter(bank=>{
+    //   return bank.id in res
+    // }))
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[filters]) ;
 
@@ -63,7 +62,7 @@ export default function Home({ banks, prestations, categories, object  }) {
       </div>
       <div className="flex flex-col items-center my-14 py-[1%] px-[3%] lg:px-[10%]">
         <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} isVisible={isVisible} setIsVisible={setIsVisible} />
-        <BankList filteredList={filteredList}/>
+        <BankList filteredList={filteredBanks}/>
       </div>
 
       <FilterPopup isVisible={isVisible} setIsVisible={setIsVisible} filters={filters} setFilters={setFilters} prestations={prestations} categories={categories} banks={banks} setFilteredBanks={setFilteredBanks} />
@@ -96,7 +95,13 @@ export async function getServerSideProps(context) {
 
     categories = response.data.categories 
 
-    var object = Object.fromEntries(await createCategoriesMap(prestations) ) ;
+    var map = await createCategoriesMap(prestations) ;
+
+    var object = Object.fromEntries(map) ;
+
+    for (const [key, value] of map.entries()) {
+      console.log(key + ' = ' + value);
+    }
 
   } catch (e) {
     console.error(e.message);

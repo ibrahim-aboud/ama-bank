@@ -77,7 +77,7 @@ export default function FilterPopup({ isVisible, setIsVisible, filters, setFilte
                       ))}
                     </select>
                   </div>
-                  <div className="flex border p-2 rounded mr-2">
+                  <div className="flex border p-2 rounded mr-2">﻿
                     <select 
                       id="type"
                       name="type"

@@ -3,13 +3,13 @@ import React, {useState, useEffect} from "react"
 import ComparaisonListeRow from "./ComparaisonListeRow.js"
 import ListePrestationsLogos from "./ListePrestationsLogos.js"
 import axios from "axios"
-function ComparaisonListe(props){
+function ComparaisonListe({bank1, bank2, prestationsBank1, prestationsBank2}){
     let prestationsBank1, prestationsBank2
     let prestationsData = {
-/*          bank1Name : "Natixis Algérie",
+/*      bank1Name : "Natixis Algérie",
         bank2Name : "BNP Paribas",  */
-        bank1Name : props.object.bankName1,
-        bank2Name : props.object.bankName2,
+        bank1Name : bank1.name,
+        bank2Name : bank2.name,
         data : []
     }
     const [prestationsDataJSX, setPrestationsDataJSX] = useState([])
@@ -40,14 +40,14 @@ function ComparaisonListe(props){
     }
 
     useEffect(() => {
-        axios.get(process.env.NEXT_PUBLIC_API_URL + `/prestations/${ props.object.bank1ID}`)
-        .then(response =>{
-            prestationsBank1 = response.data.prestations
+        // axios.get(process.env.NEXT_PUBLIC_API_URL + `/prestations/${/*  props.object.bank1ID */1}`)
+        // .then(response =>{
+        //     prestationsBank1 = response.data.prestations
             
-            return axios.get(process.env.NEXT_PUBLIC_API_URL + `/prestations/${props.object.bank2ID}`)
-            })
-        .then(response =>{
-            prestationsBank2 = response.data.prestations
+        //     return axios.get(process.env.NEXT_PUBLIC_API_URL + `/prestations/${/* props.object.bank2ID */2}`)
+        //     })
+        // .then(response =>{
+        //     prestationsBank2 = response.data.prestations
 
             prestationsBank1.sort((a, b) =>{
                 if (a.categorie_operation + a.name + a.type < b.categorie_operation + b.name + b.type) {
@@ -112,21 +112,20 @@ function ComparaisonListe(props){
                     }
                 }
             }
-            console.log(prestationsData)
             let greyBackground = true;
             setPrestationsDataJSX(prestationsData.data.map((prestation) =>{
                 greyBackground = !greyBackground;
                  return <ComparaisonListeRow key ={prestation.id} object={prestation} style={{greyBackground}} />}
             ))
-    })
-    .catch(error => {
-        console.log(error.response || error.message)
-    })
+    // })
+    // .catch(error => {
+    //     console.log(error.response || error.message)
+    // })
     }, []) 
 
     return(
         <div className="listePrestations">
-            <ListePrestationsLogos object={prestationsData}/>
+            <ListePrestationsLogos object={prestationsData} img1Name={bank1.logoLink} img2Name={bank2.logoLink} />
             <span> {prestationsDataJSX.length != 0 && prestationsDataJSX}</span>
            
         </div>

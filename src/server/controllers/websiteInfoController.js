@@ -4,6 +4,7 @@ import FilesHelpers from "@/lib/utils/FilesHelpers";
 import { errorMessages } from "@/lib/utils/errorMessages";
 import ModelError from "@/lib/utils/ModelError";
 import isNotAdmin from "@/lib/utils/checkAdmin";
+import websiteInfoValidator from "@/lib/validations/websiteInfoValidator";
 
 export default class WebsiteInfoController {
   async get(req, res) {
@@ -64,11 +65,10 @@ export default class WebsiteInfoController {
         throw new ModelError(errorMessages.missingResource, 400);
       }
 
-      // var check = bankInfoValidator(bank) ;
-
-      // if(check.error){
-      //     throw new ModelError(check.errorList[0],400) ;
-      // }
+      var check = websiteInfoValidator(info);
+      if (check.error) {
+        throw new ModelError(check.errorList[0], 400);
+      }
 
       var data = await WebsiteInfo.updateInfo(info);
 

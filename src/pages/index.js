@@ -10,7 +10,7 @@ import BankList from "@/components/home-client/bankList";
 import createCategoriesMap from "@/lib/utils/createCategoriesMap";
 
 
-export default async function Home({ banks, prestations, categories}) {
+export default function Home({ banks, prestations, categories}) {
   const [searchQuery, setSearchQuery] = useState("");
 
   const filteredList = banks.filter((bank) =>
@@ -23,25 +23,26 @@ export default async function Home({ banks, prestations, categories}) {
 
   const [filteredBanks, setFilteredBanks] = useState(banks) ;
 
-  var map = await createCategoriesMap(prestations) ;
+  // var map = await createCategoriesMap(prestations) ;
 
-  var categorieNames = categories.map(c=>{
-    return c.name
-  })
+  // var categorieNames = categories.map(c=>{
+  //   return c.name ;
+  // })
 
-  useEffect(()=>{
-    var res=[] ;
-    prestations.map(prst=>{
-      if (map.get(prst.categorie_id) in categorieNames) {
-        res.push(prst.bank_id)
-      }
-    })
 
-    setFilteredBanks(filteredBanks.filter(bank=>{
-      return bank.id in res
-    }))
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  },filters) ;
+  // useEffect(()=>{
+  //   var res=[] ;
+  //   prestations.map(prst=>{
+  //     if (map.get(prst.categorie_id) in categorieNames) {
+  //       res.push(prst.bank_id)
+  //     }
+  //   })
+
+  //   setFilteredBanks(filteredBanks.filter(bank=>{
+  //     return bank.id in res
+  //   }))
+  // // eslint-disable-next-line react-hooks/exhaustive-deps
+  // },filters) ;
 
   return (
     <div>

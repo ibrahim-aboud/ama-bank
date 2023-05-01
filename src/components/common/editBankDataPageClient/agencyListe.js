@@ -19,12 +19,13 @@ function agencyListe({handleDeleteAgency, handleEditAgencyInfo, agencyList}){
         if(index === arr.length - 1){
             border = false;
         } 
-        return <AgencyRow record={dataElement} isDg={"Adress :"} agencyIcone={localisationIcon} style={{border}} handleDeleteAgency={handleDeleteAgency} handleEditAgencyInfo={handleEditAgencyInfo} />
+        return <AgencyRow  record={dataElement} isDg={"Adress :"} key={dataElement.id}
+                agencyIcone={localisationIcon} style={{border}} handleDeleteAgency={handleDeleteAgency}
+                handleEditAgencyInfo={handleEditAgencyInfo} />
     })
 
     if (agencyList.length > 0) {
       editErr({ display: "none" });
-      console.log("agencyListe : ", agencyList)
       if (agencyList[0].id == -1) {
         border = agencyList.length > 1;
         agenciesList[0] = (

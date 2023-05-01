@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react"
 import Image from "next/image"
 import searchTool from "public/assets/modificationsPage/searchTool.svg"
 import styles from "src/styles/agenciesModificaitonStylesClient/searchBars.module.css"
+import Failed from "src/components/common/feedback_popups/fail.js"
 import axios from "axios"
 
 function SearchBars ({handleClickAddAgency, handleClickSearch}){
@@ -12,22 +13,18 @@ function SearchBars ({handleClickAddAgency, handleClickSearch}){
         const[agencyList, setAgencyList] = useState([])
         const[agencyListGlobal, setAgencyListGlobal] = useState([])
         const[bankList, setBankList] = useState([])
-        const [errStyle, setErrStyle] = useState({display : "none"})
+        const [errStyle, setErrStyle] = useState(false)
 
         const handleClickSearchHere = () => {
             if(bankName == 0){
-                setErrStyle({
-                    display : "block", 
-                    color : "red", 
-                    textAlign : "center"
-                })
+                setErrStyle(true)
                 setAgencyList([])
                 setAgencyListGlobal([])
                 handleClickSearch(agencyList)
 
             } else 
             {
-                setErrStyle({display : "none"})
+                setErrStyle(false)
                 if(agency == 0){
                     handleClickSearch(agencyList)
                 } else{
@@ -188,9 +185,8 @@ function SearchBars ({handleClickAddAgency, handleClickSearch}){
                         <span>Rechercher</span>
                     </button>                   
                 </div>
-                <div style={errStyle}>             
-                    vous n'avez pas encore choisi le nom de la banque
-                </div>
+                <Failed message={"vous n'avez pas encore choisi le nom de la banque"} isVisible={errStyle} 
+                isSucessfull={false}></Failed>
             </div>
         )
 }

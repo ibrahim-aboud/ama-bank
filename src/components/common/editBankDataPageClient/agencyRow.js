@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React from "react"
 import Image from "next/image"
 import telIcone from "public/assets/modificationsPage/telGreenIcon.svg"
 import faxIcon from "public/assets/modificationsPage/faxGreenIcon.svg" 
@@ -33,17 +33,16 @@ function AgencyRow(props){
                     <span>{props.isDg}</span>
                     <span>{props.record.address}</span>
                 </span>
-                {/* <a href={props.record.localisationMaps}>Localisation GPS</a> */}
                 <a href={props.record.location_link}>Localisation GPS</a>
             </div>
             <div className={styles.agencyRowTelFax}>
                 <span>
-                    <Image src={telIcone}></Image>
+                    <Image src={telIcone} alt="icone"></Image>
                     <span>Téléphone : </span>
                     <span>{phone}</span>
                 </span>
                 <span>
-                    <Image src={faxIcon}></Image>
+                    <Image src={faxIcon} alt="icone"></Image>
                     <span>Fax : </span>
                     <span>{fax}</span>
                 </span>

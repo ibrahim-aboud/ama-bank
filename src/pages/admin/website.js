@@ -359,6 +359,9 @@ function Website({ infos }) {
 
           {showConfirmPopup && (
             <ConfirmPopup
+              title="Sauvegarder les modifications"
+              icon={<HiCheckCircle size={20} className="mr-3" />}
+              color="#dfa01a"
               message={"Voulez-vous confirmer les modifications ?"}
               onConfirm={(e) => sumbitHandler(e)}
               onExit={() => {

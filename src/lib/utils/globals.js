@@ -1,4 +1,4 @@
-const globals = {
+export const globals = {
   requiredKeys: {
     prestation: [
       "bank_id",
@@ -39,4 +39,4 @@ const globals = {
   banks_logos_folder :"./public/assets/logos/banks_logos"
 };
 
-export default globals ;
+/* export default globals ; */

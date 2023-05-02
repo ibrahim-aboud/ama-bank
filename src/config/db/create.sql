@@ -17,7 +17,7 @@ CREATE TABLE `ab_banks` (
 
 CREATE TABLE `ab_categories` (
   `id_categorie` INT NOT NULL AUTO_INCREMENT,
-  `categorie_name` TINYTEXT NOT NULL,
+  `categorie_name` TINYTEXT NOT NULL UNIQUE,
   PRIMARY KEY (`id_categorie`)
 );
 

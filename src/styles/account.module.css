@@ -1,0 +1,110 @@
+.icon {
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3% 0;
+}
+.icon p {
+  font-weight: 700;
+  margin: 0 2%;
+}
+.minIcon {
+  position: relative;
+  top: 33px;
+  left: 3%;
+  font-size: 20px;
+  width: 10px;
+}
+.Button {
+  background-color: #40916c;
+  color: white;
+  padding: 1% 4%;
+  border-radius: 10px;
+  margin: 2%;
+}
+.Button:hover {
+  animation-name: fade;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+@keyframes fade {
+  from {
+    background-color: #40916c;
+  }
+  to {
+    background-color: #51b789;
+  }
+}
+.submit {
+  display: flex;
+  justify-content: center;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.barTitle {
+  font-weight: 500;
+}
+
+@media screen and (max-width: 800px) {
+  .Button {
+    background-color: #40916c;
+    color: white;
+    padding: 2% 8%;
+    border-radius: 15px;
+    margin: 2%;
+  }
+  .icon {
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5% 0;
+  }
+  .icon p {
+    font-weight: 700;
+    margin: 0 2%;
+  }
+}
+@media screen and (max-width: 750px) {
+  .Button {
+    margin: 5%;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .icon {
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 7% 0;
+  }
+  .icon p {
+    font-weight: 700;
+    margin: 0 2%;
+  }
+  .Button {
+    margin: 10%;
+    font-size: large;
+  }
+}
+@media screen and (max-width: 370px) {
+  .icon span {
+    display: none;
+  }
+  .icon p {
+    font-weight: 700;
+    margin: 0 2%;
+    text-align: center;
+    font-size: x-large;
+  }
+  .Button {
+    margin: 10%;
+    font-size: large;
+  }
+}

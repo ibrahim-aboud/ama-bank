@@ -9,7 +9,9 @@ export default async function handler(req,res){
         await controller.add(req,res) ;
     } else if (req.method=="PUT"){
         await controller.modify(req,res) ;
-    } else {
+    } else if (req.method=="GET"){
+        await controller.getAll(req,res) ;
+    }else {
         res.status(405).json({error: new ModelError(errorMessages.wrongMethod,405)})
     }
 }

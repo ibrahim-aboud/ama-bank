@@ -6,6 +6,15 @@ import ModelError from "@/lib/utils/ModelError";
 
 export default class PrestationsController {
 
+    async getAll(req,res){
+        try {
+            var data = await Prestation.getEverything() ;
+            res.status(200).json({prestations: data}) ;
+        }catch(err){
+            res.status(err.status).json({error: err}) ;
+        }
+    }
+
     async get(req,res){
         const {id} = req.query ;
         try {
@@ -124,4 +133,22 @@ export default class PrestationsController {
         return ;
     }
 
+    async getTypes(req,res){
+        try {
+            var types = await Prestation.getAllTypes() ;
+            res.status(200).json({types}) ;
+        } catch(err){
+            res.status(err.status).json({error:err}) ;
+        }
+    }
+
+    async getCategories(req,res){
+        try {
+            var categories = await Prestation.getAllCategories() ;
+            res.status(200).json({categories}) ;
+        } catch(err){
+            res.status(err.status).json({error:err}) ;
+        }
+    }
+    
 }

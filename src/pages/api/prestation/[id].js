@@ -1,6 +1,6 @@
 import prestationController from "@/server/controllers/prestations/prestationController";
 import { errorMessages } from "@/lib/utils/errorMessages";
-
+import ModelError from "@/lib/utils/ModelError";
 export default async function handler(req,res){
     const controller = new prestationController() ;
 

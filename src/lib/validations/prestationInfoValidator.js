@@ -1,11 +1,10 @@
-import { globals } from "../utils/globals";
+import  globals from "../utils/globals";
 
 export default function prestationInfoValidator(prestation){
     let error = false ;
     var ArrayError = []
-
+    
     var {requiredKeys,possibleOperations} = globals ;
-
     var abscentKeys = [] ;
     requiredKeys.prestation.forEach(item=>{
         if (!(item in prestation)){

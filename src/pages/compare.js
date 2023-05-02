@@ -1,83 +1,129 @@
-import Filters from '@/components/prestations/Filters';
-import { useState } from 'react';
-import ComparaisonListe from '@/components/compareTo/ComparaisonListe';
+import Filters from "@/components/common/Filters";
+import ComparaisonListe from "@/components/compareTo/ComparaisonListe";
+import BankSelection from "@/components/compareTo/bankSelection";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
-const Compare = ({types_comptes,types_prestations}) => {
-    var bank = {
-      name: "Bank Kanki",
-      id: 1
+function Compare({types_comptes,types_prestations,banks}){
+
+  const [prestations, setPrestations] = useState([]) ;
+  const [selectedFirstBankId,setSelectedFirstBankId] = useState(null) ;
+  const [selectedSecondBankId,setSelectedSecondBankId] = useState(null) ;
+
+  const [prestationsBank1,setPrestationsBank1] = useState([]) ;
+  const [prestationsBank2,setPrestationsBank2] = useState([]) ;
+
+  const [bank1,setBank1] = useState([]) ;
+  const [bank2,setBank2] = useState([]) ;
+
+  //for the first bank only
+  const [filteredPrestations, setFilteredPrestations] = useState([]) ;
+
+  var bnk = {
+
+  }
+
+  useEffect(()=>{
+    if (!selectedFirstBankId) {
+      setPrestationsBank1([]) ;
+      setFilteredPrestations([]) ;
+      return
     }
 
-    var bank2 = {
-      name: "bank 2",
-      id: 2
+    axios.get(process.env.NEXT_PUBLIC_API_URL + `/bank/${selectedFirstBankId}`)
+    .then(response=>{
+      setBank1(response.data.bank)
+    })
+    .catch(err=>{
+      setBank1(bnk) ;
+    })
+
+    if (bank1==bnk) {
+      setPrestationsBank1([]) ;
+      setFilteredPrestations([]) ;
+      return
     }
 
-    var prestations1 = [
-      {
-          "id": 8,
-          "bank_id": 1,
-          "categorie_id": 2,
-          "name": "Nom prestation aaaa",
-          "type": "particulier",
-          "tarif": 400,
-          "period": 365,
-          "categorie_operation": "Opération de paiement"
-      },
-      {
-          "id": 9,
-          "bank_id": 1,
-          "categorie_id": 2,
-          "name": "Nom prestation aaddaa",
-          "type": "particulier",
-          "tarif": 400,
-          "period": 365,
-          "categorie_operation": "Opération de paiement"
-      }
-    ]
+    axios.get(process.env.NEXT_PUBLIC_API_URL+ `/prestations/${selectedFirstBankId}`)
+    .then(response=>{
+      setPrestationsBank1(response.data.prestations) ;
+      setFilteredPrestations(response.data.prestations) ;
+      console.log(prestationsBank1) ;
+    })
+    .catch(err=>{
+      setPrestationsBank1([]) ;
+      setFilteredPrestations([]) ;
+    })
 
-    var prestations2 = [
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedFirstBankId]) ;
 
-    {
-        "id": 8,
-        "bank_id": 2,
-        "categorie_id": 2,
-        "name": "Nom prestation aaaa",
-        "type": "particulier",
-        "tarif": 400,
-        "period": 365,
-        "categorie_operation": "Opération de paiement"
-    },
-    {
-        "id": 9,
-        "bank_id": 2,
-        "categorie_id": 2,
-        "name": "Nom prestation aaddaa",
-        "type": "particulier",
-        "tarif": 400,
-        "period": 365,
-        "categorie_operation": "Opération de paiement"
+  useEffect(()=>{
+    if (!selectedSecondBankId) {
+      setPrestationsBank2([]) ;
+      setFilteredPrestations([]) ;
+      return
     }
-  ]
-    const [conditions,setConditions] = useState() ;
 
-    const [FilteredConditions,setFilteredConditions] = useState() ;
+    axios.get(process.env.NEXT_PUBLIC_API_URL + `/bank/${selectedSecondBankId}`)
+    .then(response=>{
+      setBank2(response.data.bank)
+    })
+    .catch(err=>{
+      setBank2(bnk) ;
+    })
+
+    if (bank2==bnk) {
+      setPrestationsBank2([]) ;
+      setFilteredPrestations([]) ;
+      return
+    }
+
+    axios.get(process.env.NEXT_PUBLIC_API_URL+ `/prestations/${selectedSecondBankId}`)
+    .then(response=>{
+      setPrestationsBank2(response.data.prestations) ;
+      setFilteredPrestations(response.data.prestations) ;
+      console.log(prestationsBank2) ;
+    })
+    .catch(err=>{
+      setPrestationsBank2([]) ;
+      setFilteredPrestations([]) ;
+    })
 
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedSecondBankId]) ;
 
-    // setConditions(prestations1) ;
-    // setFilteredConditions(prestations2) ;
-
-    return (
-      <div className="w-full mb-10 md:mb-24 px-[10%]">
-        <Filters types_comptes={types_comptes} types_prestations={types_prestations} prestations={conditions} setPrestations={setFilteredConditions}></Filters>
-
-        <ComparaisonListe bank1={bank} bank2={bank2} prestationsBank1={prestations1} prestationsBank2={prestations2} />
+  return (
+    <>
+      <div className="mb-10">
+        <BankSelection
+          items={banks}
+          selectedFirstBankId={selectedFirstBankId}
+          setSelectedFirstBankId={setSelectedFirstBankId}
+          selectedSecondBankId={selectedSecondBankId}
+          setSelectedSecondBankId={setSelectedSecondBankId}
+        />
       </div>
-    );
-};
-  
-export default Compare;
+      <div className="w-full mb-10 md:mb-24 px-[10%]">
+        <Filters types_comptes={types_comptes} types_prestations={types_prestations} prestations={prestations} setPrestations={setFilteredPrestations}/>
+      </div>
+      {selectedFirstBankId!=null && selectedSecondBankId!=null && (
+        <div>
+          <ComparaisonListe
+            bank1={bank1}
+            bank2={bank2} 
+            prestationsBank1={prestationsBank1} 
+            prestationsBank2={prestationsBank2}
+          />
+        </div>
+
+      )}
+
+    </>
+  )
+
+}
 
 export async function getServerSideProps(context) {
   var props = {banks:[],types_comptes:[],types_prestations:[]} ;
@@ -98,12 +144,11 @@ export async function getServerSideProps(context) {
     ) ;
     props.banks = response.data.banks ;
 
-    console.log(types_comptes) ;
-    console.log(types_prestations) ;
-      
   } catch(err){
-    
+    console.log(err) ; 
   }
   
   return {props}
 }
+
+export default Compare;

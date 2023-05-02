@@ -11,11 +11,11 @@ function ListePrestationsLogos(props){
     return(
         <span className={styles.headerListePrestations}>
             <div className={styles.image1}>
-                <Image src={img1Name} alt={props.object.bank1Name} />
+                <Image src={img1Name} width={50} height={50} alt={props.object.bank1Name} />
                 <span>{props.object.bank1Name}</span>
             </div>
             <div className={styles.image2}>
-                <Image src={img2Name} alt={props.object.bank2Name} />
+                <Image src={img2Name} width={50} height={50} alt={props.object.bank2Name} />
                 <span>{props.object.bank2Name}</span>
             </div>
         </span>

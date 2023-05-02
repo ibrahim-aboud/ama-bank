@@ -2,8 +2,7 @@ import SearchBox from "@/components/common/searchBox";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import Filters from "@/components/prestations/Filters";
-import styles from "@/styles/prestations.module.css";
+import Filters from "@/components/common/Filters";
 import List from "@/components/prestations/List";
 import NameAndLogo from "@/components/prestations/NameAndLogo";
 import Infos from "@/components/prestations/infos";
@@ -79,7 +78,7 @@ function Consulter({ types_comptes, types_prestations, banks}) {
         </div>  
         
         <div className="w-full mb-10 md:mb-24 px-[10%]">
-          <Filters types_comptes={types_comptes} types_prestations={types_prestations} prestations={conditions} setPrestations={setFilteredConditions} bank_id={selectedBankId}></Filters>
+          <Filters types_comptes={types_comptes} types_prestations={types_prestations} prestations={conditions} setPrestations={setFilteredConditions}></Filters>
         </div>
 
         <div className="mb-10">

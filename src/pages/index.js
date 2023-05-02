@@ -1,5 +1,5 @@
 import Head from "next/head";
-
+import Comp from "src/components/admin/editBankDataPage/editBankData.js"
 export default function Home() {
   return (
      <>
@@ -12,6 +12,7 @@ export default function Home() {
       </Head>
 
       <main>
+        <Comp></Comp>
       </main>
     </> 
     

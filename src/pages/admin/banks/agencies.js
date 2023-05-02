@@ -3,7 +3,12 @@ import { getSession } from "next-auth/react";
 import Comp from "src/components/admin/editBankDataPage/editBankData.js"
 
 function Agencies() {
-  return <div>Agencies</div>;
+  return (
+    <>
+    <Comp></Comp>
+    </>
+    
+  );
 }
 
 Agencies.getLayout = function PageLayout(page) {

@@ -30,11 +30,11 @@ export default class BanksController {
             throw new ModelError(errorMessages.missingResource,400);
         }
 
-        var check = bankInfoValidator(bank) ;
+        // var check = bankInfoValidator(bank) ;
         
-        if (check.error){
-            throw new ModelError(check.errorList[0],400) ;
-        }
+        // if (check.error){
+        //     throw new ModelError(check.errorList[0],400) ;
+        // }
 
         // Aditional check (just to optimize) if the bank id really exists
 

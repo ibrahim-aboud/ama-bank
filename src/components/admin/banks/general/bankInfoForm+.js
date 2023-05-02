@@ -60,7 +60,6 @@ function BankInfoFormADD() {
     event.preventDefault();
     
     setLoading(true);
-    
     try {
       // post request to the API to check user inputs and add to the database
       const response1 = await axios.post(process.env.NEXT_PUBLIC_API_URL + "/banks", {bank: bank});

@@ -11,7 +11,7 @@ const Infos = ({website}) => {
         <div className={styles.container}>
             <div className={`${styles.sub_container} hover:bg-[#4dac81]`} onClick={()=>{handleClick()}}>
                 <div className={styles.text}>
-                    Intéressé par les offres de la banque? Trouvez dès maintenant l’agence qui vous convient
+                    Trouvez dès maintenant l’agence qui vous convient
                 </div>
                 <div className={styles.image}>
                     <Image src={"/assets/icons/map.svg"} height={50} width={50} alt="image"/>

@@ -43,7 +43,7 @@ function EditBankDataPage(){
         setOverFlowStyle({overflowY : "hidden"})
         let record = {message1 : "Ajouter une agence", message2 : "annuler", icone : modificaitonAddImg}
         setObjToRender(<ModificationListe record={record} handleAddAgencyAnnuler = {handleAnnuler} 
-            handleUpdateScreen = {handleUpdateScreen}/>)
+            handleUpdateScreen = {handleUpdateScreen} data={{}} />)
     }
 
     const handleAnnuler = () => {
@@ -120,7 +120,7 @@ function EditBankDataPage(){
         })
     }
 
-    const handleEditAgencyInfo = (agencyId) => {
+    const handleEditAgencyInfo = (data) => {
         setStyle({
             /* backgroundColor : '#00000090', */
             position : 'fixed',
@@ -137,7 +137,7 @@ function EditBankDataPage(){
         })
         setOverFlowStyle({overflowY : "hidden"})
         let record = {message1 : "Sauvegarder les modifications", message2 : "annuler", icone : modificationModImg }
-        setObjToRender(<ModificationListe record={record} idAgency={agencyId} 
+        setObjToRender(<ModificationListe record={record} idAgency={data.id} data={data}
             handleAddAgencyAnnuler = {handleAnnuler} handleUpdateScreen = {handleUpdateScreen}/>)
    
 
@@ -167,7 +167,9 @@ function EditBankDataPage(){
                     )
                     
                     let tempList = listeOfAgencies
-                    tempList[index] = objToSend.dg
+                    let obj = objToSend.dg
+                    obj.id = -obj.id
+                    tempList[index] = obj
                     setListeOfAgencies(tempList)
                      }
                     break;

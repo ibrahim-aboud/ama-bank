@@ -52,7 +52,7 @@ function AgencyRow(props){
                 </span>
             </div>
             <div className={styles.agencyRowModifyDelete}>
-                <button onClick={() => props.handleEditAgencyInfo(props.record.id)} >
+                <button onClick={() => props.handleEditAgencyInfo(props.record)} >
                     <Image src={penIcone} alt = "icone"></Image>
                 </button>
                 <button onClick={() => props.handleDeleteAgency(props.record.id)} style={deleteStyle} >

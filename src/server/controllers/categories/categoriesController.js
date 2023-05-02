@@ -38,7 +38,7 @@ export default class CategoriesController {
             var result = await Categorie.getCategorieByName(categorie) ;
 
             if (result!=null){
-                throw new ModelError(errorMessages.existant,200) ;
+                throw new ModelError(errorMessages.existant,409) ;
             }
             var data = await Categorie.insertCategorie(categorie) ; 
 

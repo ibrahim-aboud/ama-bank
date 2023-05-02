@@ -6,6 +6,15 @@ import ModelError from "@/lib/utils/ModelError";
 
 export default class PrestationsController {
 
+    async getAll(req,res){
+        try {
+            var data = await Prestation.getEverything() ;
+            res.status(200).json({prestations: data}) ;
+        }catch(err){
+            res.status(err.status).json({error: err}) ;
+        }
+    }
+
     async get(req,res){
         const {id} = req.query ;
         try {
@@ -26,23 +35,24 @@ export default class PrestationsController {
             }
             
             const {prestation} = req.body ; 
-
+            
             if (prestation==undefined){
                 throw new ModelError(errorMessages.missingResource,400);
             }
-    
+            
             var check = prestationInfoValidator(prestation) ;
             
             if (check.error){
                 throw new ModelError(check.errorList[0],400) ;
             }
-
+            
             //Aditional check (just to optimize) if the bank id really exists
 
             var data = await Prestation.getPrestationByName(prestation.bank_id, prestation.name, prestation.type) ;
 
+
             if (data!=null){
-                throw new ModelError(errorMessages.existant, 200) ;
+                throw new ModelError(errorMessages.existant, 409) ;
             }
             
             data = await Prestation.insertPrestation(prestation) ;
@@ -123,4 +133,22 @@ export default class PrestationsController {
         return ;
     }
 
+    async getTypes(req,res){
+        try {
+            var types = await Prestation.getAllTypes() ;
+            res.status(200).json({types}) ;
+        } catch(err){
+            res.status(err.status).json({error:err}) ;
+        }
+    }
+
+    async getCategories(req,res){
+        try {
+            var categories = await Prestation.getAllCategories() ;
+            res.status(200).json({categories}) ;
+        } catch(err){
+            res.status(err.status).json({error:err}) ;
+        }
+    }
+    
 }

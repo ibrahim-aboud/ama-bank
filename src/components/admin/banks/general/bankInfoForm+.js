@@ -125,7 +125,6 @@ function BankInfoFormADD() {
       setIsFeedbackVisible(true);
       setTimeout(() => {setAddSuccess(false); setIsFeedbackVisible(false)}, 2000);
     }
-
     setLoading(false);
   }
 

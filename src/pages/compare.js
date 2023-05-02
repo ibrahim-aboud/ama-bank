@@ -1,4 +1,4 @@
-import Filter from '../components/Filter';
+import Filters from '@/components/prestations/Filters';
 import { useState } from 'react';
 import ComparaisonListe from '@/components/compareTo/ComparaisonListe';
 
@@ -37,6 +37,7 @@ const Compare = ({types_comptes,types_prestations}) => {
     ]
 
     var prestations2 = [
+
     {
         "id": 8,
         "bank_id": 2,
@@ -58,13 +59,19 @@ const Compare = ({types_comptes,types_prestations}) => {
         "categorie_operation": "Opération de paiement"
     }
   ]
-    const [conditions,setConditions] = useState([]) ;
+    const [conditions,setConditions] = useState() ;
 
-    const [FilteredConditions,setFilteredConditions] = useState([]) ;
+    const [FilteredConditions,setFilteredConditions] = useState() ;
+
+
+
+    // setConditions(prestations1) ;
+    // setFilteredConditions(prestations2) ;
 
     return (
-      <div>
-        <Filter types_comptes={types_comptes} types_prestations={types_prestations} prestations={conditions} setPrestations={setFilteredConditions}></Filter>
+      <div className="w-full mb-10 md:mb-24 px-[10%]">
+        <Filters types_comptes={types_comptes} types_prestations={types_prestations} prestations={conditions} setPrestations={setFilteredConditions}></Filters>
+
         <ComparaisonListe bank1={bank} bank2={bank2} prestationsBank1={prestations1} prestationsBank2={prestations2} />
       </div>
     );
@@ -90,6 +97,9 @@ export async function getServerSideProps(context) {
       process.env.NEXT_PUBLIC_API_URL + `/banks`
     ) ;
     props.banks = response.data.banks ;
+
+    console.log(types_comptes) ;
+    console.log(types_prestations) ;
       
   } catch(err){
     

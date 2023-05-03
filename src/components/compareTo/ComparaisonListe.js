@@ -9,6 +9,8 @@ import axios from "axios"
 function ComparaisonListe({bank1, bank2 , prestationsBank1, prestationsBank2}){
     // let prestationsBank1, prestationsBank2
     let prestationsData = {
+/*      bank1Name : "Natixis Algérie",
+        bank2Name : "BNP Paribas",  */
         bank1Name : bank1.name,
         bank2Name : bank2.name,
         data : []

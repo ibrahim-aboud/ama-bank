@@ -17,7 +17,8 @@ function Compare({types_comptes,types_prestations,banks}){
   const [bank2,setBank2] = useState([]) ;
 
   //for the first bank only
-  const [filteredPrestations, setFilteredPrestations] = useState([]) ;
+  const [filteredPrestationsBank1, setFilteredPrestationsBank1] = useState([]) ;
+  const [filteredPrestationsBank2,setFilteredPrestationsBank2] = useState([]) ;
 
   var bnk = {
 
@@ -26,7 +27,7 @@ function Compare({types_comptes,types_prestations,banks}){
   useEffect(()=>{
     if (!selectedFirstBankId) {
       setPrestationsBank1([]) ;
-      setFilteredPrestations([]) ;
+      setFilteredPrestationsBank1([]) ;
       return
     }
 
@@ -40,20 +41,22 @@ function Compare({types_comptes,types_prestations,banks}){
 
     if (bank1==bnk) {
       setPrestationsBank1([]) ;
-      setFilteredPrestations([]) ;
+      setFilteredPrestationsBank1([]) ;
       return
     }
 
     axios.get(process.env.NEXT_PUBLIC_API_URL+ `/prestations/${selectedFirstBankId}`)
     .then(response=>{
       setPrestationsBank1(response.data.prestations) ;
-      setFilteredPrestations(response.data.prestations) ;
+      setFilteredPrestationsBank1(response.data.prestations) ;
       console.log(prestationsBank1) ;
     })
     .catch(err=>{
       setPrestationsBank1([]) ;
-      setFilteredPrestations([]) ;
+      setFilteredPrestationsBank1([]) ;
     })
+
+    console.log(prestationsBank1) ;
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedFirstBankId]) ;
@@ -61,12 +64,12 @@ function Compare({types_comptes,types_prestations,banks}){
   useEffect(()=>{
     if (!selectedSecondBankId) {
       setPrestationsBank2([]) ;
-      setFilteredPrestations([]) ;
+      setFilteredPrestationsBank2([]) ;
       return
     }
 
     axios.get(process.env.NEXT_PUBLIC_API_URL + `/bank/${selectedSecondBankId}`)
-    .then(response=>{
+    .then(response=>{ 
       setBank2(response.data.bank)
     })
     .catch(err=>{
@@ -75,24 +78,29 @@ function Compare({types_comptes,types_prestations,banks}){
 
     if (bank2==bnk) {
       setPrestationsBank2([]) ;
-      setFilteredPrestations([]) ;
+      setFilteredPrestationsBank2([]) ;
       return
     }
 
     axios.get(process.env.NEXT_PUBLIC_API_URL+ `/prestations/${selectedSecondBankId}`)
     .then(response=>{
       setPrestationsBank2(response.data.prestations) ;
-      setFilteredPrestations(response.data.prestations) ;
-      console.log(prestationsBank2) ;
-    })
-    .catch(err=>{
-      setPrestationsBank2([]) ;
-      setFilteredPrestations([]) ;
+      setFilteredPrestationsBank2(response.data.prestations) ;
     })
 
+    .catch(err=>{
+      setPrestationsBank2([]) ;
+      setFilteredPrestationsBank2([]) ;
+    })
+    console.log(prestationsBank2) ;
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedSecondBankId]) ;
+
+  useEffect(()=>{
+    
+
+  }, [selectedFirstBankId,selectedSecondBankId]) ;
 
   return (
     <>
@@ -106,19 +114,18 @@ function Compare({types_comptes,types_prestations,banks}){
         />
       </div>
       <div className="w-full mb-10 md:mb-24 px-[10%]">
-        <Filters types_comptes={types_comptes} types_prestations={types_prestations} prestations={prestations} setPrestations={setFilteredPrestations}/>
+        <Filters types_comptes={types_comptes} types_prestations={types_prestations} prestations={prestations} setPrestations={setFilteredPrestationsBank1}/>
       </div>
-      {selectedFirstBankId!=null && selectedSecondBankId!=null && (
+      {/* {selectedFirstBankId!=null && selectedSecondBankId!=null && ( */}
         <div>
           <ComparaisonListe
             bank1={bank1}
             bank2={bank2} 
-            prestationsBank1={prestationsBank1} 
-            prestationsBank2={prestationsBank2}
+            prestationsBank1={filteredPrestationsBank1}
+            prestationsBank2={filteredPrestationsBank2}
           />
         </div>
-
-      )}
+      {/* )} */}
 
     </>
   )

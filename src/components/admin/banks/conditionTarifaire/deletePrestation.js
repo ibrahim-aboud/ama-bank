@@ -32,24 +32,25 @@ function DeletePrestation({ isVisible, setIsVisible, prestation ,deletePrestatio
         </div>
     );
     return (
-        <div>
-            <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center z-50">
-                <form onSubmit={onDelete} className="bg-white rounded flex flex-col items-center w-[700px]">
-                    <div className="bg-[#df2e38] text-white w-full flex justify-center items-center py-4 rounded-t mb-5">
-                        <MdDeleteForever size={25} />
-                        <h2 className="text-lg font-medium ml-2">Confirmation de suppression de prestation</h2>
-                    </div>
-                    <div>
-                        Vous allez supprimer definitivement cette prestation
-                    </div>
-                    <div className="flex mb-5 mt-5">
-                        <button className="p-2 rounded border hover:bg-[#df2e389a] hover:ease-in-out duration-100" onClick={onDelete}>Supprimer</button>
-                        <button className="p-2 ml-4 rounded border hover:bg-black-100 hover:ease-in-out duration-100" onClick={() => {setIsVisible(!isVisible);}}>Annuler</button>
-                    </div>
-                </form>
-            </div>
+        <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center z-50">
+            <form onSubmit={onDelete} className="w-[350px] sm:w-[500px]">
+                <div className="py-4 rounded-t-md bg-[#da4b38] text-white flex justify-center items-center">
+                <MdDeleteForever size={25} className="mr-3" />
+                <h2>Suppression d'une prestation</h2>
+                </div>
+                <div className="bg-white rounded-b-md pt-4 sm:pt-8 flex flex-col justify-center items-center">
+                <h2 className="mb-8 font-semibold">Voulez-vous supprimer cette prestation?</h2>
+                <div className="w-full">
+                    <button className="w-1/2 bg-gray-200 p-2 rounded-bl-md border border-gray-300 text-gray-700 hover:bg-gray-100 font-medium" onClick={onDelete}>
+                        Confirmer
+                    </button>
+                    <button className="w-1/2 bg-gray-200 p-2 rounded-br-md border border-gray-300 text-gray-700 hover:bg-gray-100 font-medium" onClick={() => {setIsVisible(!isVisible)}}>
+                        Annuler
+                    </button>
+                </div>
+                </div>
+            </form>
         </div>
     )
 }
-
 export default DeletePrestation;

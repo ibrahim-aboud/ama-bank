@@ -123,17 +123,17 @@ export default function AddPrestPopup({ isVisible, setIsVisible, bankId, addPres
     return (
         <div>
             <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center z-50">
-                <form onSubmit={onAdd} className="bg-white rounded flex flex-col items-center w-[700px]">
+                <form onSubmit={onAdd} className="bg-white rounded flex flex-col items-center w-[300px] md:w-[700px]">
                     <div className="bg-[#40916de3] text-white w-full flex justify-center items-center py-4 rounded-t mb-5">
                         <MdOutlineAddBox size={25} />
-                        <h2 className="text-lg font-medium ml-2">Ajouter une nouvelle prestation</h2>
+                        <h2 className="text-md md:text-lg font-medium ml-2">Ajouter une nouvelle prestation</h2>
                     </div>
                     <div className="flex flex-col">
                         <select
                             id="categorie"
                             name="categorie"
                             required
-                            className="rounded bg-gray-100 outline-none border w-[450px] pl-3 py-2"
+                            className="rounded bg-gray-100 outline-none border w-[250px] md:w-[450px] pl-3 py-2"
                             onChange={(event) => {setPrestation({...prestation, categorie_operation: event.target.value})}}
                         >
                             <option value="">--- Catégorie prestation ---</option>
@@ -146,7 +146,7 @@ export default function AddPrestPopup({ isVisible, setIsVisible, bankId, addPres
                             id="sousCategorie"
                             name="sousCategorie"
                             required
-                            className="rounded bg-gray-100 outline-none border w-[450px] pl-3 py-2 mt-4"
+                            className="rounded bg-gray-100 outline-none border w-[250px] md:w-[450px] pl-3 py-2 mt-3"
                             onChange={(event) => {
                                 setPrestation({...prestation, categorie_id: parseInt(event.target.value)})}}
                         >
@@ -165,7 +165,7 @@ export default function AddPrestPopup({ isVisible, setIsVisible, bankId, addPres
                                 type="text"
                                 required={personalisedPrest}
                                 placeholder="Nouvelle prestation"
-                                className={`rounded bg-gray-100 outline-none border w-[450px] px-5 py-2 mt-3 ${personalisedPrest ? "" : "hidden"}`}
+                                className={`rounded bg-gray-100 outline-none border w-[250px] md:w-[450px] px-5 py-2 mt-3 ${personalisedPrest ? "" : "hidden"}`}
                                 onChange={(event) => {setPrestation({...prestation, name: event.target.value})}}
                             />
                         )}
@@ -174,7 +174,7 @@ export default function AddPrestPopup({ isVisible, setIsVisible, bankId, addPres
                             id="nom_prestation"
                             name="nom_prestation"
                             required={!personalisedPrest}
-                            className={`rounded bg-gray-100 outline-none border w-[450px] pl-3 py-2 mt-3 ${personalisedPrest ? "hidden" : ""}`}
+                            className={`rounded bg-gray-100 outline-none border w-[250px] md:w-[450px] pl-3 py-2 mt-3 ${personalisedPrest ? "hidden" : ""}`}
                             onChange={(event) => {
                                 if (event.target.value == "#NEW_CUSTOM") setPersonalisedPrest(true);
                                 setPrestation({...prestation, name: event.target.value});
@@ -188,12 +188,12 @@ export default function AddPrestPopup({ isVisible, setIsVisible, bankId, addPres
                             ))}
                         </select>
                         
-                        <div className="flex justify-between my-3">
+                        <div className="flex flex-col md:flex-row md:justify-between my-3">
                             <select
                                 id="type_prestation"
                                 name="type_prestation"
                                 required
-                                className="rounded bg-gray-100 outline-none border w-[220px] pl-3 py-2"
+                                className="rounded bg-gray-100 outline-none border w-[250px] md:w-[220px] pl-3 py-2"
                                 onChange={(event) => {setPrestation({...prestation, type: event.target.value})}}
                             >
                                 <option value="">--- Type ---</option>
@@ -206,7 +206,7 @@ export default function AddPrestPopup({ isVisible, setIsVisible, bankId, addPres
                                 id="nom_prestation"
                                 required
                                 name="nom_prestation"
-                                className="rounded bg-gray-100 outline-none border w-[215px] pl-3 py-2"
+                                className="rounded bg-gray-100 outline-none border mt-3 md:mt-0 w-[250px] md:w-[220px] pl-3 py-2"
                                 onChange={(event) => {setPrestation({...prestation, period: parseInt(event.target.value)})}}
                             >
                                 <option value="">--- Périodicité ---</option>
@@ -227,13 +227,13 @@ export default function AddPrestPopup({ isVisible, setIsVisible, bankId, addPres
                             step="1"
                             required
                             placeholder="Tarif (gratuit par defaut)"
-                            className="rounded bg-gray-100 outline-none border px-5 py-2"
+                            className="rounded bg-gray-100 outline-none border w-[250px] md:w-[450px] px-5 py-2"
                             onChange={(event) => {setPrestation({...prestation, tarif: parseInt(event.target.value)})}}
                         />
                     </div>
-                    <div className="flex mb-5 mt-5">
-                        <button className="p-2 rounded border hover:bg-[#40916d9a] hover:ease-in-out duration-100" onClick={onAdd}>Ajouter</button>
-                        <button className="p-2 ml-4 rounded border hover:bg-red-100 hover:ease-in-out duration-100" onClick={() => {setIsVisible(!isVisible); setPersonalisedPrest(false)}}>Annuler</button>
+                    <div className="w-full mt-5">
+                        <button className="w-1/2 bg-gray-200 p-2 rounded-bl-md border border-gray-300 text-gray-700 hover:bg-gray-100 font-medium" onClick={onAdd}>Ajouter</button>
+                        <button className="w-1/2 bg-gray-200 p-2 rounded-br-md border border-gray-300 text-gray-700 hover:bg-gray-100 font-medium" onClick={() => {setIsVisible(!isVisible); setPersonalisedPrest(false)}}>Annuler</button>
                     </div>
                 </form>
             </div>

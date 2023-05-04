@@ -43,10 +43,11 @@ export default function Home({ banks, prestations, categories, object  }) {
 
   useEffect(()=>{
     var res=[] ;
+    
     prestations.map(prst=>{
-      if (map.get(`${prst.categorie_id}`) in categorieNames) {
-        res.push(prst.bank_id)
-      }
+      filters.map(fltr=>{
+        
+      })
     })
 
     // setFilteredBanks(filteredBanks.filter(bank=>{
@@ -99,9 +100,6 @@ export async function getServerSideProps(context) {
 
     var object = Object.fromEntries(map) ;
 
-    for (const [key, value] of map.entries()) {
-      console.log(key + ' = ' + value);
-    }
 
   } catch (e) {
     console.error(e.message);

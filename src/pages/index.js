@@ -43,18 +43,56 @@ export default function Home({ banks, prestations, categories, object  }) {
 
   useEffect(()=>{
     var res=[] ;
-    
+
     prestations.map(prst=>{
       filters.map(fltr=>{
-        
+        console.log(fltr.type)
+        if ((prst.name==fltr.prestation)&&(prst.type.toLowerCase() ==fltr.typeCompte.toLowerCase())){
+          switch (fltr.type){
+            case 0: {
+              if (prst.tarif<fltr.value1){
+                res.push(prst) ;
+              }
+            } ;
+            case 1: {
+              if (prst.tarif==fltr.value1) {
+                res.push(prst) ;
+              }
+            } ;
+            case 2: {
+              if (prst.tarif>fltr.value1) {
+                res.push(prst) ;
+              }
+            } ;
+            case 3: {
+              if ((prst.tarif>=fltr.value1)&&(prst.tarif<=fltr.value2)){
+                res.push(prst) ;
+              }
+            }
+          }
+
+        }
       })
+        
     })
 
+    console.log(res) ;
+    // var bank_ids = [];
+    // res.map(prst=>{
+    //   if (!(prst.bank_id in bank_ids)){
+    //     bank_ids.push(prst.bank_id) ;
+    //   }
+    // })
+  
+    // console.log(bank_ids) ;
+  
     // setFilteredBanks(filteredBanks.filter(bank=>{
     //   return bank.id in res
     // }))
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[filters]) ;
+  }, [filters]) ;
+
+
 
   return (
     <div>

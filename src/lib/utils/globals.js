@@ -1,4 +1,5 @@
 const globals = {
+const globals = {
   requiredKeys: {
     prestation: [
       "bank_id",

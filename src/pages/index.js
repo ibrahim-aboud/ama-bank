@@ -10,7 +10,7 @@ import BankList from "@/components/home-client/bankList";
 import createCategoriesMap from "@/lib/utils/createCategoriesMap";
 
 
-export default function Home({ banks, prestations, categories, object  }) {
+export default function Home({ banks, prestations, categories, object, types  }) {
   const [searchQuery, setSearchQuery] = useState("");
 
   var map = new Map(Object.entries(object)) ;
@@ -36,20 +36,17 @@ export default function Home({ banks, prestations, categories, object  }) {
   
   const [filteredBanks, setFilteredBanks] = useState(filteredList) ;
 
-  var categorieNames = categories.map(c=>{
-    return c.name ;
-  })
-
-
   useEffect(()=>{
     var res=[] ;
 
     prestations.map(prst=>{
       filters.map(fltr=>{
-        console.log(fltr.type)
-        if ((prst.name==fltr.prestation)&&(prst.type.toLowerCase() ==fltr.typeCompte.toLowerCase())){
+        console.log(fltr)
+        if ((map.get(`${prst.categorie_id}`)==fltr.prestation)&&(prst.type.toLowerCase() ==fltr.typeCompte.toLowerCase())){
+          console.log("heeer") ;
           switch (fltr.type){
             case 0: {
+              console.log(prst) ;
               if (prst.tarif<fltr.value1){
                 res.push(prst) ;
               }
@@ -104,7 +101,7 @@ export default function Home({ banks, prestations, categories, object  }) {
         <BankList filteredList={filteredBanks}/>
       </div>
 
-      <FilterPopup isVisible={isVisible} setIsVisible={setIsVisible} filters={filters} setFilters={setFilters} prestations={prestations} categories={categories} banks={banks} setFilteredBanks={setFilteredBanks} />
+      <FilterPopup isVisible={isVisible} setIsVisible={setIsVisible} filters={filters} setFilters={setFilters} prestations={prestations} categories={categories} banks={banks} setFilteredBanks={setFilteredBanks} typeCompteList={types} />
     </div>
   );
 }
@@ -114,6 +111,7 @@ export async function getServerSideProps(context) {
   var banks = [];
   var prestations = [] ;
   var categories = [] ;
+  var types = [] ;
 
   try {
     var response = await axios.get(
@@ -134,16 +132,21 @@ export async function getServerSideProps(context) {
 
     categories = response.data.categories 
 
+    response = await axios.get(
+      process.env.NEXT_PUBLIC_API_URL + "/prestations/types"
+    )
+
+    types = response.data.types ;
+
     var map = await createCategoriesMap(prestations) ;
 
     var object = Object.fromEntries(map) ;
-
 
   } catch (e) {
     console.error(e.message);
   }
 
   return {
-    props: { banks, categories, prestations, object},
+    props: { banks, categories, prestations, object, types},
   };
 }

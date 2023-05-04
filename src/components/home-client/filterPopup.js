@@ -3,10 +3,10 @@ import { MdOutlineClose, MdDeleteForever, MdAdd } from 'react-icons/md';
 import { BiFilterAlt } from "react-icons/bi";
 import { useState } from "react";
 
-export default function FilterPopup({ isVisible, setIsVisible, filters, setFilters, prestations,categories, banks,setFilteredBanks }) {
+export default function FilterPopup({ isVisible, setIsVisible, filters, setFilters, prestations,categories, banks,setFilteredBanks, typeCompteList }) {
     const [isAdding, setIsAdding] = useState(false);
     const typeList = ["Inférieure à", "Égale à", "Supérieure à", "Comprise entre"];
-    const typeCompteList = ["Particuliers", "Professionnel", "Entreprise"];
+    // const typeCompteList = ["Particuliers", "Professionnel", "Entreprise"];
   
     const [filter, setFilter] = useState({
       prestation: "",

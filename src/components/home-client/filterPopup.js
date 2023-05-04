@@ -11,7 +11,7 @@ export default function FilterPopup({ isVisible, setIsVisible, filters, setFilte
     const [filter, setFilter] = useState({
       prestation: "",
       typeCompte: 0,
-      type: 0,
+      type: -1,
       value1: 0,
       value2: 0
     })
@@ -73,7 +73,7 @@ export default function FilterPopup({ isVisible, setIsVisible, filters, setFilte
                     >
                       <option value="">Selectionner</option>
                       {typeCompteList.map((item, index) => (
-                        <option key={index} value={index}>{item}</option>
+                        <option key={index} value={index}>{item[0].charAt(0).toUpperCase() + item.slice(1)}</option>
                       ))}
                     </select>
                   </div>

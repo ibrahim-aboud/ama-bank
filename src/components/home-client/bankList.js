@@ -2,6 +2,8 @@ import Scrollbar from "@/components/common/scrollbar";
 import BankListElement from "./BankListElement";
 
 const BankList = ({filteredList}) => {
+
+  console.log("bank list element render");
   return ( 
     <div className="w-full lg:w-[1000px] lgx:w-[1200px] h-[500px] md:h-[660px]">
       <Scrollbar>

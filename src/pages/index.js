@@ -32,48 +32,90 @@ export default function Home({ banks, prestations, categories, object, types  })
   const [isVisible, setIsVisible] = useState(false);
   
   const [filters, setFilters] = useState([]);
-
   
   const [filteredBanks, setFilteredBanks] = useState(filteredList) ;
 
-  useEffect(()=>{
-    var res=[] ;
+  var allBanks = banks.map(bank=>{
+    return bank.id ;
+  })
 
-    prestations.map(prst=>{
-      filters.map(fltr=>{
-        console.log(fltr)
-        if ((map.get(`${prst.categorie_id}`)==fltr.prestation)&&(prst.type.toLowerCase() ==fltr.typeCompte.toLowerCase())){
-          console.log("heeer") ;
-          switch (fltr.type){
+  useEffect(()=>{
+    var final=allBanks ;
+    console.log("filters") ;
+    console.log(filters) ;
+
+    // setFilteredBanks(banks) ;
+
+    for (var i=0;i <filters.length;i++){
+      var res = [] ;
+      prestations.map(prst=>{
+        if ((map.get(`${prst.categorie_id}`).toLowerCase()==filters[i].prestation.toLowerCase())&&(prst.type.toLowerCase() == types[filters[i].typeCompte].toLowerCase())){
+          switch (filters[i].type){
             case 0: {
-              console.log(prst) ;
-              if (prst.tarif<fltr.value1){
-                res.push(prst) ;
+              if (prst.tarif<filters[i].value1){
+                if (!(prst.bank_id in res))
+                  res.push(prst.bank_id) ;
               }
+              break ;
             } ;
             case 1: {
-              if (prst.tarif==fltr.value1) {
-                res.push(prst) ;
+              if (prst.tarif==filters[i].value1) {
+                if (!(prst.bank_id in res))
+                  res.push(prst.bank_id) ;
               }
+              break ;
             } ;
             case 2: {
-              if (prst.tarif>fltr.value1) {
-                res.push(prst) ;
+              if (prst.tarif>filters[i].value1) {
+                if (!(prst.bank_id in res))
+                  res.push(prst.bank_id) ;
               }
+              break ;
             } ;
             case 3: {
-              if ((prst.tarif>=fltr.value1)&&(prst.tarif<=fltr.value2)){
-                res.push(prst) ;
+              if ((prst.tarif>=filters[i].value1)&&(prst.tarif<=filters[i].value2)){
+                if (!(prst.bank_id in res))
+                  res.push(prst.bank_id) ;
               }
+              break ;
+            } ;
+            default : {
+              
             }
           }
-
         }
-      })
-        
+
+      }) ;
+
+      if (final==[]) {
+        break ;
+      } else {
+        final.map((id,index)=>{
+          if (!(id in res)){
+            final.splice(index,1) ;
+          }
+        })
+      }
+
+    }    
+    var result= [] ;
+    
+    console.log("final") ;
+    console.log(final) ;
+
+    console.log("filtered banks") ;
+    console.log(filteredBanks) ;
+    banks.map(bank=>{
+      if (final.includes(bank.id)){
+        result.push(bank) ;
+      }
     })
 
-    console.log(res) ;
+    console.log("result: ") ;
+    console.log(result) ;
+
+    setFilteredBanks(result) ;
+    
     // var bank_ids = [];
     // res.map(prst=>{
     //   if (!(prst.bank_id in bank_ids)){

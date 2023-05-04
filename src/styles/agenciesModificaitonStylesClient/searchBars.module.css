@@ -3,8 +3,11 @@
     flex-direction: column;
     gap : 3em;
     font-family: 'Nunito', sans-serif;
-    padding : 5%; 
+    padding : 5%;
     margin-bottom: 80px;
+    border-radius: 20px 20px 20px 20px;
+    background : transparent;
+    margin : 20px;
 }
 
 .addAgency, .searchAgency{
@@ -14,7 +17,6 @@
 
 .addAgency > button{
     display: flex;
-    flex:0 0 auto;
     gap : 1em;
     background-color: #111111B2;
     border-radius: 10px;
@@ -38,7 +40,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    flex-grow: 3;
+    flex-grow: 9;
 }
 
 .searchAgency > button{
@@ -53,18 +55,18 @@
     align-items: center;
     justify-content: center;
     margin-top: 1.5em;
-    width : 20%
+    width : 20%;
 }
 .searchAgency > div{
     display: flex;
     flex-direction: column;
-    align-items:first baseline;
+    align-items:first-baseline;
     justify-content: center;
     width : 60%;
 }
 
 .searchAgency > div:first-child{
-    width : 20%
+    width : 20%;
 }
 
 .searchAgency > div > select:nth-child(1){
@@ -82,13 +84,7 @@
     height: 100%;
     background-color: #F5F5F5;
     padding : 0.8em;
-    border-radius: 10px 10px 10px 10px ;
 }
-
-.container select option:hover {
-   background-color: #48BB78;
-}
-
 
 .addAgency > div > span, .searchAgency > div > span{
     font-weight: 700;
@@ -107,7 +103,7 @@
 
   .myOption {
     /* Add styles for the option elements */
- 
+
     padding: 8px;
     font-size: 16px;
   }

@@ -4,13 +4,13 @@ import ComparaisonListeRow from "./ComparaisonListeRow.js"
 import ListePrestationsLogos from "./ListePrestationsLogos.js"
 import Image from "next/image"
 import emptyBox from "public/assets/comparaisonPage/emptyBox.png"
-import axios from "axios"
 
 function ComparaisonListe({bank1, bank2 , prestationsBank1, prestationsBank2}){
+
     // let prestationsBank1, prestationsBank2
     let prestationsData = {
 /*      bank1Name : "Natixis Algérie",
-        bank2Name : "BNP Paribas",  */
+        bank2Name : "BNP Paribas",  */  
         bank1Name : bank1.name,
         bank2Name : bank2.name,
         data : []
@@ -129,20 +129,22 @@ function ComparaisonListe({bank1, bank2 , prestationsBank1, prestationsBank2}){
                 setErrStyle({display : "none"})
             }
             let greyBackground = true;
-            setPrestationsDataJSX(prestationsData.data.map((prestation) =>{
+            setPrestationsDataJSX(prestationsData.data.map((prestation,index) =>{
                 greyBackground = !greyBackground;
-                 return <ComparaisonListeRow key ={prestation.id} object={prestation} style={{greyBackground}} />}
+                 return <ComparaisonListeRow key={index} object={prestation} style={{greyBackground}} />}
             ))
     // })
     // .catch(error => {
     //     console.log(error.response || error.message)
     // })
-    }, []) 
+
+
+    }, [prestationsBank1,prestationsBank2]) 
 
     return(
         <div className="listePrestations">
             <ListePrestationsLogos object={prestationsData} img1Name={bank1.logoLink} img2Name={bank2.logoLink} />
-            <span> {prestationsDataJSX.length != 0 && prestationsDataJSX}</span>
+            <div> {prestationsDataJSX.length != 0 && prestationsDataJSX}</div>
             <div style={errStyle}>
                 <Image src={emptyBox} alt="icon" style={{ height: '2em', width: 'auto' }} />
                 <span >Liste vide!</span>

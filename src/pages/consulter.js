@@ -33,7 +33,7 @@ function Consulter({ types_comptes, types_prestations, banks}) {
   const [FilteredConditions,setFilteredConditions] = useState(null) ;
 
 
-  useEffect(()=>{
+  useEffect( ()=>{
       if (!selectedBankId) {
           setConditions(null) ;
           return
@@ -45,15 +45,15 @@ function Consulter({ types_comptes, types_prestations, banks}) {
           setFilteredConditions(response.data.prestations) ;
       })
       .catch(err=>{
-
+        console.log(err) ;
       })
 
       axios.get(process.env.NEXT_PUBLIC_API_URL + `/bank/${selectedBankId}`)
-      .then((response)=>{
+      .then((response)=>{s
           setBank(response.data.bank) ;
       })
       .catch(err=>{
-
+        console.log(err) ;
       })
 
       
@@ -78,7 +78,7 @@ function Consulter({ types_comptes, types_prestations, banks}) {
         </div>  
         
         <div className="w-full mb-10 md:mb-24 px-[10%]">
-          <Filters types_comptes={types_comptes} types_prestations={types_prestations} prestations={conditions} setPrestations={setFilteredConditions}></Filters>
+          <Filters types_comptes={types_comptes} types_prestations={types_prestations} prestations={conditions} setPrestations={setFilteredConditions}></Filters>s
         </div>
 
         <div className="mb-10">

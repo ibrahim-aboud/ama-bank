@@ -3,19 +3,17 @@ import Image from"next/image"
 import styles from "src/styles/compareToListeStyles/ListePrestationLogos.module.css"
 
 function ListePrestationsLogos(props){
-/*     const img1Name = require("../../../public/assets/logos/" + props.object.bank1Name + ".png")
-    const img2Name = require("../../../public/assets/logos/" + props.object.bank2Name + ".png") */
     const img1Name = props.img1Name
     const img2Name = props.img2Name
 
     return(
         <span className={styles.headerListePrestations}>
-            <div className={styles.image1}>
-                <Image src={img1Name} width={150} height={150} alt={props.object.bank1Name} />
+            <div className={styles.image1}> 
+                <Image src={img1Name} width={200} height={200} alt={props.object.bank1Name} />
                 <span>{props.object.bank1Name}</span>
             </div>
             <div className={styles.image2}>
-                <Image src={img2Name} width={150} height={150} alt={props.object.bank2Name} />
+                <Image src={img2Name} width={200} height={200} alt={props.object.bank2Name} />
                 <span>{props.object.bank2Name}</span>
             </div>
         </span>

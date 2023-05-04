@@ -154,3 +154,81 @@
     
 
 }
+
+
+@media screen and (max-width: 415px) {
+    .bankSearchBox{
+        margin: 5vh 10vw;
+    }
+    
+    .bankSearchBox h2{
+        margin: 1vh 1vw;
+        font-weight: 600;
+        font-size: 18px;
+    }
+    .inputButton{
+        display:block;
+    }
+    .searchBox{
+        width: 100%;
+    }
+    .button{
+        background-color: #585858;
+        color : white;
+        width: 58vw;
+        border-radius: 10px;
+        margin-left: 0;
+        margin : 4vh 0;
+        padding:22px 0;
+    }
+    .reload{
+        position:relative;
+        top: 10px;
+        left: 5%;
+        width: 10vh;
+        height: 10vh;
+        margin-left: 0;
+        margin-right: 0;
+        display: inline-block;
+        text-align: center;
+    }
+    .reloadButton{
+        margin: 0 23%;
+    }
+    .threeInputs{
+        display: block;
+        margin: 5vh 10vw;
+    
+    }
+    .categorieOperation{
+        width: 100%;
+        margin: 5vh 0;
+
+    }
+    .categorieOperation h2{
+        margin: 1vh 1vw;
+        font-weight: 600;
+        font-size: 18px;
+    }
+    .categorie{
+        width:100%;
+        margin: 5vh 0;
+    }
+    .categorie h2{
+        margin: 1vh 1vw;
+        font-weight: 600;
+        font-size: 18px;
+    }
+    .type{
+        width:100%;
+        margin: 5vh 0;
+    }
+    .type h2{
+        margin: 1vh 1vw;
+        margin-top: 3vh;
+        font-weight: 600;
+        font-size: 18px;
+    }
+    
+
+}

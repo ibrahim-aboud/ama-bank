@@ -31,6 +31,7 @@ export default function prestationInfoValidator(prestation){
         }
     }
 
+
     return {
         error,
         errorList: ArrayError,

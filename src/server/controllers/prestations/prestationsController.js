@@ -35,23 +35,24 @@ export default class PrestationsController {
             }
             
             const {prestation} = req.body ; 
-
+            
             if (prestation==undefined){
                 throw new ModelError(errorMessages.missingResource,400);
             }
-    
+            
             var check = prestationInfoValidator(prestation) ;
             
             if (check.error){
                 throw new ModelError(check.errorList[0],400) ;
             }
-
+            
             //Aditional check (just to optimize) if the bank id really exists
 
             var data = await Prestation.getPrestationByName(prestation.bank_id, prestation.name, prestation.type) ;
 
+
             if (data!=null){
-                throw new ModelError(errorMessages.existant, 200) ;
+                throw new ModelError(errorMessages.existant, 409) ;
             }
             
             data = await Prestation.insertPrestation(prestation) ;

@@ -25,7 +25,7 @@ const NameAndLogo = ({bank_id}) => {
         <div className="flex justify-center">
             {bank && (
                 <div className="flex items-center">
-                    <Image className="w-[120px] h-[120px] rounded-md" src={bank.logoLink} width={150} height={150} alt="bank_logo" ></Image>
+                    <Image className="w-[120px] h-[120px] border rounded-bl-md rounded-tl-md" src={bank.logoLink} width={150} height={150} alt="bank_logo" ></Image>
                     <h1 className="font-bold flex px-5 rounded-tr-md rounded-br-md border flex-col justify-center items-center text-xl bg-gray-100 h-[120px]">{bank.name}</h1>
                 </div>
             )}

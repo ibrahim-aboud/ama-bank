@@ -13,7 +13,7 @@ function ListePrestations({prestations,deletePrestation,editPrestation}){
         }
         if(listSize%2!==0){
             componentList.push(<li key={prestations[listSize-1].id}> <LignePrestation prestation1={prestations[listSize-1]} prestation2={null} first={((listSize/2)+1)%2===0 ? true : false} single={true} deletePrestation={deletePrestation} editPrestation={editPrestation}/></li>);
-        }
+        } 
     }
     
     

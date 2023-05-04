@@ -87,7 +87,7 @@ export default function ModifyPrestation({ isVisible, setIsVisible, prestation ,
         setPersonalisedPrest(false);
         editPrestation(prestationToSend);
         setTimeout(() => {setIsSuccessful(false); setIsFeedbackVisible(false);setMessage("")}, 2000);
-    }
+    } 
     if (!isVisible) return (
         <div>
             <Fail message={message} isVisible={feedbackVisible} isSuccessful={isSuccessful} />

@@ -24,7 +24,7 @@ function DeletePrestation({ isVisible, setIsVisible, prestation ,deletePrestatio
 
         setTimeout(() => {setIsSuccessful(false); setIsFeedbackVisible(false);setMessage("")}, 2000);
     }
-
+ 
     if (!isVisible) return (
         <div>
             <Fail message={message} isVisible={feedbackVisible} isSuccessful={isSuccessful} />

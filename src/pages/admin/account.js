@@ -9,6 +9,7 @@ import { FaLock } from "react-icons/fa";
 import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
+import Navbar from "@/components/common/navbar";
 
 function Account({ admin }) {
   const [username, setUsername] = useState(admin.username);

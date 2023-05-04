@@ -1,0 +1,138 @@
+.nav {
+  background-color: #111;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  top: 0;
+}
+
+.navbarLogo {
+  display: flex;
+  color: white;
+  align-items: center;
+}
+
+.navbarLogo h1 {
+  font-family: 'Comfortaa';
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.navbarLogo .img {
+  width: 65px;
+  height: auto;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.navbarLinks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  margin-left: auto;
+}
+
+.navbarLinks li {
+  margin-right: 20px;
+}
+
+.navbarLinks li a:hover {
+  text-decoration: underline;
+}
+
+.navbarLinks li:last-child {
+  margin-right: 0;
+  display: none;
+}
+
+.navbarLinks a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 'Nunito';
+  margin-right: 20px;
+  color: white;
+}
+
+.navbarHelp {
+  margin-right: 20px;
+  margin-left: 10px;
+}
+
+.navbarHelp a {
+  background-color: #64646462;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 120px;
+}
+
+.navbarHelp a:hover {
+  background-color: #737373;
+}
+
+.navbarToggle {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1023px) {
+
+  .navbarLinks {
+    margin-top: 44px;
+    position: absolute;
+    top: 55px;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: #111;
+    z-index: 999;
+  }
+
+  .navbarLinks li a {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-right: 0px;
+    font-family: 'Nunito';
+  }
+
+  .navbarLinks li {
+    margin-right: 0px;
+    font-family: 'Nunito';
+  }
+
+  .navbarHelp {
+    display: none;
+  }
+
+  .navbarLinks li:nth-last-child(1) {
+    display: inline-block;
+  }
+
+  .navbarToggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 10px;
+    height: 18px;
+    width: 20px;
+  }
+
+  .navbarToggle span {
+    background-color:white;
+    height: 3px;
+  }
+  
+  .navbarLinks.active {
+    display: flex;
+  }
+  
+  .navbarLinks a {
+    display: block;
+    font-weight: bold;
+    margin-right: 20px;
+  }
+}

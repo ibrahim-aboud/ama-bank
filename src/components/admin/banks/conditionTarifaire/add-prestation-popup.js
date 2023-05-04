@@ -225,14 +225,13 @@ export default function AddPrestPopup({ isVisible, setIsVisible, bankId, addPres
                             min="0" 
                             max="1000000"
                             step="1"
-                            required
                             placeholder="Tarif (gratuit par defaut)"
                             className="rounded bg-gray-100 outline-none border w-[250px] md:w-[450px] px-5 py-2"
                             onChange={(event) => {setPrestation({...prestation, tarif: parseInt(event.target.value)})}}
                         />
                     </div>
                     <div className="w-full mt-5">
-                        <button className="w-1/2 bg-gray-200 p-2 rounded-bl-md border border-gray-300 text-gray-700 hover:bg-gray-100 font-medium" onClick={onAdd}>Ajouter</button>
+                        <button className="w-1/2 bg-gray-200 p-2 rounded-bl-md border border-gray-300 text-gray-700 hover:bg-gray-100 font-medium" type="submit">Ajouter</button>
                         <button className="w-1/2 bg-gray-200 p-2 rounded-br-md border border-gray-300 text-gray-700 hover:bg-gray-100 font-medium" onClick={() => {setIsVisible(!isVisible); setPersonalisedPrest(false)}}>Annuler</button>
                     </div>
                 </form>

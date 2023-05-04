@@ -88,6 +88,15 @@ export default function ModifyPrestation({ isVisible, setIsVisible, prestation ,
         editPrestation(prestationToSend);
         setTimeout(() => {setIsSuccessful(false); setIsFeedbackVisible(false);setMessage("")}, 2000);
     }
+
+    const map = {
+        0: "Non-périodique",
+        30: "Par mois",
+        90: "Par trimestre",
+        180: "Par semestre",
+        360: "Par an"
+      };
+
     if (!isVisible) return (
         <div>
             <Fail message={message} isVisible={feedbackVisible} isSuccessful={isSuccessful} />
@@ -175,7 +184,7 @@ export default function ModifyPrestation({ isVisible, setIsVisible, prestation ,
                                 className="rounded bg-gray-100 outline-none border w-[250px] mt-3 md:mt-0 md:w-[220px] pl-3 py-2"
                                 onChange={(event) => {setPrestations({...prestations, period: parseInt(event.target.value)})}}
                             >
-                                <option value="">{prestation.period}</option>
+                                <option value="">{map[prestation.period]}</option>
                                 <option value="0">Non-périodique</option>
                                 <option value="30">Par mois</option>
                                 <option value="90">Par trimestre</option>

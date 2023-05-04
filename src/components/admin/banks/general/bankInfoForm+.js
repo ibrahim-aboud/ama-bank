@@ -119,7 +119,9 @@ function BankInfoFormADD() {
       }
 
     } catch (e) {
-      setError(e.response?.data.error.message);
+      console.log(e);
+      setError(e.response?.data);
+      
       setAddSuccess(false);
       setIsFeedbackVisible(true);
       setTimeout(() => {setAddSuccess(false); setIsFeedbackVisible(false)}, 2000);

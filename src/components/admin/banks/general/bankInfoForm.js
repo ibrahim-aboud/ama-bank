@@ -138,7 +138,7 @@ function BankInfoForm({ bankId }) {
       setSuccess(true);
       setTimeout(() => {
         setSuccess(false);
-        // router.reload()
+        // router.push("/admin/home")
       }, 3000);
     } catch (e) {
       setError(e.response?.data.error.message);

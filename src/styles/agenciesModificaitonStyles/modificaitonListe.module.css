@@ -16,7 +16,7 @@
     animation-name: animationSuccess;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
-    overflow-y: auto;
+    overflow-y: scroll;
   }
   
   .dataInput{

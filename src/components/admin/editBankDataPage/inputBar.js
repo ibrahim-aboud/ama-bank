@@ -7,7 +7,7 @@ function InputBar(Props){
     const [style, setStyle] = useState(null)
     const [length, setLength] = useState(0)
     const [err, setErr] = useState(null)
-
+    const [val, setVal] = useState(Props.data)
     let  str
     const verifyData = (data, typeData) => {
         return new Promise((resolve, reject) => {
@@ -49,7 +49,6 @@ A
             Props.record.handleInputs(resolve, Props.record.title)
             })
         .catch(error => {
-            console.log(error)
             setErr({backgroundColor : "#ffbebe"})
             })
             Props.record.handleInputs("INVALID_VALUE", Props.record.title)
@@ -65,21 +64,45 @@ A
     }, [clicked])
 
     if(Props.record.title === 'Adresse *'){
+        if(Props.data!=""){
         str = <input type={Props.record.type} onFocus={() => setClicked(!clicked)} 
         onBlur={() => setClicked(!clicked)} style={err}
-        onChange={(e) => handleInput(e)} required/>
+         placeholder={Props.record.placeHolder} 
+        value={val} onChange={(e) =>{ setVal(e.target.value)
+                                    return handleInput(e)}} required/>
+        }
+        else{
+            str = <input type={Props.record.type} onFocus={() => setClicked(!clicked)} 
+            onBlur={() => setClicked(!clicked)} style={err}
+             placeholder={Props.record.placeHolder} 
+             onChange={(e) =>{ setVal(e.target.value)
+                                        return handleInput(e)}} required/>
+        }      
+        
     } else {
+        if(Props.data!=""){
         str = <input type={Props.record.type} onFocus={() => setClicked(!clicked)} 
         onBlur={() => setClicked(!clicked)} style={err}
-        onChange={(e) => handleInput(e)}/>
+         placeholder={Props.record.placeHolder}
+        value={val} onChange={(e) =>{
+                 setVal(e.target.value)
+                 return handleInput(e)}} />
+        } else {
+            str = <input type={Props.record.type} onFocus={() => setClicked(!clicked)} 
+            onBlur={() => setClicked(!clicked)} style={err}
+             placeholder={Props.record.placeHolder}
+             onChange={(e) =>{
+                     setVal(e.target.value)
+                     return handleInput(e)}} />   
+        }
     }
 
     return(
         <div className={styles.inputComponent}>
             <span  className={styles.inputMessage}>{Props.record.title}</span>
             <span className={styles.inputBar}>
-                <Image src={Props.record.icone} style={style} alt="Icone"></Image>
-                <span style={style}>{Props.record.placeHolder} </span>
+                <Image src={Props.record.icone}  alt="Icone"></Image>
+                {/* <span style={style}>{Props.record.placeHolder} </span> */}
                 {str}
             </span>
         </div>

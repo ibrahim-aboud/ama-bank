@@ -1,9 +1,9 @@
 import React, {useState} from "react"
 import Image from "next/image"
-import telIcone from "../../../public/assets/modificationsPage/telGreenIcon.svg"
-import faxIcon from "../../../public/assets/modificationsPage/faxGreenIcon.svg"
-import penIcone from "../../../public/assets/modificationsPage/penIcon.svg"
-import basketIcon from "../../../public/assets/modificationsPage/deleteBasketIcon.svg"
+import telIcone from "public/assets/modificationsPage/telGreenIcon.svg"
+import faxIcon from "public/assets/modificationsPage/faxGreenIcon.svg"
+import penIcone from "public/assets/modificationsPage/penIcon.svg"
+import basketIcon from "public/assets/modificationsPage/deleteBasketIcon.svg"
 import styles from "src/styles/agenciesModificaitonStyles/agencyRow.module.css"
 
 function AgencyRow(props){
@@ -41,22 +41,22 @@ function AgencyRow(props){
             </div>
             <div className={styles.agencyRowTelFax}>
                 <span>
-                    <Image src={telIcone}></Image>
+                    <Image src={telIcone} alt = "icone"></Image>
                     <span>Téléphone : </span>
                     <span>{phone}</span>
                 </span>
                 <span>
-                    <Image src={faxIcon}></Image>
+                    <Image src={faxIcon} alt = "icone"></Image>
                     <span>Fax : </span>
                     <span>{fax}</span>
                 </span>
             </div>
             <div className={styles.agencyRowModifyDelete}>
-                <button onClick={() => props.handleEditAgencyInfo(props.record.id)} >
-                    <Image src={penIcone}></Image>
+                <button onClick={() => props.handleEditAgencyInfo(props.record)} >
+                    <Image src={penIcone} alt = "icone"></Image>
                 </button>
                 <button onClick={() => props.handleDeleteAgency(props.record.id)} style={deleteStyle} >
-                    <Image src={basketIcon}></Image>
+                    <Image src={basketIcon} alt = "icone"></Image>
                 </button>
             </div>
         </span>

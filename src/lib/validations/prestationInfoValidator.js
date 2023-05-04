@@ -1,8 +1,8 @@
-import globals from "../utils/globals";
+import  globals from "../utils/globals";
 
 export default function prestationInfoValidator(prestation){
     let error = false ;
-    var ArrayError = [];
+    var ArrayError = []
     
     var {requiredKeys,possibleOperations} = globals ;
     var abscentKeys = [] ;

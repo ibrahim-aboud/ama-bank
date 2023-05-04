@@ -222,6 +222,7 @@ Home.getLayout = function PageLayout(page) {
 export async function getServerSideProps(context) {
   const session = await getSession(context);
   var banks = [];
+  var banks = [];
 
   if (!session) {
     return {
@@ -242,7 +243,18 @@ export async function getServerSideProps(context) {
     console.error(e.message);
   }
 
+  try {
+    const response = await axios.get(
+      process.env.NEXT_PUBLIC_API_URL + "/banks"
+    );
+
+    banks = response.data.banks;
+  } catch (e) {
+    console.error(e.message);
+  }
+
   return {
+    props: { banks },
     props: { banks },
   };
 }

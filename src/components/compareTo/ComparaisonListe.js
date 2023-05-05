@@ -77,7 +77,24 @@ function ComparaisonListe({bank1, bank2 , prestationsBank1, prestationsBank2}){
                 let word2 = prestationsBank2[cpt2].categorie_operation + prestationsBank2[cpt2].name + prestationsBank2[cpt2].type
                 if(word1 === word2){
                     let obj = null
-                    if(prestationsBank1[cpt1].tarif /(prestationsBank1[cpt1].period + 1)   > prestationsBank2[cpt2].tarif /(prestationsBank1[cpt1].period + 1)  ){
+                    if(prestationsBank1[cpt1].period === 0 && prestationsBank2[cpt2].period !== 0){
+                        obj = {
+                            nom_prestation : prestationsBank1[cpt1].name + " " + prestationsBank1[cpt1].type,
+                            tarifBanque0 : tarifConverter(prestationsBank1[cpt1].tarif) + period(prestationsBank1[cpt1].period), 
+                            tarifBanque1 : tarifConverter(prestationsBank2[cpt2].tarif) + period(prestationsBank2[cpt2].period),
+                            lowerPrice : 1,
+                            higherPrice : 0
+                        }
+                    }else if(prestationsBank1[cpt1].period !== 0 && prestationsBank2[cpt2].period === 0){
+                        obj = {
+                            nom_prestation : prestationsBank1[cpt1].name + " " + prestationsBank1[cpt1].type,
+                            tarifBanque0 : tarifConverter(prestationsBank1[cpt1].tarif)  +  period(prestationsBank1[cpt1].period), 
+                            tarifBanque1 : tarifConverter(prestationsBank2[cpt2].tarif) + period(prestationsBank2[cpt2].period),
+                            lowerPrice : 0,
+                            higherPrice : 1
+                        }
+                    }else
+                    if((prestationsBank1[cpt1].tarif /(prestationsBank1[cpt1].period + 1) )  > (prestationsBank2[cpt2].tarif /(prestationsBank2[cpt2].period + 1) ) ){
                             obj = {
                                 nom_prestation : prestationsBank1[cpt1].name + " " + prestationsBank1[cpt1].type,
                                 tarifBanque0 : tarifConverter(prestationsBank1[cpt1].tarif)  +  period(prestationsBank1[cpt1].period), 
@@ -86,7 +103,8 @@ function ComparaisonListe({bank1, bank2 , prestationsBank1, prestationsBank2}){
                                 higherPrice : 1
                             }
                     } else {
-                        if(prestationsBank1[cpt1].tarif /(prestationsBank1[cpt1].period + 1)   < prestationsBank2[cpt2].tarif /(prestationsBank1[cpt1].period + 1)  ){
+                        if((prestationsBank1[cpt1].tarif /(prestationsBank1[cpt1].period + 1) )  < (prestationsBank2[cpt2].tarif /(prestationsBank2[cpt2].period + 1) ) ){
+
                             obj = {
                                 nom_prestation : prestationsBank1[cpt1].name + " " + prestationsBank1[cpt1].type,
                                 tarifBanque0 : tarifConverter(prestationsBank1[cpt1].tarif) + period(prestationsBank1[cpt1].period), 

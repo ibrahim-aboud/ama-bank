@@ -78,7 +78,7 @@ function Consulter({ types_comptes, types_prestations, banks}) {
         </div>  
         
         <div className="w-full mb-10 md:mb-24 px-[10%]">
-          <Filters types_comptes={types_comptes} types_prestations={types_prestations} prestations={conditions} setPrestations={setFilteredConditions}></Filters>s
+          <Filters types_comptes={types_comptes} types_prestations={types_prestations} prestations={conditions} setPrestations={setFilteredConditions}></Filters>
         </div>
 
         <div className="mb-10">

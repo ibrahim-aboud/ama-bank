@@ -77,7 +77,7 @@ function ComparaisonListe({bank1, bank2 , prestationsBank1, prestationsBank2}){
                 let word2 = prestationsBank2[cpt2].categorie_operation + prestationsBank2[cpt2].name + prestationsBank2[cpt2].type
                 if(word1 === word2){
                     let obj = null
-                    if((prestationsBank1[cpt1].period + 1) * prestationsBank1[cpt1].tarif > (prestationsBank1[cpt1].period + 1) * prestationsBank2[cpt2].tarif ){
+                    if(prestationsBank1[cpt1].tarif /(prestationsBank1[cpt1].period + 1)   > prestationsBank2[cpt2].tarif /(prestationsBank1[cpt1].period + 1)  ){
                             obj = {
                                 nom_prestation : prestationsBank1[cpt1].name + " " + prestationsBank1[cpt1].type,
                                 tarifBanque0 : tarifConverter(prestationsBank1[cpt1].tarif)  +  period(prestationsBank1[cpt1].period), 
@@ -86,7 +86,7 @@ function ComparaisonListe({bank1, bank2 , prestationsBank1, prestationsBank2}){
                                 higherPrice : 1
                             }
                     } else {
-                        if((prestationsBank1[cpt1].period + 1) * prestationsBank1[cpt1].tarif < (prestationsBank1[cpt1].period + 1) * prestationsBank2[cpt2].tarif ){
+                        if(prestationsBank1[cpt1].tarif /(prestationsBank1[cpt1].period + 1)   < prestationsBank2[cpt2].tarif /(prestationsBank1[cpt1].period + 1)  ){
                             obj = {
                                 nom_prestation : prestationsBank1[cpt1].name + " " + prestationsBank1[cpt1].type,
                                 tarifBanque0 : tarifConverter(prestationsBank1[cpt1].tarif) + period(prestationsBank1[cpt1].period), 

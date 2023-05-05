@@ -39,7 +39,7 @@ function agencyListe({handleDeleteAgency, handleEditAgencyInfo, agencyList}){
       }
 
     return(
-        <div>
+        <div style={{marginBottom : "200px"}}>
              {agenciesList}
              <div style={agencyList.length == 0 ?
              {

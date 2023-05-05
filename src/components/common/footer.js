@@ -143,13 +143,13 @@ function Footer() {
                 <Link href="/consulter">Consulter</Link>
               </li>
               <li>
-                <Link href="/compare">Comparer</Link>
+                <Link href="/comparer">Comparer</Link>
               </li>
               <li>
-                <Link href="/rechercherLesAgences">Trouver une agence</Link>
+                <Link href="/agences">Trouver une agence</Link>
               </li>
               <li>
-                <Link href="/aboutUs">À propos</Link>
+                <Link href="/about">À propos</Link>
               </li>
               <li>
                 <Link href="#">Besoin d'aide?</Link>

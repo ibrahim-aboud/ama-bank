@@ -41,7 +41,7 @@ export default function AboutUS ({ infos }) {
                         Vous trouvez des difficultés à choisir entre deux banques différentes ?
                         Nous vous aidons à prendre une décision en comparant les prestations de deux banques de votre choix.   
                     </p>
-                    <Link href="/compare" target="_blank" className={style.btnGreen2}>
+                    <Link href="/comparer" target="_blank" className={style.btnGreen2}>
                         <Image src={cmpImg} alt="Someonediscoveringbanks" className={style.cmpIcon}/><span className={style.btnText2}>Comparer entre deux banques</span>
                     </Link>
                 </div>
@@ -54,7 +54,7 @@ export default function AboutUS ({ infos }) {
                         Vous avez pu trouver la banque qui répond à vos exigences?
                         Commencez à cherchez l’agence la plus proche de votre domicile.
                     </p>
-                    <Link href="/rechercherLesAgences" target="_blank" className={style.btnGreen}>
+                    <Link href="/agences" target="_blank" className={style.btnGreen}>
                         <Image src={locationIcon} alt="LocationIcon" className={style.srcIcon}/>
                         <span className={style.btnText}>Trouver une agence</span></Link>
                 </div>

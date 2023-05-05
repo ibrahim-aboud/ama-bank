@@ -4,8 +4,8 @@ const mysql = require('mysql2');
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'PassWord',
-  database: 'DataBase'
+  password: 'Inzel@2004',
+  database: 'db_amabank'
 });
 
 let filesArray = ['../../../public/data/NatixisAlgérie.json', '../../../public/data/TRUSTBank.json', '../../../public/data/SocieteGenerale.json'];//liste of files
@@ -96,8 +96,9 @@ for(let file of filesArray){
                 }
                 idCatigorie++;
             }
+            cpt++;//i can use the bank id but to make things clear i wont
         }
-        cpt++;//i can use the bank id but to make things clear i wont
+        
         bank_id++;
     }
 

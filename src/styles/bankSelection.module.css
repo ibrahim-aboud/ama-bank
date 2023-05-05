@@ -1,0 +1,173 @@
+.h1{
+    font-size:40px;
+    text-align: center;
+    font-weight: 700;
+    margin: 4vh;
+}
+.h2{
+    font-size:25px;
+    font-weight: 500;
+    margin: 1vh;
+}
+.selectionBody{
+    display: flex;
+    align-items: center;
+    
+}
+.checkBoxs{
+    flex-grow: 1;
+}
+.firstBank{
+    margin: 5vh 4vh;
+}
+.secondBank{
+    margin: 5vh 4vh;
+
+}
+
+.img{
+    margin: 0 6vw;
+    width: 40vh;
+}
+
+
+@media screen and (max-width: 850px){
+    .img{
+        display: none;
+    }
+    .checkBoxs{
+        flex-grow: 1;
+    }
+    .firstBank{
+        margin-left: 10% ;
+        margin-right: 0;
+    }
+    .secondBank{
+        margin-left: 10% ;
+        margin-right: 0;
+    
+    }
+    .h1{
+        font-size: 30px;
+    }
+    .h2{
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .h2{
+        font-size: 20px;
+        position: relative;
+        left:-3%;
+        margin: 5% 0;
+    }
+    .firstBank{
+        margin-left: 35vw;
+    }
+    .secondBank{
+        margin-left:35vw;
+    }
+}
+
+@media screen and (max-width: 650px){
+    .h2{
+        font-size: 20px;
+        position: relative;
+        left:-3%;
+        margin: 5% 0;
+    }
+    .firstBank{
+        margin-left: 30vw;
+    }
+    .secondBank{
+        margin-left:30vw;
+    }
+}
+@media screen and (max-width: 550px){
+    .h2{
+        font-size: 20px;
+        position: relative;
+        left:-3%;
+        margin: 5% 0;
+    }
+    .firstBank{
+        margin-left: 27vw;
+    }
+    .secondBank{
+        margin-left:27vw;
+    }
+}
+@media screen and (max-width: 500px){
+    .h2{
+        font-size: 20px;
+        position: relative;
+        left:-3%;
+        margin: 5% 0;
+    }
+    .firstBank{
+        margin-left: 25vw;
+    }
+    .secondBank{
+        margin-left:25vw;
+    }
+}
+@media screen and (max-width: 450px){
+    .h2{
+        font-size: 20px;
+        position: relative;
+        left:-3%;
+        margin: 5% 0;
+    }
+    .firstBank{
+        margin-left: 22vw;
+    }
+    .secondBank{
+        margin-left:22vw;
+    }
+}
+@media screen and (max-width: 400px){
+    .h2{
+        font-size: 20px;
+        position: relative;
+        left:-3%;
+        margin: 5% 0;
+    }
+    .firstBank{
+        margin-left: 18vw;
+    }
+    .secondBank{
+        margin-left:18vw;
+    }
+}
+@media screen and (max-width: 350px){
+    .h2{
+        font-size: 20px;
+        position: relative;
+        left:-3%;
+        margin: 5% 0;
+    }
+    .firstBank{
+        margin-left: 15vw;
+    }
+    .secondBank{
+        margin-left:15vw;
+    }
+}
+@media screen and (max-width: 300px){
+    .h1{
+        font-size: 22px;
+    }
+    .h2{
+        font-size: 18px;
+        position: relative;
+        left:0;
+        margin: 5% 0;
+    }
+    .firstBank{
+        margin-left: 7vw;
+    }
+    .secondBank{
+        margin-left:7vw;
+    }
+}

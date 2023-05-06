@@ -147,7 +147,7 @@ function Input({
             disabled
             className={style.box}
             value={info}
-            placeholder="Modifier votre mot de passe"
+            placeholder="Modifier/Confirmer votre mot de passe"
             onChange={(e) => setInfo(e.target.value)}
           />
         ) : (

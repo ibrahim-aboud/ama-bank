@@ -89,7 +89,16 @@ export default class Agency {
             throw new ModelError(errorMessages.serverError,500) ; 
         }
 
-        return data ;
+            var dataToArchive = await dbQueryArchive(
+            "INSERT INTO db_amabank_archive.ab_agencies VALUES((?), (?), (?), (?), (?), (?), (?), (?), (?), (?), NOW(), 'MODIFIED')", 
+            [null, row[0].id_agency, row[0].agency_bank_id, row[0].agency_address, row[0].agency_lat, row[0].agency_lng, 
+            row[0].agency_wilaya, row[0].agency_phone, row[0].agency_fax, row[0].agency_location_link]
+                )
+            return data;
+
+        } catch(err){
+            throw new ModelError(errorMessages.serverError,501) ; 
+        }
     }
 
     static async deleteAgency(id){
@@ -99,7 +108,20 @@ export default class Agency {
         } catch(err){
             throw new ModelError(errorMessages.serverError,500) ;
         }
+        try{
 
-        return data ;
+            if(row.length != 0){
+               var dataToArchive = await dbQueryArchive(
+                "INSERT INTO db_amabank_archive.ab_agencies VALUES((?), (?), (?), (?), (?), (?), (?), (?), (?), (?), NOW(), 'DELETED')", 
+                [null, row[0].id_agency, row[0].agency_bank_id, row[0].agency_address, row[0].agency_lat, row[0].agency_lng, 
+                row[0].agency_wilaya, row[0].agency_phone, row[0].agency_fax, row[0].agency_location_link]
+                ) 
+            }
+            return data;
+            
+        }
+        catch(err){
+            throw new ModelError(errorMessages.serverError,501) ;
+        } 
     }
 }

@@ -100,6 +100,8 @@ function BankInfoFormADD() {
             }
           );
       }
+
+      console.log("heeeeyeyyeyye") ;
       if ("error" in response1.data){
         setError("ERREUR: banque déja existante!");
         setAddSuccess(false);

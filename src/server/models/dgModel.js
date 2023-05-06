@@ -81,6 +81,11 @@ export default class Dg{
 
     static async modifyDg(dg){
         const {id,bank_id ,address ,lat ,lng ,wilaya ,phone ,fax ,location_link} = dg ;
+        try {
+            var row = await dbQuery("SELECT * FROM db_amabank.ab_dgs WHERE id_dg=(?)", [id])
+        } catch(err){
+            throw new ModelError(errorMessages.serverError,502) ; 
+        }
 
         try {
             var data = await dbQuery("UPDATE ab_dgs SET dg_bank_id=(?),dg_address=(?),dg_lat=(?),dg_lng=(?),dg_wilaya=(?),dg_phone=(?),dg_fax=(?),dg_location_link=(?) WHERE id_dg=(?)",[bank_id ,address ,lat ,lng ,wilaya ,phone ,fax ,location_link,id])

@@ -125,7 +125,15 @@ export default class Bank {
   }
 
   static async updateBank(bank) {
+    try{
+
+      var row = await dbQuery("SELECT * FROM db_amabank.ab_banks WHERE id_bank=(?)", [bank.id])
+
+    } catch(err){
+      throw new ModelError(errorMessages.serverError, 502);
+    }
     try {
+
       var data = await dbQuery(
         "UPDATE ab_banks SET bank_name=(?), bank_description=(?), bank_visits_count=(?), bank_website_link=(?) WHERE id_bank=(?)",
         [
@@ -137,11 +145,12 @@ export default class Bank {
           bank.id,
         ]
       );
+
     } catch (err) {
       throw new ModelError(errorMessages.serverError, 500);
     }
-
     try{
+
       var dataToArchive = await dbQueryArchive(
       "INSERT INTO db_amabank_archive.ab_banks VALUES((?), (?), (?), (?), (?), (?), (?), NOW(), 'MODIFIED')", 
       [null, row[0].id_bank, row[0].bank_name, row[0].bank_description, row[0].bank_visits_count, row[0].bank_website_link, 
@@ -155,8 +164,39 @@ export default class Bank {
   }
 
   static async deleteBank(id) {
+    try{
+
+      var row = await dbQuery("SELECT * FROM db_amabank.ab_banks WHERE id_bank=(?)", [id])
+
+    } catch(err){
+      throw new ModelError(errorMessages.serverError, 502);
+    }
+    try{
+
+      var rowPres = await dbQuery("SELECT * FROM db_amabank.ab_prestations WHERE prestation_bank_id=(?)", [id])
+    
+    } catch(err){
+        throw new ModelError(errorMessages.serverError,503) ; 
+    }
+
+    try{
+
+      var rowAgen = await dbQuery("SELECT * FROM db_amabank.ab_agencies WHERE agency_bank_id=(?)", [id])
+    
+    } catch(err){
+        throw new ModelError(errorMessages.serverError,505) ; 
+    }
+    try{
+
+      var rowDg = await dbQuery("SELECT * FROM db_amabank.ab_dgs WHERE dg_bank_id=(?)", [id])
+    
+    } catch(err){
+        throw new ModelError(errorMessages.serverError,507) ; 
+    }
     try {
+
       var data = await dbQuery("DELETE FROM ab_banks WHERE id_bank=(?)", [id]);
+
     } catch (err) {
       throw new ModelError(errorMessages.serverError, 500);
     }
@@ -216,4 +256,5 @@ export default class Bank {
 
     
   }
+ 
 }

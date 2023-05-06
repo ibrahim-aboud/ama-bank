@@ -117,7 +117,6 @@ export default class PrestationsController {
             if (isNaN(id)){
                 throw new ModelError(errorMessages.wrongId, 404) ;
             }
-
             var prestation = await Prestation.getPrestationById(id) ;
 
             if (prestation!=null){

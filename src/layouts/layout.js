@@ -1,5 +1,5 @@
 import Head from "next/head";
-
+import style from "@/styles/layout.module.css";
 import Footer from "@/components/common/footer";
 import Navbar from "@/components/common/navbar";
 import Scrollbar from "@/components/common/scrollbar";
@@ -16,9 +16,11 @@ function Layout({ children }) {
 
       <div className="w-screen h-screen">
         <Scrollbar>
-          <Navbar />
-          {children}
-          <Footer />
+          <div className={style.container}>
+            <Navbar />
+            {children}
+            <Footer />
+          </div>
         </Scrollbar>
       </div>
     </>

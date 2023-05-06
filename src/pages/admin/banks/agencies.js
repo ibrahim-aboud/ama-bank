@@ -1,8 +1,13 @@
 import AdminLayout from "@/layouts/adminLayout";
 import { getSession } from "next-auth/react";
+import Comp from "src/components/admin/editBankDataPage/editBankData.js"
 
 function Agencies() {
-  return <div>Agencies</div>;
+  return (
+    <>
+      <Comp/>
+    </>
+  );
 }
 
 Agencies.getLayout = function PageLayout(page) {

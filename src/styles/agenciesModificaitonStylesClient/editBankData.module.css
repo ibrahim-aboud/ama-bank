@@ -1,0 +1,23 @@
+@keyframes goAheadToNavigation{
+    from{background-color: #000000B0;}
+    to{background-color: #000000D9;}
+}
+@keyframes goAheadModification{
+    from{background-color: transparent;}
+    to{background-color: #000000C9;}
+}
+
+@keyframes goAheadModificationReverse{
+    from{background-color: #000000C9;}
+    to{background-color: transparent;
+        display : none;  
+    }
+  }
+.container{
+   position: relative;
+    background-color: white;
+}
+
+.container > * {
+    z-index: 2;
+}

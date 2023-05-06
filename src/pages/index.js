@@ -15,9 +15,20 @@ export default function Home({ banks, prestations, categories, object, types  })
 
   var map = new Map(Object.entries(object)) ;
 
-  const filteredList = banks.filter((bank) =>
+  const [isVisible, setIsVisible] = useState(false);
+  
+  const [filters, setFilters] = useState([]);
+
+  var allBanks = banks.map(bank=>{
+    return bank.id ;
+  });
+
+  const [filteredBanks, setFilteredBanks] = useState(banks) ;
+
+  const filteredList = filteredBanks.filter((bank) =>
     bank.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
+  
   filteredList.sort((a, b) => {
     if (a.name.toLowerCase() < b.name.toLowerCase()) {
       return -1;
@@ -27,17 +38,6 @@ export default function Home({ banks, prestations, categories, object, types  })
       return 0;
     }
   });
-
-  
-  const [isVisible, setIsVisible] = useState(false);
-  
-  const [filters, setFilters] = useState([]);
-  
-  const [filteredBanks, setFilteredBanks] = useState(filteredList) ;
-
-  var allBanks = banks.map(bank=>{
-    return bank.id ;
-  })
 
   useEffect(()=>{
     var final= allBanks ;
@@ -96,7 +96,6 @@ export default function Home({ banks, prestations, categories, object, types  })
     var result= [] ;
 
     banks.map(bank=>{
-      console.log(final.includes(bank.id));
       if (final.includes(bank.id)){
         result.push(bank) ;
       }
@@ -116,7 +115,7 @@ export default function Home({ banks, prestations, categories, object, types  })
       </div>
       <div className="flex flex-col items-center my-14 py-[1%] px-[3%] lg:px-[10%]">
         <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} isVisible={isVisible} setIsVisible={setIsVisible} />
-        <BankList filteredList={filteredBanks}/>
+        <BankList filteredList={filteredList}/>
       </div>
 
       <FilterPopup isVisible={isVisible} setIsVisible={setIsVisible} filters={filters} setFilters={setFilters} prestations={prestations} categories={categories} banks={banks} setFilteredBanks={setFilteredBanks} typeCompteList={types} />

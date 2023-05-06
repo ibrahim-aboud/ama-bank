@@ -40,94 +40,70 @@ export default function Home({ banks, prestations, categories, object, types  })
   })
 
   useEffect(()=>{
-    var final=allBanks ;
-    console.log("filters") ;
-    console.log(filters) ;
+    var final= allBanks ;
 
     // setFilteredBanks(banks) ;
+    for (var i=0 ; i<filters.length;i++) {
+      var res1 = prestations.filter(prst=>{
+        return (map.get(`${prst.categorie_id}`).toLowerCase()==filters[i].prestation.toLowerCase())&&(prst.type.toLowerCase() == types[filters[i].typeCompte].toLowerCase())
+      })
 
-    for (var i=0;i <filters.length;i++){
-      var res = [] ;
-      prestations.map(prst=>{
-        if ((map.get(`${prst.categorie_id}`).toLowerCase()==filters[i].prestation.toLowerCase())&&(prst.type.toLowerCase() == types[filters[i].typeCompte].toLowerCase())){
-          switch (filters[i].type){
-            case 0: {
-              if (prst.tarif<filters[i].value1){
-                if (!(prst.bank_id in res))
-                  res.push(prst.bank_id) ;
-              }
-              break ;
-            } ;
-            case 1: {
-              if (prst.tarif==filters[i].value1) {
-                if (!(prst.bank_id in res))
-                  res.push(prst.bank_id) ;
-              }
-              break ;
-            } ;
-            case 2: {
-              if (prst.tarif>filters[i].value1) {
-                if (!(prst.bank_id in res))
-                  res.push(prst.bank_id) ;
-              }
-              break ;
-            } ;
-            case 3: {
-              if ((prst.tarif>=filters[i].value1)&&(prst.tarif<=filters[i].value2)){
-                if (!(prst.bank_id in res))
-                  res.push(prst.bank_id) ;
-              }
-              break ;
-            } ;
-            default : {
-              
-            }
+      var res2 = res1.filter(prst=>{
+        switch (filters[i].type){
+          case 0: {
+            if (prst.tarif<filters[i].value1){
+              return true 
+            } else {return false}
+          } ;
+          case 1: {
+            if (prst.tarif==filters[i].value1) {
+
+              return true
+            } else {return false}
+          } ;
+          case 2: {
+            if (prst.tarif>filters[i].value1) {
+
+              return true
+            } else {return false}
+          } ;
+          case 3: {
+            if ((prst.tarif>=filters[i].value1)&&(prst.tarif<=filters[i].value2)){
+
+              return true
+            } else {return false}
+          } ;
+          default : {
+            return true
           }
         }
+      })
 
-      }) ;
+      var res3 = res2.map(prst=>{
+        return prst.bank_id
+      })
 
-      if (final==[]) {
+      var res4 = final.filter(id=>{
+        return (res3.includes(id)) ;
+      })
+
+      final = res4 ;
+      if (res4.length==0){
         break ;
-      } else {
-        final.map((id,index)=>{
-          if (!(id in res)){
-            final.splice(index,1) ;
-          }
-        })
       }
+    }
 
-    }    
     var result= [] ;
-    
-    console.log("final") ;
-    console.log(final) ;
 
-    console.log("filtered banks") ;
-    console.log(filteredBanks) ;
     banks.map(bank=>{
+      console.log(final.includes(bank.id));
       if (final.includes(bank.id)){
         result.push(bank) ;
       }
     })
 
-    console.log("result: ") ;
-    console.log(result) ;
-
     setFilteredBanks(result) ;
     
-    // var bank_ids = [];
-    // res.map(prst=>{
-    //   if (!(prst.bank_id in bank_ids)){
-    //     bank_ids.push(prst.bank_id) ;
-    //   }
-    // })
-  
-    // console.log(bank_ids) ;
-  
-    // setFilteredBanks(filteredBanks.filter(bank=>{
-    //   return bank.id in res
-    // }))
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters]) ;
 

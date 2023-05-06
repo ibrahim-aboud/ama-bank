@@ -1,6 +1,7 @@
 import { errorMessages } from "@/lib/utils/errorMessages";
 import ModelError from "@/lib/utils/ModelError";
 import dbQuery from "../db/connect";
+import dbQueryArchive from "../db/connectArchiv";
 
 export default class Prestation{
     constructor (id,bank_id,categorie_id,name,type,tarif,period,categorie_operation){

@@ -1,6 +1,7 @@
 import FilesHelpers from "@/lib/utils/FilesHelpers";
 import ModelError from "../../lib/utils/ModelError";
 import dbQuery from "../db/connect";
+import dbQueryArchive from "../db/connectArchiv";
 import { errorMessages } from "@/lib/utils/errorMessages";
 
 export default class Bank {

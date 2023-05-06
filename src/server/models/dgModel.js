@@ -1,5 +1,6 @@
 import dbQuery from "../db/connect";
 import ModelError from "@/lib/utils/ModelError";
+import dbQueryArchive from "../db/connectArchiv";
 import { errorMessages } from "@/lib/utils/errorMessages";
 
 export default class Dg{

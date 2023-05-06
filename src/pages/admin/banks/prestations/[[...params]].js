@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 import SearchBox from "@/components/common/searchBox";
 import AddPrestPopup from "@/components/admin/banks/conditionTarifaire/add-prestation-popup";
 import {RxReload} from "react-icons/rx";
+import {AiOutlineInfoCircle} from "react-icons/ai";
 import ModifyPrestation from "@/components/admin/banks/conditionTarifaire/modifyPrestation"
  
  function Prestations({banks,categories}) {
@@ -185,6 +186,10 @@ import ModifyPrestation from "@/components/admin/banks/conditionTarifaire/modify
   return(
     <div>
       <AddPrestPopup isVisible={addPopUp} setIsVisible={setAddPopUp} bankId={selectedBankId} addPrestation={addPrestation}/>
+      <div className="flex items-center mt-16 justify-center gap-4 text-lg sm:text-xl md:text-3xl">
+          <AiOutlineInfoCircle className=" font-bold" />
+          <h3 className="font-bold text-2xl">Informations générales sur la banque</h3>
+      </div>
       <div className={style.bankSearchBox}>
         <h2>Nom de la banque</h2>
         <div className={style.inputButton}>

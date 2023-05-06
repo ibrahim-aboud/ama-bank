@@ -54,7 +54,7 @@ function Footer() {
           </div>
           <div>
             <p>
-              {infos.description}
+              {infos?.description}
             </p>
           </div>
         </div>
@@ -65,7 +65,7 @@ function Footer() {
               alt="Phone"
               className={style.contactInfoImg}
             ></Image>
-            <p>{infos.phone}</p>
+            <p>{infos?.phone}</p>
           </div>
           <div>
             <Image
@@ -74,7 +74,7 @@ function Footer() {
               className={style.contactInfoImg}
               id={style.mail}
             ></Image>
-            <p>{infos.email}</p>
+            <p>{infos?.email}</p>
           </div>
           <div>
             <Image
@@ -82,7 +82,7 @@ function Footer() {
               alt="Fax"
               className={style.contactInfoImg}
             ></Image>
-            <p>{infos.fax}</p>
+            <p>{infos?.fax}</p>
           </div>
         </div>
         <div className={style.socialMedia}>
@@ -91,28 +91,28 @@ function Footer() {
             <p>réseaux sociaux</p>
           </div>
           <div className={style.socialIcons}>
-            <Link href={infos.facebook_link} target="_blank">
+            <Link href={infos?.facebook_link} target="_blank">
               <Image
                 src={fbIcon}
                 alt="Facebook"
                 className={style.socialIconsImg}
               ></Image>
             </Link>
-            <Link href={infos.twitter_link} target="_blank">
+            <Link href={infos?.twitter_link} target="_blank">
               <Image
                 src={twtIcon}
                 alt="Twitter"
                 className={style.socialIconsImg}
               ></Image>
             </Link>
-            <Link href={infos.instagram_link} target="_blank">
+            <Link href={infos?.instagram_link} target="_blank">
               <Image
                 src={igIcon}
                 alt="Instagram"
                 className={style.socialIconsImg}
               ></Image>
             </Link>
-            <Link href={infos.linkedin_link} target="_blank">
+            <Link href={infos?.linkedin_link} target="_blank">
               <Image
                 src={lkdIcon}
                 alt="LinkedIn"

@@ -2,8 +2,7 @@ import SearchBox from "@/components/common/searchBox";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import Filters from "@/components/prestations/Filters";
-import styles from "@/styles/prestations.module.css";
+import Filters from "@/components/common/Filters";
 import List from "@/components/prestations/List";
 import NameAndLogo from "@/components/prestations/NameAndLogo";
 import Infos from "@/components/prestations/infos";
@@ -34,7 +33,7 @@ function Consulter({ types_comptes, types_prestations, banks}) {
   const [FilteredConditions,setFilteredConditions] = useState(null) ;
 
 
-  useEffect(()=>{
+  useEffect( ()=>{
       if (!selectedBankId) {
           setConditions(null) ;
           return
@@ -46,15 +45,15 @@ function Consulter({ types_comptes, types_prestations, banks}) {
           setFilteredConditions(response.data.prestations) ;
       })
       .catch(err=>{
-
+        console.log(err) ;
       })
 
       axios.get(process.env.NEXT_PUBLIC_API_URL + `/bank/${selectedBankId}`)
-      .then((response)=>{
+      .then((response)=>{s
           setBank(response.data.bank) ;
       })
       .catch(err=>{
-
+        console.log(err) ;
       })
 
       
@@ -66,7 +65,7 @@ function Consulter({ types_comptes, types_prestations, banks}) {
   }
     
     return (
-      <main>
+      <main className="mb-20">
         <div className="mt-8 mb-4 md:mb-8 px-[10%]">
           <h2 className="font-semibold md:text-xl ml-2 mb-2">Nom de la banque</h2>
           <SearchBox
@@ -79,7 +78,7 @@ function Consulter({ types_comptes, types_prestations, banks}) {
         </div>  
         
         <div className="w-full mb-10 md:mb-24 px-[10%]">
-          <Filters types_comptes={types_comptes} types_prestations={types_prestations} prestations={conditions} setPrestations={setFilteredConditions} bank_id={selectedBankId}></Filters>
+          <Filters types_comptes={types_comptes} types_prestations={types_prestations} prestations={conditions} setPrestations={setFilteredConditions}></Filters>
         </div>
 
         <div className="mb-10">

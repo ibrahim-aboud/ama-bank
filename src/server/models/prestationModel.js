@@ -159,6 +159,17 @@ export default class Prestation{
         } catch(err){
             throw new ModelError(errorMessages.serverError,500) ;
         }
+        try{
+  
+            var dataToArchivePres = await dbQueryArchive(
+            "INSERT INTO db_amabank_archive.ab_prestations VALUES((?), (?), (?), (?), (?), (?), (?), (?), (?), NOW(), 'MODIFIED')", 
+            [null, row[0].id_prestation, row[0].prestation_bank_id, row[0].prestation_name, row[0].prestation_categorie_id, row[0].prestation_type, 
+            row[0].prestation_tarif, row[0].prestation_period, row[0].prestation_categorie_operation]
+                )
+            return data;
+        } catch(err){
+            throw new ModelError(errorMessages.serverError,501) ; 
+        }
     }
 
     static async deletePrestation(id){

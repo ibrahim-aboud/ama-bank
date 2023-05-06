@@ -109,22 +109,22 @@ function modificationListe(Props){
         return new Promise((resolve, reject) => {
             let errMsg = []
             if(bankId == 0){
-                errMsg.push(" choisir une banque!")
+                errMsg.push(" Choisir une banque!")
             } 
             if (wilaya == 0){
-                errMsg.push(" choisir la wilaya de l'agence que vous souhaitez ajouter.")
+                errMsg.push(" Choisir la wilaya de l'agence que vous souhaitez ajouter.")
             }
             if(adresse == null || adresse.length < 5){
-                errMsg.push(" l'adresse contient moins de 5 caractères.")
+                errMsg.push(" L'adresse contient moins de 5 caractères.")
             }
             if(phone == "INVALID_VALUE"){
-                errMsg.push(" introduir un numéro de téléphone valid!")
+                errMsg.push(" Introduire un numéro de téléphone valide!")
             }
             if(fax == "INVALID_VALUE"){
-                errMsg.push(" introduir un numéro de fax valid!")
+                errMsg.push(" Introduire un numéro de fax valide!")
             }
             if(localisation == "INVALID_VALUE"){
-                errMsg.push(" introduir un lien de localisation valid!")
+                errMsg.push(" Introduire un lien de localisation valide!")
             }
             if(errMsg.length > 0 ){
                  reject(errMsg)

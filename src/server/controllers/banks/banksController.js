@@ -4,7 +4,7 @@ import ModelError from "@/lib/utils/ModelError";
 import isNotAdmin from "@/lib/utils/checkAdmin";
 import { errorMessages } from "@/lib/utils/errorMessages";
 import FilesHelpers from "@/lib/utils/FilesHelpers";
-import globals from "@/lib/utils/globals"
+import {globals} from "@/lib/utils/globals"
 
 export default class BanksController {
   async get(req, res) {

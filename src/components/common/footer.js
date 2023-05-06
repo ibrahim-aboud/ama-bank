@@ -82,7 +82,7 @@ function Footer() {
               alt="Fax"
               className={style.contactInfoImg}
             ></Image>
-            <p>{infos.fax}</p>
+            <p>{infos?.fax}</p>
           </div>
         </div>
         <div className={style.socialMedia}>

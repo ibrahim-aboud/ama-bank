@@ -119,7 +119,7 @@ function Compare({types_comptes,types_prestations,banks}){
 
   return (
     <>
-      <div className="mb-10">
+      <div className="mb-20">
         <BankSelection
           items={banks}
           selectedFirstBankId={selectedFirstBankId}
@@ -132,7 +132,7 @@ function Compare({types_comptes,types_prestations,banks}){
         <Filters types_comptes={types_comptes} types_prestations={types_prestations} prestations={prestationsBank1} setPrestations={setFilteredPrestationsBank1}/>
       </div>
       {selectedFirstBankId!=null && selectedSecondBankId!=null && (
-        <div>
+        <div className="mb-20">
           <ComparaisonListe
             bank1={bank1}
             bank2={bank2} 

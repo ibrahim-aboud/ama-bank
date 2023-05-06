@@ -65,7 +65,7 @@ function Consulter({ types_comptes, types_prestations, banks}) {
   }
     
     return (
-      <main>
+      <main className="mb-20">
         <div className="mt-8 mb-4 md:mb-8 px-[10%]">
           <h2 className="font-semibold md:text-xl ml-2 mb-2">Nom de la banque</h2>
           <SearchBox

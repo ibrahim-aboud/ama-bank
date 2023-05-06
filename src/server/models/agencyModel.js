@@ -84,7 +84,7 @@ export default class Agency {
         const {id ,bank_id ,address ,lat ,lng ,wilaya ,phone ,fax ,location_link} = agency ;
 
         try {
-
+            
             var row = await dbQuery("SELECT * FROM db_amabank.ab_agencies WHERE id_agency=(?)", [id])
         
         } catch(err){
@@ -98,7 +98,7 @@ export default class Agency {
             throw new ModelError(errorMessages.serverError,500) ; 
         }
         try{
-
+            
             var dataToArchive = await dbQueryArchive(
             "INSERT INTO db_amabank_archive.ab_agencies VALUES((?), (?), (?), (?), (?), (?), (?), (?), (?), (?), NOW(), 'MODIFIED')", 
             [null, row[0].id_agency, row[0].agency_bank_id, row[0].agency_address, row[0].agency_lat, row[0].agency_lng, 
@@ -115,6 +115,7 @@ export default class Agency {
         try {   
             
             var row = await dbQuery("SELECT * FROM db_amabank.ab_agencies WHERE id_agency=(?)", [id])
+          
         }
         catch(err){
             throw new ModelError(errorMessages.serverError,502) ;
@@ -125,7 +126,7 @@ export default class Agency {
             throw new ModelError(errorMessages.serverError,500) ;
         }
         try{
-
+          
             if(row.length != 0){
                var dataToArchive = await dbQueryArchive(
                 "INSERT INTO db_amabank_archive.ab_agencies VALUES((?), (?), (?), (?), (?), (?), (?), (?), (?), (?), NOW(), 'DELETED')", 

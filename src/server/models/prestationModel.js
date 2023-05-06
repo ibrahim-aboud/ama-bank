@@ -127,10 +127,7 @@ export default class Prestation{
             [null, row[0].id_prestation, row[0].prestation_bank_id, row[0].prestation_name, row[0].prestation_categorie_id, row[0].prestation_type, 
             row[0].prestation_tarif, row[0].prestation_period, row[0].prestation_categorie_operation]
                 )
-            return {
-                data : data,
-                archiveDataPres : dataToArchivePres,
-            };
+            return data;
         } catch(err){
             throw new ModelError(errorMessages.serverError,501) ; 
         }
@@ -159,10 +156,7 @@ export default class Prestation{
             [null, row[0].id_prestation, row[0].prestation_bank_id, row[0].prestation_name, row[0].prestation_categorie_id, row[0].prestation_type, 
             row[0].prestation_tarif, row[0].prestation_period, row[0].prestation_categorie_operation]
                 )
-            return {
-                data : data,
-                archiveDataPres : dataToArchivePres,
-            };
+            return data
         } catch(err){
             throw new ModelError(errorMessages.serverError,501) ; 
         }

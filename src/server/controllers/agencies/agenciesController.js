@@ -71,7 +71,7 @@ export default class AgenciesController{
 
             var data = await Agency.modifyAgency(agency) ;
 
-            if (data.data.affectedRows==1){
+            if (data.affectedRows==1){
                 var result = await Agency.getAgencyById(agency.id) ;
                 res.status(200).json({agency: result}) ;
                 return ;

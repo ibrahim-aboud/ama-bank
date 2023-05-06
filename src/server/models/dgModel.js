@@ -101,7 +101,7 @@ export default class Dg{
                 row[0].dg_wilaya, row[0].dg_phone, row[0].dg_fax, row[0].dg_location_link]
                     )
             }
-            return {data : data, archiveData : dataToArchive} ;
+            return data ;
         } catch(err){
             throw new ModelError(errorMessages.serverError,501) ; 
         }

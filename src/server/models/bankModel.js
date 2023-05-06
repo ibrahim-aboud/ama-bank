@@ -157,10 +157,7 @@ export default class Bank {
       [null, row[0].id_bank, row[0].bank_name, row[0].bank_description, row[0].bank_visits_count, row[0].bank_website_link, 
       row[0].bank_update_date]
           )
-      return {
-        data : data,
-        dataToArchive : dataToArchive
-      };
+      return data;
     } catch(err){
         throw new ModelError(errorMessages.serverError,501) ; 
     }
@@ -252,13 +249,7 @@ export default class Bank {
             rowDg[0].dg_wilaya, rowDg[0].dg_phone, rowDg[0].dg_fax, rowDg[0].dg_location_link]
                 )
       }
-      return {
-        data : data,
-        dataToArchiveDg : dataToArchiveDgs,
-        dataToArchivePres : dataToInsertPres,
-        dataToArchiveAgencies : dataToArchiveAgencies,
-        dataToAchive : dataToAchive
-      }
+      return data;
 
     } catch(err){
         throw new ModelError(errorMessages.serverError,508) ; 

@@ -105,10 +105,7 @@ export default class Agency {
             [null, row[0].id_agency, row[0].agency_bank_id, row[0].agency_address, row[0].agency_lat, row[0].agency_lng, 
             row[0].agency_wilaya, row[0].agency_phone, row[0].agency_fax, row[0].agency_location_link]
                 )
-            return {
-                data : data,
-                dataToArchive : dataToArchive
-            };
+            return data;
 
         } catch(err){
             throw new ModelError(errorMessages.serverError,501) ; 
@@ -137,10 +134,7 @@ export default class Agency {
                 row[0].agency_wilaya, row[0].agency_phone, row[0].agency_fax, row[0].agency_location_link]
                 ) 
             }
-            return {
-                data : data,
-                dataToArchive : dataToArchive
-            };
+            return data;
             
         }
         catch(err){

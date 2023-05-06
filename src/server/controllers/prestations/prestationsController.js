@@ -84,7 +84,7 @@ export default class PrestationsController {
 
             var data = await Prestation.modifyPrestation(prestation) ;
             
-            if (data.data.affectedRows==1){
+            if (data.affectedRows==1){
                 var result = await Prestation.getPrestationById(prestation.id) ;
                 res.status(200).json({prestation: result}) ;
                 return ;

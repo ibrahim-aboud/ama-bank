@@ -31,7 +31,6 @@ function Footer() {
     axios
       .get(process.env.NEXT_PUBLIC_API_URL + "/website")
       .then((response) => {
-        console.log(response.data.infos[0]);
         setinfos(response.data.infos[0]);
       })
       .catch((err) =>

@@ -1,7 +1,7 @@
 import Slide from "@/components/common/slide";
 import Slider from "react-slick";
 
-export default function Slideshow() {
+export default function Slideshow({slides}) {
     const settings = {
       dots: true,
       arrows: false,
@@ -13,18 +13,11 @@ export default function Slideshow() {
       slidesToScroll: 1,
     };
   
-    {
-      /* add more slides here */
-    }
-    const idToUrl = {
-      1: "https://www.example.com",
-      2: "https://www.google.com",
-      3: "https://www.github.com",
-      4: "",
-      5: "",
-      6: "",
-      7: "",
-    };
+    var idToUrl = {}
+
+    slides.forEach(element => {
+      idToUrl[element.id] = element.link ;
+    });
   
     return (
       <div>

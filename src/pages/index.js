@@ -10,7 +10,7 @@ import BankList from "@/components/home-client/bankList";
 import createCategoriesMap from "@/lib/utils/createCategoriesMap";
 
 
-export default function Home({ banks, prestations, categories, object, types  }) {
+export default function Home({ banks, prestations, categories, object, types, slides }) {
   const [searchQuery, setSearchQuery] = useState("");
 
   var map = new Map(Object.entries(object)) ;
@@ -111,7 +111,7 @@ export default function Home({ banks, prestations, categories, object, types  })
   return (
     <div>
       <div className="mt-[1px]">
-        <Slideshow />
+        <Slideshow slides={slides} />
       </div>
       <div className="flex flex-col items-center my-14 py-[1%] px-[3%] lg:px-[10%]">
         <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} isVisible={isVisible} setIsVisible={setIsVisible} />
@@ -129,6 +129,7 @@ export async function getServerSideProps(context) {
   var prestations = [] ;
   var categories = [] ;
   var types = [] ;
+  var slides = [] ;
 
   try {
     var response = await axios.get(
@@ -159,11 +160,17 @@ export async function getServerSideProps(context) {
 
     var object = Object.fromEntries(map) ;
 
+    response = await axios.get(
+      process.env.NEXT_PUBLIC_API_URL + "/slideshow"
+    )
+
+    slides = response.data.slides
+
   } catch (e) {
     console.error(e.message);
   }
 
   return {
-    props: { banks, categories, prestations, object, types},
+    props: { banks, categories, prestations, object, types, slides},
   };
 }

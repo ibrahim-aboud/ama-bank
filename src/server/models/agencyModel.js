@@ -88,7 +88,7 @@ export default class Agency {
         } catch(err){
             throw new ModelError(errorMessages.serverError,500) ; 
         }
-
+        try{
             var dataToArchive = await dbQueryArchive(
             "INSERT INTO db_amabank_archive.ab_agencies VALUES((?), (?), (?), (?), (?), (?), (?), (?), (?), (?), NOW(), 'MODIFIED')", 
             [null, row[0].id_agency, row[0].agency_bank_id, row[0].agency_address, row[0].agency_lat, row[0].agency_lng, 

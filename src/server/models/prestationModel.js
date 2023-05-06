@@ -159,6 +159,7 @@ export default class Prestation{
         } catch(err){
             throw new ModelError(errorMessages.serverError,500) ;
         }
+        
         try{
   
             var dataToArchivePres = await dbQueryArchive(

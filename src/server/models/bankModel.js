@@ -141,6 +141,7 @@ export default class Bank {
       throw new ModelError(errorMessages.serverError, 500);
     }
 
+    try{
       var dataToArchive = await dbQueryArchive(
       "INSERT INTO db_amabank_archive.ab_banks VALUES((?), (?), (?), (?), (?), (?), (?), NOW(), 'MODIFIED')", 
       [null, row[0].id_bank, row[0].bank_name, row[0].bank_description, row[0].bank_visits_count, row[0].bank_website_link, 

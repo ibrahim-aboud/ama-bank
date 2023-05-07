@@ -19,10 +19,13 @@ function Navbar() {
   
   return (
     <nav className={style.nav} id ="top">
-      <div className={style.navbarLogo}>
-        <Image className={style.img} src={siteLogo} alt="Amabank Logo"/>
-        <h1>amaBank</h1>
-      </div>
+      <Link href={`/`}>
+        <div className={style.navbarLogo}>
+          <Image className={style.img} src={siteLogo} alt="Amabank Logo"/>
+          <h1>amaBank</h1>
+        </div>
+      </Link>
+      
       <ul className={`${style.navbarLinks} ${active ? style.active : ''}`}>
         <li><Link href="/">Accueil</Link></li>
         <li><Link href="/consulter">Consulter</Link></li>

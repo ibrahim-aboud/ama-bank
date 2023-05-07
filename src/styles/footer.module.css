@@ -195,7 +195,7 @@
     }
 
     .proposImg{
-        margin-right: 35px;
+        margin-right: 40px;
     }
 
     .line{
@@ -259,7 +259,7 @@
         margin: 0 auto;
         text-align: center;
         max-width: 350px;
-        margin-top: 40px;
+        margin-top: 60px;
     }
                   
     .propos p {
@@ -271,7 +271,7 @@
     }
 
     #proposID{
-        margin-left: 65px;
+        margin-left: 48px;
     }
 
     .plateformeInfo p{

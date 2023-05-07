@@ -10,6 +10,7 @@ import { getSession } from "next-auth/react";
 
 
 function Consulter({ types_comptes, types_prestations, banks}) {
+  
   const router = useRouter();
   const { id } = router.query;
 

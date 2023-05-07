@@ -68,9 +68,9 @@ function BankListElement({ id, name, logo_src, isDeleting, setIsDeleting, onDele
             alt={`${name} logo`}
             width={400}
             height={400}
-            className="w-[40px] h-[40px] sm:w-[60px] sm:h-[60px] md:w-[80px] md:h-[80px] shadow-lg"
+            className="w-[40px] h-[40px] sm:w-[60px] sm:h-[60px] md:w-[80px] md:h-[80px] shadow-lg rounded-md"
           />
-          <h2 className="font-bold sm:pl-[5%] sm:text-md smx:mt-2 lg:text-2xl">{name}</h2>
+          <h2 className="font-bold sm:pl-[5%] sm:text-md smx:mt-2 lg:text-lg">{name}</h2>
         </div>
 
         <div

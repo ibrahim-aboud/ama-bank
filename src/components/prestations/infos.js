@@ -1,7 +1,6 @@
 import Image from "next/image";
 import styles from "@/styles/Infos.module.css"
 const Infos = ({website}) => {
-
     const handleClick = (link)=>{
         window.open(link,"_blank") ;
     }

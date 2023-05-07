@@ -59,7 +59,7 @@ function BankInfo({ bank, types_comptes, types_prestations, prestations }) {
         </Link>
       </div>
       <div className="">
-        <div className="w-full mb-10 md:mb-24 px-[10%]">
+        <div className="w-screen mb-10 md:mb-24 px-[10%]">
           <Filters types_comptes={types_comptes} types_prestations={types_prestations} prestations={prestations} setPrestations={setFilteredConditions}></Filters>
         </div>
         <div>

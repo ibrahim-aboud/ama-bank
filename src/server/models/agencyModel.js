@@ -2,6 +2,7 @@ import ModelError from "@/lib/utils/ModelError";
 import dbQuery from "../db/connect";
 import dbQueryArchive from "../db/connectArchiv";
 import { errorMessages } from "@/lib/utils/errorMessages";
+import { raw } from "mysql2";
 
 export default class Agency {
     constructor(id , bank_id ,address ,lat ,lng ,wilaya ,phone ,fax ,location_link){
@@ -129,6 +130,7 @@ export default class Agency {
         try{
           
             if(row.length != 0){
+                console.log(row);
                var dataToArchive = await dbQueryArchive(
                 "INSERT INTO db_amabank_archive.ab_agencies VALUES((?), (?), (?), (?), (?), (?), (?), (?), (?), (?), NOW(), 'DELETED')", 
                 [null, row[0].id_agency, row[0].agency_bank_id, row[0].agency_address, row[0].agency_lat, row[0].agency_lng, 

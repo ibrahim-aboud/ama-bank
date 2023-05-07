@@ -30,6 +30,8 @@ function Consulter({ types_comptes, types_prestations, banks}) {
 
   const [selectedBankId, setSelectedBankId] = useState(_getDefaultBankId());
   const [bank,setBank] = useState(null) ;
+
+  const [lnk,setlnk] = useState("") ;
   
   const [conditions,setConditions] = useState(null) ;
   const [FilteredConditions,setFilteredConditions] = useState(null) ;
@@ -51,20 +53,28 @@ function Consulter({ types_comptes, types_prestations, banks}) {
       })
 
       axios.get(process.env.NEXT_PUBLIC_API_URL + `/bank/${selectedBankId}`)
-      .then((response)=>{s
+      .then((response)=>{
           setBank(response.data.bank) ;
+          setBank(bank.websiteLink);
       })
       .catch(err=>{
         console.log(err) ;
       })
 
-      
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[selectedBankId]) ;
 
   if (!conditions) {
     setConditions([]) ;
     setFilteredConditions([]) ;
   }
+
+  if (bank ==null){
+    var link=""
+  } else {
+    link = bank.websiteLink
+  }
+
     
     return (
       <main className="mb-20">
@@ -93,7 +103,7 @@ function Consulter({ types_comptes, types_prestations, banks}) {
 
         {selectedBankId && (
           <div>
-            <Infos website={(bank && bank.websiteLink) || ""} />
+            <Infos website={link} />
           </div>
         )}
 

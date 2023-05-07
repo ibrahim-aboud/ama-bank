@@ -9,7 +9,7 @@ const Infos = ({website}) => {
     return ( 
     <>
         <div className={styles.container}>
-            <div className={`${styles.sub_container} hover:bg-[#4dac81]`} onClick={()=>{handleClick()}}>
+            <div className={`${styles.sub_container} hover:bg-[#4dac81]`} onClick={()=>{handleClick("/agences")}}>
                 <div className={styles.text}>
                     Trouvez dès maintenant l’agence qui vous convient
                 </div>

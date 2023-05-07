@@ -1,11 +1,25 @@
 import { errorMessages } from "@/lib/utils/errorMessages";
 import ModelError from "@/lib/utils/ModelError";
 import dbQuery from "../db/connect";
+import FilesHelpers from "@/lib/utils/FilesHelpers";
 
 export default class SlideShow {
-    constructor(id, link) {
+    constructor(id,link) {
         this.id = id ;
         this.link = link ;
+        this.path = SlideShow.#getPath(id) ;
+    }
+
+    static #getPath(id) {
+        try {
+          const dirPath = "public/assets/images/slideshow";
+          const images = FilesHelpers.getAllDirectoryFiles(dirPath);
+    
+          const image = images.find((image) => image.split(".")[0] == id);
+          return image ? "/assets/images/slideshow/" + image : "";
+        } catch (err) {
+          throw new ModelError(errorMessages.serverError, 500);
+        }
     }
 
     static async getAllSlideShows(){

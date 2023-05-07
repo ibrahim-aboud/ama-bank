@@ -105,9 +105,7 @@ export default function Home({ banks, prestations, categories, object, types, sl
     
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters]) ;
-
-
-
+  
   return (
     <div>
       <div className="mt-[1px]">

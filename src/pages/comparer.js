@@ -4,6 +4,7 @@ import BankSelection from "@/components/compareTo/bankSelection";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { getSession } from "next-auth/react";
 
 function Compare({types_comptes,types_prestations,banks}){
 
@@ -148,6 +149,8 @@ function Compare({types_comptes,types_prestations,banks}){
 }
 
 export async function getServerSideProps(context) {
+  const session = await getSession(context);
+
   var props = {banks:[],types_comptes:[],types_prestations:[]} ;
 
   try {

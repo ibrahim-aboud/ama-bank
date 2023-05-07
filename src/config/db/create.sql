@@ -58,7 +58,7 @@ CREATE TABLE `ab_agencies` (
   `agency_wilaya` INT NOT NULL,
   `agency_phone` TINYTEXT,
   `agency_fax` TINYTEXT,
-  `agency_location_link` TINYTEXT,
+  `agency_location_link` VARCHAR(1000),
   PRIMARY KEY (`id_agency`),
   FOREIGN KEY (`agency_bank_id`) REFERENCES `ab_banks`(`id_bank`) ON UPDATE CASCADE ON DELETE CASCADE
 );

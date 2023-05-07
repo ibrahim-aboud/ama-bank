@@ -103,7 +103,7 @@ function Consulter({ types_comptes, types_prestations, banks}) {
 }
 
 export async function getServerSideProps(context) {
-  const session = await getSession(context);
+    const session = await getSession(context);
     var props = {banks:[],types_comptes:[],types_prestations:[]} ;
 
     try {

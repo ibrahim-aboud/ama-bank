@@ -6,7 +6,7 @@ import Link from "next/link";
 function BankListElement(props) {
 
   const handleClick= ()=>{
-    window.location.href = `/comparer?first=${props.id}`
+    window.open(`/comparer?first=${props.id}`,"_blank") ;
   }
   
     return (

@@ -120,6 +120,7 @@ export async function getServerSideProps(context) {
       props.banks = response.data.banks ;
         
     } catch(err){
+      console.log(err) ;
       
     }
     

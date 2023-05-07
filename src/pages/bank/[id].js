@@ -4,8 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { CiLocationOn } from "react-icons/ci";
 import { MdManageSearch, MdReadMore } from "react-icons/md";
+import Filters from "@/components/common/Filters";
+import List from "@/components/prestations/List";
+import { useState } from "react";
 
-function BankInfo({ bank }) {
+function BankInfo({ bank, types_comptes, types_prestations, prestations }) {
+
+  const [FilteredConditions,setFilteredConditions] = useState(prestations) ;
+
   return (
     <div className="flex flex-col min-w-full justify-center items-center gap-12 my-8 md:my-32 px-4">
       <div className="flex flex-col md:flex-row w-full items-center justify-center gap-12">
@@ -44,14 +50,6 @@ function BankInfo({ bank }) {
         </Link>
 
         <Link
-          href={process.env.NEXT_PUBLIC_APP_URL + ``}
-          className="mb-1 rounded-xl px-8 py-3 font-semibold bg-[#40916C] text-white shadow-xl hover:bg-[#419f75] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
-        >
-          Consulter les conditions tarifaires
-          <MdManageSearch size={23} className="ml-2" />
-        </Link>
-
-        <Link
           href={bank.websiteLink}
           target="_blank"
           className="mb-1 rounded-xl px-8 py-3 font-semibold bg-[#40916C] text-white shadow-xl hover:bg-[#419f75] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
@@ -60,6 +58,14 @@ function BankInfo({ bank }) {
           <MdReadMore size={23} className="ml-2" />
         </Link>
       </div>
+      <div className="">
+        <div className="w-full mb-10 md:mb-24 px-[10%]">
+          <Filters types_comptes={types_comptes} types_prestations={types_prestations} prestations={prestations} setPrestations={setFilteredConditions}></Filters>
+        </div>
+        <div>
+          <List conditions={FilteredConditions} />
+        </div>
+      </div>
     </div>
   );
 }
@@ -67,15 +73,37 @@ function BankInfo({ bank }) {
 export async function getServerSideProps(context) {
   const { id } = context.query;
 
+  var bank = null ;
+  var types_comptes = []; 
+  var types_prestations = [];
+  var prestations = [] ;
+
   try {
-    const response = await axios.get(
+
+    var response = await axios.get(
       process.env.NEXT_PUBLIC_API_URL + `/bank/${id}`
     );
 
-    const bank = response.data.bank;
+    bank = response.data.bank;
+
+    response = await axios.get(
+      process.env.NEXT_PUBLIC_API_URL + `/prestations/types`
+    ) ;
+    types_comptes = response.data.types ;
+
+    response = await axios.get(
+      process.env.NEXT_PUBLIC_API_URL + `/prestations/categories`
+    ) ;
+    types_prestations = response.data.categories ;
+
+    response = await axios.get(
+      process.env.NEXT_PUBLIC_API_URL + `/prestations/${id}`
+    )
+
+    prestations = response.data.prestations ;
 
     return {
-      props: { bank },
+      props: { bank, types_comptes, types_prestations, prestations },
     };
   } catch (e) {
     console.log(e.response.data || e.message);

@@ -42,7 +42,7 @@ function BankInfo({ bank, types_comptes, types_prestations, prestations }) {
 
       <div className="flex flex-col md:flex-row md:w-full items-center justify-center gap-2 md:gap-8">
         <Link
-          href={process.env.NEXT_PUBLIC_APP_URL + ``}
+          href={process.env.NEXT_PUBLIC_APP_URL + `/agences`}
           className="mb-1 rounded-xl px-8 py-3 font-semibold bg-[#40916C] text-white shadow-xl hover:bg-[#419f75] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
         >
           Trouver une agence

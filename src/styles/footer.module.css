@@ -194,6 +194,10 @@
         display: flex;
     }
 
+    .proposImg{
+        margin-right: 40px;
+    }
+
     .line{
         margin-bottom: 50px;
     }   
@@ -255,23 +259,23 @@
         margin: 0 auto;
         text-align: center;
         max-width: 350px;
-        margin-top: 40px;
+        margin-top: 60px;
     }
                   
     .propos p {
-        margin-left: 10px;
+        margin-left: 0px;
     }
 
     .plateformeInfoImg{
-        margin-left: 95px;
+        margin-left: -50px;
     }
 
     #proposID{
-        margin-left: 65px;
+        margin-left: 48px;
     }
 
     .plateformeInfo p{
-        margin-left: -75px;
+        margin-left: -110px;
     } 
     
     .container{

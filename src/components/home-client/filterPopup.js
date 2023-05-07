@@ -2,6 +2,9 @@ import FilterElement from "./filterElement";
 import { MdOutlineClose, MdDeleteForever, MdAdd } from 'react-icons/md';
 import { BiFilterAlt } from "react-icons/bi";
 import { useState } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function FilterPopup({ isVisible, setIsVisible, filters, setFilters, prestations,categories, banks,setFilteredBanks, typeCompteList }) {
     const [isAdding, setIsAdding] = useState(false);
@@ -15,12 +18,23 @@ export default function FilterPopup({ isVisible, setIsVisible, filters, setFilte
       value1: 0,
       value2: 0
     })
+
+    const settings = {
+      dots: true,
+      arrows: false,
+      infinite: true,
+      autoplay: true,
+      autoplaySpeed: 5000,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+    };
   
     if (!isVisible) return null;
     return (
       <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center ">
         <div className="w-[1200px]">
-          <div className="bg-white rounded p-12 flex flex-col items-center">
+          <div className="bg-white rounded py-5 px-3 lg:p-8 flex flex-col items-center text-sm lg:text-base">
             <div className={`flex w-full items-center px-2 ${filters.length == 0 ? "" : "mb-10"}`}>
               <button
                 className="text-white py-1 px-2 bg-[#40916C] hover:bg-[#4fb487] hover:ease-in-out duration-100 rounded-lg flex items-center"
@@ -48,13 +62,13 @@ export default function FilterPopup({ isVisible, setIsVisible, filters, setFilte
             </div>
             <div>
               {isAdding && (
-                <div className="flex items-center my-4 px-10">
+                <div className="flex items-center my-4">
                   <div className="flex border p-2 rounded mr-2">
                     <label className=" text-gray-400 mr-3 font-bold" htmlFor="prestation">Prestation</label>
                     <select
                       id="prestation" 
                       name="prestation"
-                      className="outline-none "
+                      className="outline-none"
                       onChange={(event) => {setFilter({...filter, prestation: event.target.value})}}
                     >
                       <option value="">Selectionner</option>
@@ -68,7 +82,7 @@ export default function FilterPopup({ isVisible, setIsVisible, filters, setFilte
                     <select
                       id="typeCompte" 
                       name="typeCompte"
-                      className="outline-none "
+                      className="outline-none"
                       onChange={(event) => {setFilter({...filter, typeCompte: parseInt(event.target.value)})}}
                     >
                       <option value="">Selectionner</option>
@@ -77,7 +91,7 @@ export default function FilterPopup({ isVisible, setIsVisible, filters, setFilte
                       ))}
                     </select>
                   </div>
-                  <div className="flex border p-2 rounded mr-2">﻿
+                  <div className="flex border p-2 rounded mr-2 ">
                     <select 
                       id="type"
                       name="type"
@@ -132,6 +146,7 @@ export default function FilterPopup({ isVisible, setIsVisible, filters, setFilte
                   type={filter.type}
                   value1={filter.value1}
                   value2={filter.value2}
+                  className="hidden"
                   onDelete={() => {
                     const temp = [...filters];
                     temp.splice(index, 1);
@@ -139,15 +154,24 @@ export default function FilterPopup({ isVisible, setIsVisible, filters, setFilte
                   }}
                 />
               ))}
-            </div>
-            <div>
-              <button
-                className={`${filters.length == 0 ? "hidden" : ""} rounded-xl p-2 lg:p-2 sm:p-4 mt-4 ml-2 font-semibold bg-gray-100 border border-gray-300 text-gray-600 hover:text-white hover:bg-[#40916C] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300`}
-                onClick={() => {setIsVisible(!isVisible)}}
-              >
-                Filtrer
-                <BiFilterAlt size={15} className="lg:ml-2" />
-              </button>
+              <Slider {...settings}>
+                {filters.map((filter, index) => (
+                  <FilterElement
+                    key={index}
+                    prestation={filter.prestation}
+                    typeCompte={filter.typeCompte}
+                    type={filter.type}
+                    value1={filter.value1}
+                    value2={filter.value2}
+                    className="hidden"
+                    onDelete={() => {
+                      const temp = [...filters];
+                      temp.splice(index, 1);
+                      setFilters(temp);
+                    }}
+                  />
+                ))}
+              </Slider>
             </div>
           </div>
         </div>

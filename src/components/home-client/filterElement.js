@@ -10,7 +10,7 @@ export default function FilterElement({ prestation, typeCompte, type, value1, va
     const typeCompteList = ["Particuliers", "Professionnel", "Entreprise"];
   
     return (
-      <div className="flex items-center my-4 px-10">
+      <div className="flex items-center my-4">
         <div className="flex border p-2 rounded mr-2">
           <h2 className=" text-gray-400 mr-3">Prestation</h2>
           <h2>{prestation}</h2>

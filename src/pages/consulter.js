@@ -6,6 +6,8 @@ import Filters from "@/components/common/Filters";
 import List from "@/components/prestations/List";
 import NameAndLogo from "@/components/prestations/NameAndLogo";
 import Infos from "@/components/prestations/infos";
+import { getSession } from "next-auth/react";
+
 
 function Consulter({ types_comptes, types_prestations, banks}) {
   const router = useRouter();
@@ -101,6 +103,7 @@ function Consulter({ types_comptes, types_prestations, banks}) {
 }
 
 export async function getServerSideProps(context) {
+  const session = await getSession(context);
     var props = {banks:[],types_comptes:[],types_prestations:[]} ;
 
     try {

@@ -194,6 +194,10 @@
         display: flex;
     }
 
+    .proposImg{
+        margin-right: 35px;
+    }
+
     .line{
         margin-bottom: 50px;
     }   
@@ -259,11 +263,11 @@
     }
                   
     .propos p {
-        margin-left: 10px;
+        margin-left: 0px;
     }
 
     .plateformeInfoImg{
-        margin-left: 95px;
+        margin-left: -50px;
     }
 
     #proposID{
@@ -271,7 +275,7 @@
     }
 
     .plateformeInfo p{
-        margin-left: -75px;
+        margin-left: -110px;
     } 
     
     .container{

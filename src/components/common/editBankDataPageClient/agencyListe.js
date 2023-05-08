@@ -5,10 +5,10 @@ import dgIcone from "public/assets/modificationsPage/dgIcone.svg"
 import  localisationIcon from "public/assets/modificationsPage/localisationGreenIcon.svg"
 import emptyBox from "public/assets/modificationsPage/emptyBox.png"
 
-function agencyListe({handleDeleteAgency, handleEditAgencyInfo, agencyList}){
+function AgencyListe({handleDeleteAgency, handleEditAgencyInfo, agencyList}){
 
     const [errStyle, setErrStyle] = useState(null)
-    function editErr(obj){
+    function EditErr(obj){
       useEffect(() => {
           setErrStyle(obj)
       }, [])
@@ -57,4 +57,4 @@ function agencyListe({handleDeleteAgency, handleEditAgencyInfo, agencyList}){
     )
     }
 
-export default agencyListe
+export default AgencyListe

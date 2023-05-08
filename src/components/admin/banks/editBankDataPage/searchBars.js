@@ -145,7 +145,7 @@ function SearchBars ({handleClickAddAgency, handleClickSearch}){
                             <option value="25" className={styles.myOption}>25 - Constantine</option>
                             <option value="26" className={styles.myOption}>26 - Médéa</option>
                             <option value="27" className={styles.myOption}>27 - Mostaganem</option>
-                            <option value="28" className={styles.myOption}>28 - M'Sila</option>
+                            <option value="28" className={styles.myOption}>28 - M{"'"}Sila</option>
                             <option value="29" className={styles.myOption}>29 - Mascara</option>
                             <option value="30" className={styles.myOption}>30 - Ouargla</option>
                             <option value="31" className={styles.myOption}>31 - Oran</option>

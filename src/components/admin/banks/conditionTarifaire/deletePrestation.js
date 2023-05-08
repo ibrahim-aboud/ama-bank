@@ -36,7 +36,7 @@ function DeletePrestation({ isVisible, setIsVisible, prestation ,deletePrestatio
             <form onSubmit={onDelete} className="w-[350px] sm:w-[500px]">
                 <div className="py-4 rounded-t-md bg-[#da4b38] text-white flex justify-center items-center">
                 <MdDeleteForever size={25} className="mr-3" />
-                <h2>Suppression d'une prestation</h2>
+                <h2>Suppression d{"'"}une prestation</h2>
                 </div>
                 <div className="bg-white rounded-b-md pt-4 sm:pt-8 flex flex-col justify-center items-center">
                 <h2 className="mb-8 font-semibold">Voulez-vous supprimer cette prestation?</h2>

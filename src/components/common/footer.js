@@ -153,7 +153,7 @@ function Footer() {
                 <Link href="/about">À propos</Link>
               </li>
               <li>
-                <Link href="#">Besoin d'aide?</Link>
+                <Link href="#">Besoin d{"'"}aide?</Link>
               </li>
             </ul>
           </div>

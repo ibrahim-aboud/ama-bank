@@ -13,8 +13,9 @@ function SearchBars ({handleClickAddAgency, handleClickSearch}){
         const[agencyList, setAgencyList] = useState([])
         const[agencyListGlobal, setAgencyListGlobal] = useState([])
         const[bankList, setBankList] = useState([])
+        const[bankListPure, setBankListPure] = useState([])
         const [errStyle, setErrStyle] = useState(false)
-
+        const id = 2;
         const handleClickSearchHere = () => {
             if(bankName == 0){
                 setErrStyle(true)
@@ -42,6 +43,7 @@ function SearchBars ({handleClickAddAgency, handleClickSearch}){
         useEffect(() => {
             axios.get(process.env.NEXT_PUBLIC_API_URL + `/banks`)
             .then(response =>{
+                setBankListPure(response.data.banks)
                 setBankList(response.data.banks.map(element =>{
                     return <option key = {element.id} value={element.id} >{element.name}</option>
                 }))
@@ -109,8 +111,13 @@ function SearchBars ({handleClickAddAgency, handleClickSearch}){
                     <div>
                         <span>Nom de la banque</span>
                         <select onClick={(e) => {editBankName(parseInt(e.target.value))}} className={styles.mySelect}>
-                            <option className={styles.myOption} value="0">Sélectionner une banque</option>
-                            {bankList}
+{/*                             <option className={styles.myOption} value="0">Sélectionner une banque</option>
+                            {bankList} */}
+                            <option value={id}>{bankListPure.find(element => element.id == id)}</option>
+                            {
+                                bankListPure.filter(element => element.id != id).map(element => 
+                                    <option value={element.id}>{element.name}</option>)
+                            }
                         </select>
                     </div>
                 </div>

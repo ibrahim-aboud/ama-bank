@@ -8,11 +8,12 @@ import axios from "axios"
 function SearchBars ({handleClickAddAgency, handleClickSearch, selectedId}){
         const[wilaya, setWilaya] = useState(0);
         const[agency, setAgency] = useState(0);
-        const[bankName, setBankName] = useState(0);
+        const[bankName, setBankName] = useState(selectedId);
         const[agencyList, setAgencyList] = useState([]);
         const[agencyListGlobal, setAgencyListGlobal] = useState([]);
         const[bankList, setBankList] = useState([]);
         const [errStyle, setErrStyle] = useState(false);
+        const[bankListPure, setBankListPure] = useState([])
 
         const handleClickSearchHere = () => {
             if(bankName == 0){
@@ -41,15 +42,16 @@ function SearchBars ({handleClickAddAgency, handleClickSearch, selectedId}){
         useEffect(() => {
             axios.get(process.env.NEXT_PUBLIC_API_URL + `/banks`)
             .then(response =>{
+                setBankListPure(response.data.banks)
+
                 setBankList(response.data.banks.map(element =>{
                     return <option key = {element.id} value={element.id} >{element.name}</option>
                 }))
             }).catch(err => {
                 console.log( err.message )
-            })            
-
+            })
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, [])
+        }, []) ;
         
         const editWilaya = (wilayaId, same) => {
             if((wilayaId != wilaya || (wilayaId == wilaya && !same)) && wilayaId != 0){
@@ -71,10 +73,9 @@ function SearchBars ({handleClickAddAgency, handleClickSearch, selectedId}){
             }
         }
 
-            useEffect(()=>{
-                
+            useEffect(()=>{       
                 if(bankName != 0){
-                    let tempList
+                    var tempList = [] ;
                     
                     axios.get(process.env.NEXT_PUBLIC_API_URL + `/dgs/${bankName}`).then(response => {
                         tempList = response.data.dgs
@@ -92,7 +93,7 @@ function SearchBars ({handleClickAddAgency, handleClickSearch, selectedId}){
                     {setAgencyListGlobal([])
                     setAgencyList([])}
                 if(agency != 0)
-                    {setAgency(0)}    
+                    {setAgency(0)}                    
                 
             // eslint-disable-next-line react-hooks/exhaustive-deps
             }, [bankName])
@@ -100,7 +101,18 @@ function SearchBars ({handleClickAddAgency, handleClickSearch, selectedId}){
         useEffect(()=>{
             editWilaya(wilaya, false)
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, [agencyListGlobal])
+        }, [agencyListGlobal]) ;
+
+        var idsList = bankListPure.map(bnk=>{
+            return bnk.id ;
+        })
+
+        useEffect(()=>{
+            if (selectedId in idsList){
+                setBankName(selectedId) ;
+            }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        },[selectedId]) ;  
 
         return(
             <div className={styles.container}>
@@ -108,8 +120,29 @@ function SearchBars ({handleClickAddAgency, handleClickSearch, selectedId}){
                     <div>
                         <span>Nom de la banque</span>
                         <select onClick={(e) => {editBankName(parseInt(e.target.value))}} className={styles.mySelect}>
-                            <option className={styles.myOption} value="0">Sélectionner une banque</option>
-                            {bankList}
+
+                        {
+                            (bankListPure.find(element => element.id == bankName) == null ) ? (
+                                <>
+                                <option value="0">Sélectionner une Banque</option>
+                                
+                                {bankListPure.map((element,index) => 
+                                        <option key={index} value={`${element.id}`}>{element.name}</option>)
+                                }
+                                </>
+                            ): (
+
+                                <>
+                                    <option value={`${bankName}`}>{bankListPure.find(element => element.id == bankName)?.name}</option>
+                                    {
+                                        bankListPure.filter(element => element.id != bankName).map((element,index) => 
+                                            <option key={index} value={`${element.id}`}>{element.name}</option>)
+                                    }
+                                </>
+                            )
+                        }
+
+                        
                         </select>
                     </div>
                 </div>

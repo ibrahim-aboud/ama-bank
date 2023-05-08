@@ -6,15 +6,16 @@ import styles from "src/styles/agenciesModificaitonStyles/searchBars.module.css"
 import Failed from "src/components/common/feedback_popups/fail.js"
 import axios from "axios"
 
-function SearchBars ({handleClickAddAgency, handleClickSearch}){
+function SearchBars ({handleClickAddAgency, handleClickSearch, selectedId}){
 
         const[wilaya, setWilaya] = useState(0)
         const[agency, setAgency] = useState(0)
-        const[bankName, setBankName] = useState(0)
+        const[bankName, setBankName] = useState(selectedId)
         const[agencyList, setAgencyList] = useState([])
         const[agencyListGlobal, setAgencyListGlobal] = useState([])
         const[bankList, setBankList] = useState([])
         const [errStyle, setErrStyle] = useState(false)
+        const[bankListPure, setBankListPure] = useState([])
 
         const handleClickSearchHere = () => {
             if(bankName == 0){
@@ -37,6 +38,7 @@ function SearchBars ({handleClickAddAgency, handleClickSearch}){
         useEffect(() => {
             axios.get(process.env.NEXT_PUBLIC_API_URL + `/banks`)
             .then(response =>{
+                setBankListPure(response.data.banks)
                 setBankList(response.data.banks.map(element =>{
                     return <option key={element.id} value={element.id} >{element.name}</option>
                 }))
@@ -88,15 +90,24 @@ function SearchBars ({handleClickAddAgency, handleClickSearch}){
                     {setAgency(0)}
                     
             }
+            // eslint-disable-next-line react-hooks/exhaustive-deps
             }, [bankName])
             //send to controller
         useEffect(()=>{
             editWilaya(wilaya, false)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [agencyListGlobal])
 
-        useEffect(() => {
+        var idsList = bankListPure.map(bnk=>{
+            return bnk.id ;
+        })
 
-        }, [wilaya])
+        useEffect(()=>{
+            if (selectedId in idsList){
+                setBankName(selectedId) ;
+            }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        },[selectedId]) ;
 
         return(
             <div className={styles.container}>
@@ -104,8 +115,26 @@ function SearchBars ({handleClickAddAgency, handleClickSearch}){
                     <div>
                         <span>Nom de la banque</span>
                         <select onClick={(e) => {editBankName(parseInt(e.target.value))}} className={styles.mySelect}>
-                            <option value="0" className={styles.myOption}>Sélectionner une banque</option>
-                            {bankList}
+                            {
+                            (bankListPure.find(element => element.id == bankName) == null ) ? (
+                                <>
+                                <option value="0">Sélectionner une Banque</option>
+                                
+                                {bankListPure.map((element,index) => 
+                                        <option key={index} value={`${element.id}`}>{element.name}</option>)
+                                }
+                                </>
+                            ): (
+
+                                <>
+                                    <option value={`${bankName}`}>{bankListPure.find(element => element.id == bankName)?.name}</option>
+                                    {
+                                        bankListPure.filter(element => element.id != bankName).map((element,index) => 
+                                            <option key={index} value={`${element.id}`}>{element.name}</option>)
+                                    }
+                                </>
+                            )
+                        }
                         </select>
                     </div>
                     <button onClick={handleClickAddAgency} className="shadow-xl hover:bg-zinc-700">
@@ -145,7 +174,7 @@ function SearchBars ({handleClickAddAgency, handleClickSearch}){
                             <option value="25" className={styles.myOption}>25 - Constantine</option>
                             <option value="26" className={styles.myOption}>26 - Médéa</option>
                             <option value="27" className={styles.myOption}>27 - Mostaganem</option>
-                            <option value="28" className={styles.myOption}>28 - M'Sila</option>
+                            <option value="28" className={styles.myOption}>28 - Msila</option>
                             <option value="29" className={styles.myOption}>29 - Mascara</option>
                             <option value="30" className={styles.myOption}>30 - Ouargla</option>
                             <option value="31" className={styles.myOption}>31 - Oran</option>

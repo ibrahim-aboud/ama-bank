@@ -14,7 +14,7 @@ function timeout(delay) {
     return new Promise( res => setTimeout(res, delay) );
 }
 
-function EditBankDataPage(){
+function EditBankDataPage({selectedId}){
     
     const[style, setStyle] = useState({
         display : 'none'
@@ -193,7 +193,7 @@ function EditBankDataPage(){
                 </div>  
          
                 <Header />
-                <SearchBars handleClickAddAgency={handleClickAddAgency} handleClickSearch={handleClickSearch} />
+                <SearchBars selectedId={selectedId} handleClickAddAgency={handleClickAddAgency} handleClickSearch={handleClickSearch} />
                 <AgencyListe handleDeleteAgency={handleDeleteAgency} handleEditAgencyInfo={handleEditAgencyInfo} agencyList={listeOfAgencies} />     
             </div>
          

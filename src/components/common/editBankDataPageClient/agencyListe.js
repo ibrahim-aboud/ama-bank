@@ -15,7 +15,7 @@ function AgencyListe({handleDeleteAgency, handleEditAgencyInfo, agencyList}){
         if(index === arr.length - 1){
             border = false;
         } 
-        return <AgencyRow  record={dataElement} isDg={"Adress :"} key={dataElement.id}
+        return <AgencyRow  record={dataElement} isDg={"Adresse :"} key={dataElement.id}
                 agencyIcone={localisationIcon} style={{border}} handleDeleteAgency={handleDeleteAgency}
                 handleEditAgencyInfo={handleEditAgencyInfo} />
     })

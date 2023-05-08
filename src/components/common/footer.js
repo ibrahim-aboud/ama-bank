@@ -120,6 +120,7 @@ function Footer() {
             </Link>
           </div>
         </div>
+      
         <hr className={style.line} />
         <div className={style.container}>
           <div className={style.footerContent}>

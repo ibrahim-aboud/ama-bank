@@ -8,11 +8,7 @@ import emptyBox from "public/assets/modificationsPage/emptyBox.png"
 function AgencyListe({handleDeleteAgency, handleEditAgencyInfo, agencyList}){
 
     const [errStyle, setErrStyle] = useState(null)
-    function EditErr(obj){
-      useEffect(() => {
-          setErrStyle(obj)
-      }, [])
-    }
+  
     let border = true;
     let agenciesList = agencyList.map((dataElement, index, arr) => {
         

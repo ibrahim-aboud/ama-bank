@@ -5,15 +5,14 @@ import styles from "src/styles/agenciesModificaitonStylesClient/searchBars.modul
 import Failed from "src/components/common/feedback_popups/fail.js"
 import axios from "axios"
 
-function SearchBars ({handleClickAddAgency, handleClickSearch}){
-
-        const[wilaya, setWilaya] = useState(0)
-        const[agency, setAgency] = useState(0)
-        const[bankName, setBankName] = useState(0)
-        const[agencyList, setAgencyList] = useState([])
-        const[agencyListGlobal, setAgencyListGlobal] = useState([])
-        const[bankList, setBankList] = useState([])
-        const [errStyle, setErrStyle] = useState(false)
+function SearchBars ({handleClickAddAgency, handleClickSearch, selectedId}){
+        const[wilaya, setWilaya] = useState(0);
+        const[agency, setAgency] = useState(0);
+        const[bankName, setBankName] = useState(0);
+        const[agencyList, setAgencyList] = useState([]);
+        const[agencyListGlobal, setAgencyListGlobal] = useState([]);
+        const[bankList, setBankList] = useState([]);
+        const [errStyle, setErrStyle] = useState(false);
 
         const handleClickSearchHere = () => {
             if(bankName == 0){
@@ -47,7 +46,9 @@ function SearchBars ({handleClickAddAgency, handleClickSearch}){
                 }))
             }).catch(err => {
                 console.log( err.message )
-            })
+            })            
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [])
         
         const editWilaya = (wilayaId, same) => {
@@ -65,7 +66,6 @@ function SearchBars ({handleClickAddAgency, handleClickSearch}){
         }
 
         const editBankName = (bankId) =>{
-            
             if(bankId != bankName){
                 setBankName(bankId)
             }
@@ -94,15 +94,14 @@ function SearchBars ({handleClickAddAgency, handleClickSearch}){
                 if(agency != 0)
                     {setAgency(0)}    
                 
+            // eslint-disable-next-line react-hooks/exhaustive-deps
             }, [bankName])
             //send to controller
         useEffect(()=>{
             editWilaya(wilaya, false)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [agencyListGlobal])
 
-        useEffect(() => {
-
-        }, [wilaya])
         return(
             <div className={styles.container}>
                 <div className={styles.addAgency}>
@@ -146,7 +145,7 @@ function SearchBars ({handleClickAddAgency, handleClickSearch}){
                             <option value="25" className={styles.myOption}>25 - Constantine</option>
                             <option value="26" className={styles.myOption}>26 - Médéa</option>
                             <option value="27" className={styles.myOption}>27 - Mostaganem</option>
-                            <option value="28" className={styles.myOption}>28 - M{"'"}Sila</option>
+                            <option value="28" className={styles.myOption}>28 - Msila</option>
                             <option value="29" className={styles.myOption}>29 - Mascara</option>
                             <option value="30" className={styles.myOption}>30 - Ouargla</option>
                             <option value="31" className={styles.myOption}>31 - Oran</option>

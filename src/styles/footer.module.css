@@ -92,7 +92,6 @@
     display: flex;
     flex-direction: column;
     align-items: center; 
-    margin-right: 120px;  
     order: 2; 
 }
 
@@ -198,6 +197,8 @@
 .footerLinks li a:hover {
     text-decoration: underline;
 }
+
+
 
 @media screen and (max-width: 1175px) {
 

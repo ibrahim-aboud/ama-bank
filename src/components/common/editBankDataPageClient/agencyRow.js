@@ -10,10 +10,10 @@ function AgencyRow(props){
     if(props.record.id == -1){
         deleteStyle = {display : "none"}
     }
-    if(props.record.fax != "null"){
+    if(props.record.fax != null){
         fax = props.record.fax
     }
-    if(props.record.phone != "null"){
+    if(props.record.phone != null){
         phone = props.record.phone
     }
     if(props.style.border === true){

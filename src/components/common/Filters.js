@@ -3,7 +3,6 @@ import { useRef } from "react";
 import { FaAngleDown } from "react-icons/fa";
 
 const Filters = ({types_comptes, types_prestations, prestations, setPrestations}) => {
-    const arrow = useRef(null) ;
     const checkboxes = useRef(null);
     const selectBar = useRef(null) ;
     const checkForm = useRef(null) ;

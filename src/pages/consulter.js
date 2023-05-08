@@ -32,8 +32,6 @@ function Consulter({ types_comptes, types_prestations, banks}) {
   const [selectedBankId, setSelectedBankId] = useState(_getDefaultBankId());
   const [bank,setBank] = useState(null) ;
 
-  const [lnk,setlnk] = useState("") ;
-  
   const [conditions,setConditions] = useState(null) ;
   const [FilteredConditions,setFilteredConditions] = useState(null) ;
 

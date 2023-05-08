@@ -9,7 +9,7 @@ function timeout(delay) {
     return new Promise( res => setTimeout(res, delay) );
 }
 
-function EditBankDataPage(){
+function EditBankDataPage(selectedId){
     
     const[style, setStyle] = useState({
         display : 'none'
@@ -33,10 +33,9 @@ function EditBankDataPage(){
                 <div className={styles.forAnimations} style={style} /*  */>
                     {objToRender}
                 </div>  
-
                 
                 <Header />
-                <SearchBars  handleClickSearch={handleClickSearch} />
+                <SearchBars  handleClickSearch={handleClickSearch} selectedId={selectedId} />
                 <AgencyListe agencyList={listeOfAgencies} />     
             </div>
          

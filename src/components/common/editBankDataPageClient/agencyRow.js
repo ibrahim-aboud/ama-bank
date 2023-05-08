@@ -33,7 +33,7 @@ function AgencyRow(props){
                     <span>{props.isDg}</span>
                     <span>{props.record.address}</span>
                 </span>
-                <a href={props.record.location_link}>Localisation GPS</a>
+                <a href={props.record.location_link} target="_blank" >Localisation GPS</a>
             </div>
             <div className={styles.agencyRowTelFax}>
                 <span>

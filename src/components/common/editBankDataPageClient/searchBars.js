@@ -8,7 +8,7 @@ import axios from "axios"
 function SearchBars ({handleClickAddAgency, handleClickSearch, selectedId}){
         const[wilaya, setWilaya] = useState(0);
         const[agency, setAgency] = useState(0);
-        const[bankName, setBankName] = useState(selectedId);
+        const[bankName, setBankName] = useState(selectedId?selectedId:0);
         const[agencyList, setAgencyList] = useState([]);
         const[agencyListGlobal, setAgencyListGlobal] = useState([]);
         const[bankList, setBankList] = useState([]);
@@ -122,7 +122,7 @@ function SearchBars ({handleClickAddAgency, handleClickSearch, selectedId}){
                         <select onClick={(e) => {editBankName(parseInt(e.target.value))}} className={styles.mySelect}>
 
                         {
-                            (bankListPure.find(element => element.id == bankName) == null ) ? (
+                            (selectedId == null || bankListPure.find(element => element.id == bankName) == null ) ? (
                                 <>
                                 <option value="0">Sélectionner une Banque</option>
                                 

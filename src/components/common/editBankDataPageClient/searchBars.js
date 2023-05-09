@@ -199,6 +199,17 @@ function SearchBars ({handleClickAddAgency, handleClickSearch, selectedId}){
                             <option value="46" className={styles.myOption}>46 - Aïn Témouchent</option>
                             <option value="47" className={styles.myOption}>47 - Ghardaïa</option>
                             <option value="48" className={styles.myOption}>48 - Relizane</option>
+                            <option value="49" className={styles.myOption}>49 - Timimoun</option>
+                            <option value="50" className={styles.myOption}>50 - Bordj Badji Mokhtar</option>
+                            <option value="51" className={styles.myOption}>51 - d'Ouled Djellal</option>
+                            <option value="52" className={styles.myOption}>52 - Béni Abbès</option>
+                            <option value="53" className={styles.myOption}>53 - In Salah</option>
+                            <option value="54" className={styles.myOption}>54 - In Guezzam</option>
+                            <option value="55" className={styles.myOption}>55 - Touggourt</option>
+                            <option value="56" className={styles.myOption}>56 - Djanet</option>
+                            <option value="57" className={styles.myOption}>57 - El M'Ghair</option>
+                            <option value="58" className={styles.myOption}>58 - El Meniaa</option>
+                            
                             
                         </select>
                     </div>

@@ -63,7 +63,7 @@ function SearchBox({
               showDropList ? "block" : "hidden"
             }`}
           >
-            <Scrollbar>
+            <Scrollbar wheelPropagation={false}>
               <ul
                 className={`flex-col px-6 ${
                   filteredList.length > 0 ? "flex" : "hidden"

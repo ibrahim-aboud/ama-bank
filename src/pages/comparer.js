@@ -129,9 +129,11 @@ function Compare({types_comptes,types_prestations,banks}){
           setSelectedSecondBankId={setSelectedSecondBankId}
         />
       </div>
-      <div className="w-full mb-10 md:mb-24 px-[10%]">
-        <Filters types_comptes={types_comptes} types_prestations={types_prestations} prestations={prestationsBank1} setPrestations={setFilteredPrestationsBank1}/>
-      </div>
+      {selectedFirstBankId != null && selectedSecondBankId != null &&(
+        <div className="w-full mb-10 md:mb-24 px-[10%]">
+          <Filters types_comptes={types_comptes} types_prestations={types_prestations} prestations={prestationsBank1} setPrestations={setFilteredPrestationsBank1}/>
+        </div>
+      )}
       {selectedFirstBankId!=null && selectedSecondBankId!=null && (
         <div className="mb-20">
           <ComparaisonListe

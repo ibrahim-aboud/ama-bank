@@ -5,21 +5,17 @@ import dgIcone from "public/assets/modificationsPage/dgIcone.svg"
 import  localisationIcon from "public/assets/modificationsPage/localisationGreenIcon.svg"
 import emptyBox from "public/assets/modificationsPage/emptyBox.png"
 
-function agencyListe({handleDeleteAgency, handleEditAgencyInfo, agencyList}){
+function AgencyListe({handleDeleteAgency, handleEditAgencyInfo, agencyList}){
 
     const [errStyle, setErrStyle] = useState(null)
-    function editErr(obj){
-      useEffect(() => {
-          setErrStyle(obj)
-      }, [])
-    }
+  
     let border = true;
     let agenciesList = agencyList.map((dataElement, index, arr) => {
         
         if(index === arr.length - 1){
             border = false;
         } 
-        return <AgencyRow  record={dataElement} isDg={"Adress :"} key={dataElement.id}
+        return <AgencyRow  record={dataElement} isDg={"Adresse :"} key={dataElement.id}
                 agencyIcone={localisationIcon} style={{border}} handleDeleteAgency={handleDeleteAgency}
                 handleEditAgencyInfo={handleEditAgencyInfo} />
     })
@@ -57,4 +53,4 @@ function agencyListe({handleDeleteAgency, handleEditAgencyInfo, agencyList}){
     )
     }
 
-export default agencyListe
+export default AgencyListe

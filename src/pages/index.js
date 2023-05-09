@@ -8,7 +8,7 @@ import FilterPopup from "@/components/home-client/filterPopup";
 import Search from "@/components/home-client/Search";
 import BankList from "@/components/home-client/bankList";
 import createCategoriesMap from "@/lib/utils/createCategoriesMap";
-
+import Slider from "react-slick";
 
 export default function Home({ banks, prestations, categories, object, types, slides }) {
   const [searchQuery, setSearchQuery] = useState("");
@@ -111,6 +111,7 @@ export default function Home({ banks, prestations, categories, object, types, sl
       <div className="mt-[1px]">
         <Slideshow slides={slides} />
       </div>
+
       <div className="flex flex-col items-center my-14 py-[1%] px-[3%] lg:px-[10%]">
         <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} isVisible={isVisible} setIsVisible={setIsVisible} />
         <BankList filteredList={filteredList}/>

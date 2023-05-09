@@ -5,6 +5,14 @@
     flex-direction: column;
 }
 
+.flexContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
 .backToTop {
     position: absolute;
     background-color: rgba(118, 184, 151, 1);
@@ -63,6 +71,11 @@
     font-family: 'Nunito';    
 }
 
+.socialMedia {
+    margin-top: 60px;
+    order: 1;
+}
+
 .followUs p:first-child {
     color: white;
     font-family: 'Nunito';
@@ -82,7 +95,7 @@
     display: flex;
     flex-direction: column;
     align-items: center; 
-    margin-right: 120px;   
+    order: 2; 
 }
 
 .contactInfo div {
@@ -124,7 +137,7 @@
 }
   
 .line{
-    margin-top: 70px;
+    margin-top: 40px;
 }
 
 .container {
@@ -188,7 +201,14 @@
     text-decoration: underline;
 }
 
+
+
 @media screen and (max-width: 1175px) {
+
+    .flexContainer {
+        flex-direction: column;
+        justify-content: center;
+    }
 
     .footerLinks {
         margin-right: 40px;
@@ -262,6 +282,7 @@
         text-align: center;
         max-width: 350px;
         margin-top: 60px;
+        order: 1;
     }
                   
     .propos p {

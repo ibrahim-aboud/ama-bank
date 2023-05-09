@@ -70,7 +70,7 @@ function Admin() {
               <h2>Nom d{"'"}utilisateur</h2>
             </div>
             <div className="flex flex-col items-center mb-3">
-              <div className="bg-gray-100 w-11/12 p-4 rounded-sm border flex items-center">
+              <div className="bg-gray-100 w-11/12 p-4 rounded-sm border flex items-center focus-within:border-green-900">
                 <FaRegUserCircle size={22} />
                 <input
                   type="text"
@@ -85,7 +85,7 @@ function Admin() {
               <h2>Mot de passe</h2>
             </div>
             <div className="flex flex-col items-center mb-3">
-              <div className="bg-gray-100 w-11/12 p-4 rounded-sm border flex items-center">
+              <div className="bg-gray-100 w-11/12 p-4 rounded-sm border flex items-center focus-within:border-green-900">
                 <BiLock size={25} />
                 <input
                   type="password"
@@ -99,7 +99,7 @@ function Admin() {
 
             <div className="flex flex-col items-center mt-9">
               <button
-                className="rounded-xl px-8 py-3 font-semibold bg-black text-white shadow-xl hover:bg-green-600 disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
+                className="rounded-xl px-8 py-3 font-semibold bg-black text-white shadow-xl hover:bg-[#40916C] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
                 type="submit"
                 disabled={loading}
               >

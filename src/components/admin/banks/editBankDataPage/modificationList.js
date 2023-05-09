@@ -12,7 +12,7 @@ import SuccessFdBack from "src/components/common/feedback_popups/success.js"
 import axios from "axios"
 import ScrollBar from "react-perfect-scrollbar"
 
-function modificationListe(Props){
+function ModificationListe(Props){
     const [bankId, setBankId] = useState(Props.record.message1 != "Sauvegarder les modifications"?0:Props.data.bank_id)
     const [wilaya, setWilaya] = useState(Props.record.message1 != "Sauvegarder les modifications"?0:Props.data.wilaya)
     const [adresse, setAdresse] = useState(Props.record.message1 != "Sauvegarder les modifications"?null:Props.data.address)
@@ -286,7 +286,7 @@ function modificationListe(Props){
                     <option value="25">25 - Constantine</option>
                     <option value="26">26 - Médéa</option>
                     <option value="27">27 - Mostaganem</option>
-                    <option value="28">28 - M'Sila</option>
+                    <option value="28">28 - M{"'"}Sila</option>
                     <option value="29">29 - Mascara</option>
                     <option value="30">30 - Ouargla</option>
                     <option value="31">31 - Oran</option>
@@ -382,4 +382,4 @@ function modificationListe(Props){
     
     )
 }
-export default modificationListe
+export default ModificationListe

@@ -140,9 +140,8 @@ export default function FilterPopup({ isVisible, setIsVisible, filters, setFilte
               )}
               
               {filters.map((filter, index) => (
-                <div className="hidden lg:block">
+                <div className="hidden lg:block" key={index}>
                   <FilterElement
-                    key={index}
                     prestation={filter.prestation}
                     typeCompte={filter.typeCompte}
                     type={filter.type}

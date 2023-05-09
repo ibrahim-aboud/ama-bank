@@ -102,7 +102,7 @@ function Consulter({ types_comptes, types_prestations, banks}) {
 
         {selectedBankId && (
           <div>
-            <Infos website={link} />
+            <Infos website={link} id={selectedBankId} />
           </div>
         )}
 

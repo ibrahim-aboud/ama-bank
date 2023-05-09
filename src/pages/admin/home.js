@@ -95,7 +95,7 @@ function BankListElement({ id, name, logo_src, isDeleting, setIsDeleting, onDele
               Informations Générales
             </Link>
             <Link
-              href="/admin/banks/agencies"
+              href={`/admin/banks/agencies?id=${id}`}
               className="w-full text-center py-1 px-6 hover:bg-gray-100 hover:text-black"
             >
               Agences
@@ -139,6 +139,7 @@ function Home({ banks }) {
     setFilteredList(temp.filter((bank) =>
       bank.name.toLowerCase().includes(searchQuery.toLowerCase())
     ));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchQuery])
 
   const [isDeleting, setIsDeleting] = useState(false);

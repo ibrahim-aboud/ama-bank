@@ -1,3 +1,6 @@
+
+
+
 const mysql = require('mysql2');
 
 // create a connection to the MySQL server

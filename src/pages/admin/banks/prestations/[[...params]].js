@@ -35,6 +35,7 @@ import ModifyPrestation from "@/components/admin/banks/conditionTarifaire/modify
     })
   }
 
+  // a full functional modifying, adding and deleting page
 
   function refresh() {
     const tmp = selectedBankId;

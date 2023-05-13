@@ -64,6 +64,8 @@ export default function ModifyPrestation({ isVisible, setIsVisible, prestation ,
         }
         fetchData();
     }, []);
+
+    // once confirmed, the the service is modified in the database
     async function onAdd(event) {
         event.preventDefault();
         var prestationToSend = {...prestations};

@@ -33,12 +33,17 @@ export default function AddPrestPopup({ isVisible, setIsVisible, bankId, addPres
                 "name":"Monétique"
             }
         ]
+    
     );
+
+    // a popup to add a new service
+
     const [prestation,setPrestation] = useState([]);
     const [prestations, setPrestations] = useState([]);
     const [personalisedPrest, setPersonalisedPrest] = useState(false);
     const categorie_operation = ["Gestion et tenue de compte","Opération de paiement","Monétique"];
 
+    // while page loading, get the list of already existing services and categories (to be available as a choice for the user)
     useEffect(()=>{
         setPrestation(
             {
@@ -77,6 +82,7 @@ export default function AddPrestPopup({ isVisible, setIsVisible, bankId, addPres
 
     }, []);
 
+    // once validated the new service is saved in the dataBase
     function onAdd(event) {
         event.preventDefault();
         var prestationToSend = {...prestation, bank_id: bankId};

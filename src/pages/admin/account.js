@@ -21,6 +21,7 @@ function Account({ admin }) {
 
   const router = useRouter();
 
+  // the admin can view his account information and modify it
   async function submitHandler(event) {
     setLoading(true);
     event.preventDefault();

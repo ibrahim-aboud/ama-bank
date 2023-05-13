@@ -8,6 +8,7 @@ import { getSession } from "next-auth/react";
 
 function Compare({types_comptes,types_prestations,banks}){
 
+  // a comparaison page for the user to pick two banks and filter shared services, also compare them 
   const router = useRouter();
   const { first,second } = router.query;
 

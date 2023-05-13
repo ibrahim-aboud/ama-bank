@@ -1,6 +1,8 @@
 import LignePrestation from "./lignePrestation";
 
 function ListePrestations({prestations,deletePrestation,editPrestation}){
+
+    // renders a list of compoenent, each one being a line (two services per line)
     let componentList=[];
     if(prestations!==null){
         let listSize=prestations.length;

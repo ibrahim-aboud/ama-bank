@@ -11,6 +11,8 @@ function DeletePrestation({ isVisible, setIsVisible, prestation ,deletePrestatio
     const [message,setMessage]=useState("");
     const [feedbackVisible,setIsFeedbackVisible]=useState(false);
     const [isSuccessful,setIsSuccessful]=useState(false);
+
+    // once confirmed, the service is deleted from data base (maybe !)
     async function onDelete(event) {
 
         event.preventDefault();

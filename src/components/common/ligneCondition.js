@@ -22,6 +22,7 @@ function LigneCondition({condition1,condition2,first,single}){
         }
         else return "non défini";
     }
+    // basic rendering of services available in a given bank
     return (
         <div className="LignCondition">
             <div className={ first ? style.containerFrst :style.containerScnd}>

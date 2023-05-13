@@ -6,10 +6,10 @@ const connection = mysql.createConnection({
   // user: process.env.MYSQL_USER,
   // password: process.env.MYSQL_PASSWORD,
   // database: process.env.MYSQL_DATABASE
-  host: 'localhost',
-  user: 'f100w',
-  password: 'user',
-  database: 'db_amabank'
+  host:'localhost',
+  user:'root',
+  password:'password',
+  database:'db_amabank'
 });
 connection.connect((error) => {
     if (error) {

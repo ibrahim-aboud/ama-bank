@@ -5,10 +5,10 @@ const mysql = require('mysql2');
 
 // create a connection to the MySQL server
 const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'MyI6r@hims9l',
-  database: 'db_amabank'
+  host:'localhost',
+  user:'root',
+  password:'password',
+  database:'db_amabank'
 });
 
 let filesArray = [

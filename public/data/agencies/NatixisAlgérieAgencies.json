@@ -2,6 +2,16 @@
     "bank_name": "Natixis Algérie",
     "agencies": [
          {
+            "agency_location": "Bab Ezzouar",
+            "agency_address": "Direction Générale Immeuble Le Ksar، 34/35 Zone d''affaires Mercure, Bab Ezzouar 16312",
+            "agency_lat": 36.732887,
+            "agency_lng": 3.0867455,
+            "agency_wilaya": 16,
+            "agency_phone": "023 92 43 43",
+            "agency_fax": null,
+            "agency_location_link": "https://www.google.com/maps/place/NATIXIS+ALGERIE/@36.732887,3.0867455,12z/data=!4m10!1m2!2m1!1snatixis+algerie!3m6!1s0x128e51b932c06e95:0xe42f047c6565a188!8m2!3d36.7139187!4d3.2031959!15sCg9uYXRpeGlzIGFsZ2VyaWUiA4gBAZIBEGNvcnBvcmF0ZV9vZmZpY2XgAQA!16s%2Fg%2F11cncpwkln"
+         },
+         {
              "agency_location": "Hydra",
              "agency_address": "P2VF+X5M, Hydra",
              "agency_lat": 37.20287919006815,

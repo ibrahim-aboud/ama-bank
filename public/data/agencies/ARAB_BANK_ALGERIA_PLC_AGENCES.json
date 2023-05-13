@@ -1,0 +1,115 @@
+{
+   "bank_name": "ARAB BANK ALGERIA PLC",
+   "agencies": [
+        {
+            "agency_location": "Dély Ibrahim",
+            "agency_address": "36 Route Nationale, Dely Ibrahim 16047",
+            "agency_lat": null,
+            "agency_lng": null,
+            "agency_wilaya": 16,
+            "agency_phone": "023312169",
+            "agency_fax": null,
+            "agency_location_link": "https://goo.gl/maps/HAXptMAX4mGXF2H66"
+        },
+        {
+            "agency_location": "Kouba",
+            "agency_address": "Bt G2 N° C7 et C8, Kouba 16050",
+            "agency_lat": null,
+            "agency_lng": null,
+            "agency_wilaya": 16,
+            "agency_phone": "023700042",
+            "agency_fax": null,
+            "agency_location_link": "https://goo.gl/maps/XNTbHpaiThcJbrne8"
+        },
+        {
+            "agency_location": "Val d\\'Hydra",
+            "agency_address": "Lot no 12, Chaabani Residence, Hydra, Valley 16016",
+            "agency_lat": null,
+            "agency_lng": null,
+            "agency_wilaya": 16,
+            "agency_phone": "021608664",
+            "agency_fax": null,
+            "agency_location_link": "https://goo.gl/maps/BfWharvUavh51NEd9"
+        },
+        {
+            "agency_location": "Blida",
+            "agency_address": "Section 138, Boulevard Houari Mahfoud, Groupe 86, Blida 09000",
+            "agency_lat": null,
+            "agency_lng": null,
+            "agency_wilaya": 9,
+            "agency_phone": "025228920",
+            "agency_fax": null,
+            "agency_location_link": "https://goo.gl/maps/Rdha21bt37FVuPog8"
+        },
+        {
+            "agency_location": "Hydra",
+            "agency_address": "23 PLACE EL QODS, Hydra 16016",
+            "agency_lat": null,
+            "agency_lng": null,
+            "agency_wilaya": 16,
+            "agency_phone": "021600192",
+            "agency_fax": null,
+            "agency_location_link": "https://goo.gl/maps/RqWM2ruoqeVmas4v9"
+        },
+        {
+            "agency_location": "Larbi Ben M\\'hidi",
+            "agency_address": "37 Rue Larbi Ben M\\'hidi, Alger Ctre 16006",
+            "agency_lat": null,
+            "agency_lng": null,
+            "agency_wilaya": 16,
+            "agency_phone": "021738592",
+            "agency_fax": null,
+            "agency_location_link": "https://goo.gl/maps/PYXyjSYYJvUdqSye9"
+        },
+        {
+            "agency_location": "Sétif",
+            "agency_address": "Place Bel Air Rue, Sétif 19000",
+            "agency_lat": null,
+            "agency_lng": null,
+            "agency_wilaya": 19,
+            "agency_phone": "036511511",
+            "agency_fax": null,
+            "agency_location_link": "https://goo.gl/maps/RYqESfAGeYu8njcp6"
+        },
+        {
+            "agency_location": "Oran",
+            "agency_address": "Boulevard millennium PLAZA IMMOBILIER - BIR El DJIR, Oran",
+            "agency_lat": null,
+            "agency_lng": null,
+            "agency_wilaya": 31,
+            "agency_phone": "041730418",
+            "agency_fax": null,
+            "agency_location_link": "https://goo.gl/maps/kHwYFfPxPvdqCtaaA"
+        },
+        {
+            "agency_location": "Mostaganem",
+            "agency_address": "148 N° 01, Lot Cour de la Culture, Ilot 51 section, Mostaganem 27000",
+            "agency_lat": null,
+            "agency_lng": null,
+            "agency_wilaya": 27,
+            "agency_phone": "045409780",
+            "agency_fax": null,
+            "agency_location_link": "https://goo.gl/maps/6bdVzyXAkcHwTgLw9"
+        },
+        {
+            "agency_location": "Constantine",
+            "agency_address": "01 Rue DEMAK Mohamed Salah, Constantine 25000",
+            "agency_lat": null,
+            "agency_lng": null,
+            "agency_wilaya": 25,
+            "agency_phone": "031922618",
+            "agency_fax": null,
+            "agency_location_link": "https://goo.gl/maps/Ubx9jTKWzNjBxiys6"
+        },
+        {
+            "agency_location": "Annaba",
+            "agency_address": "Coral Bay, villa n° 02, Annaba 23000",
+            "agency_lat": null,
+            "agency_lng": null,
+            "agency_wilaya": 23,
+            "agency_phone": "038581313",
+            "agency_fax": null,
+            "agency_location_link": "https://goo.gl/maps/LRnpBD4pjnL7XhGJ7"
+        }
+   ]
+}

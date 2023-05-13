@@ -1,0 +1,619 @@
+{
+    "bank_name" : "BNP PARIBAS EL DJAZAIR",
+    "bank_description": "BNP Paribas El Djazaïr est devenue en moins de 13 ans l''une des banques du secteur privé les plus importantes sur le territoire algérien. Forte de ses succès, elle s''est activement déployée et compte 71 agences ouvertes. Elle couvre ainsi progressivement le territoire national, avec une implantation dans 19 wilayas. Cette stratégie témoigne de son ambition à être une banque citoyenne au service du développement économique de l''Algérie.",
+    "website_link": "https://www.bnpparibas.dz",
+    "dg_address": "Quartier d''Affaires d''Alger, Lot 1 N° I.03, Bab Ezzouar,16024 Alger",
+    "dg_lat" : 36.71588808625917,
+    "dg_lng" : 3.204518270890954,
+    "dg_location_link": "https://goo.gl/maps/emUpUeP1nEHDB8Ar6",
+    "dg_wilaya": 16,
+    "dg_phone": "+213 21 98 53 99",
+    "dg_fax" : "+213 23 92 48 36",
+    "date_prestations": "2022-09-01",
+    "prestations_indiv": {
+        "compte": [
+            {
+                "nom_prestation": "Ouverture de compte et délivrance chéquier" ,
+                "categorie": "ouverture de compte" ,
+                "tarif": 0,
+                "period": 0
+            } ,
+            {
+                "nom_prestation": "Frais de tenue de compte courant" ,
+                "categorie": "tenue de compte" ,
+                "tarif": 750,
+                "period": 90
+            } ,
+            {
+                "nom_prestation": "Frais de tenue de compte chèque" ,
+                "categorie": "tenue de compte" ,
+                "tarif": 750,
+                "period": 90
+            } ,
+            {
+                "nom_prestation": "Frais de tenue de compte sur livret" ,
+                "categorie": "tenue de compte" ,
+                "tarif": 750,
+                "period": 90
+            }
+        ] ,
+        "paiement": [
+            {
+                "nom_prestation": "Versement espèces Client-agence" ,
+                "categorie": "Versement",
+                "tarif": 0,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Versement espèces Tiers" ,
+                "categorie": "Versement",
+                "tarif": 0,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Versement espèces déplacées" ,
+                "categorie": "Versement",
+                "tarif": 0,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement reçu d\\'un compte de la même agence" ,
+                "categorie": "Virement",
+                "tarif": 0,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement devise reçue de l\\'étranger 10 USD - 500 USD" ,
+                "categorie": "Virement",
+                "tarif": 300,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement devise reçue de l\\'étranger 501 USD - 5000 USD" ,
+                "categorie": "Virement",
+                "tarif": 1500,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement devise reçue de l\\'étranger 5001 USD - 10000 USD" ,
+                "categorie": "Virement",
+                "tarif": 3000,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement devise reçue de l\\'étranger 10001 USD - 100000 USD" ,
+                "categorie": "Virement",
+                "tarif": 5000,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement devise reçue de l\\'étranger >100000 USD" ,
+                "categorie": "Virement",
+                "tarif": 7500,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement de compte à compte (même agence)" ,
+                "categorie": "Virement",
+                "tarif": 0,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Annulation de chèque de banque" ,
+                "categorie": "chèque",
+                "tarif": 600,
+                "period": 0
+            }
+        ] ,
+        "monetique": {
+            "carte CIB": [
+                {
+                    "nom_prestation": "Émission de la première carte",
+                    "categorie" : "CIB",
+                    "tarif": 0,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Reconfection carte Classique",
+                    "categorie" : "CIB",
+                    "tarif": 650,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Reconfection carte Excellium",
+                    "categorie" : "CIB",
+                    "tarif": 4000,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Reconfection carte Gold",
+                    "categorie" : "CIB",
+                    "tarif": 1000,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Reconfection carte jeune",
+                    "categorie" : "CIB",
+                    "tarif": 200,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Réédition du code secret",
+                    "categorie" : "CIB",
+                    "tarif": 150,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Commission de retrait sur DAB de la banque",
+                    "categorie" : "CIB",
+                    "tarif": 0,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Commission de retrait sur DAB confrère",
+                    "categorie" : "CIB",
+                    "tarif": 50,
+                    "period": 0
+                }
+            ],
+            "carte internationale":[
+                {
+                    "nom_prestation": "Mise en opposition carte Prépayéee",
+                    "categorie": "VISA",
+                    "tarif":  1500,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Mise en opposition carte Classique",
+                    "categorie": "VISA",
+                    "tarif":  1500,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Mise en opposition carte Gold",
+                    "categorie": "VISA",
+                    "tarif":  1500,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Mise en opposition Carte Platinum",
+                    "categorie": "VISA",
+                    "tarif":  1500,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Reconfection carte Classique",
+                    "categorie": "VISA",
+                    "tarif": 4200,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Reconfection carte Gold",
+                    "categorie": "VISA",
+                    "tarif": 8000,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Réédition du code secret carte Classique",
+                    "categorie": "VISA",
+                    "tarif": 1000,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Réédition du code secret carte Gold",
+                    "categorie": "VISA",
+                    "tarif": 1000,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Réédition du code secret carte Platinum",
+                    "categorie": "VISA",
+                    "tarif": 1000,
+                    "period": 0
+                }
+            ]        
+        }
+    },
+    "prestations_prof":   {
+        "compte": [
+            {
+                "nom_prestation": "Ouverture de compte et délivrance chéquier" ,
+                "categorie": "ouverture de compte" ,
+                "tarif": 0,
+                "period": 0
+            } ,
+            {
+                "nom_prestation": "Frais de tenue de compte courant" ,
+                "categorie": "tenue de compte" ,
+                "tarif": 750,
+                "period": 90
+            } ,
+            {
+                "nom_prestation": "Frais de tenue de compte chèque" ,
+                "categorie": "tenue de compte" ,
+                "tarif": 750,
+                "period": 90
+            } ,
+            {
+                "nom_prestation": "Frais de tenue de compte sur livret" ,
+                "categorie": "tenue de compte" ,
+                "tarif": 750,
+                "period": 90
+            }
+        ] ,
+        "paiement": [
+            {
+                "nom_prestation": "Versement espèces Client-agence" ,
+                "categorie": "Versement",
+                "tarif": 0,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Versement espèces Tiers" ,
+                "categorie": "Versement",
+                "tarif": 0,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Versement espèces déplacées" ,
+                "categorie": "Versement",
+                "tarif": 0,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement reçu d\\'un compte de la même agence" ,
+                "categorie": "Virement",
+                "tarif": 0,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement devise reçue de l\\'étranger 10 USD - 500 USD" ,
+                "categorie": "Virement",
+                "tarif": 300,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement devise reçue de l\\'étranger 501 USD - 5000 USD" ,
+                "categorie": "Virement",
+                "tarif": 1500,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement devise reçue de l\\'étranger 5001 USD - 10000 USD" ,
+                "categorie": "Virement",
+                "tarif": 3000,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement devise reçue de l\\'étranger 10001 USD - 100000 USD" ,
+                "categorie": "Virement",
+                "tarif": 5000,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement devise reçue de l\\'étranger >100000 USD" ,
+                "categorie": "Virement",
+                "tarif": 7500,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement de compte à compte (même agence)" ,
+                "categorie": "Virement",
+                "tarif": 0,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Annulation de chèque de banque" ,
+                "categorie": "chèque",
+                "tarif": 800,
+                "period": 0
+            }
+        ] ,
+        "monetique": {
+            "carte CIB": [
+                {
+                    "nom_prestation": "Émission de la première carte",
+                    "categorie" : "CIB",
+                    "tarif": 0,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Reconfection carte Classique",
+                    "categorie" : "CIB",
+                    "tarif": 650,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Reconfection carte Excellium",
+                    "categorie" : "CIB",
+                    "tarif": 4000,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Reconfection carte Gold",
+                    "categorie" : "CIB",
+                    "tarif": 1000,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Reconfection carte jeune",
+                    "categorie" : "CIB",
+                    "tarif": 200,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Réédition du code secret",
+                    "categorie" : "CIB",
+                    "tarif": 150,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Commission de retrait sur DAB de la banque",
+                    "categorie" : "CIB",
+                    "tarif": 0,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Commission de retrait sur DAB confrère",
+                    "categorie" : "CIB",
+                    "tarif": 50,
+                    "period": 0
+                }
+            ],
+            "carte internationale":[
+                {
+                    "nom_prestation": "Mise en opposition carte Prépayéee",
+                    "categorie": "VISA",
+                    "tarif":  1500,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Mise en opposition carte Classique",
+                    "categorie": "VISA",
+                    "tarif":  1500,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Mise en opposition carte Gold",
+                    "categorie": "VISA",
+                    "tarif":  1500,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Mise en opposition Carte Platinum",
+                    "categorie": "VISA",
+                    "tarif":  1500,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Reconfection carte Classique",
+                    "categorie": "VISA",
+                    "tarif": 4200,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Reconfection carte Gold",
+                    "categorie": "VISA",
+                    "tarif": 8000,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Réédition du code secret carte Classique",
+                    "categorie": "VISA",
+                    "tarif": 1000,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Réédition du code secret carte Gold",
+                    "categorie": "VISA",
+                    "tarif": 1000,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Réédition du code secret carte Platinum",
+                    "categorie": "VISA",
+                    "tarif": 1000,
+                    "period": 0
+                }
+            ]        
+        }    
+    },
+    "prestations_ets":   {
+        "compte":[
+            {
+                "nom_prestation": "Ouverture de compte et délivrance chéquier" ,
+                "categorie": "ouverture de compte" ,
+                "tarif": 0,
+                "period": 0
+            } ,
+            {
+                "nom_prestation": "Frais de tenue de compte courant" ,
+                "categorie": "tenue de compte" ,
+                "tarif": 1200,
+                "period": 90
+            } ,
+            {
+                "nom_prestation": "Frais de tenue de compte chèque" ,
+                "categorie": "tenue de compte" ,
+                "tarif": 1200,
+                "period": 90
+            } ,
+            {
+                "nom_prestation": "Frais de tenue de compte sur livret" ,
+                "categorie": "tenue de compte" ,
+                "tarif": 1200,
+                "period": 90
+            }
+        ],
+        "paiement": [
+            {
+                "nom_prestation": "Versement espèces Client-agence" ,
+                "categorie": "Versement",
+                "tarif": 0,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Versement espèces Tiers" ,
+                "categorie": "Versement",
+                "tarif": 0,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Versement espèces déplacées" ,
+                "categorie": "Versement",
+                "tarif": 0,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement reçu d\\'un compte de la même agence" ,
+                "categorie": "Virement",
+                "tarif": 0,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement devise reçue de l\\'étranger 10 USD - 500 USD" ,
+                "categorie": "Virement",
+                "tarif": 300,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement devise reçue de l\\'étranger 501 USD - 5000 USD" ,
+                "categorie": "Virement",
+                "tarif": 1500,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement devise reçue de l\\'étranger 5001 USD - 10000 USD" ,
+                "categorie": "Virement",
+                "tarif": 3000,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement devise reçue de l\\'étranger 10001 USD - 100000 USD" ,
+                "categorie": "Virement",
+                "tarif": 5000,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement devise reçue de l\\'étranger >100000 USD" ,
+                "categorie": "Virement",
+                "tarif": 7500,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement de compte à compte (même agence)" ,
+                "categorie": "Virement",
+                "tarif": 0,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Annulation de chèque de banque" ,
+                "categorie": "chèque",
+                "tarif": 1200,
+                "period": 0
+            }
+        ] ,
+        "monetique": {
+            "carte CIB": [
+                {
+                    "nom_prestation": "Émission de la première carte",
+                    "categorie" : "CIB",
+                    "tarif": 0,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Reconfection carte Classique",
+                    "categorie" : "CIB",
+                    "tarif": 2500,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Reconfection carte Gold",
+                    "categorie" : "CIB",
+                    "tarif": 3500,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Réédition du code secret",
+                    "categorie" : "CIB",
+                    "tarif": 150,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Commission de retrait sur DAB de la banque",
+                    "categorie" : "CIB",
+                    "tarif": 0,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Commission de retrait sur DAB confrère",
+                    "categorie" : "CIB",
+                    "tarif": 50,
+                    "period": 0
+                }
+            ],
+            "carte internationale":[
+                {
+                    "nom_prestation": "Mise en opposition carte Prépayéee",
+                    "categorie": "VISA",
+                    "tarif":  500,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Mise en opposition carte Classique",
+                    "categorie": "VISA",
+                    "tarif":  500,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Mise en opposition carte Gold",
+                    "categorie": "VISA",
+                    "tarif":  500,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Mise en opposition Carte Platinum",
+                    "categorie": "VISA",
+                    "tarif":  500,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Reconfection carte Classique",
+                    "categorie": "VISA",
+                    "tarif": 2500,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Reconfection carte Gold",
+                    "categorie": "VISA",
+                    "tarif": 3500,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Réédition du code secret carte Prépayée",
+                    "categorie": "VISA",
+                    "tarif": 150,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Réédition du code secret carte Classique",
+                    "categorie": "VISA",
+                    "tarif": 150,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Réédition du code secret carte Gold",
+                    "categorie": "VISA",
+                    "tarif": 150,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Réédition du code secret carte Platinum",
+                    "categorie": "VISA",
+                    "tarif": 150,
+                    "period": 0
+                }
+            ]        
+        }
+    } 
+}

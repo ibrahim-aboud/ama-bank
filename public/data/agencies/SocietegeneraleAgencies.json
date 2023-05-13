@@ -1,0 +1,1101 @@
+{
+    "bank_name": "Societé Générale",
+    "agencies": [
+        {
+            "agency_location": "Birkhadem",
+            "agency_address": "Résidence el kerma Gué de constantine , BP 55 , Birkhadem",
+            "agency_lat": 40.99811762003312,
+            "agency_lng": 11.83394505625,
+            "agency_wilaya": 16,
+            "agency_phone": "021 45 14 82",
+            "agency_fax": "021 45 14 76",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },
+       
+         {
+            "agency_location": "Reghaia",
+            "agency_address": "Résidence ESSALEM villa N° 12 Reghaia, Alger",
+            "agency_lat": 40.99811762003312,
+            "agency_lng": 11.83394505625,
+            "agency_wilaya": 16,
+            "agency_phone": "023 86 67 93",
+            "agency_fax": "023 86 68 74",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },
+        {
+            "agency_location": "Rouiba",
+            "agency_address": "Rouiba Zone Industrielle, Rouiba",
+            "agency_lat": 40.99811762003312,
+            "agency_lng": 11.83394505625,
+            "agency_wilaya": 16,
+            "agency_phone": "023 87 38 33",
+            "agency_fax": "021 81 63 59",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },
+        {
+            "agency_location": "Rouiba",
+            "agency_address": "10,rue Hassiba Ben Bouali Rouiba",
+            "agency_lat": 40.99811762003312,
+            "agency_lng": 11.83394505625,
+            "agency_wilaya": 16,
+            "agency_phone": "021 85 40 13",
+            "agency_fax": "021 85 56 79",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },
+        {
+            "agency_location": "Dar El Beida",
+            "agency_address": "Lotissement Abdouni Lot n°24 Dar El Beida - Alger",
+            "agency_lat": 40.99811762003312,
+            "agency_lng": 11.83394505625,
+            "agency_wilaya": 16,
+            "agency_phone": "021 75 40 30",
+            "agency_fax": "021 75 40 32",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },
+        {
+            "agency_location": "Bab Ezzouar",
+            "agency_address": "Quartier d''affaires 16024 BP 134, Bab Ezzouar",
+            "agency_lat": 40.99811762003312,
+            "agency_lng": 11.83394505625,
+            "agency_wilaya": 16,
+            "agency_phone": null,
+            "agency_fax": null,
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },
+        {
+            "agency_location": "Reghaia",
+            "agency_address": "Résidence ESSALEM villa N° 12 Reghaia, Alger",
+            "agency_lat": 40.99811762003312,
+            "agency_lng": 11.83394505625,
+            "agency_wilaya": 16,
+            "agency_phone": "023 86 67 93",
+            "agency_fax": "023 86 68 74",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },
+        {
+            "agency_location": "Bab Ezzouar",
+            "agency_address": "1 Boulevard Rezig kadda - Bab Ezzouar",
+            "agency_lat": 40.99811762003312,
+            "agency_lng": 11.83394505625,
+            "agency_wilaya": 16,
+            "agency_phone": "023 83 95 28",
+            "agency_fax": "023 83 95 24",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },
+        {
+            "agency_location": "Bordj El Kiffan",
+            "agency_address": "27 rue Colonel Amirouche - Bordj El Kiffan",
+            "agency_lat": 40.99811762003312,
+            "agency_lng": 11.83394505625,
+            "agency_wilaya": 16,
+            "agency_phone": "021 20 31 15",
+            "agency_fax": "021 20 31 27",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },
+        {
+            "agency_location": "Bab Ezzouar",
+            "agency_address": "Centre Commercial City Center, cité Douzi, section 1 ilot 318, Bureau N°45 Bab Ezzouar, Alger",
+            "agency_lat": 40.99811762003312,
+            "agency_lng": 11.83394505625,
+            "agency_wilaya": 16,
+            "agency_phone": null,
+            "agency_fax": null,
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },
+        {
+            "agency_location": "Oued Smar",
+            "agency_address": "13 Route Dar El Beida Zone industrielle Oued Smar bp 218 Alger 16000",
+            "agency_lat": 40.99811762003312,
+            "agency_lng": 11.83394505625,
+            "agency_wilaya": 16,
+            "agency_phone": null,
+            "agency_fax": null,
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },
+        {
+            "agency_location": "Reghaia",
+            "agency_address": "Résidence ESSALEM villa N° 12 Reghaia, Alger",
+            "agency_lat": 40.99811762003312,
+            "agency_lng": 11.83394505625,
+            "agency_wilaya": 16,
+            "agency_phone": "023 86 67 93",
+            "agency_fax": "023 86 68 74",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },
+        {
+            "agency_location": "El Harrach",
+            "agency_address": "15, rue des frères Bouzid El Harrach",
+            "agency_lat": 40.99811762003312,
+            "agency_lng": 11.83394505625,
+            "agency_wilaya": 16,
+            "agency_phone": "021 51 45 50",
+            "agency_fax": "021 51 44 07",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },
+        {
+            "agency_location": "El Mohamadia",
+            "agency_address": "Ardis, Centre Commercial, Médina Center. Pins Maritimes, El Mohamadia-Alger, Alger 16000",
+            "agency_lat": 40.99811762003312,
+            "agency_lng": 11.83394505625,
+            "agency_wilaya": 16,
+            "agency_phone": null,
+            "agency_fax": null,
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },
+        {
+            "agency_location": "Reghaia",
+            "agency_address": "Résidence ESSALEM villa N° 12 Reghaia, Alger",
+            "agency_lat": 40.99811762003312,
+            "agency_lng": 11.83394505625,
+            "agency_wilaya": 16,
+            "agency_phone": "023 86 67 93",
+            "agency_fax": "023 86 68 74",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },
+        {
+            "agency_location": "Reghaia",
+            "agency_address": "Résidence ESSALEM villa N° 12 Reghaia, Alger",
+            "agency_lat": 40.99811762003312,
+            "agency_lng": 11.83394505625,
+            "agency_wilaya": 16,
+            "agency_phone": "023 86 67 93",
+            "agency_fax": "023 86 68 74",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },
+        {
+            "agency_location": "Hussein-Dey",
+            "agency_address": "6 rue Amar Bensmara Hussein-Dey",
+            "agency_lat": 40.99811762003312,
+            "agency_lng": 11.83394505625,
+            "agency_wilaya": 16,
+            "agency_phone": "021 77 47 62",
+            "agency_fax": "021 77 47 67",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },
+        {
+            "agency_location": "Ain Naadja",
+            "agency_address": "Lotissement Djenane El Kares lot N°35 Gue de Constantine",
+            "agency_lat": 40.99811762003312,
+            "agency_lng": 11.83394505625,
+            "agency_wilaya": 16,
+            "agency_phone": "021 29 73 67",
+            "agency_fax": "021 29 73 30",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },
+        {
+            "agency_location": "Kouba",
+            "agency_address": "28 rue Mohamed Rabia Kouba",
+            "agency_lat": 40.99811762003312,
+            "agency_lng": 11.83394505625,
+            "agency_wilaya": 16,
+            "agency_phone": "021 47 06 68",
+            "agency_fax": "021 47 06 63",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },
+        {
+            "agency_location": "Kouba",
+            "agency_address": "09, rue Mohamed Garidi, Kouba",
+            "agency_lat": 40.99811762003312,
+            "agency_lng": 11.83394505625,
+            "agency_wilaya": 16,
+            "agency_phone": "021 28 36 90",
+            "agency_fax": "021 28 35 77",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },
+        {
+            "agency_location": "Belouizdad",
+            "agency_address": "216, rue Mohamed Belouizdad",
+            "agency_lat": 40.99811762003312,
+            "agency_lng": 11.83394505625,
+            "agency_wilaya": 16,
+            "agency_phone": "021 67 76 21",
+            "agency_fax": "021 67 69 60",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },
+        {
+            "agency_location": "Bir Mourad Rais",
+            "agency_address": "6 Extension les Sources- Bir Mourad Rais",
+            "agency_lat": 40.99811762003312,
+            "agency_lng": 11.83394505625,
+            "agency_wilaya": 16,
+            "agency_phone": "021 44 86 99",
+            "agency_fax": "021 44 86 29",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },
+        {
+            "agency_location": "Garidi",
+            "agency_address": "Uno Supermarché - Garidi, Tour 1 Garidi Kouba, Alger",
+            "agency_lat": 40.99811762003312,
+            "agency_lng": 11.83394505625,
+            "agency_wilaya": 16,
+            "agency_phone": null,
+            "agency_fax": null,
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },
+        {
+            "agency_location": "Bir Khadem",
+            "agency_address": "108 rue des Trois Frères Djillali - Bir Khadem",
+            "agency_lat": 40.99811762003312,
+            "agency_lng": 11.83394505625,
+            "agency_wilaya": 16,
+            "agency_phone": "021 40 57 72",
+            "agency_fax": "021 56 59 94",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },       
+        {
+            "agency_location": "Bir Mourad Rais",
+            "agency_address": "5 rue des Frères Bouaddou Bir Mourad Rais",
+            "agency_lat": 40.99811762003312,
+            "agency_lng": 11.83394505625,
+            "agency_wilaya": 16,
+            "agency_phone": "021 56 57 61",
+            "agency_fax": "021 56 57 63",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },        
+        {
+            "agency_location": "1er MAI",
+            "agency_address": "04, Rue Belhaffaf Ghazali, 1er MAI",
+            "agency_lat": 40.99811762003312,
+            "agency_lng": 11.83394505625,
+            "agency_wilaya": 16,
+            "agency_phone": "021 66 39 20",
+            "agency_fax": "021 66 39 91",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },        
+        {
+            "agency_location": "Hydra",
+            "agency_address": "1, Rue Hamdani Lahcen Sidi Yahia, Hydra",
+            "agency_lat": 40.99811762003312,
+            "agency_lng": 11.83394505625,
+            "agency_wilaya": 16,
+            "agency_phone": "021 60 06 82",
+            "agency_fax": "021 45 14 37",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },        {
+            "agency_location": "Hydra",
+            "agency_address": "1 rue Hamdani Lahcen Sidi Yahia Hydra",
+            "agency_lat": 40.99811762003312,
+            "agency_lng": 11.83394505625,
+            "agency_wilaya": 16,
+            "agency_phone": "021 60 06 82",
+            "agency_fax": "021 45 14 37",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },        {
+            "agency_location": "Draria",
+            "agency_address": "42, Boudjemaa Temim Draria",
+            "agency_lat": 40.99811762003312,
+            "agency_lng": 11.83394505625,
+            "agency_wilaya": 16,
+            "agency_phone": "021 20 31 91",
+            "agency_fax": "021 35 32 49",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },        
+        {
+            "agency_location": "Baba Hassen",
+            "agency_address": "Lot du 1er Novembre 1954 N°127 Baba Hassen",
+            "agency_lat": 40.99811762003312,
+            "agency_lng": 11.83394505625,
+            "agency_wilaya": 16,
+            "agency_phone": "021 35 16 31",
+            "agency_fax": "021 35 24 21",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },        
+        {
+            "agency_location": "Amirouche",
+            "agency_address": "3, Boulevard Colonel Amirouche",
+            "agency_lat": 40.99811762003312,
+            "agency_lng": 11.83394505625,
+            "agency_wilaya": 16,
+            "agency_phone": "021 74 75 30",
+            "agency_fax": "021 74 75 21",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },        
+        {
+            "agency_location": "Didouche Mourad",
+            "agency_address": "1, Bis rue Didouche Mourad",
+            "agency_lat": 40.99811762003312,
+            "agency_lng": 11.83394505625,
+            "agency_wilaya": 16,
+            "agency_phone": "023 92 24 29",
+            "agency_fax": "021 63 08 58",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },        
+        {
+            "agency_location": "El Biar",
+            "agency_address": "1 rue 11 Décembre 1960 - El Biar",
+            "agency_lat": 40.99811762003312,
+            "agency_lng": 11.83394505625,
+            "agency_wilaya": 16,
+            "agency_phone": "021 91 47 82",
+            "agency_fax": "021 91 57 84",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },        
+        {
+            "agency_location": "El Biar",
+            "agency_address": "149, Avenue Ali khodja El Biar",
+            "agency_lat": 40.99811762003312,
+            "agency_lng": 11.83394505625,
+            "agency_wilaya": 16,
+            "agency_phone": "021 92 21 56",
+            "agency_fax": "021 92 21 30",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },
+         {
+            "agency_location": "Bab El Oued",
+            "agency_address": "01 Rue Meriem Abdelaziz Bab El Oued",
+            "agency_lat": 36.732887,
+            "agency_lng": 3.0867455,
+            "agency_wilaya": 16,
+            "agency_phone": "021 62 01 16",
+            "agency_fax": "021 62 00 92",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+            "agency_location": "Bouzareah",
+            "agency_address": "101 rue Ali Remli - Deux Piliers - Bouzareah",
+            "agency_lat": 36.732887,
+            "agency_lng": 3.0867455,
+            "agency_wilaya": 16,
+            "agency_phone": "021 79 39 30",
+            "agency_fax": "021 79 39 40",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+            "agency_location": "Béni Messous",
+            "agency_address": "17 rue de l''hôpital Béni Messous",
+            "agency_lat": 36.732887,
+            "agency_lng": 3.0867455,
+            "agency_wilaya": 16,
+            "agency_phone": "021 93 38 40",
+            "agency_fax": null,
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+            "agency_location": "Bab El Oued",
+            "agency_address": "01 Rue Meriem Abdelaziz Bab El Oued",
+            "agency_lat": 36.732887,
+            "agency_lng": 3.0867455,
+            "agency_wilaya": 16,
+            "agency_phone": "021 62 01 16",
+            "agency_fax": "021 62 00 92",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+            "agency_location": "Chéraga",
+            "agency_address": "Lotissement Kaouche - Chéraga 16 800",
+            "agency_lat": 36.732887,
+            "agency_lng": 3.0867455,
+            "agency_wilaya": 16,
+            "agency_phone": "023 45 09 94",
+            "agency_fax": "021 36 16 00",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+            "agency_location": "Cheraga",
+            "agency_address": "High Tech Systems 21 Lotissement Ben Haddadi Said, Bt. N°21, Cheraga, Alger",
+            "agency_lat": 36.732887,
+            "agency_lng": 3.0867455,
+            "agency_wilaya": 16,
+            "agency_phone": null,
+            "agency_fax": null,
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+            "agency_location": "Ain Benian",
+            "agency_address": "19 rue El Djamila Ain - Benian",
+            "agency_lat": 36.732887,
+            "agency_lng": 3.0867455,
+            "agency_wilaya": 16,
+            "agency_phone": "023 10 48 93",
+            "agency_fax": "021 31 10 20",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },  
+         {
+             "agency_location": "Koléa",
+             "agency_address": "1 rue des fréres Mokrani Koléa - Tipaza",
+             "agency_lat": 37.20287919006815,
+             "agency_lng": 4.15707624659741,
+             "agency_wilaya": 42,
+             "agency_phone": "024 38 27 06",
+             "agency_fax": "024 38 27 10",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+            "agency_location": "Boufarik",
+            "agency_address": "60 rue Ali Mokhtari - Boufarik 09400",
+            "agency_lat": 37.20287919006815,
+            "agency_lng": 4.15707624659741,
+            "agency_wilaya": 9,
+            "agency_phone": "025 48 11 16",
+            "agency_fax": "025 36 83 53",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },         
+        {
+            "agency_location": "Blida",
+            "agency_address": "124, Avenue Kritli Mokhtar- Blida",
+            "agency_lat": 37.20287919006815,
+            "agency_lng": 4.15707624659741,
+            "agency_wilaya": 9,
+            "agency_phone": "025 22 49 63",
+            "agency_fax": "025 22 55 97",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },
+        {
+            "agency_location": "Blida",
+            "agency_address": "59, Boulevard Mustapha Ben Boulaid",
+            "agency_lat": 37.20287919006815,
+            "agency_lng": 4.15707624659741,
+            "agency_wilaya": 9,
+            "agency_phone": "025 20 80 88",
+            "agency_fax": "025 23 44 13",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },        {
+            "agency_location": "Blida",
+            "agency_address": "38 A, Zone Industrielle Blida",
+            "agency_lat": 37.20287919006815,
+            "agency_lng": 4.15707624659741,
+            "agency_wilaya": 9,
+            "agency_phone": "025 23 44 10",
+            "agency_fax": "025 36 02 35",
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },        {
+            "agency_location": "Blida",
+            "agency_address": "12 Rue Aissat Idir Blida",
+            "agency_lat": 37.20287919006815,
+            "agency_lng": 4.15707624659741,
+            "agency_wilaya": 9,
+            "agency_phone": null,
+            "agency_fax": null,
+            "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+        },
+         {
+             "agency_location": "Ghardaïa",
+             "agency_address": "02, Boulevard Emir Abdelkader 47000 Ghardaïa",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 47,
+             "agency_phone": "029 23 13 99",
+             "agency_fax": "029 23 10 09",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Ghardaïa",
+             "agency_address": "02, Boulevard Emir Abdelkader 47000 Ghardaïa",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 47,
+             "agency_phone": "029 23 13 99",
+             "agency_fax": null,
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Biskra",
+             "agency_address": "8, Boulevard 1er Novembre 1954 - Biskra - 07000",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 7,
+             "agency_phone": "033 55 84 08",
+             "agency_fax": "033 73 44 81",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Khenchela",
+             "agency_address": "18 rue de la Palestine - Khenchela 40000",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 40,
+             "agency_phone": "032 72 75 81",
+             "agency_fax": "032 72 75 77",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Batna",
+             "agency_address": "Les Allées Ben Boulaid - 10 rue Ali Nemer",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 5,
+             "agency_phone": "033 80 47 56",
+             "agency_fax": "033 80 48 82",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Souk Ahras",
+             "agency_address": "Avenue du 1er Novembre 1954- Villa N° 01- Souk Ahras",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 41,
+             "agency_phone": "037 82 58 05",
+             "agency_fax": "037 82 58 01",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Annaba",
+             "agency_address": "33, Boulevard du 1er Novembre 1954",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 23,
+             "agency_phone": "038 45 08 59",
+             "agency_fax": null,
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Annaba",
+             "agency_address": "Les Peupliers, Cité des Peupliers - 240 Logts - N° 01",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 23,
+             "agency_phone": "038 41 83 86",
+             "agency_fax": "38 41 84 01",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Skikda",
+             "agency_address": "Cité Beni Malak la Rocade - Skikda",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 21,
+             "agency_phone": "038 75 48 49",
+             "agency_fax": "038 75 48 32",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Constantine",
+             "agency_address": "8 Lot Cité Ouchtati M''rah - El Khroub - Constantine",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 25,
+             "agency_phone": "031 83 02 21",
+             "agency_fax": null,
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Constantine",
+             "agency_address": "l''Unité Voisinage N°07  Nouvelle Ville - Constantine",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 25,
+             "agency_phone": "031 77 79 02",
+             "agency_fax": null,
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Constantine",
+             "agency_address": "Gare routière nouvelle ville Ali Mendjli Constantine",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 25,
+             "agency_phone": null,
+             "agency_fax": null,
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Constantine",
+             "agency_address": "02, Bis rue Docteur Calmet - Belle Vue - Constantine",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 25,
+             "agency_phone": "031 93 70 00",
+             "agency_fax": null,
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Constantine",
+             "agency_address": "ibis-hotel, Square Hadj, Rue Belaloui Ali, Constantine 25000",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 25,
+             "agency_phone": null,
+             "agency_fax": null,
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Jijel",
+             "agency_address": "75 rue des Moudjahidines - Oasis Jijel 18000",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 18,
+             "agency_phone": "034 47 11 99",
+             "agency_fax": "034 47 11 33",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "El Eulma",
+             "agency_address": "Avenue 1er Novembre 1954 - El Eulma",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 19,
+             "agency_phone": "036 47 16 16",
+             "agency_fax": "036 47 20 24",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Setif",
+             "agency_address": "Cooperative 1 Novembre 1954 - rue Bendiekha Mouloud - Setif",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 19,
+             "agency_phone": "036 52 51 87",
+             "agency_fax": "036 52 52 53",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         }
+         ,
+         {
+             "agency_location": "Setif",
+             "agency_address": "El Hidhab, Cooperative 1 Novembre 1954 - rue Bendiekha Mouloud - Setif",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 19,
+             "agency_phone": "036 52 51 87",
+             "agency_fax": "036 52 52 53",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         }
+         ,
+         {
+             "agency_location": "Setif",
+             "agency_address": "El Fouara, boulevard 1er Novembre 1954 - rue Ferhata Ali - Setif",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 19,
+             "agency_phone": "036 82 67 40",
+             "agency_fax": "036 82 67 40",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         }
+         ,
+         {
+             "agency_location": "Setif",
+             "agency_address": "Cooperative 1 Novembre 1954 - rue Bendiekha Mouloud - Setif",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 19,
+             "agency_phone": "036 52 51 87",
+             "agency_fax": "036 52 52 53",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         }
+         ,
+         {
+             "agency_location": "Setif",
+             "agency_address": "1 avenue Said Boukhrissa, Hotel Sétifis, Sétif",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 19,
+             "agency_phone": "036 62 13 11",
+             "agency_fax": "036 62 23 59",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         }
+         ,
+         {
+             "agency_location": "Setif",
+             "agency_address": "Cooperative 1 Novembre 1954 - rue Bendiekha Mouloud - Setif",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 19,
+             "agency_phone": "036 52 51 87",
+             "agency_fax": "036 52 52 53",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         }
+         ,
+         {
+             "agency_location": "BBA",
+             "agency_address": "Condor, Zone d''activité, Route de M''Sila",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 34,
+             "agency_phone": null,
+             "agency_fax": null,
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         }
+         ,
+         {
+             "agency_location": "Bordj Bou Arreridj",
+             "agency_address": "El Mokrani 18, Boulevard Houari Boumedienne - Bordj Bou Arreridj",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 34,
+             "agency_phone": "035 69 05 05",
+             "agency_fax": "035 69 05 40",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         }
+         ,
+         {
+             "agency_location": "Bordj Bou Arreridj",
+             "agency_address": "Ferme Khelfellaoui - bd.Houari Boumedienne- Bordj Bou Arreridj",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 34,
+             "agency_phone": "035 74 55 99",
+             "agency_fax": "035 74 55 55",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         }
+         ,
+         {
+             "agency_location": "M''sila",
+             "agency_address": "Cité Belle Vue- N°206- Route de Boussaâda - M''sila",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 28,
+             "agency_phone": "035 33 68 29",
+             "agency_fax": "035 33 68 49",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         }
+         ,
+         {
+             "agency_location": "Bejaia",
+             "agency_address": "Lotissement Akkal Aberkane -Session 84- Groupe de propriété  N° 45- El Kseur - Bejaia",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 6,
+             "agency_phone": "034 13 55 16",
+             "agency_fax": "034 25 47 77",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         }
+         ,
+         {
+             "agency_location": "Bejaia",
+             "agency_address": "11 rue Ahmed Boumedda Bejaia 06000",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 6,
+             "agency_phone": "034 22 11 55",
+             "agency_fax": "034 22 11 50",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         }
+         ,
+         {
+             "agency_location": "Bejaia",
+             "agency_address": "Quartier Seghir Bt D. Bejaia 06000",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 6,
+             "agency_phone": "034 12 66 11",
+             "agency_fax": "034 12 66 18",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         }
+         ,
+         {
+             "agency_location": "Battouche",
+             "agency_address": "Battouche, Hôtel de la zone, ZAC Taharacht",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 6,
+             "agency_phone": "036 52 51 87",
+             "agency_fax": "036 52 52 53",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         }
+         ,
+         {
+             "agency_location": "Akbou",
+             "agency_address": "RN 26 - Faubourg de la Gare- Akbou",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 6,
+             "agency_phone": "034 35 47 80",
+             "agency_fax": "034 35 47 88",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         }
+         ,
+         {
+             "agency_location": "Azzazga",
+             "agency_address": "Rue Ighil Bouzal- Azzazga",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 15,
+             "agency_phone": "026 34 19 80",
+             "agency_fax": null,
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         }
+
+                  ,
+         {
+             "agency_location": "Bouira",
+             "agency_address": "Cité 1100 logements LSP - Promotion Banouh - Bouira",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 10,
+             "agency_phone": "026 73 44 04",
+             "agency_fax": "026 73 44 08",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Bouira",
+             "agency_address": "UNO Hupermarché, Route RN5, Sortie Nord, Bouira",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 10,
+             "agency_phone": null,
+             "agency_fax": null,
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Chlef",
+             "agency_address": "20, Rue des Martyrs - Chlef",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 2,
+             "agency_phone": "027 77 83 12",
+             "agency_fax": "027 79 20 54",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Tiaret",
+             "agency_address": "Rue 1er Novembre - Tiaret",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 14,
+             "agency_phone": "046 20 51 32",
+             "agency_fax": "046 20 51 48",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Relizane",
+             "agency_address": "Cité El Intissar Lot 170 N°33 - Relizane",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 48,
+             "agency_phone": "046 72 37 62",
+             "agency_fax": "046 72 37 88",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Mostaganem",
+             "agency_address": "Uno Hypermarché Vallée des jardins RN 23",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 27,
+             "agency_phone": "036 52 51 87",
+             "agency_fax": "036 52 52 53",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Mostaganem",
+             "agency_address": "33 boulevard Mohamed Khemisti Mostaganem",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 27,
+             "agency_phone": "045 41 39 58",
+             "agency_fax": "045 41 39 52",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Oran",
+             "agency_address": "172 avenue Tourville - Arzew",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 31,
+             "agency_phone": null,
+             "agency_fax": null,
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Oran",
+             "agency_address": "Boulevard les Falaises ilot 03 n°04 - Bir El Djir - Oran",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 31,
+             "agency_phone": "041 28 64 29",
+             "agency_fax": "041 28 64 32",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Oran",
+             "agency_address": "Rond point El Morched , Cité El Abdelkader, Oran",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 31,
+             "agency_phone": "041 66 81 65",
+             "agency_fax": "041 53 78 60",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Oran",
+             "agency_address": "Gambetta, 3 rue Benbakour Abdelkader - Angle Max Marchand - Oran -31000",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 31,
+             "agency_phone": "041 83 46 42",
+             "agency_fax": "041 53 14 30",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Oran",
+             "agency_address": "15 rue Larbi Ben M''hidi Oran",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 31,
+             "agency_phone": "041 33 08 43",
+             "agency_fax": "041 33 52 95",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Oran",
+             "agency_address": "14 boulevard de la Soummam - Oran",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 31,
+             "agency_phone": "041 36 20 18",
+             "agency_fax": "041 29 52 22",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Oran",
+             "agency_address": "56 rue Mohamed Bouzeboudja Marval, Oran",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 31,
+             "agency_phone": "041 25 06 17",
+             "agency_fax": "041 34 03 36",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Oran",
+             "agency_address": "16 rue des Palmiers - Cooperative El Sadaka - Oran",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 31,
+             "agency_phone": "041 23 30 72",
+             "agency_fax": "041 23 30 72",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Oran",
+             "agency_address": "106, Cooperative El Mithak Lot N°12 - Commune et Daira d''Es-Senia",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 31,
+             "agency_phone": "041 55 31 60",
+             "agency_fax": "041 29 29 53",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Oran",
+             "agency_address": "Maghreb Emballage - Cartonnerie - Zone industrielle El kerma",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 31,
+             "agency_phone": null,
+             "agency_fax": null,
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Oran",
+             "agency_address": "Lyper city, Zone industrielle N°02 Cwn°83 local 04 05 06 31100R",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 31,
+             "agency_phone": null,
+             "agency_fax": null,
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Mascara",
+             "agency_address": "1 boulevard de l''ALN - Cité Bel Air - Mascara",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 29,
+             "agency_phone": "045 72 28 92",
+             "agency_fax": "045 72 28 91",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Sidi Bel Abbes",
+             "agency_address": "27 Rue Larbi Tebessi Sidi Bel Abbes",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 22,
+             "agency_phone": "048 74 30 16",
+             "agency_fax": "048 54 68 52",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Oran",
+             "agency_address": "27 Rue Larbi Tebessi -Sidi Bel Abbes",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 22,
+             "agency_phone": "048 54 34 28",
+             "agency_fax": "048 54 68 52",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "AIN TEMOUCHENT",
+             "agency_address": "A02 boulevard Mohamed Boudiaf route d''Oran, AIN TEMOUCHENT",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 46,
+             "agency_phone": "043 79 56 55",
+             "agency_fax": "043 60 74 87",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Tlemcen",
+             "agency_address": "06, Rue Derrar Abderrahmane El Kiffane Tlemcen",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 13,
+             "agency_phone": "043 41 22 22",
+             "agency_fax": "043 20 88 89",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Tlemcen",
+             "agency_address": "Résidence El Ikhlass, les Dahlias Kiffane Tlemcen",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 13,
+             "agency_phone": "043 41 20 60",
+             "agency_fax": "043 41 20 70",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Boumerdes",
+             "agency_address": "Résidence Badi - Bâtiment 02- Local N°1 et 3- RN 24 - Boumerdes",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 35,
+             "agency_phone": "024 79 42 44",
+             "agency_fax": "024 79 42 37",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+
+         {
+             "agency_location": "Reghaia",
+             "agency_address": "Résidence ESSALEM villa N° 12 Reghaia, Alger",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 16,
+             "agency_phone": "023 86 67 93",
+             "agency_fax": "023 86 68 74",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Reghaia",
+             "agency_address": "Résidence ESSALEM villa N° 12 Reghaia, Alger",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 16,
+             "agency_phone": "023 86 67 93",
+             "agency_fax": "023 86 68 74",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Reghaia",
+             "agency_address": "Résidence ESSALEM villa N° 12 Reghaia, Alger",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 16,
+             "agency_phone": "023 86 67 93",
+             "agency_fax": "023 86 68 74",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         },
+         {
+             "agency_location": "Reghaia",
+             "agency_address": "Résidence ESSALEM villa N° 12 Reghaia, Alger",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 16,
+             "agency_phone": "023 86 67 93",
+             "agency_fax": "023 86 68 74",
+             "agency_location_link": "https://particuliers.societegenerale.dz/fr/nous-connaitre/notre-reseau/"
+         }
+    
+    ]
+ }

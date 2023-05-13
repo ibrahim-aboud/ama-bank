@@ -1,6 +1,16 @@
 {
-    "bank_name": "Natixis Algérie",
+    "bank_name": "TRUST Bank",
     "agencies": [
+         {
+            "agency_location": "Hydra",
+            "agency_address": "70, Chemin Larbi Allik, Hydra, Alger",
+            "agency_lat": 36.75825988001576, 
+            "agency_lng": 3.0620814101309524,
+            "agency_wilaya": 16,
+            "agency_phone": "021 54 97 63",
+            "agency_fax": "021 54 97 65",
+            "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=36.75825988001576%2C3.0620814101309524&z=12"
+         },
          {
              "agency_location": "Hassi Messaoud",
              "agency_address": "Cité Lamkadem Abdelkader, Hassi Messaoud Ouargla",
@@ -52,8 +62,8 @@
              "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=33.28661688833146%2C6.849207478571659&z=6"
          },
          {
-             "agency_location": "Ain M'lila",
-             "agency_address": "Passerelle rurale N° 1 boulevard Larbi Ben M'hidi Route nationale  N° 3 Ain M'lila  Oum Labouaghi",
+             "agency_location": "Ain M''lila",
+             "agency_address": "Passerelle rurale N° 1 boulevard Larbi Ben M''hidi Route nationale  N° 3 Ain M''lila  Oum Labouaghi",
              "agency_lat": 36.068651912646914,
              "agency_lng": 7.041222328635426,
              "agency_wilaya": 4,
@@ -257,16 +267,6 @@
              "agency_phone": "036 51 94 37",
              "agency_fax": "036 51 94 47",
              "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=36.67225578032769%2C3.124737812718843&z=10"
-         },
-         {
-             "agency_location": "Hydra",
-             "agency_address": "70, Chemin Larbi Allik, Hydra, Alger",
-             "agency_lat": 36.75825988001576, 
-             "agency_lng": 3.0620814101309524,
-             "agency_wilaya": 16,
-             "agency_phone": "021 54 97 63",
-             "agency_fax": "021 54 97 65",
-             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=36.75825988001576%2C3.0620814101309524&z=12"
          },
          {
              "agency_location": "Sétif",

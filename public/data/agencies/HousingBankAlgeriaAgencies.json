@@ -1,0 +1,75 @@
+{
+    "bank_name": "AL SALAM BANK ALGERIA",
+    "agencies": [
+         {
+             "agency_location": "Blida",
+             "agency_address": "N°61, Rue Larbi Tebessi APC Blida - BLIDA",
+             "agency_lat": 36.474361,
+             "agency_lng": 2.831361,
+             "agency_wilaya": 9,
+             "agency_phone": "025 21 30 70",
+             "agency_fax": "025 21 30 19",
+             "agency_location_link": "https://www.google.com/maps/place/36%C2%B028''27.7%22N+2%C2%B049''52.9%22E/@36.4743643,2.8225999,13z/data=!4m2!3m1!1s0x0:0x0"
+         },
+         {
+             "agency_location": "Oran",
+             "agency_address": "Coopérative El Bahia, Haï Essalem N°10 (Saint Hubert) - Oran -",
+             "agency_lat": 36.72503,
+             "agency_lng": 3.17582,
+             "agency_wilaya": 31,
+             "agency_phone": "0 041 23 02 67",
+             "agency_fax": "0 41 23 02 68",
+             "agency_location_link": "https://www.google.com/maps/place/35%C2%B040''28.0%22N+0%C2%B038''23.5%22W/@35.6840811,-0.6486574,13z/data=!4m4!3m3!8m2!3d35.6744444!4d-0.6398611"
+         },
+         {
+             "agency_location": "Sétif",
+             "agency_address": "20, Boulevard du 1er Novembre 1954 - Sétif - ALGERIE",
+             "agency_lat": 35.674444,
+             "agency_lng": -0.639861,
+             "agency_wilaya": 19,
+             "agency_phone": "0 36 53 85 85",
+             "agency_fax": "0 36 53 85 78",
+             "agency_location_link": "https://www.google.com/maps/place/35%C2%B040''28.0%22N+0%C2%B038''23.5%22W/@35.6840811,-0.6486574,13z/data=!4m4!3m3!8m2!3d35.6744444!4d-0.6398611"
+         },
+         {
+             "agency_location": "Dar El Beida",
+             "agency_address": "107 rue Mohammed Khemisti, dar El Beida, Alger - ALGERIE",
+             "agency_lat": 36.712222,
+             "agency_lng": 3.213361,
+             "agency_wilaya": 16,
+             "agency_phone": "023 61 45 44",
+             "agency_fax": "023 61 45 46",
+             "agency_location_link": "https://www.google.com/maps/place/36%C2%B042''44.0%22N+3%C2%B012''48.1%22E/@36.7122141,3.2046179,15z/data=!4m4!3m3!8m2!3d36.7122222!4d3.2133611"
+         },
+         {
+             "agency_location": "Béjaïa",
+             "agency_address": "Boulevard Krim Belkacem ,Promotion Immobilière 45 Logements, Béjaia",
+             "agency_lat": 36.746612,
+             "agency_lng": 5.049960,
+             "agency_wilaya": 6,
+             "agency_phone": "0 34 11 33 51",
+             "agency_fax": "0 34 11 33 50",
+             "agency_location_link": "https://www.google.com/maps/place/Housing+Bank/@36.7465715,5.0478507,17z/data=!3m1!4b1!4m2!3m1!1s0x128d334f66499cc7:0xeb0b01d0a483940c"
+         },
+         {
+             "agency_location": "Constantine",
+             "agency_address": "Boulevard Hamou Belhadj Mustapha N°06 Sidi Mabrouk ,Constantine",
+             "agency_lat": 35.040580,
+             "agency_lng": 9.469190,
+             "agency_wilaya": 25,
+             "agency_phone": "031 74 02 30",
+             "agency_fax": "031 74 02 29",
+             "agency_location_link": "https://www.google.com/maps/place/Agence+hbtf+constantine/@36.360683,6.6369769,15z/data=!4m6!3m5!1s0x12f176e9f6dc5ab7:0xf08da7c5c5f9a5f5!8m2!3d36.3613384!4d6.6368255!16s%2Fg%2F11b6cmk4_f"
+         },
+         {
+             "agency_location": "Rouïba",
+             "agency_address": "174 lotissement CADAT, Ilot de propriété 206, Section 10. Rouïba -Alger",
+             "agency_lat": 36.760203,
+             "agency_lng": 2.986876,
+             "agency_wilaya": 16,
+             "agency_phone": "023 85 57 01",
+             "agency_fax": "023 85 57 08",
+             "agency_location_link": "https://www.google.com/maps/place/Housing+Bank+Algeria/@36.7601435,2.9868991,17z/data=!3m1!4b1!4m6!3m5!1s0x128fb1cf4fc32051:0xe0c86d173ea7c4a2!8m2!3d36.7601435!4d2.9868991!16s%2Fg%2F11bwfmhq9t"
+         }
+    ]
+ }

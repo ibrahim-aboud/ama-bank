@@ -1,0 +1,195 @@
+{
+   "bank_name": "FRANSABANK El DJAZAÏR",
+   "agencies": [
+        {
+            "agency_location": "Zéralda",
+            "agency_address": "Lieudit Zighoud Youcef, section 09 ilot 181, Zéralda",
+            "agency_lat": null,
+            "agency_lng": null,
+            "agency_wilaya": 16,
+            "agency_phone": "023325457",
+            "agency_fax": null,
+            "agency_location_link": "https://goo.gl/maps/Yjuy621ik4RUeGYM9"
+        },
+        {
+            "agency_location": "Alger Centre",
+            "agency_address": "N°18/20 Rue Ahmed Zabana, Commune Sidi M\\'Hammed Alger, 16000",
+            "agency_lat": null,
+            "agency_lng": null,
+            "agency_wilaya": 16,
+            "agency_phone": "021741542",
+            "agency_fax": null,
+            "agency_location_link": "https://goo.gl/maps/pQQiyGxnih72MD7M8"
+        },
+        {
+            "agency_location": "Blida",
+            "agency_address": "Boulevard Kritli Mokhtar, Lotissement Ennakhile, N°01",
+            "agency_lat": null,
+            "agency_lng": null,
+            "agency_wilaya": 9,
+            "agency_phone": "025224761",
+            "agency_fax": null,
+            "agency_location_link": "https://goo.gl/maps/fCWkLbBuiC1FBF5H6"
+        },
+        {
+            "agency_location": "Kouba",
+            "agency_address": "Lot 49, Rue Garidi G4 Groupement de propriété 101, Kouba",
+            "agency_lat": null,
+            "agency_lng": null,
+            "agency_wilaya": 16,
+            "agency_phone": "023706335",
+            "agency_fax": null,
+            "agency_location_link": "https://goo.gl/maps/wQj7oWikjCuLkkgs8"
+        },
+        {
+            "agency_location": "Baba Hassen",
+            "agency_address": "Ilot N°211, Section 03, N°01 et 02, Baba Hassen",
+            "agency_lat": null,
+            "agency_lng": null,
+            "agency_wilaya": 16,
+            "agency_phone": "023353202",
+            "agency_fax": null,
+            "agency_location_link": "https://goo.gl/maps/844iqUTXbmP6SN8V6"
+        },
+        {
+            "agency_location": "Bab Ezzouar",
+            "agency_address": "Centre des affaires d\\'Alger, Tour CMA-CGM, Ilot 02 N°15 et 16, Bab Ezzouar",
+            "agency_lat": null,
+            "agency_lng": null,
+            "agency_wilaya": 16,
+            "agency_phone": "023924994",
+            "agency_fax": null,
+            "agency_location_link": "https://goo.gl/maps/ZAuyztPQvQYW6wLv5"
+        },
+        {
+            "agency_location": "Ouled Fayet",
+            "agency_address": "Centre commercial GARDEN CITY, Rocade Sud, Chemin de Wilaya 142, Ouled Fayet",
+            "agency_lat": null,
+            "agency_lng": null,
+            "agency_wilaya": 16,
+            "agency_phone": "023280303",
+            "agency_fax": null,
+            "agency_location_link": "https://goo.gl/maps/ER8YudVCrnnk4e927"
+        },
+        {
+            "agency_location": "Rouiba",
+            "agency_address": "ilots 158 bis, les cadettes Rouiba, 16017",
+            "agency_lat": null,
+            "agency_lng": null,
+            "agency_wilaya": 16,
+            "agency_phone": "023854347",
+            "agency_fax": null,
+            "agency_location_link": "https://goo.gl/maps/eqbdMS74Cc9Ubm8T9"
+        },
+        {
+            "agency_location": "Tizi Ouzou",
+            "agency_address": "12 Bd Stiti Ali, Tizi Ouzou 15000",
+            "agency_lat": null,
+            "agency_lng": null,
+            "agency_wilaya": 15,
+            "agency_phone": "026458700",
+            "agency_fax": null,
+            "agency_location_link": "https://goo.gl/maps/hyQaSFGmWJBFjaRL9"
+        },
+        {
+            "agency_location": "Béjaïa",
+            "agency_address": "Route des AURES, Iot N°43 / Section N°74",
+            "agency_lat": null,
+            "agency_lng": null,
+            "agency_wilaya": 6,
+            "agency_phone": "034187266",
+            "agency_fax": null,
+            "agency_location_link": "https://goo.gl/maps/r4eTWXhCHNFsLWq76"
+        },
+        {
+            "agency_location": "Chéraga",
+            "agency_address": "Lot N°994, section N°04, PWVX+RMJ, Bt A, Chéraga",
+            "agency_lat": null,
+            "agency_lng": null,
+            "agency_wilaya": 16,
+            "agency_phone": "021999200",
+            "agency_fax": null,
+            "agency_location_link": "https://goo.gl/maps/sY2HMRprZbPytLj1A"
+        },
+        {
+            "agency_location": "Constantine",
+            "agency_address": "Lot G N°23, Cité Ali Besbes, Constantine",
+            "agency_lat": null,
+            "agency_lng": null,
+            "agency_wilaya": 25,
+            "agency_phone": "031629366",
+            "agency_fax": null,
+            "agency_location_link": "https://goo.gl/maps/Yp3271k7APPnYtP68"
+        },
+        {
+            "agency_location": "Bordj Bou Arreridj",
+            "agency_address": "Rue Taibi Ahamed، Ahmed 34000",
+            "agency_lat": null,
+            "agency_lng": null,
+            "agency_wilaya": 34,
+            "agency_phone": "035764941",
+            "agency_fax": null,
+            "agency_location_link": "https://goo.gl/maps/zWcoCq7qkYmStfKG9"
+        },
+        {
+            "agency_location": "Sétif",
+            "agency_address": "Nouvelle zone urbaine, Secteur A Lotissement 06 N°65 (Bd des Entrepreneurs",
+            "agency_lat": null,
+            "agency_lng": null,
+            "agency_wilaya": 19,
+            "agency_phone": "036513598",
+            "agency_fax": null,
+            "agency_location_link": "https://goo.gl/maps/xuxCro9UTYJCpCPt8"
+        },
+        {
+            "agency_location": "Biskra",
+            "agency_address": "Bâtiment N°34, Cité 1000 Logements, Biskra 07000",
+            "agency_lat": null,
+            "agency_lng": null,
+            "agency_wilaya": 7,
+            "agency_phone": "033541135",
+            "agency_fax": null,
+            "agency_location_link": "https://goo.gl/maps/hfgz7tzg5TSi4LZu7"
+        },
+        {
+            "agency_location": "Batna",
+            "agency_address": "lot, N°9 Rue des Frères Guellil, Batna",
+            "agency_lat": null,
+            "agency_lng": null,
+            "agency_wilaya": 5,
+            "agency_phone": "033851068",
+            "agency_fax": null,
+            "agency_location_link": "https://goo.gl/maps/pbHiLYhrtS6U8ARu8"
+        },
+        {
+            "agency_location": "El Eulma",
+            "agency_address": "El Eulma, Sétif 19600",
+            "agency_lat": null,
+            "agency_lng": null,
+            "agency_wilaya": 19,
+            "agency_phone": "036477103",
+            "agency_fax": null,
+            "agency_location_link": "https://goo.gl/maps/GTUg2DcfdFFKhnoV8"
+        },
+        {
+            "agency_location": "Annaba",
+            "agency_address": "07 Av. de L\\'A.L.N, Annaba",
+            "agency_lat": null,
+            "agency_lng": null,
+            "agency_wilaya": 23,
+            "agency_phone": "038433272",
+            "agency_fax": null,
+            "agency_location_link": "https://goo.gl/maps/R3kQ9zxALYtiJ2tk7"
+        },
+        {
+            "agency_location": "Oran",
+            "agency_address": "Cité des palmiers, Av. de l\\'ANP, Oran 31000",
+            "agency_lat": null,
+            "agency_lng": null,
+            "agency_wilaya": 31,
+            "agency_phone": "041221209",
+            "agency_fax": null,
+            "agency_location_link": "https://goo.gl/maps/9RFJ6a4ug6U1DKuU8"
+        }
+   ]
+}

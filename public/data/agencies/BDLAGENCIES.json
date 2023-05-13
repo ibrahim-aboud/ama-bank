@@ -1,0 +1,685 @@
+{
+    "bank_name": "BDL BANQUE DE DEVELOPPEMENT LOCAL",
+    "agencies": [
+         {
+             "agency_location": "El Mohammadia",
+             "agency_address": "Rue Larbi Ben M''hidi-Mohammadia",
+             "agency_lat": 36.73920351531793,
+             "agency_lng": 3.1558938669931456,
+             "agency_wilaya": 16,
+             "agency_phone": "+213 21 21 05 86",
+             "agency_fax": "+213 21 21 00 02",
+             "agency_location_link": "https://goo.gl/maps/KFsxJnWiG3nyhcrg8"
+         },
+         {
+             "agency_location": "El Achour",
+             "agency_address": "116, route de la briqueterie,, El Achour",
+             "agency_lat": 36.742468080893175,
+             "agency_lng": 2.987576599377837,
+             "agency_wilaya": 16,
+             "agency_phone": "+213 021 30 00 52",
+             "agency_fax": "+213 021 30 79 74",
+             "agency_location_link": "https://goo.gl/maps/u37qfYcytb2snXQp9"
+         },
+         {
+             "agency_location": "Adrar",
+             "agency_address": "Rue Kaddour Beletime.Bp 191,Adrar,Algérie",
+             "agency_lat": 27.873215108531888,
+             "agency_lng": -0.2921253227886758,
+             "agency_wilaya": 1,
+             "agency_phone": "0660 20 30 76",
+             "agency_fax": "049 96 78 70",
+             "agency_location_link": "https://goo.gl/maps/ywARgT2iWryMkPTw5"
+         },
+         {
+             "agency_location": "Chlef",
+             "agency_address": "CITE DES GAZELLES,Chlef,Algérie",
+             "agency_lat": 36.165164655336426,
+             "agency_lng": 1.3385969182820807,
+             "agency_wilaya": 2,
+             "agency_phone": "027 77 16 67",
+             "agency_fax": "027 77 73 18",
+             "agency_location_link": "https://goo.gl/maps/snzMkxw8tUXtxyRW9"
+         },
+         {
+             "agency_location": "Chlef",
+             "agency_address": "35. Rue des Martyrs, Chlef 02000",
+             "agency_lat": 36.16732105699814,
+             "agency_lng": 1.3341390489685356,
+             "agency_wilaya": 2,
+             "agency_phone": "027774426",
+             "agency_fax": null,
+             "agency_location_link": "https://goo.gl/maps/Usn4pfLSs6djbAHU7"
+         },
+         {
+             "agency_location": "Laghouat",
+             "agency_address": "Cité Bensahnoun Maamourah,Laghouat,Algérie",
+             "agency_lat": 33.798882482839616,
+             "agency_lng": 2.863977369780369,
+             "agency_wilaya": 3,
+             "agency_phone": "0660 20 30 93",
+             "agency_fax": "029 13 22 14",
+             "agency_location_link": "https://goo.gl/maps/7CkccArfVzFt1ZqT6"
+         },
+         {
+             "agency_location": "Oum el Bouagui",
+             "agency_address": "Rue 1er Novembre,Oum El Bouaghi,Algérie",
+             "agency_lat": 35.87684880460017,
+             "agency_lng": 7.118875735264849,
+             "agency_wilaya": 4,
+             "agency_phone": "0660 20 26 66",
+             "agency_fax": "032 54 38 01",
+             "agency_location_link": "https://goo.gl/maps/M8rSg3poxafgov2L9"
+         },
+         {
+             "agency_location": "Batna",
+             "agency_address": "Cité Administrative.Route de Biskra,Batna,Algérie",
+             "agency_lat": 35.55695306255567,
+             "agency_lng": 6.174523362979703,
+             "agency_wilaya": 5,
+             "agency_phone": "033 25 34 24",
+             "agency_fax": "033 25 33 11",
+             "agency_location_link": "https://goo.gl/maps/qd7QCcLm9K5vreFU9"
+         },
+         {
+            "agency_location": "Bejaia",
+            "agency_address": "Cite Tobbal,Bejaia,Algérie",
+            "agency_lat": 36.750858848794635,
+            "agency_lng": 5.070562671247764,
+            "agency_wilaya": 6,
+            "agency_phone": "034 12 98 13",
+            "agency_fax": "034 12 92 10",
+            "agency_location_link": "https://www.google.com/maps/place/AL+SALAM+BANK/@36.1985689,5.4107326,20.14z/data=!4m12!1m5!3m4!2zMzbCsDExJzU0LjciTiA1wrAyNCczOS43IkU!8m2!3d36.19854!4d5.41103!3m5!1s0x12f31596e7902a79:0x2d42b0fafb42817c!8m2!3d36.1985338!4d5.4110134!16s%2Fg%2F1hdzynvy_?hl=en-US"
+        },
+        {
+            "agency_location": "Biskra",
+            "agency_address": "5, rue des Frères Djazzar,Biskra,Algérie",
+            "agency_lat": 34.852370877591376,
+            "agency_lng": 5.735352209513239,
+            "agency_wilaya": 7,
+            "agency_phone": "0660 20 26 12",
+            "agency_fax": "033 53 74 77",
+            "agency_location_link": "https://goo.gl/maps/k17dZm7LfmyjM4fV9"
+        },
+        {
+            "agency_location": "Bechar",
+            "agency_address": "Cité 68 logts.Rue Chergui Kada,Bechar,Algérie",
+            "agency_lat": 31.6170003650511,
+            "agency_lng": -2.212760961798819,
+            "agency_wilaya": 8,
+            "agency_phone": "0661 51 75 83",
+            "agency_fax": "049 80 19 08",
+            "agency_location_link": "https://goo.gl/maps/32X9bMAbTFBd1Ayc6"
+        },
+        {
+            "agency_location": "Blida",
+            "agency_address": "Blida,Algérie,Rue de la Palestine, Cité Pima, Bloc D",
+            "agency_lat": 36.4715421971227,
+            "agency_lng": 2.8321199942487665,
+            "agency_wilaya": 9,
+            "agency_phone": "025 22 60 48",
+            "agency_fax": "025 22 60 52",
+            "agency_location_link": "https://goo.gl/maps/q41Swif4WhGBDCTu6"
+        },
+        {
+            "agency_location": "Bouira",
+            "agency_address": "Rue 20 Aout 1955,Cp10000,Bouira, Bouira, Algérie",
+            "agency_lat": 36.37428898754939,
+            "agency_lng": 3.8958347826020074,
+            "agency_wilaya": 10,
+            "agency_phone": "026 93 09 98",
+            "agency_fax": "026 93 93 99",
+            "agency_location_link": "https://goo.gl/maps/Ae1FcCwLtdwv9wFr9"
+        },
+        {
+            "agency_location": "Tamanrasset",
+            "agency_address": "Rue Emir Abdelkader,Tamanrasset,Algérie",
+            "agency_lat": 22.79325469277827,
+            "agency_lng": 5.5243455928976575,
+            "agency_wilaya": 11,
+            "agency_phone": "029 31 40 12",
+            "agency_fax": "029 31 40 11",
+            "agency_location_link": "https://goo.gl/maps/YjfcNZefcXmYAjiu7"
+        },
+        {
+            "agency_location": "Tebessa",
+            "agency_address": "Route Marsot.Quartier de la Remonte,Tebessa,Algérie",
+            "agency_lat": 35.40921719296478,
+            "agency_lng": 8.119846607689349,
+            "agency_wilaya": 12,
+            "agency_phone": "0660 20 26 11",
+            "agency_fax": "037 58 10 05",
+            "agency_location_link": "https://goo.gl/maps/qJipcwoK8CLJy8tS9"
+        },
+        {
+            "agency_location": "Tlemcen",
+            "agency_address": "44 Rue de la Paix Allée des Pins, 13000, Tlemcen, Algérie.",
+            "agency_lat": 34.88425530435949,
+            "agency_lng": -1.3160102261930624,
+            "agency_wilaya": 13,
+            "agency_phone": "043 41 49 53",
+            "agency_fax": "043 41 45 87",
+            "agency_location_link": "https://goo.gl/maps/M9rqBnppL4uNdih89"
+        },
+        {
+            "agency_location": "Tiaret",
+            "agency_address": "03, Rue Labadi Mohamed.Bp 463,Tiaret,Algérie",
+            "agency_lat": 35.35725592309918,
+            "agency_lng": 1.325325696044889,
+            "agency_wilaya": 14,
+            "agency_phone": "0660 20 26 06",
+            "agency_fax": "046 22 13 34",
+            "agency_location_link": "https://goo.gl/maps/VcvseenYqRcbhVPr5"
+        },
+        {
+            "agency_location": "Tizi Ouzou",
+            "agency_address": "Rue des Frères Oudahmane, Tizi Ouzou",
+            "agency_lat": 36.7096355249,
+            "agency_lng": 4.035586154519889,
+            "agency_wilaya": 15,
+            "agency_phone": "026 20 02 52",
+            "agency_fax": "026 20 22 75",
+            "agency_location_link": "https://goo.gl/maps/aDKQhV3k7u6r1r6k7"
+        },
+        {
+            "agency_location": "Tizi Ouzou",
+            "agency_address": "Cité 145 Logements, Tizi Ouzou",
+            "agency_lat": 36.703690107934406,
+            "agency_lng": 4.039322152172827,
+            "agency_wilaya": 15,
+            "agency_phone": "026 20 01 52",
+            "agency_fax": "026 20 02 77",
+            "agency_location_link": "https://goo.gl/maps/iwTSgetBxgxjDpFU7"
+        },
+        {
+            "agency_location": "Tizi Ouzou",
+            "agency_address": "Cité 145 Logements, Tizi Ouzou",
+            "agency_lat": 36.703690107934406,
+            "agency_lng": 4.039322152172827,
+            "agency_wilaya": 15,
+            "agency_phone": "026 20 01 52",
+            "agency_fax": "026 20 02 77",
+            "agency_location_link": "https://goo.gl/maps/iwTSgetBxgxjDpFU7"
+        },
+        {
+            "agency_location": "Ain Taya",
+            "agency_address": "Avenue Ali Khodja, Aïn Taya, 16000, Alger, Algérie.",
+            "agency_lat": 36.79593753950364,
+            "agency_lng": 3.2832311365933036,
+            "agency_wilaya": 16,
+            "agency_phone": "+213 023 87 58 10",
+            "agency_fax": "+213 023 87 58 11",
+            "agency_location_link": "https://goo.gl/maps/Q5GLvke89y2h7fEL7"
+        },
+        {
+            "agency_location": "Alger centre",
+            "agency_address": "Rue bis Ali Boumendjel, Alger-Centre, 16000, Alger, Algérie.",
+            "agency_lat": 36.78085219007128,
+            "agency_lng": 3.0599666183225316,
+            "agency_wilaya": 16,
+            "agency_phone": "+213 021 74 83 69",
+            "agency_fax": "+213 021 74 81 25",
+            "agency_location_link": "https://goo.gl/maps/GvoMUdu1wfFhvcw67"
+        },
+        {
+            "agency_location": "Belouizdad",
+            "agency_address": "202 Rue Mohamed Belouizdad, Belouizdad",
+            "agency_lat": 36.745260604632186,
+            "agency_lng": 3.077530135139675,
+            "agency_wilaya": 16,
+            "agency_phone": "+213 021 67 91 10",
+            "agency_fax": "+213 021 67 22 69",
+            "agency_location_link": "https://goo.gl/maps/BWFqcWQ1uZ1kZVTTA"
+        },
+        {
+            "agency_location": "Bir Mourad Raïs",
+            "agency_address": "Rue des Frères Bouaddou, Bir Mourad Raïs, 16000, Alger, Algérie.",
+            "agency_lat": 36.73954192847426,
+            "agency_lng": 3.061173823097918,
+            "agency_wilaya": 16,
+            "agency_phone": "+213 023 56 91 70",
+            "agency_fax": "+213 023 56 91 65",
+            "agency_location_link": "https://goo.gl/maps/DvmtEdUsMfcpTWmN7"
+        },
+        {
+            "agency_location": "El Biar",
+            "agency_address": "Rue Kaci Aït Hamouda, El Biar, 16000, Alger, Algérie.",
+            "agency_lat": 36.76740193415815,
+            "agency_lng": 3.026027036591884,
+            "agency_wilaya": 16,
+            "agency_phone": "+213 021 92 46 27",
+            "agency_fax": "+213 021 92 46 28",
+            "agency_location_link": "https://goo.gl/maps/aR3HHXnZCGj7L2Qh7"
+        },
+        {
+            "agency_location": "El Harrach",
+            "agency_address": "Rue de la charte, El Harrach, 16000, Alger, Algérie.",
+            "agency_lat": 36.65124087698712,
+            "agency_lng": 6.832995565421875,
+            "agency_wilaya": 16,
+            "agency_phone": "+213 021 83 42 12",
+            "agency_fax": "+213 021 83 49 29",
+            "agency_location_link": "https://goo.gl/maps/sZTY5kg7KjRWSfoZ7"
+        },
+        {
+            "agency_location": "Reghaia",
+            "agency_address": "Cité Signa Coopérative Houari Boumédiène, Reghaïa, Alger, Algérie.",
+            "agency_lat": 36.73949415186079,
+            "agency_lng": 3.339398837326605,
+            "agency_wilaya": 16,
+            "agency_phone": "+213 021 84 88 88",
+            "agency_fax": "+213 021 84 88 88",
+            "agency_location_link": "https://goo.gl/maps/SmRMk2Fk2GZ2EWHUA"
+        },
+        {
+            "agency_location": "Rouiba",
+            "agency_address": "Boulevard Kouidri Menouer, Rouiba, 16000, Alger, Algérie.",
+            "agency_lat": 36.741425221965684,
+            "agency_lng": 3.276749509605407,
+            "agency_wilaya": 16,
+            "agency_phone": "+213 021 85 58 74",
+            "agency_fax": "+213 021 85 48 70",
+            "agency_location_link": "https://goo.gl/maps/dakeo86LBk2GdF6G8A"
+        },
+        {
+            "agency_location": "Djelfa",
+            "agency_address": "Cité Nouvelle Mosquée,Djelfa,Algérie",
+            "agency_lat": 34.6667741715623,
+            "agency_lng": 3.255671324847638,
+            "agency_wilaya": 17,
+            "agency_phone": "027 87 72 85",
+            "agency_fax": "027 87 55 05",
+            "agency_location_link": "https://goo.gl/maps/pbQ8kp5Uph3BSXd2A"
+        },
+        {
+            "agency_location": "Jijel",
+            "agency_address": "Place du 1er Nouvembre 1954,Jijel,Algérie",
+            "agency_lat": 36.823904596084816,
+            "agency_lng": 5.767802909609504,
+            "agency_wilaya": 18,
+            "agency_phone": "034 47 32 27",
+            "agency_fax": "034 47 50 48",
+            "agency_location_link": "https://goo.gl/maps/i2d6uG7hzNNxwoXw9"
+        },
+        {
+            "agency_location": "Setif",
+            "agency_address": "Setif,Algérie,Avenue 1er Novembre 1954",
+            "agency_lat": 36.19003937925396,
+            "agency_lng": 5.419722509578072,
+            "agency_wilaya": 19,
+            "agency_phone": "036 83 19 12",
+            "agency_fax": "036 84 37 15",
+            "agency_location_link": "https://goo.gl/maps/ADZyhpz6STpftTXW8"
+        },
+        {
+            "agency_location": "Saida",
+            "agency_address": "14 Avenue Ahmed Medegheri 20000 Saida",
+            "agency_lat": 35.038404079703305,
+            "agency_lng": 0.012556992984687487,
+            "agency_wilaya": 20,
+            "agency_phone": "048 51 64 47",
+            "agency_fax": "048 47 37 13",
+            "agency_location_link": "https://goo.gl/maps/S7EALmZvbFdJGYjG8"
+        },
+        {
+            "agency_location": "Skikda",
+            "agency_address": "Rue de la revolution, 21000 Skikda",
+            "agency_lat": 36.88199865268454,
+            "agency_lng": 6.909992982627297,
+            "agency_wilaya": 21,
+            "agency_phone": "038 75 60 66",
+            "agency_fax": "038 75 20 02",
+            "agency_location_link": "https://goo.gl/maps/pMGHJUv3c1fLFvxk8"
+        },
+        {
+            "agency_location": "Sidi Bel Abbes",
+            "agency_address": "Rue Benali Belkhaled,Sidi Bel Abbès,Algérie",
+            "agency_lat": 35.19176416815699,
+            "agency_lng": -0.631984382084626,
+            "agency_wilaya": 22,
+            "agency_phone": "048 56 14 33",
+            "agency_fax": "048 54 14 22",
+            "agency_location_link": "https://goo.gl/maps/53J7sBP946Hhnffy9"
+        },
+        {
+            "agency_location": "Sidi Bel Abbes",
+            "agency_address": "Rue Boukhari El-Arbi,Sidi Bel Abbès,Algérie",
+            "agency_lat": 35.19026995997157,
+            "agency_lng": -0.6333815325043786,
+            "agency_wilaya": 22,
+            "agency_phone": "06 60 20 30 60",
+            "agency_fax": "048 54 14 21",
+            "agency_location_link": "https://goo.gl/maps/RWxPaAJod4mMY4s97"
+        },
+        {
+            "agency_location": "Annaba",
+            "agency_address": "Rue du C.N.R.A., Annaba",
+            "agency_lat": 36.89991081273543,
+            "agency_lng": 7.761253118619964,
+            "agency_wilaya": 23,
+            "agency_phone": "038 86 81 90",
+            "agency_fax": "048 54 14 21",
+            "agency_location_link": "https://goo.gl/maps/dNd3ddJWwa4UfpSt8"
+        },
+        {
+            "agency_location": "Annaba",
+            "agency_address": "Rue 1er Novembre 1954, Annaba",
+            "agency_lat": 36.906499734365006,
+            "agency_lng": 7.760394811755418,
+            "agency_wilaya": 23,
+            "agency_phone": "038 86 75 27",
+            "agency_fax": "038 44 87 19",
+            "agency_location_link": "https://goo.gl/maps/LHezdBanNmZosQDn7"
+        },
+        {
+            "agency_location": "Annaba",
+            "agency_address": "Rue Oued Ed Daheb, Annaba",
+            "agency_lat": 36.89015825150588,
+            "agency_lng": 7.7384244671134725,
+            "agency_wilaya": 23,
+            "agency_phone": "038 44 86 55",
+            "agency_fax": "038 44 85 18",
+            "agency_location_link": "https://goo.gl/maps/T37CaSieUGA7DFxF8"
+        },
+        {
+            "agency_location": "Guelma",
+            "agency_address": "Guelma,Algérie,Ex Ecole des cadets",
+            "agency_lat": 36.46371798516487,
+            "agency_lng": 7.43223721144228,
+            "agency_wilaya": 24,
+            "agency_phone": "037 14 10 26",
+            "agency_fax": "037 14 10 20",
+            "agency_location_link": "https://goo.gl/maps/eK4C1nss2f5rySRb7"
+        },
+        {
+            "agency_location": "Constantine",
+            "agency_address": "Rue Mahdjoub Smail, Constantine",
+            "agency_lat": 36.36056715427586,
+            "agency_lng": 6.630770531742299,
+            "agency_wilaya": 25,
+            "agency_phone": "031 64 17 24",
+            "agency_fax": "031 94 61 22",
+            "agency_location_link": "https://goo.gl/maps/Bah8UEwamHtMZ7Pf8"
+        },
+        {
+            "agency_location": "Medea",
+            "agency_address": "Rue Docteur Boudherba Ismail,Medea,Algérie",
+            "agency_lat": 36.264373727908335,
+            "agency_lng": 2.7542464537607514,
+            "agency_wilaya": 26,
+            "agency_phone": "025 58 32 57",
+            "agency_fax": "025 58 32 50",
+            "agency_location_link": "https://goo.gl/maps/Cny7x1kRrkMhMBNk9"
+        },
+        {
+            "agency_location": "Mostaganem",
+            "agency_address": "Rue Boumaza Mohamed, Mostaganem",
+            "agency_lat": 35.92837122699357,
+            "agency_lng": 0.07994704984446098,
+            "agency_wilaya": 27,
+            "agency_phone": "045 41 77 94",
+            "agency_fax": "045 41 77 08",
+            "agency_location_link": "https://goo.gl/maps/y3uTHBLaUpUaGdv68"
+        },
+        {
+            "agency_location": "M''Sila",
+            "agency_address": "Nouvelle Cité Administrative,M''sila,Algérie",
+            "agency_lat": 35.70781988104995,
+            "agency_lng": 4.535201938390303,
+            "agency_wilaya": 28,
+            "agency_phone": "035 55 09 32",
+            "agency_fax": "035 55 09 31",
+            "agency_location_link": "https://goo.gl/maps/vqCn7bQR932qFK7F6"
+        },
+        {
+            "agency_location": "Mascara",
+            "agency_address": "Rue Larbi Ben Mhidi,Mascara,Algérie",
+            "agency_lat": 35.42342098820284,
+            "agency_lng": 0.32886836144447,
+            "agency_wilaya": 29,
+            "agency_phone": "045 81 39 02",
+            "agency_fax": "045 80 12 00",
+            "agency_location_link": "https://goo.gl/maps/BmKcFrxTDshfZiNV8"
+        },
+        {
+            "agency_location": "Ouargla",
+            "agency_address": "Av. Emir Abdelkader, Ouargla",
+            "agency_lat": 31.958715527350193,
+            "agency_lng": 5.331621670753285,
+            "agency_wilaya": 30,
+            "agency_phone": "029 76 69 16",
+            "agency_fax": "029 76 69 20",
+            "agency_location_link": "https://goo.gl/maps/snaVnovy9aDG8mFa6"
+        },
+        {
+            "agency_location": "Oran",
+            "agency_address": "Rue de la paix (Es Salem),Oran,Algérie,31000",
+            "agency_lat": 35.71112397177035,
+            "agency_lng": -0.6457400282944877,
+            "agency_wilaya": 31,
+            "agency_phone": "041 29 58 94",
+            "agency_fax": "041 29 29 77",
+            "agency_location_link": "https://goo.gl/maps/Dth1x45vaPv1582E7"
+        },
+        {
+            "agency_location": "Oran",
+            "agency_address": "Rue des Frères BAHI Amar - Es- Senia - Oran",
+            "agency_lat": 35.65785593978214,
+            "agency_lng": -0.6200356127092003,
+            "agency_wilaya": 31,
+            "agency_phone": "+213 41 58 32 87",
+            "agency_fax": "+213 41 58 34 61",
+            "agency_location_link": "https://goo.gl/maps/1sC37fgc7qRDTFou7"
+        },
+        {
+            "agency_location": "Illizi",
+            "agency_address": "Rue Mustapha Ben Boulaid,Illizi,Algérie",
+            "agency_lat": 27.035749003074663,
+            "agency_lng": 8.49279210930517,
+            "agency_wilaya": 33,
+            "agency_phone": "029 41 16 85",
+            "agency_fax": "029 41 16 84",
+            "agency_location_link": "https://goo.gl/maps/oiPz3zyvwG7nrYgN8"
+        },
+        {
+            "agency_location": "Bordj Bou Arreridj",
+            "agency_address": "Faubourg des martyrs, rue Cherifi Mohamed n°96,Bordj Bou Arreridj,Algérie",
+            "agency_lat": 36.070044393343565,
+            "agency_lng": 4.759011326766075,
+            "agency_wilaya": 34,
+            "agency_phone": "035 69 45 64",
+            "agency_fax": "035 69 44 30",
+            "agency_location_link": "https://goo.gl/maps/MTT4XQeu7kmyQdzn9"
+        },
+        {
+            "agency_location": "Boumerdès",
+            "agency_address": "Complexe la Soummam.Rn n°24,Boumerdes,Algérie",
+            "agency_lat": 36.755579382077975,
+            "agency_lng": 3.4815517537851557,
+            "agency_wilaya": 35,
+            "agency_phone": "024 79 44 18",
+            "agency_fax": "024 79 44 19",
+            "agency_location_link": "https://goo.gl/maps/o7kPPa44p7rKh5E77"
+        },
+        {
+            "agency_location": "El Tarf",
+            "agency_address": "Route Nationale n°44,El Tarf,Algérie",
+            "agency_lat": 36.76738252595553,
+            "agency_lng": 8.309389682621498,
+            "agency_wilaya": 36,
+            "agency_phone": "038 60 09 23",
+            "agency_fax": "038 60 10 76",
+            "agency_location_link": "https://goo.gl/maps/vnr7mbs2nsfF9fdLA"
+        },
+        {
+            "agency_location": "Tindouf",
+            "agency_address": "Rue Chazi Houcine.Hai Ksabi,Tindouf,Algérie",
+            "agency_lat": 27.673847026657327,
+            "agency_lng": -8.134751688946677,
+            "agency_wilaya": 37,
+            "agency_phone": "0660 20 30 78",
+            "agency_fax": null,
+            "agency_location_link": "https://goo.gl/maps/gwiW2KQFYNxVJAYa9"
+        },
+        {
+            "agency_location": "Tissemsilt",
+            "agency_address": "Rue Ariba Djilali,Tissemsilt,Algérie",
+            "agency_lat": 35.60687078630768,
+            "agency_lng": 1.8118054680076132,
+            "agency_wilaya": 38,
+            "agency_phone": "0660 20 26 27",
+            "agency_fax": "046 54 02 10",
+            "agency_location_link": "https://goo.gl/maps/zxAG7EvBe5L5YJAq7"
+        },
+        {
+            "agency_location": "El Oued",
+            "agency_address": "Cité des 400 logts bloc n°8,El Oued,Algérie,39000",
+            "agency_lat": 33.354926702538904,
+            "agency_lng": 6.848842505789,
+            "agency_wilaya": 39,
+            "agency_phone": "032 24 99 48",
+            "agency_fax": "032 24 09 31",
+            "agency_location_link": "https://goo.gl/maps/xnKru7RdQ7UM667i9"
+        },
+        {
+            "agency_location": "Khenchela",
+            "agency_address": "Allées 1er Novembre 1954,Khenchela,Algérie",
+            "agency_lat": 35.43325000802689,
+            "agency_lng": 7.150474528047632,
+            "agency_wilaya": 40,
+            "agency_phone": "032 32 26 96",
+            "agency_fax": "033 32 26 36",
+            "agency_location_link": "https://goo.gl/maps/d6wcwq4TxsQ9r4RX8"
+        },
+        {
+            "agency_location": "Souk Ahras",
+            "agency_address": "Souk Ahras,Algérie,01, Rue d''Alger",
+            "agency_lat": 36.28675193160926,
+            "agency_lng": 7.953582238418676,
+            "agency_wilaya": 41,
+            "agency_phone": "037 71 00 89",
+            "agency_fax": "037 71 00 70",
+            "agency_location_link": "https://goo.gl/maps/jo9ggK8iGVzkqXWB8"
+        },
+        {
+            "agency_location": "Tipaza",
+            "agency_address": "Rue de la Pletonniére.N°01,Tipaza,Algérie",
+            "agency_lat": 36.59201925733596,
+            "agency_lng": 2.4475050691202416,
+            "agency_wilaya": 42,
+            "agency_phone": "024 47 08 73",
+            "agency_fax": "024 47 95 10",
+            "agency_location_link": "https://goo.gl/maps/2N86xuUC3WA1hLNt6"
+        },
+        {
+            "agency_location": "Mila",
+            "agency_address": "Rue DU 5 Juillet 1962, 43200 Chelgoum Laid",
+            "agency_lat": 36.454126693099916,
+            "agency_lng": 6.260535632336968,
+            "agency_wilaya": 43,
+            "agency_phone": "031 52 97 97",
+            "agency_fax": "031 52 95 95",
+            "agency_location_link": "https://goo.gl/maps/PyhWUZoMiQnpCBq6A"
+        },
+        {
+            "agency_location": "Aïn Defla",
+            "agency_address": "Rue Emir Abdelkader,Ain Defla,Algérie",
+            "agency_lat": 36.26590063385992,
+            "agency_lng": 1.972484166715383,
+            "agency_wilaya": 44,
+            "agency_phone": "027 50 12 82",
+            "agency_fax": "027 50 12 83",
+            "agency_location_link": "https://goo.gl/maps/kiXcZnxJg7Qkb4LU8"
+        },
+        {
+            "agency_location": "Naâma",
+            "agency_address": "Rue des Frére Benberki,Naama,Algérie",
+            "agency_lat": 33.265386597447595,
+            "agency_lng": -0.3099215678043586,
+            "agency_wilaya": 45,
+            "agency_phone": "0660 20 30 68",
+            "agency_fax": "049 59 30 593",
+            "agency_location_link": "https://goo.gl/maps/vJJCE5WiCmNioR458"
+        },
+        {
+            "agency_location": "Aïn Témouchent",
+            "agency_address": "RUE KHALDI AICHA,Ain Temouchent,Algérie",
+            "agency_lat": 35.292725197731095,
+            "agency_lng": -1.1404903002569193,
+            "agency_wilaya": 46,
+            "agency_phone": "043 78 38 54",
+            "agency_fax": "043 78 38 54",
+            "agency_location_link": "https://goo.gl/maps/5cfHNWxER8WfSWG96"
+        },
+        {
+            "agency_location": "Ghardaïa",
+            "agency_address": "Avenue Talbi Ahmed.Bp 424,Ghardaia,Algérie",
+            "agency_lat": 32.48613522394245,
+            "agency_lng": 3.6775982646867753,
+            "agency_wilaya": 47,
+            "agency_phone": "029 28 69 37",
+            "agency_fax": "029 28 65 30",
+            "agency_location_link": "https://goo.gl/maps/F4T3iRse76vdheH17"
+        },
+        {
+            "agency_location": "Relizane",
+            "agency_address": "Rue Aljasiras.Bp 399,Relizane,Algérie",
+            "agency_lat": 35.74061037177632,
+            "agency_lng": 0.5512996082434558,
+            "agency_wilaya": 48,
+            "agency_phone": "046 71 59 59",
+            "agency_fax": "046 71 59 57",
+            "agency_location_link": "https://goo.gl/maps/sNinrunSpnzFWU536"
+        },
+        {
+            "agency_location": "Timimoun",
+            "agency_address": "Rue Aljasiras.Bp 399,Relizane,Algérie",
+            "agency_lat": 29.26226413650145,
+            "agency_lng": 0.22958439499822653,
+            "agency_wilaya": 49,
+            "agency_phone": "049 90 05 84",
+            "agency_fax": "049 90 45 24",          
+            "agency_location_link": "https://goo.gl/maps/69Gv3gtBYWqEDsgq7"
+        },
+        {
+            "agency_location": "Ouled Djellal",
+            "agency_address": "Cité des 200 Logement, Ouled djellal,Algérie",
+            "agency_lat": 34.43141756154703,
+            "agency_lng": 5.068132228537801 ,
+            "agency_wilaya": 51,
+            "agency_phone": "033 66 05 77",
+            "agency_fax": "033 66 04 04",       
+            "agency_location_link": "https://goo.gl/maps/JyZ4pvicFo27ezFr9"
+        },
+        {
+            "agency_location": "Ouled Djellal",
+            "agency_address": "Cité des 200 Logement, Ouled djellal,Algérie",
+            "agency_lat": 34.43141756154703,
+            "agency_lng": 5.068132228537801 ,
+            "agency_wilaya": 51,
+            "agency_phone": "033 66 05 77",
+            "agency_fax": "033 66 04 04",       
+            "agency_location_link": "https://goo.gl/maps/JyZ4pvicFo27ezFr9"
+        },
+        {
+            "agency_location": "Touggourt",
+            "agency_address": "07 Rue Larbi Ben M''hidi, 30200 Touggourt",
+            "agency_lat": 33.10640830253591,
+            "agency_lng": 6.068356068416077 ,
+            "agency_wilaya": 55,
+            "agency_phone": "029 68 14 33",
+            "agency_fax": "029 68 18 06",     
+            "agency_location_link": "https://goo.gl/maps/ctYeRmCZh6V2w44n6"
+        },
+        {
+            "agency_location": "El Meniaa",
+            "agency_address": "Rue Mustapha Harkati, El Meniaa,Algérie",
+            "agency_lat": 30.580115823257348,
+            "agency_lng": 2.8816808545204795,
+            "agency_wilaya": 58,
+            "agency_phone": "029 21 13 96",
+            "agency_fax": "029 21 13 95",     
+            "agency_location_link": "https://goo.gl/maps/gYstHoKy4s3uaQrM9"
+        }
+    ]
+ }

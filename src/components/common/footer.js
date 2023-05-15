@@ -31,7 +31,6 @@ function Footer() {
     axios
       .get(process.env.NEXT_PUBLIC_API_URL + "/website")
       .then((response) => {
-        console.log(response.data.infos[0]);
         setinfos(response.data.infos[0]);
       })
       .catch((err) =>
@@ -47,80 +46,83 @@ function Footer() {
     <div className={style.footerContainer}>
       <footer className={style.footer}>
         <Link className={style.backToTop} href="#top"><HiArrowNarrowUp className="ml-[13px] mt-[12px]" size={25} /></Link>
-        <div className={style.propos}>
-          <div className={style.plateformeInfo} id={style.proposID}>
-            <Image src={about} alt="Propos" className={style.proposImg}></Image>
-            <p>À propos de la plateforme</p>
+        <div className={style.flexContainer}>
+          <div className={style.propos}>
+            <div className={style.plateformeInfo} id={style.proposID}>
+              <Image src={about} alt="Propos" className={style.proposImg}></Image>
+              <p>À propos de la plateforme</p>
+            </div>
+            <div>
+              <p>
+                {infos?.description}
+              </p>
+            </div>
           </div>
-          <div>
-            <p>
-              {infos.description}
-            </p>
+          <div className={style.contactInfo}>
+            <div>
+              <Image
+                src={phneIcon}
+                alt="Phone"
+                className={style.contactInfoImg}
+              ></Image>
+              <p>{infos?.phone}</p>
+            </div>
+            <div>
+              <Image
+                src={mailIcon}
+                alt="Email"
+                className={style.contactInfoImg}
+                id={style.mail}
+              ></Image>
+              <p>{infos?.email}</p>
+            </div>
+            <div>
+              <Image
+                src={faxIcon}
+                alt="Fax"
+                className={style.contactInfoImg}
+              ></Image>
+              <p>{infos?.fax}</p>
+            </div>
+          </div>
+          <div className={style.socialMedia}>
+            <div className={style.followUs}>
+              <p>Suivez nous sur nos</p>
+              <p>réseaux sociaux</p>
+            </div>
+            <div className={style.socialIcons}>
+              <Link href={infos?.facebook_link} target="_blank">
+                <Image
+                  src={fbIcon}
+                  alt="Facebook"
+                  className={style.socialIconsImg}
+                ></Image>
+              </Link>
+              <Link href={infos?.twitter_link} target="_blank">
+                <Image
+                  src={twtIcon}
+                  alt="Twitter"
+                  className={style.socialIconsImg}
+                ></Image>
+              </Link>
+              <Link href={infos?.instagram_link} target="_blank">
+                <Image
+                  src={igIcon}
+                  alt="Instagram"
+                  className={style.socialIconsImg}
+                ></Image>
+              </Link>
+              <Link href={infos?.linkedin_link} target="_blank">
+                <Image
+                  src={lkdIcon}
+                  alt="LinkedIn"
+                  className={style.socialIconsImg}
+                ></Image>
+              </Link>
+            </div>
           </div>
         </div>
-        <div className={style.contactInfo}>
-          <div>
-            <Image
-              src={phneIcon}
-              alt="Phone"
-              className={style.contactInfoImg}
-            ></Image>
-            <p>{infos.phone}</p>
-          </div>
-          <div>
-            <Image
-              src={mailIcon}
-              alt="Email"
-              className={style.contactInfoImg}
-              id={style.mail}
-            ></Image>
-            <p>{infos.email}</p>
-          </div>
-          <div>
-            <Image
-              src={faxIcon}
-              alt="Fax"
-              className={style.contactInfoImg}
-            ></Image>
-            <p>{infos.fax}</p>
-          </div>
-        </div>
-        <div className={style.socialMedia}>
-          <div className={style.followUs}>
-            <p>Suivez nous sur nos</p>
-            <p>réseaux sociaux</p>
-          </div>
-          <div className={style.socialIcons}>
-            <Link href={infos.facebook_link} target="_blank">
-              <Image
-                src={fbIcon}
-                alt="Facebook"
-                className={style.socialIconsImg}
-              ></Image>
-            </Link>
-            <Link href={infos.twitter_link} target="_blank">
-              <Image
-                src={twtIcon}
-                alt="Twitter"
-                className={style.socialIconsImg}
-              ></Image>
-            </Link>
-            <Link href={infos.instagram_link} target="_blank">
-              <Image
-                src={igIcon}
-                alt="Instagram"
-                className={style.socialIconsImg}
-              ></Image>
-            </Link>
-            <Link href={infos.linkedin_link} target="_blank">
-              <Image
-                src={lkdIcon}
-                alt="LinkedIn"
-                className={style.socialIconsImg}
-              ></Image>
-            </Link>
-          </div>
-        </div>
+      
         <hr className={style.line} />
         <div className={style.container}>
           <div className={style.footerContent}>
@@ -152,7 +154,7 @@ function Footer() {
                 <Link href="/about">À propos</Link>
               </li>
               <li>
-                <Link href="#">Besoin d'aide?</Link>
+                <Link href="#">Besoin d{"'"}aide?</Link>
               </li>
             </ul>
           </div>

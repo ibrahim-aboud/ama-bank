@@ -64,7 +64,7 @@ CREATE TABLE `ab_agencies` (
   `agency_wilaya` INT NOT NULL,
   `agency_phone` TINYTEXT,
   `agency_fax` TINYTEXT,
-  `agency_location_link` VARCHAR(500),
+  `agency_location_link` VARCHAR(1000),
   `agency_archiving_date` DATE DEFAULT (NOW()),
   `status` ENUM("DELETED", "MODIFIED", "INSERTED"),
   PRIMARY KEY (`id_agency_archived`)

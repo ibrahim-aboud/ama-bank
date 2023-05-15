@@ -7,13 +7,15 @@ import ModifyPrestation from "./modifyPrestation";
 
 function LignePrestation({prestation1,prestation2,first,single,deletePrestation,editPrestation}){
    
+
+    //renders one line (two services) of the full list of services
     const [delPopUp1,setDelPopUp1]=useState(false);
     const [delPopUp2,setDelPopUp2]=useState(false);
     const [edtPopUp1,setEdtPopUp1]=useState(false);
     const [edtPopUp2,setEdtPopUp2]=useState(false);
 
 
- 
+    // 
     function deletePrestation1(){
         setDelPopUp1(true);
     }

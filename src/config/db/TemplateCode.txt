@@ -1,0 +1,49 @@
+****************ENV FILE TEMPLATE********************
+
+# database connection
+MYSQL_HOST=localhost
+MYSQL_PORT=3306
+MYSQL_DATABASE=db_amabank
+MYSQL_USER=root
+MYSQL_PASSWORD=password
+
+# admin database connection
+MYSQL_ADMIN_HOST=localhost
+MYSQL_ADMIN_PORT=3306
+MYSQL_ADMIN_DATABASE=db_admin_amabank
+MYSQL_ADMIN_USER=root
+MYSQL_ADMIN_PASSWORD=password
+
+# archive database connection
+MYSQL_ARCHIV_HOST=localhost
+MYSQL_ARCHIV_PORT=3306
+MYSQL_ARCHIV_DATABASE=db_amabank_archive
+MYSQL_ARCHIV_USER=root
+MYSQL_ARCHIV_PASSWORD=password
+
+
+# app url (host)
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+NEXT_PUBLIC_API_URL=http://localhost:3000/api
+NEXTAUTH_URL=http://localhost:3000
+
+# jwt secret (used in next-auth)
+SECRET=B769355AE6BFE123E519745128D16
+PASSWORD_SECRET=FE123E51947
+
+*******************************************************
+
+***********insert slides**************
+
+INSERT INTO ab_slideshow(link_slideshow) values("https://ads.google.com/home/ab_banks");
+
+**************************************
+
+
+************insert Admin data********
+
+INSERT INTO ab_admins value (1,"name","email","password_hashed");
+
+
+*************************************
+

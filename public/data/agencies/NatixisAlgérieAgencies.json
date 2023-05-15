@@ -1,0 +1,95 @@
+{
+    "bank_name": "Natixis Algérie",
+    "agencies": [
+         {
+            "agency_location": "Bab Ezzouar",
+            "agency_address": "Direction Générale Immeuble Le Ksar، 34/35 Zone d''affaires Mercure, Bab Ezzouar 16312",
+            "agency_lat": 36.732887,
+            "agency_lng": 3.0867455,
+            "agency_wilaya": 16,
+            "agency_phone": "023 92 43 43",
+            "agency_fax": null,
+            "agency_location_link": "https://www.google.com/maps/place/NATIXIS+ALGERIE/@36.732887,3.0867455,12z/data=!4m10!1m2!2m1!1snatixis+algerie!3m6!1s0x128e51b932c06e95:0xe42f047c6565a188!8m2!3d36.7139187!4d3.2031959!15sCg9uYXRpeGlzIGFsZ2VyaWUiA4gBAZIBEGNvcnBvcmF0ZV9vZmZpY2XgAQA!16s%2Fg%2F11cncpwkln"
+         },
+         {
+             "agency_location": "Hydra",
+             "agency_address": "P2VF+X5M, Hydra",
+             "agency_lat": 37.20287919006815,
+             "agency_lng": 4.15707624659741,
+             "agency_wilaya": 16,
+             "agency_phone": "023 53 13 60",
+             "agency_fax": null,
+             "agency_location_link": "https://www.google.com/search?tbs=lf:1,lf_ui:4&tbm=lcl&sxsrf=APwXEdcZuRe2v434kY1Cp5FOfuMgverOHA:1683328969209&q=les+agences+de+natixis+banks+algerie&rflfq=1&num=10&sa=X&ved=2ahUKEwjBuf-Jqd_-AhW-YPEDHcnIBK8QjGp6BAgREAE&biw=1366&bih=661&dpr=1#rlfi=hd:;si:873079502638324408,l,CiRsZXMgYWdlbmNlcyBkZSBuYXRpeGlzIGJhbmtzIGFsZ2VyaWUiA4gBAUi86PTss4-AgAhaMBAAGAIYAxgEIiBhZ2VuY2VzIGRlIG5hdGl4aXMgYmFua3MgYWxnZXJpZSoECAMQAJIBBGJhbmuqAVkQASoOIgphZ2VuY2VzIGRlKAQyHxABIhvXvvo9_mpGJ1qXLn-EnQQd_pMNMxARdErPx_UyJBACIiBhZ2VuY2VzIGRlIG5hdGl4aXMgYmFua3MgYWxnZXJpZQ;mv:[[37.20287919006815,4.15707624659741],[36.08781113420141,2.290773756363036]]"
+         },
+         {
+             "agency_location": "Akbou",
+             "agency_address": "FG5R+FF4, N26, ⴰⵇⴱⵓ 06200",
+             "agency_lat": 40.99811762003312,
+             "agency_lng": 11.83394505625,
+             "agency_wilaya": 6,
+             "agency_phone": "034 35 99 62",
+             "agency_fax": null,
+             "agency_location_link": "https://www.google.com/search?tbs=lf:1,lf_ui:4&tbm=lcl&sxsrf=APwXEdcZuRe2v434kY1Cp5FOfuMgverOHA:1683328969209&q=les+agences+de+natixis+banks+algerie&rflfq=1&num=10&sa=X&ved=2ahUKEwjBuf-Jqd_-AhW-YPEDHcnIBK8QjGp6BAgREAE&biw=1366&bih=661&dpr=1#rlfi=hd:;si:18174741239298280153,l,CiRsZXMgYWdlbmNlcyBkZSBuYXRpeGlzIGJhbmtzIGFsZ2VyaWUiA4gBAUjbmbqXrY-AgAhaMhAAGAAYAhgDGAQiIGFnZW5jZXMgZGUgbmF0aXhpcyBiYW5rcyBhbGdlcmllKgQIAxAAkgEHZmluYW5jZaoBeAoIL20vMDE3cWwKCi9tLzAyNnJqMjcKBy9tLzBoM3kQASoOIgphZ2VuY2VzIGRlKAQyHxABIhvXvvo9_mpGJ1qXLn-EnQQd_pMNMxARdErPx_UyJBACIiBhZ2VuY2VzIGRlIG5hdGl4aXMgYmFua3MgYWxnZXJpZQ;mv:[[40.99811762003312,11.83394505625],[32.06865517083953,-5.656289318750001]]"
+         },
+         {
+             "agency_location": "Béjaïa",
+             "agency_address": "9 Bd Krim Belkacem, Béjaïa",
+             "agency_lat": 36.72503,
+             "agency_lng": 3.17582,
+             "agency_wilaya": 6,
+             "agency_phone": "034 12 47 39",
+             "agency_fax": null,
+             "agency_location_link": "https://www.google.com/search?tbs=lf:1,lf_ui:4&tbm=lcl&sxsrf=APwXEdcZuRe2v434kY1Cp5FOfuMgverOHA:1683328969209&q=les+agences+de+natixis+banks+algerie&rflfq=1&num=10&sa=X&ved=2ahUKEwjBuf-Jqd_-AhW-YPEDHcnIBK8QjGp6BAgREAE&biw=1366&bih=661&dpr=1#rlfi=hd:;si:7801972977274879159,l,CiRsZXMgYWdlbmNlcyBkZSBuYXRpeGlzIGJhbmtzIGFsZ2VyaWUiA4gBAUi3t92im6qAgAhaNBAAGAAYARgCGAMYBCIgYWdlbmNlcyBkZSBuYXRpeGlzIGJhbmtzIGFsZ2VyaWUqBAgDEACSAQRiYW5rqgFZEAEqDiIKYWdlbmNlcyBkZSgEMh8QASIb1776Pf5qRidaly5_hJ0EHf6TDTMQEXRKz8f1MiQQAiIgYWdlbmNlcyBkZSBuYXRpeGlzIGJhbmtzIGFsZ2VyaWU;mv:[[40.99811762003312,11.83394505625],[32.06865517083953,-5.656289318750001]]"
+         },
+         {
+             "agency_location": "Tizi Ouzou",
+             "agency_address": "P25M+7P3, Bd Stiti Ali, Tizi Ouzou",
+             "agency_lat": 36.47973,
+             "agency_lng": 2.82024,
+             "agency_wilaya": 15,
+             "agency_phone": "0568320896",
+             "agency_fax": null,
+             "agency_location_link": "https://www.google.com/search?tbs=lf:1,lf_ui:4&tbm=lcl&sxsrf=APwXEdcZuRe2v434kY1Cp5FOfuMgverOHA:1683328969209&q=les+agences+de+natixis+banks+algerie&rflfq=1&num=10&sa=X&ved=2ahUKEwjBuf-Jqd_-AhW-YPEDHcnIBK8QjGp6BAgREAE&biw=1366&bih=661&dpr=1#rlfi=hd:;si:11533209184731015092,l,CiRsZXMgYWdlbmNlcyBkZSBuYXRpeGlzIGJhbmtzIGFsZ2VyaWUiA4gBAUjAg-zptI-AgAhaNBAAGAAYARgCGAMYBCIgYWdlbmNlcyBkZSBuYXRpeGlzIGJhbmtzIGFsZ2VyaWUqBAgDEACSAQRiYW5rqgFZEAEqDiIKYWdlbmNlcyBkZSgEMh8QASIb1776Pf5qRidaly5_hJ0EHf6TDTMQEXRKz8f1MiQQAiIgYWdlbmNlcyBkZSBuYXRpeGlzIGJhbmtzIGFsZ2VyaWU;mv:[[37.931306368098795,6.922440372265637],[35.706247942782774,3.189835391796887]]"
+         },
+         {
+             "agency_location": "Sétif",
+             "agency_address": "5CVM+Q63, Rue Saoula Lakhdar, Sétif",
+             "agency_lat": 36.75908,
+             "agency_lng": 3.06147,
+             "agency_wilaya": 19,
+             "agency_phone": null,
+             "agency_fax": null,
+             "agency_location_link": "https://www.google.com/search?tbs=lf:1,lf_ui:4&tbm=lcl&sxsrf=APwXEdcZuRe2v434kY1Cp5FOfuMgverOHA:1683328969209&q=les+agences+de+natixis+banks+algerie&rflfq=1&num=10&sa=X&ved=2ahUKEwjBuf-Jqd_-AhW-YPEDHcnIBK8QjGp6BAgREAE&biw=1366&bih=661&dpr=1#rlfi=hd:;si:13314588078778868675,l,CiRsZXMgYWdlbmNlcyBkZSBuYXRpeGlzIGJhbmtzIGFsZ2VyaWUiA4gBAUjSzNzws4-AgAhaMBAAGAIYAxgEIiBhZ2VuY2VzIGRlIG5hdGl4aXMgYmFua3MgYWxnZXJpZSoECAMQAJIBBGJhbmuqAVkQASoOIgphZ2VuY2VzIGRlKAQyHxABIhvXvvo9_mpGJ1qXLn-EnQQd_pMNMxARdErPx_UyJBACIiBhZ2VuY2VzIGRlIG5hdGl4aXMgYmFua3MgYWxnZXJpZQ;mv:[[37.931306368098795,6.922440372265637],[35.706247942782774,3.189835391796887]]"
+         },
+         {
+             "agency_location": "Bordj Bou Arreridj",
+             "agency_address": "33, Avenue Houari Boumediene - 34000- BORDJ BOU ARRERIDJ, Bordj Bou Arreridj",
+             "agency_lat": 36.74122,
+             "agency_lng": 3.03943,
+             "agency_wilaya": 34,
+             "agency_phone": "023 92 43 43",
+             "agency_fax": null,
+             "agency_location_link": "https://www.google.com/search?tbs=lf:1,lf_ui:4&tbm=lcl&sxsrf=APwXEdcZuRe2v434kY1Cp5FOfuMgverOHA:1683328969209&q=les+agences+de+natixis+banks+algerie&rflfq=1&num=10&sa=X&ved=2ahUKEwjBuf-Jqd_-AhW-YPEDHcnIBK8QjGp6BAgREAE&biw=1366&bih=661&dpr=1#rlfi=hd:;si:11967708908170643185,l,CiRsZXMgYWdlbmNlcyBkZSBuYXRpeGlzIGJhbmtzIGFsZ2VyaWUiA4gBAUiqz-OptY-AgAhaMBAAGAIYAxgEIiBhZ2VuY2VzIGRlIG5hdGl4aXMgYmFua3MgYWxnZXJpZSoECAMQAJIBBGJhbmuqAVkQASoOIgphZ2VuY2VzIGRlKAQyHxABIhvXvvo9_mpGJ1qXLn-EnQQd_pMNMxARdErPx_UyJBACIiBhZ2VuY2VzIGRlIG5hdGl4aXMgYmFua3MgYWxnZXJpZQ;mv:[[37.931306368098795,6.922440372265637],[35.706247942782774,3.189835391796887]]"
+         },
+         {
+             "agency_location": "Constantine",
+             "agency_address": "9J25+95P, Rue Damak Mohamed Salah, Constantine",
+             "agency_lat": 36.74311,
+             "agency_lng": 2.87046,
+             "agency_wilaya": 25,
+             "agency_phone": null,
+             "agency_fax": null,
+             "agency_location_link": "https://www.google.com/search?tbs=lf:1,lf_ui:4&tbm=lcl&sxsrf=APwXEdcZuRe2v434kY1Cp5FOfuMgverOHA:1683328969209&q=les+agences+de+natixis+banks+algerie&rflfq=1&num=10&sa=X&ved=2ahUKEwjBuf-Jqd_-AhW-YPEDHcnIBK8QjGp6BAgREAE&biw=1366&bih=661&dpr=1#rlfi=hd:;si:10557055597505799319,l,CiRsZXMgYWdlbmNlcyBkZSBuYXRpeGlzIGJhbmtzIGFsZ2VyaWUiA4gBAZIBBGJhbmuqAVkQASoOIgphZ2VuY2VzIGRlKAQyHxABIhvXvvo9_mpGJ1qXLn-EnQQd_pMNMxARdErPx_UyJBACIiBhZ2VuY2VzIGRlIG5hdGl4aXMgYmFua3MgYWxnZXJpZQ;mv:[[37.931306368098795,6.922440372265637],[35.706247942782774,3.189835391796887]]"
+         },
+         {
+             "agency_location": "Setif",
+             "agency_address": "5 Ave Said Boukhrissa, Setif",
+             "agency_lat": 36.7472138,
+             "agency_lng": 3.0857043,
+             "agency_wilaya": 16,
+             "agency_phone": "036 82 86 40",
+             "agency_fax": null,
+             "agency_location_link": "https://www.google.com/search?tbs=lf:1,lf_ui:4&tbm=lcl&sxsrf=APwXEdcZuRe2v434kY1Cp5FOfuMgverOHA:1683328969209&q=les+agences+de+natixis+banks+algerie&rflfq=1&num=10&sa=X&ved=2ahUKEwjBuf-Jqd_-AhW-YPEDHcnIBK8QjGp6BAgREAE&biw=1366&bih=661&dpr=1#rlfi=hd:;si:14751759725077859044,l,CiRsZXMgYWdlbmNlcyBkZSBuYXRpeGlzIGJhbmtzIGFsZ2VyaWUiA4gBAUiA7Iv_3oGAgAhaMBAAGAIYAxgEIiBhZ2VuY2VzIGRlIG5hdGl4aXMgYmFua3MgYWxnZXJpZSoECAMQAJIBBGJhbmuqAVkQASoOIgphZ2VuY2VzIGRlKAQyHxABIhvXvvo9_mpGJ1qXLn-EnQQd_pMNMxARdErPx_UyJBACIiBhZ2VuY2VzIGRlIG5hdGl4aXMgYmFua3MgYWxnZXJpZQ;mv:[[37.931306368098795,6.922440372265637],[35.706247942782774,3.189835391796887]]"
+         }
+    ]
+ }

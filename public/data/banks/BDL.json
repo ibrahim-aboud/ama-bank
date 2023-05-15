@@ -1,0 +1,613 @@
+{
+    "bank_name" : "BDL BANQUE DE DEVELOPPEMENT LOCAL",
+    "bank_description": "BDL est une banque publique algérienne qui a été créée en 2003 pour financer le développement économique local en Algérie. La banque a pour mission de fournir des solutions de financement adaptées aux besoins des acteurs économiques locaux, tels que les PME, les collectivités locales et les promoteurs immobiliers.",
+    "website_link": "https://www.bdl.dz",
+    "dg_address": "05 rue Gaci Amar, Staoueli 16062",
+    "dg_lat" : 36.753706530052135,
+    "dg_lng" : 2.8858796693757287,
+    "dg_location_link": "https://goo.gl/maps/BDyHUidsbCXXUoXX6",
+    "dg_wilaya": 16,
+    "dg_phone": "+213 21 99 48 00",
+    "dg_fax" : null,
+    "date_prestations": "2022-01-01",
+    "prestations_indiv": {
+        "compte": [
+            {
+                "nom_prestation": "Ouverture de compte et délivrance chéquier" ,
+                "categorie": "ouverture de compte" ,
+                "tarif": 0,
+                "period": 0
+            } ,
+            {
+                "nom_prestation": "Frais de tenue de compte courant" ,
+                "categorie": "tenue de compte" ,
+                "tarif": 500,
+                "period": 360
+            } ,
+            {
+                "nom_prestation": "Frais de tenue de compte chèque" ,
+                "categorie": "tenue de compte" ,
+                "tarif": 500,
+                "period": 360
+            }
+        ],
+        "paiement": [
+            {
+                "nom_prestation": "Versement espèces Client-agence" ,
+                "categorie": "Versement",
+                "tarif": 0,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Versement espèces Tiers" ,
+                "categorie": "Versement",
+                "tarif": 0,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Versement espèces déplacées" ,
+                "categorie": "Versement",
+                "tarif": 0,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement reçu d\\'un compte de la même agence" ,
+                "categorie": "Virement",
+                "tarif": 0,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement reçu par télé-compensation (autre banque)" ,
+                "categorie": "Virement",
+                "tarif": 5,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement de compte à compte (même agence)" ,
+                "categorie": "Virement",
+                "tarif": 0,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Annulation de chèque de banque" ,
+                "categorie": "chèque",
+                "tarif": 600,
+                "period": 0
+            }
+        ],
+        "monetique": {
+            "carte CIB": [
+                {
+                    "nom_prestation": "Émission de la première carte",
+                    "categorie" : "CIB",
+                    "tarif": 0,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Renouvellement carte Classique",
+                    "categorie" : "CIB",
+                    "tarif": 0,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Renouvellement carte Gold",
+                    "categorie" : "CIB",
+                    "tarif": 0,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Remplacement carte Classique",
+                    "categorie" : "CIB",
+                    "tarif": 400,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Remplacement carte Gold",
+                    "categorie" : "CIB",
+                    "tarif": 800,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Réédition du code secret Classique",
+                    "categorie" : "CIB",
+                    "tarif": 300,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Réédition du code secret Gold",
+                    "categorie" : "CIB",
+                    "tarif": 600,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Résiliation carte Gold",
+                    "categorie" : "CIB",
+                    "tarif": 600,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Résiliation carte Classique",
+                    "categorie" : "CIB",
+                    "tarif": 300,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Commission de retrait sur DAB de la banque",
+                    "categorie" : "CIB",
+                    "tarif": 20.00,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Commission de retrait sur DAB confrère",
+                    "categorie" : "CIB",
+                    "tarif": 35,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Commission de paiement sur TPE/Client",
+                    "categorie" : "CIB",
+                    "tarif": 0,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Commission de paiement sur TPE/Commerçant",
+                    "categorie" : "CIB",
+                    "tarif": 0,
+                    "period": 0
+                }
+            ],
+            "carte internationale":[
+                {
+                    "nom_prestation": "Mise en opposition carte Classique",
+                    "categorie": "VISA",
+                    "tarif":  1000,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Mise en opposition carte Titanium",
+                    "categorie": "MASTERCARD",
+                    "tarif":  2000,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Mise en opposition Carte Platinum",
+                    "categorie": "MASTERCARD",
+                    "tarif":  2500,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Creation carte Classique",
+                    "categorie": "VISA",
+                    "tarif":  2000,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Renouvèlement carte Classique",
+                    "categorie": "VISA",
+                    "tarif":  2000,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Remplacement carte Classique",
+                    "categorie": "VISA",
+                    "tarif":  2000,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Creation carte Gold",
+                    "categorie": "VISA",
+                    "tarif":  5000,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Renouvèlement carte Gold",
+                    "categorie": "VISA",
+                    "tarif":  5000,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Remplacement carte Gold",
+                    "categorie": "VISA",
+                    "tarif":  5000,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Creation carte Titanium",
+                    "categorie": "MASTERCARD",
+                    "tarif":  8000,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Renouvèlement carte Titanium",
+                    "categorie": "MASTERCARD",
+                    "tarif":  8000,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Remplacement carte Titanium",
+                    "categorie": "MASTERCARD",
+                    "tarif":  8000,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Creation carte Platinum",
+                    "categorie": "MASTERCARD",
+                    "tarif":  14000,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Renouvèlement carte Platinum",
+                    "categorie": "MASTERCARD",
+                    "tarif":  14000,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Remplacement carte Platinum",
+                    "categorie": "MASTERCARD",
+                    "tarif":  14000,
+                    "period": 360
+                },
+                {
+                    "nom_prestation": "Réédition du code secret carte Classique",
+                    "categorie": "VISA",
+                    "tarif": 200,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Réédition du code secret carte Gold",
+                    "categorie": "VISA",
+                    "tarif": 300,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Réédition du code secret carte Platinum",
+                    "categorie": "MASTERCARD",
+                    "tarif": 1000,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Réédition du code secret carte Titanium",
+                    "categorie": "MASTERCARD",
+                    "tarif": 1000,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Résiliation carte Classique",
+                    "categorie": "VISA",
+                    "tarif": 1000,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Résiliation carte Gold",
+                    "categorie": "VISA",
+                    "tarif": 1000,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Résiliation carte Titanium",
+                    "categorie": "MASTERCARD",
+                    "tarif": 2000,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Résiliation carte Platinum",
+                    "categorie": "MASTERCARD",
+                    "tarif": 2500,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Blocage temporaire carte Platinum",
+                    "categorie": "MASTERCARD",
+                    "tarif": 1200,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Blocage temporaire carte Titanium",
+                    "categorie": "MASTERCARD",
+                    "tarif": 500,
+                    "period": 0
+                }
+            ]     
+        }
+    },
+    "prestations_prof":   {
+        "compte": [
+            {
+                "nom_prestation": "Ouverture de compte et délivrance chéquier" ,
+                "categorie": "ouverture de compte" ,
+                "tarif": 0,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Frais de tenue de compte courant" ,
+                "categorie": "tenue de compte" ,
+                "tarif": 2000,
+                "period": 360
+            }
+        ],
+        "paiement": [
+            {
+                "nom_prestation": "Versement espèces Client-agence" ,
+                "categorie": "Versement",
+                "tarif": 0,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Versement espèces Tiers" ,
+                "categorie": "Versement",
+                "tarif": 0,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Versement espèces déplacées" ,
+                "categorie": "Versement",
+                "tarif": 0,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement reçu de compte à compte" ,
+                "categorie": "Virement",
+                "tarif": 50,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement émis de compte à compte même agence" ,
+                "categorie": "Virement",
+                "tarif": 0,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement émis de compte à compte autres agences" ,
+                "categorie": "Virement",
+                "tarif": 50,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement émis en faveur d''un client d''une autre banque" ,
+                "categorie": "Virement",
+                "tarif": 200,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement reçu de compte à compte" ,
+                "categorie": "Virement",
+                "tarif": 50,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement reçu par télé-compensation (autre banque)" ,
+                "categorie": "Virement",
+                "tarif": 5,
+                "period": 0
+            }
+        ],
+        "monetique": {
+            "carte CIB": [
+            ],
+            "carte internationale":[
+                {
+                    "nom_prestation": "Mise en opposition coorporate Silver",
+                    "categorie": "COORPORATE",
+                    "tarif":  200,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Mise en opposition coorporate Gold",
+                    "categorie": "COORPORATE",
+                    "tarif":  400,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Remplacement coorporate Silver",
+                    "categorie": "COORPORATE",
+                    "tarif":  1000,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Remplacement coorporate Gold",
+                    "categorie": "COORPORATE",
+                    "tarif":  1500,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Creation coorporate Silver",
+                    "categorie": "COORPORATE",
+                    "tarif":  0,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Creation coorporate Gold",
+                    "categorie": "COORPORATE",
+                    "tarif":  0,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Renouvellement coorporate Silver",
+                    "categorie": "COORPORATE",
+                    "tarif":  0,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Renouvellement coorporate Gold",
+                    "categorie": "COORPORATE",
+                    "tarif":  0,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Réédition du code secret coorporate Silver",
+                    "categorie": "COORPORATE",
+                    "tarif": 200,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Réédition du code secret coorporate Gold",
+                    "categorie": "COORPORATE",
+                    "tarif": 200,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Résiliation coorporate Silver",
+                    "categorie": "COORPORATE",
+                    "tarif": 1000,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Résiliation coorporate Gold",
+                    "categorie": "COORPORATE",
+                    "tarif": 1500,
+                    "period": 0
+                }
+            ]     
+        }  
+    },
+    "prestations_ets":   {
+        "compte": [
+            {
+                "nom_prestation": "Ouverture de compte et délivrance chéquier" ,
+                "categorie": "ouverture de compte" ,
+                "tarif": 0,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Frais de tenue de compte courant" ,
+                "categorie": "tenue de compte" ,
+                "tarif": 2500,
+                "period": 360
+            }
+        ],
+        "paiement": [
+            {
+                "nom_prestation": "Versement espèces Client-agence" ,
+                "categorie": "Versement",
+                "tarif": 0,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Versement espèces Tiers" ,
+                "categorie": "Versement",
+                "tarif": 0,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Versement espèces déplacées" ,
+                "categorie": "Versement",
+                "tarif": 0,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement reçu de compte à compte" ,
+                "categorie": "Virement",
+                "tarif": 50,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement émis de compte à compte même agence" ,
+                "categorie": "Virement",
+                "tarif": 10,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement émis en faveur d''un client d''une autre banque" ,
+                "categorie": "Virement",
+                "tarif": 250,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement émis de compte à compte même agence" ,
+                "categorie": "Virement",
+                "tarif": 10,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement reçu de compte à compte" ,
+                "categorie": "Virement",
+                "tarif": 50,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement reçu par télé-compensation (autre banque)" ,
+                "categorie": "Virement",
+                "tarif": 5,
+                "period": 0
+            }
+        ],
+        "monetique": {
+            "carte CIB": [
+            ],
+            "carte internationale":[
+                {
+                    "nom_prestation": "Mise en opposition coorporate Silver",
+                    "categorie": "COORPORATE",
+                    "tarif":  200,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Mise en opposition coorporate Gold",
+                    "categorie": "COORPORATE",
+                    "tarif":  400,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Creation coorporate Silver",
+                    "categorie": "COORPORATE",
+                    "tarif":  0,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Creation coorporate Gold",
+                    "categorie": "COORPORATE",
+                    "tarif":  0,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Renouvellement coorporate Silver",
+                    "categorie": "COORPORATE",
+                    "tarif":  0,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Renouvellement coorporate Gold",
+                    "categorie": "COORPORATE",
+                    "tarif":  0,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Réédition du code secret coorporate Silver",
+                    "categorie": "COORPORATE",
+                    "tarif": 200,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Réédition du code secret coorporate Gold",
+                    "categorie": "COORPORATE",
+                    "tarif": 200,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Remplacement coorporate Silver",
+                    "categorie": "COORPORATE",
+                    "tarif": 1500,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Remplacement coorporate Gold",
+                    "categorie": "COORPORATE",
+                    "tarif": 1950,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Résiliation coorporate Silver",
+                    "categorie": "COORPORATE",
+                    "tarif": 1000,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Résiliation coorporate Gold",
+                    "categorie": "COORPORATE",
+                    "tarif": 1500,
+                    "period": 0
+                }
+            ]     
+        }  
+    }
+}

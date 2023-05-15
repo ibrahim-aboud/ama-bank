@@ -1,0 +1,487 @@
+{
+    "bank_name": "TRUST Bank",
+    "agencies": [
+         {
+            "agency_location": "Hydra",
+            "agency_address": "70, Chemin Larbi Allik, Hydra, Alger",
+            "agency_lat": 36.75825988001576, 
+            "agency_lng": 3.0620814101309524,
+            "agency_wilaya": 16,
+            "agency_phone": "021 54 97 63",
+            "agency_fax": "021 54 97 65",
+            "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=36.75825988001576%2C3.0620814101309524&z=12"
+         },
+         {
+             "agency_location": "Hassi Messaoud",
+             "agency_address": "Cité Lamkadem Abdelkader, Hassi Messaoud Ouargla",
+             "agency_lat": 34.86355412389141,
+             "agency_lng": 6.104855062500025,
+             "agency_wilaya": 30,
+             "agency_phone": "029 78 98 92",
+             "agency_fax": null,
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=34.86355412389141%2C6.104855062500025&z=6"
+         },
+         {
+             "agency_location": "Ourgla",
+             "agency_address": "Place Houari boumediene, Nezla,Touggourt,Ourgla",
+             "agency_lat": 34.86355412389141,
+             "agency_lng": 6.104855062500025,
+             "agency_wilaya": 30,
+             "agency_phone": "029 66 24 70",
+             "agency_fax": null,
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=34.86355412389141%2C6.104855062500025&z=6"
+         },
+         {
+             "agency_location": "El Oued ",
+             "agency_address": "Cité Assname  commune El Oued.",
+             "agency_lat": 33.788436824973225,
+             "agency_lng": 6.505856039062525,
+             "agency_wilaya": 39,
+             "agency_phone": "032 11 55 95",
+             "agency_fax": null,
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=33.788436824973225%2C6.505856039062525&z=7"
+         },
+         {
+             "agency_location": "Biskra",
+             "agency_address": "Cité la gare lot n°61 coopérative n°45, Biskra",
+             "agency_lat": 33.788436824973225,
+             "agency_lng": 6.505856039062525,
+             "agency_wilaya": 7,
+             "agency_phone": "033 62 70 67",
+             "agency_fax": null,
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=33.788436824973225%2C6.505856039062525&z=6"
+         },
+         {
+             "agency_location": "BATNA",
+             "agency_address": "Lotissement Djrou Dib 800 logements, BATNA",
+             "agency_lat": 33.28661688833146,
+             "agency_lng": 6.849207478571659,
+             "agency_wilaya": 5,
+             "agency_phone":  "033 86 12 90",
+             "agency_fax": "033 86 12 85",
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=33.28661688833146%2C6.849207478571659&z=6"
+         },
+         {
+             "agency_location": "Ain M''lila",
+             "agency_address": "Passerelle rurale N° 1 boulevard Larbi Ben M''hidi Route nationale  N° 3 Ain M''lila  Oum Labouaghi",
+             "agency_lat": 36.068651912646914,
+             "agency_lng": 7.041222328635426,
+             "agency_wilaya": 4,
+             "agency_phone": "032 52 47 26",
+             "agency_fax": "032 52 47 27",
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=36.068651912646914%2C7.041222328635426&z=8"
+         },
+         {
+             "agency_location": "Constantine",
+             "agency_address": "9J25+95P, Rue Damak Mohamed Salah, Constantine",
+             "agency_lat": 36.068651912646914,
+             "agency_lng": 7.041222328635426,
+             "agency_wilaya": 25,
+             "agency_phone": "031 61 42 50",
+             "agency_fax": null,
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=36.068651912646914%2C7.041222328635426&z=8"
+         },
+         {
+             "agency_location": "Annaba",
+             "agency_address": "Rue Seddik Benyahia Bt A, Valmascort, Annaba",
+             "agency_lat": 36.068651912646914,
+             "agency_lng": 7.041222328635426,
+             "agency_wilaya": 23,
+             "agency_phone": "038 58 18 24",
+             "agency_fax": " 038 58 18 23",
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=36.068651912646914%2C7.041222328635426&z=8"
+         },
+         {
+             "agency_location": "Skikda",
+             "agency_address": "Cité Ben Malek Lot 16 N°75, Skikda",
+             "agency_lat": 36.068651912646914,
+             "agency_lng": 7.041222328635426,
+             "agency_wilaya": 21,
+             "agency_phone": "0770 00 76 06 ",
+             "agency_fax": "038 75 74 48",
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=36.068651912646914%2C7.041222328635426&z=8"
+         },
+         {
+             "agency_location": "Annaba",
+             "agency_address": "Rue Seddik Benyahia Bt A, Valmascort, Annaba",
+             "agency_lat": 36.068651912646914,
+             "agency_lng": 7.041222328635426,
+             "agency_wilaya": 16,
+             "agency_phone": "038 58 18 24",
+             "agency_fax": " 038 58 18 23",
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=36.068651912646914%2C7.041222328635426&z=8"
+         },
+         {
+             "agency_location": "Sétif",
+             "agency_address": "Cité financière rue begag bouzid, Sétif",
+             "agency_lat": 35.91086729198919,
+             "agency_lng": 6.99412701027839,
+             "agency_wilaya": 19,
+             "agency_phone": "036 51 40 45",
+             "agency_fax": "036 51 40 46",
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=35.91086729198919%2C6.99412701027839&z=7"
+         },
+         {
+             "agency_location": "Sétif",
+             "agency_address": "Lot n°6,5bd des entrepreneurs, Sétif",
+             "agency_lat": 36.624173412564,
+             "agency_lng": 7.234780940902095,
+             "agency_wilaya": 19,
+             "agency_phone": "036 51 94 37",
+             "agency_fax": "036 51 94 47",
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=36.624173412564%2C7.234780940902095&z=7"
+         }
+         ,
+         {
+             "agency_location": "BBA",
+             "agency_address": "Rue Houari Boumediene, N°10 Lot des 473 logements, BBA",
+             "agency_lat": 36.624173412564,
+             "agency_lng": 7.234780940902095,
+             "agency_wilaya": 34,
+             "agency_phone": "0770 14 91 26",
+             "agency_fax": null,
+             "agency_location_link": "google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=36.624173412564%2C7.234780940902095&z=7"
+         }
+         ,
+         {
+             "agency_location": "Sétif",
+             "agency_address": "Lot n°6,5bd des entrepreneurs, Sétif",
+             "agency_lat": 36.624173412564,
+             "agency_lng": 7.234780940902095,
+             "agency_wilaya": 19,
+             "agency_phone": "036 51 94 37",
+             "agency_fax": "036 51 94 47",
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=36.624173412564%2C7.234780940902095&z=7"
+         }
+         ,
+         {
+             "agency_location": "Bejaïa",
+             "agency_address": "Zone Industrielle Boumadou Nacer, Cité SOMACOB, Bejaïa",
+             "agency_lat": 36.624173412564,
+             "agency_lng": 7.234780940902095,
+             "agency_wilaya": 6,
+             "agency_phone": "034 12 00 07",
+             "agency_fax": "034 20 43 18",
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=36.624173412564%2C7.234780940902095&z=7"
+         }
+         ,
+         {
+             "agency_location": "TIZI OUZOU",
+             "agency_address": "14 Rue CHAFAI AHMED MEDOUHA Co-propriété N 61 lot 52 TIZI OUZOU.",
+             "agency_lat": 36.624173412564,
+             "agency_lng": 7.234780940902095,
+             "agency_wilaya": 15,
+             "agency_phone": "026 19 70 95",
+             "agency_fax": null,
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=36.624173412564%2C7.234780940902095&z=7"
+         }
+         ,
+         {
+             "agency_location": "Sétif",
+             "agency_address": "Lot n°6,5bd des entrepreneurs, Sétif",
+             "agency_lat": 36.624173412564,
+             "agency_lng": 7.234780940902095,
+             "agency_wilaya": 19,
+             "agency_phone": "036 51 94 37",
+             "agency_fax": "036 51 94 47",
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=36.624173412564%2C7.234780940902095&z=7"
+         }
+         ,
+         {
+             "agency_location": "Ain Bessam",
+             "agency_address": "cite 40 logements LSP – route de Ain Bessam, Bouira",
+             "agency_lat": 36.448658741058914,
+             "agency_lng": 4.617578591824523,
+             "agency_wilaya": 10,
+             "agency_phone": "026 73 40 94",
+             "agency_fax": "026 73 40 96",
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=36.448658741058914%2C4.617578591824523&z=9"
+         }
+         ,
+         {
+             "agency_location": "Rouiba",
+             "agency_address": "17, Rue Felfoul Rouiba",
+             "agency_lat": 36.67225578032769,
+             "agency_lng": 3.124737812718843,
+             "agency_wilaya": 16,
+             "agency_phone": "021 85 18 05",
+             "agency_fax": "021 85 18 07",
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=36.67225578032769%2C3.124737812718843&z=10"
+         },
+         {
+             "agency_location": "Kouba",
+             "agency_address": "45 A, Rue des frères Abdesselami,Kouba, Alger",
+             "agency_lat": 36.69854884825596, 
+             "agency_lng": 3.107056690892671,
+             "agency_wilaya": 16,
+             "agency_phone": "021 28 86 77",
+             "agency_fax": "021 28 86 55",
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=36.69854884825596%2C3.107056690892671&z=12"
+         },
+         {
+             "agency_location": "Hussein Dey",
+             "agency_address": "6 Rue Amar Ben Samra et rue Hamouda Zoukache ,Hussein Dey",
+             "agency_lat": 36.69854884825596,
+             "agency_lng": 3.107056690892671,
+             "agency_wilaya": 16,
+             "agency_phone": "021 77 04 19",
+             "agency_fax": "021 77 04 15",
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=36.69854884825596%2C3.107056690892671&z=12"
+         },
+         {
+             "agency_location": "Bir Khadem",
+             "agency_address": "Rue des Frères Djilali N° 10 Bir Khadem, Alger",
+             "agency_lat": 36.624173412564,
+             "agency_lng": 7.234780940902095,
+             "agency_wilaya": 16,
+             "agency_phone": "021 40 40 93",
+             "agency_fax": "021 40 40 94",
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=36.69854884825596%2C3.107056690892671&z=12"
+         }, 
+         {
+             "agency_location": "Sétif",
+             "agency_address": "Lot n°6,5bd des entrepreneurs, Sétif",
+             "agency_lat": 36.624173412564,
+             "agency_lng": 7.234780940902095,
+             "agency_wilaya": 16,
+             "agency_phone": "036 51 94 37",
+             "agency_fax": "036 51 94 47",
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=36.67225578032769%2C3.124737812718843&z=10"
+         },
+         {
+             "agency_location": "Bir Mourad Rais",
+             "agency_address": "05, Rue  el Bouari Les sources Bir Mourad Rais",
+             "agency_lat": 36.75825988001576,
+             "agency_lng": 3.0620814101309524,
+             "agency_wilaya": 16,
+             "agency_phone": "021 44 85 50",
+             "agency_fax": "021 44 91 71",
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=36.75825988001576%2C3.0620814101309524&z=12"
+         },
+         {
+             "agency_location": "Sétif",
+             "agency_address": "Lot n°6,5bd des entrepreneurs, Sétif",
+             "agency_lat": 36.624173412564,
+             "agency_lng": 7.234780940902095,
+             "agency_wilaya": 16,
+             "agency_phone": "036 51 94 37",
+             "agency_fax": "036 51 94 47",
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=36.67225578032769%2C3.124737812718843&z=10"
+         },
+         {
+             "agency_location": "Sétif",
+             "agency_address": "Lot n°6,5bd des entrepreneurs, Sétif",
+             "agency_lat": 36.624173412564,
+             "agency_lng": 7.234780940902095,
+             "agency_wilaya": 16,
+             "agency_phone": "036 51 94 37",
+             "agency_fax": "036 51 94 47",
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=36.67225578032769%2C3.124737812718843&z=10"
+         },
+         {
+             "agency_location": "Alger Ctre",
+             "agency_address": "138 Bd Colonel Krim Belkacem, Alger Ctre 16000",
+             "agency_lat": 36.75825988001576,
+             "agency_lng": 3.0620814101309524,
+             "agency_wilaya": 16,
+             "agency_phone": null,
+             "agency_fax": null,
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=36.75825988001576%2C3.0620814101309524&z=12"
+         },
+         {
+             "agency_location": "Ouled Fayet",
+             "agency_address": "Route Nationale n°142 Ouled Fayet, Alger",
+             "agency_lat": 36.75825988001576,
+             "agency_lng": 3.0620814101309524,
+             "agency_wilaya": 16,
+             "agency_phone": "021 38 46 66",
+             "agency_fax": "021 38 46 63",
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=36.75825988001576%2C3.0620814101309524&z=12"
+         },
+         {
+             "agency_location": "Sétif",
+             "agency_address": "Lot n°6,5bd des entrepreneurs, Sétif",
+             "agency_lat": 36.624173412564,
+             "agency_lng": 7.234780940902095,
+             "agency_wilaya": 16,
+             "agency_phone": "036 51 94 37",
+             "agency_fax": "036 51 94 47",
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=36.67225578032769%2C3.124737812718843&z=10"
+         },
+         {
+             "agency_location": "Chéraga",
+             "agency_address": "73, Chemin Kaouche, Chéraga, Alger",
+             "agency_lat": 36.731574512440254,
+             "agency_lng": 2.95977122946689,
+             "agency_wilaya": 16,
+             "agency_phone": "021 36 27 52",
+             "agency_fax": "021 36 28 21",
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=36.731574512440254%2C2.95977122946689&z=12"
+         },
+         {
+             "agency_location": "Sétif",
+             "agency_address": "Lot n°6,5bd des entrepreneurs, Sétif",
+             "agency_lat": 36.624173412564,
+             "agency_lng": 7.234780940902095,
+             "agency_wilaya": 16,
+             "agency_phone": "036 51 94 37",
+             "agency_fax": "036 51 94 47",
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=36.67225578032769%2C3.124737812718843&z=10"
+         },
+         {
+             "agency_location": "d''Ain Bénian",
+             "agency_address": "N°79 Centre Commercial d''Ain Bénian, Alger",
+             "agency_lat": 36.748310316025425,
+             "agency_lng": 2.95977122946689,
+             "agency_wilaya": 16,
+             "agency_phone": "021 31 18 70",
+             "agency_fax": "021 31 18 69",
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=36.748310316025425%2C2.95977122946689&z=12"
+         },
+         {
+             "agency_location": "Sétif",
+             "agency_address": "Lot n°6,5bd des entrepreneurs, Sétif",
+             "agency_lat": 36.624173412564,
+             "agency_lng": 7.234780940902095,
+             "agency_wilaya": 16,
+             "agency_phone": "036 51 94 37",
+             "agency_fax": "036 51 94 47",
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=36.67225578032769%2C3.124737812718843&z=10"
+         },
+         {
+             "agency_location": "Blida",
+             "agency_address": "Zone Industrielle N°38 Ben Boulaid, Blida",
+             "agency_lat": 36.67064064804567, 
+             "agency_lng": 2.8421660837196105,
+             "agency_wilaya": 9,
+             "agency_phone": "025 36 03 42",
+             "agency_fax": "025 36 03 44",
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=36.67064064804567%2C2.8421660837196105&z=10"
+         },
+         {
+             "agency_location": "Chelef",
+             "agency_address": "Rue 1er Novembre Lot N° 60 co-propriété 01 APC & Wilaya de Chelef",
+             "agency_lat": 36.27292072627964, 
+             "agency_lng": 1.5932180288040954,
+             "agency_wilaya": 2,
+             "agency_phone": "027 72 17 27",
+             "agency_fax": null,
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=36.27292072627964%2C1.5932180288040954&z=9"
+         },
+         {
+             "agency_location": "Sétif",
+             "agency_address": "Lot n°6,5bd des entrepreneurs, Sétif",
+             "agency_lat": 36.624173412564,
+             "agency_lng": 7.234780940902095,
+             "agency_wilaya": 16,
+             "agency_phone": "036 51 94 37",
+             "agency_fax": "036 51 94 47",
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=36.67225578032769%2C3.124737812718843&z=10"
+         },
+         {
+             "agency_location": "Relizane",
+             "agency_address": "Rue Aouad Ben Djebbar, copropriété n°42,division 114-Relizane",
+             "agency_lat": 35.54966133320408, 
+             "agency_lng": 0.9534132968344045,
+             "agency_wilaya": 48,
+             "agency_phone": "046 71 51 82",
+             "agency_fax": "046 71 51 75",
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=35.54966133320408%2C0.9534132968344045&z=8"
+         },
+         {
+             "agency_location": "Mostaganem",
+             "agency_address": "Lot n°7 cour de la culture, Mostaganem",
+             "agency_lat": 35.44680148393901,
+             "agency_lng": 0.6177058422501336,
+             "agency_wilaya": 27,
+             "agency_phone": "045 30 01 02",
+             "agency_fax": "045 30 05 61",
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=35.44680148393901%2C0.6177058422501336&z=8"
+         },
+         {
+             "agency_location": "Mostaganem",
+             "agency_address": "Lot n°7 cour de la culture, Mostaganem",
+             "agency_lat": 35.44680148393901,
+             "agency_lng": 0.6177058422501336,
+             "agency_wilaya": 27,
+             "agency_phone": "045 30 01 02",
+             "agency_fax": "045 30 05 61",
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=35.44680148393901%2C0.6177058422501336&z=8"
+         },
+         {
+             "agency_location": "Mostaganem",
+             "agency_address": "Lot n°7 cour de la culture, Mostaganem",
+             "agency_lat": 35.44680148393901,
+             "agency_lng": 0.6177058422501336,
+             "agency_wilaya": 27,
+             "agency_phone": "045 30 01 02",
+             "agency_fax": "045 30 05 61",
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=35.44680148393901%2C0.6177058422501336&z=8"
+         },
+         {
+             "agency_location": "Oran",
+             "agency_address": "119 aspirant Hammou Mokhtar Oran",
+             "agency_lat": 35.303675833801975, 
+             "agency_lng": 0.4713869943528515,
+             "agency_wilaya": 27,
+             "agency_phone": "041 46 80 89",
+             "agency_fax": null,
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=35.303675833801975%2C0.4713869943528515&z=8"
+         },
+         {
+             "agency_location": "Oran",
+             "agency_address": "Cité Zaghloul, point du jour, N°40, Oran",
+             "agency_lat": 35.303675833801975, 
+             "agency_lng": 0.4713869943528515,
+             "agency_wilaya": 31,
+             "agency_phone": "041 42 41 68",
+             "agency_fax": "041 42 71 68",
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=35.303675833801975%2C0.4713869943528515&z=8"
+         }
+         ,
+         {
+             "agency_location": "Oran",
+             "agency_address": "Cité Zaghloul, point du jour, N°40, Oran",
+             "agency_lat": 35.303675833801975, 
+             "agency_lng": 0.4713869943528515,
+             "agency_wilaya": 31,
+             "agency_phone": "041 42 41 68",
+             "agency_fax": "041 42 71 68",
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=35.303675833801975%2C0.4713869943528515&z=8"
+         }
+         ,
+         {
+             "agency_location": "Sidi Bel Abbes",
+             "agency_address": "67 Rue Mokdad Benameur, Sidi Bel Abbes",
+             "agency_lat": 35.303675833801975, 
+             "agency_lng": 0.4713869943528515,
+             "agency_wilaya": 22,
+             "agency_phone": "048 75 52 52",
+             "agency_fax": "048 75 57 57",
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=35.303675833801975%2C0.4713869943528515&z=8"
+         }
+         ,
+         {
+             "agency_location": "Tlemcen",
+             "agency_address": "N° 01, Rue des frères Bouafia Tlemcen.",
+             "agency_lat": 35.303675833801975, 
+             "agency_lng": 0.4713869943528515,
+             "agency_wilaya": 13,
+             "agency_phone": "043 41 41 03",
+             "agency_fax": "043 41 41 30",
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=35.303675833801975%2C0.4713869943528515&z=8"
+         }
+
+         ,
+         {
+             "agency_location": "Béchar",
+             "agency_address": "Rue Kenadsa N° 8 Section 15 Lot 379 ",
+             "agency_lat": 33.529066082052026, 
+             "agency_lng": 4.999068335103232,
+             "agency_wilaya": 8,
+             "agency_phone": "049 23 54 54",
+             "agency_fax": null,
+             "agency_location_link": "https://www.google.com/maps/d/u/0/viewer?mid=1ah2ZPVz5F0bINKiHOFXGa86vI2k&ll=33.529066082052026%2C4.999068335103232&z=6"
+         }
+    ]
+ }

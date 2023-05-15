@@ -5,15 +5,15 @@ import styles from "src/styles/agenciesModificaitonStylesClient/searchBars.modul
 import Failed from "src/components/common/feedback_popups/fail.js"
 import axios from "axios"
 
-function SearchBars ({handleClickAddAgency, handleClickSearch}){
-
-        const[wilaya, setWilaya] = useState(0)
-        const[agency, setAgency] = useState(0)
-        const[bankName, setBankName] = useState(0)
-        const[agencyList, setAgencyList] = useState([])
-        const[agencyListGlobal, setAgencyListGlobal] = useState([])
-        const[bankList, setBankList] = useState([])
-        const [errStyle, setErrStyle] = useState(false)
+function SearchBars ({handleClickAddAgency, handleClickSearch, selectedId}){
+        const[wilaya, setWilaya] = useState(0);
+        const[agency, setAgency] = useState(0);
+        const[bankName, setBankName] = useState(selectedId?selectedId:0);
+        const[agencyList, setAgencyList] = useState([]);
+        const[agencyListGlobal, setAgencyListGlobal] = useState([]);
+        const[bankList, setBankList] = useState([]);
+        const [errStyle, setErrStyle] = useState(false);
+        const[bankListPure, setBankListPure] = useState([])
 
         const handleClickSearchHere = () => {
             if(bankName == 0){
@@ -42,13 +42,16 @@ function SearchBars ({handleClickAddAgency, handleClickSearch}){
         useEffect(() => {
             axios.get(process.env.NEXT_PUBLIC_API_URL + `/banks`)
             .then(response =>{
+                setBankListPure(response.data.banks)
+
                 setBankList(response.data.banks.map(element =>{
                     return <option key = {element.id} value={element.id} >{element.name}</option>
                 }))
             }).catch(err => {
                 console.log( err.message )
             })
-        }, [])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, []) ;
         
         const editWilaya = (wilayaId, same) => {
             if((wilayaId != wilaya || (wilayaId == wilaya && !same)) && wilayaId != 0){
@@ -65,16 +68,14 @@ function SearchBars ({handleClickAddAgency, handleClickSearch}){
         }
 
         const editBankName = (bankId) =>{
-            
             if(bankId != bankName){
                 setBankName(bankId)
             }
         }
 
-            useEffect(()=>{
-                
+            useEffect(()=>{       
                 if(bankName != 0){
-                    let tempList
+                    var tempList = [] ;
                     
                     axios.get(process.env.NEXT_PUBLIC_API_URL + `/dgs/${bankName}`).then(response => {
                         tempList = response.data.dgs
@@ -92,25 +93,56 @@ function SearchBars ({handleClickAddAgency, handleClickSearch}){
                     {setAgencyListGlobal([])
                     setAgencyList([])}
                 if(agency != 0)
-                    {setAgency(0)}    
+                    {setAgency(0)}                    
                 
+            // eslint-disable-next-line react-hooks/exhaustive-deps
             }, [bankName])
             //send to controller
         useEffect(()=>{
             editWilaya(wilaya, false)
-        }, [agencyListGlobal])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, [agencyListGlobal]) ;
 
-        useEffect(() => {
+        var idsList = bankListPure.map(bnk=>{
+            return bnk.id ;
+        })
 
-        }, [wilaya])
+        useEffect(()=>{
+            if (selectedId in idsList){
+                setBankName(selectedId) ;
+            }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        },[selectedId]) ;  
+
         return(
             <div className={styles.container}>
                 <div className={styles.addAgency}>
                     <div>
                         <span>Nom de la banque</span>
                         <select onClick={(e) => {editBankName(parseInt(e.target.value))}} className={styles.mySelect}>
-                            <option className={styles.myOption} value="0">Sélectionner une banque</option>
-                            {bankList}
+
+                        {
+                            (selectedId == null || bankListPure.find(element => element.id == bankName) == null ) ? (
+                                <>
+                                <option value="0">Sélectionner une Banque</option>
+                                
+                                {bankListPure.map((element,index) => 
+                                        <option key={index} value={`${element.id}`}>{element.name}</option>)
+                                }
+                                </>
+                            ): (
+
+                                <>
+                                    <option value={`${bankName}`}>{bankListPure.find(element => element.id == bankName)?.name}</option>
+                                    {
+                                        bankListPure.filter(element => element.id != bankName).map((element,index) => 
+                                            <option key={index} value={`${element.id}`}>{element.name}</option>)
+                                    }
+                                </>
+                            )
+                        }
+
+                        
                         </select>
                     </div>
                 </div>
@@ -146,7 +178,7 @@ function SearchBars ({handleClickAddAgency, handleClickSearch}){
                             <option value="25" className={styles.myOption}>25 - Constantine</option>
                             <option value="26" className={styles.myOption}>26 - Médéa</option>
                             <option value="27" className={styles.myOption}>27 - Mostaganem</option>
-                            <option value="28" className={styles.myOption}>28 - M'Sila</option>
+                            <option value="28" className={styles.myOption}>28 - Msila</option>
                             <option value="29" className={styles.myOption}>29 - Mascara</option>
                             <option value="30" className={styles.myOption}>30 - Ouargla</option>
                             <option value="31" className={styles.myOption}>31 - Oran</option>
@@ -167,6 +199,17 @@ function SearchBars ({handleClickAddAgency, handleClickSearch}){
                             <option value="46" className={styles.myOption}>46 - Aïn Témouchent</option>
                             <option value="47" className={styles.myOption}>47 - Ghardaïa</option>
                             <option value="48" className={styles.myOption}>48 - Relizane</option>
+                            <option value="49" className={styles.myOption}>49 - Timimoun</option>
+                            <option value="50" className={styles.myOption}>50 - Bordj Badji Mokhtar</option>
+                            <option value="51" className={styles.myOption}>51 - d'Ouled Djellal</option>
+                            <option value="52" className={styles.myOption}>52 - Béni Abbès</option>
+                            <option value="53" className={styles.myOption}>53 - In Salah</option>
+                            <option value="54" className={styles.myOption}>54 - In Guezzam</option>
+                            <option value="55" className={styles.myOption}>55 - Touggourt</option>
+                            <option value="56" className={styles.myOption}>56 - Djanet</option>
+                            <option value="57" className={styles.myOption}>57 - El M'Ghair</option>
+                            <option value="58" className={styles.myOption}>58 - El Meniaa</option>
+                            
                             
                         </select>
                     </div>

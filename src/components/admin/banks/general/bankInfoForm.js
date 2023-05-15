@@ -154,7 +154,7 @@ function BankInfoForm({ bankId }) {
 
         <div className="flex items-center justify-center gap-4 text-lg sm:text-xl md:text-3xl">
           <AiOutlineInfoCircle className=" font-bold" />
-          <h3 className="font-bold">Informations générales sur la banque</h3>
+          <h3 className="font-bold text-2xl">Informations générales sur la banque</h3>
         </div>
 
         <div className="hidden lg:block h-[2px] bg-black w-[25%]" />

@@ -1,0 +1,63 @@
+.row{
+    position : relative;
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    display : flex;
+    justify-content: space-between;
+    width : 100%;
+    height: 100%;
+    opacity : 1;
+    align-items: center;
+  }
+  .row img{
+    position :relative;
+    width : 1.7em;
+    height : auto;
+    margin : 0.3em;
+  }
+  .row span{
+    display : flex;
+    position : relative;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .prestationName, .value1,  .value2{
+    display : flex;
+    justify-content: center;
+    width : 33%;
+    padding : 1.7em;
+  }
+  
+  .prestationName span{
+    position : relative;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding : 0.5em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+  }
+  .listePrestations{
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .row{
+      font-size: 11px;
+    }
+  }
+
+  @media only screen and (max-width: 450px) {
+  
+    .row img{
+      position :relative;
+      width : 25px;
+      height : auto;
+      margin : 0.3em;
+    }
+  }

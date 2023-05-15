@@ -1,0 +1,247 @@
+{
+    "bank_name" : "The Housing Bank for Trade and Finance - Algeria",
+    "bank_description": "The Housing Bank for Trade & Finance – Algeria s''appuie sur une riche expérience et un savoir faire de plus de trente années dans le domaine financier et bancaire. La Housing Bank Algérie a opté, dès le démarrage de son activité en octobre 2003, pour le lancement d''une gamme variée de produits destinés tant aux particuliers qu''aux entreprises.",
+    "website_link": "https://www.housingbankdz.com",
+    "dg_address": "16, rue Ahmed OUAKED, Dely ibrahim, Alger",
+    "dg_lat" : 36.760187 ,
+    "dg_lng" : 2.986883,
+    "dg_location_link": "https://www.google.com/maps/place/AL+SALAM+BANK+ALGERIA/@36.7604583,2.9839552,19z/data=!4m14!1m7!3m6!1s0x128fb1c8baff4965:0x6a01c8b821f6103a!2sAL+SALAM+BANK+ALGERIA!8m2!3d36.7604583!4d2.9845989!16s%2Fg%2F1pxwmr707!3m5!1s0x128fb1c8baff4965:0x6a01c8b821f6103a!8m2!3d36.7604583!4d2.9845989!16s%2Fg%2F1pxwmr707",
+    "dg_wilaya": 16,
+    "dg_phone": "023312929",
+    "dg_fax" :"023312946",
+    "date_prestations": "2023-01-01",
+    "prestations_indiv": {
+        "compte": [
+            {
+                "nom_prestation": "Ouverture de compte et délivrance chéquier" ,
+                "categorie": "ouverture de compte" ,
+                "tarif": 0,
+                "period": 0
+            } ,
+            {
+                "nom_prestation": "Compte de chèque" ,
+                "categorie": "ouverture de compte" ,
+                "tarif": 200,
+                "period": 30
+            } 
+        ] ,
+        "paiement": [
+            {
+                "nom_prestation": "Versement espèces déplacées" ,
+                "categorie": "Versement",
+                "tarif": 0,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement reçu d\\'un compte de la même agence" ,
+                "categorie": "Virement",
+                "tarif": 0,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement devise reçue de l\\'étranger" ,
+                "categorie": "Virement",
+                "tarif": 500,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Annulation de chèque de banque" ,
+                "categorie": "chèque",
+                "tarif": 1000,
+                "period": 0
+            }
+        ] ,
+        "monetique": {
+            "carte CIB": [
+                {
+                    "nom_prestation": "Reconfection carte Classique",
+                    "categorie" : "CIB",
+                    "tarif": 300,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Reconfection carte Gold",
+                    "categorie" : "CIB",
+                    "tarif": 500,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Réédition du code secret carte Classique",
+                    "categorie" : "CIB",
+                    "tarif": 300,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Réédition du code secret carte Gold",
+                    "categorie" : "CIB",
+                    "tarif": 500,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Commission de retrait sur DAB de la banque",
+                    "categorie" : "CIB",
+                    "tarif": 10.00,
+                    "period": 0
+                }
+            ],
+            "carte internationale":[
+
+            ]
+            
+            
+    }
+    } ,
+
+
+    "prestations_prof":   {
+        "compte": [
+            {
+                "nom_prestation": "Ouverture de compte et délivrance chéquier" ,
+                "categorie": "ouverture de compte" ,
+                "tarif": 0,
+                "period": 0
+            }
+        ] ,
+        "paiement": [
+            {
+                "nom_prestation": "Versement espèces déplacées" ,
+                "categorie": "Versement",
+                "tarif": 0,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement reçu d\\'un compte de la même agence" ,
+                "categorie": "Virement",
+                "tarif": 0,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement devise reçue de l\\'étranger" ,
+                "categorie": "Virement",
+                "tarif": 500,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Annulation de chèque de banque" ,
+                "categorie": "chèque",
+                "tarif": 1000,
+                "period": 0
+            }
+        ] ,
+        "monetique": {
+            "carte CIB": [
+                {
+                    "nom_prestation": "Reconfection carte Classique",
+                    "categorie" : "CIB",
+                    "tarif": 300,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Reconfection carte Gold",
+                    "categorie" : "CIB",
+                    "tarif": 500,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Réédition du code secret carte Classique",
+                    "categorie" : "CIB",
+                    "tarif": 300,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Réédition du code secret carte Gold",
+                    "categorie" : "CIB",
+                    "tarif": 500,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Commission de retrait sur DAB de la banque",
+                    "categorie" : "CIB",
+                    "tarif": 10.00,
+                    "period": 0
+                }
+            ],
+            "carte internationale":[
+
+            ]
+            
+            
+    }
+    }  ,
+
+    "prestations_ets":   {
+        "compte": [
+            {
+                "nom_prestation": "Ouverture de compte et délivrance chéquier" ,
+                "categorie": "ouverture de compte" ,
+                "tarif": 0,
+                "period": 0
+            } 
+        ] ,
+        "paiement": [
+            {
+                "nom_prestation": "Versement espèces déplacées" ,
+                "categorie": "Versement",
+                "tarif": 0,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement reçu d\\'un compte de la même agence" ,
+                "categorie": "Virement",
+                "tarif": 0,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Virement devise reçue de l\\'étranger" ,
+                "categorie": "Virement",
+                "tarif": 500,
+                "period": 0
+            },
+            {
+                "nom_prestation": "Annulation de chèque de banque" ,
+                "categorie": "chèque",
+                "tarif": 1000,
+                "period": 0
+            }
+        ] ,
+        "monetique": {
+            "carte CIB": [
+                {
+                    "nom_prestation": "Reconfection carte Classique",
+                    "categorie" : "CIB",
+                    "tarif": 300,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Reconfection carte Gold",
+                    "categorie" : "CIB",
+                    "tarif": 500,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Réédition du code secret carte Classique",
+                    "categorie" : "CIB",
+                    "tarif": 300,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Réédition du code secret carte Gold",
+                    "categorie" : "CIB",
+                    "tarif": 500,
+                    "period": 0
+                },
+                {
+                    "nom_prestation": "Commission de retrait sur DAB de la banque",
+                    "categorie" : "CIB",
+                    "tarif": 10.00,
+                    "period": 0
+                }
+            ],
+            "carte internationale":[
+
+            ]
+            
+            
+    }
+    } 
+}

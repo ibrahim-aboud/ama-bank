@@ -1,0 +1,235 @@
+{
+    "bank_name": "AL SALAM BANK ALGERIA",
+    "agencies": [
+         {
+             "agency_location": "Dély Ibrahim",
+             "agency_address": "233 rue Ahmed Ouaked, Dély Ibrahim, Alger",
+             "agency_lat": 36.76047,
+             "agency_lng": 2.98464,
+             "agency_wilaya": 16,
+             "agency_phone": "023304587",
+             "agency_fax": null,
+             "agency_location_link": "https://www.google.com/maps/place/AL+SALAM+BANK+ALGERIA/@36.760386,2.9843538,19z/data=!4m12!1m5!3m4!2zMzbCsDQ1JzM3LjciTiAywrA1OScwNC43IkU!8m2!3d36.7604722!4d2.9846389!3m5!1s0x128fb1c8baff4965:0x6a01c8b821f6103a!8m2!3d36.7604583!4d2.9845989!16s%2Fg%2F1pxwmr707?hl=en-US"
+         },
+         {
+             "agency_location": "Kouba",
+             "agency_address": "24 Djenane Ben Omar, Kouba, Alger",
+             "agency_lat": 36.72895,
+             "agency_lng": 3.08927,
+             "agency_wilaya": 16,
+             "agency_phone": "023781119",
+             "agency_fax": null,
+             "agency_location_link": "https://www.google.com/maps/place/AL+SALAM+BANK+KOUBA/@36.7288563,3.0888653,19.61z/data=!4m12!1m5!3m4!2zMzbCsDQzJzQ0LjIiTiAzwrAwNScyMS40IkU!8m2!3d36.72895!4d3.08927!3m5!1s0x128fad4fa3e63119:0xee461303561c86f8!8m2!3d36.7289156!4d3.0891776!16s%2Fg%2F11cmhxp369?hl=en-US"
+         },
+         {
+             "agency_location": "Bab Ezzouar",
+             "agency_address": "Coopérative Boushaki F lot N°186, Bab Ezzouar, Alger",
+             "agency_lat": 36.72503,
+             "agency_lng": 3.17582,
+             "agency_wilaya": 16,
+             "agency_phone": "023832863",
+             "agency_fax": null,
+             "agency_location_link": "https://www.google.com/maps/place/AL+SALAM+BANK+ALGERIA+-+AGENCE+BAB+EZZOUAR/@36.7249943,3.1756275,20.81z/data=!4m12!1m5!3m4!2zMzbCsDQzJzMwLjEiTiAzwrAxMCczMy4wIkU!8m2!3d36.72503!4d3.17582!3m5!1s0x128e521dc86facfb:0x2cd69d7bcb37823c!8m2!3d36.7250164!4d3.1757997!16s%2Fg%2F12hkr7ghx?hl=en-US"
+         },
+         {
+             "agency_location": "Blida",
+             "agency_address": "Boulevard Mohamed Boudiaf, propriété N°88, Lot N°102, Blida",
+             "agency_lat": 36.47973,
+             "agency_lng": 2.82024,
+             "agency_wilaya": 16,
+             "agency_phone": "0568320896",
+             "agency_fax": null,
+             "agency_location_link": "https://www.google.com/maps/place/Al+Salam+Bank+Algeria/@36.4797277,2.8200716,21z/data=!4m12!1m5!3m4!2zMzbCsDI4JzQ3LjAiTiAywrA0OScxMi45IkU!8m2!3d36.47973!4d2.82024!3m5!1s0x128f0c7d27f22273:0xc2a55cb674d90bf7!8m2!3d36.4797276!4d2.8202086!16s%2Fg%2F11bzwp0219?hl=en-US"
+         },
+         {
+             "agency_location": "Hassiba",
+             "agency_address": "Cité HLM N°03, Sidi M''hamed, Alger Centre",
+             "agency_lat": 36.75908,
+             "agency_lng": 3.06147,
+             "agency_wilaya": 16,
+             "agency_phone": "0674819607",
+             "agency_fax": null,
+             "agency_location_link": "https://www.google.com/maps/place/Al+Salam+Bank+Hassiba+Alger+Centre/@36.7590605,3.0611824,20z/data=!4m12!1m5!3m4!2zMzbCsDQ1JzMyLjciTiAzwrAwMyc0MS4zIkU!8m2!3d36.75908!4d3.06147!3m5!1s0x128fb3deac8147b3:0x8b058c9667de712e!8m2!3d36.7590605!4d3.0613903!16s%2Fg%2F11h1_0vdjz?hl=en-US"
+         },
+         {
+             "agency_location": "Sidi Yahia",
+             "agency_address": "04 rue Hamdani Lahcen, Sidi Yahia, Hydra, Alger",
+             "agency_lat": 36.74122,
+             "agency_lng": 3.03943,
+             "agency_wilaya": 16,
+             "agency_phone": null,
+             "agency_fax": null,
+             "agency_location_link": "https://www.google.com/maps/place/Al+Salam+Bank/@36.741207,3.0392234,20z/data=!4m12!1m5!3m4!2zMzbCsDQ0JzI4LjQiTiAzwrAwMicyMi4wIkU!8m2!3d36.74122!4d3.03943!3m5!1s0x128fad27f539d25d:0xae0efc1a3f2bce38!8m2!3d36.741178!4d3.0393728!16s%2Fg%2F11f9wznvct?hl=en-US"
+         },
+         {
+             "agency_location": "Staoueli",
+             "agency_address": "Route nationale N°11, lot N°402, propriété N°04, Staoueli, Alger",
+             "agency_lat": 36.74311,
+             "agency_lng": 2.87046,
+             "agency_wilaya": 16,
+             "agency_phone": null,
+             "agency_fax": null,
+             "agency_location_link": "https://www.google.com/maps/place/%D9%85%D8%B5%D8%B1%D9%81+%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85+assalam+bank%E2%80%AD/@36.74304,2.8700805,20z/data=!4m12!1m5!3m4!2zMzbCsDQ0JzM1LjIiTiAywrA1MicxMy43IkU!8m2!3d36.74311!4d2.87046!3m5!1s0x128fa54f0ccb9c71:0x92f520cfdb9489d4!8m2!3d36.74304!4d2.8703425!16s%2Fg%2F11s5qp057w?hl=en-US"
+         },
+         {
+             "agency_location": "El Anasser",
+             "agency_address": "218, Rue Hassiba Ben Bouali ,commune de Belouizdad, Alger",
+             "agency_lat": 36.7472138,
+             "agency_lng": 3.0857043,
+             "agency_wilaya": 16,
+             "agency_phone": null,
+             "agency_fax": null,
+             "agency_location_link": "https://www.google.com/maps/place/AL+SALAM+BANK+ALGERIA/@36.7466262,3.0867261,20.52z/data=!4m6!3m5!1s0x128fb3a4843c5475:0xe826278a90be72dc!8m2!3d36.7466435!4d3.0866915!16s%2Fg%2F11s9_rk83d?hl=en-US"
+         },
+         {
+            "agency_location": "Sétif",
+            "agency_address": "Cite Mounaouarart Lararssa, Lot 143, N° 11, Sétif",
+            "agency_lat": 36.19854,
+            "agency_lng": 5.41102999999,
+            "agency_wilaya": 19,
+            "agency_phone": "036513214",
+            "agency_fax": null,
+            "agency_location_link": "https://www.google.com/maps/place/AL+SALAM+BANK/@36.1985689,5.4107326,20.14z/data=!4m12!1m5!3m4!2zMzbCsDExJzU0LjciTiA1wrAyNCczOS43IkU!8m2!3d36.19854!4d5.41103!3m5!1s0x12f31596e7902a79:0x2d42b0fafb42817c!8m2!3d36.1985338!4d5.4110134!16s%2Fg%2F1hdzynvy_?hl=en-US"
+        },
+        {
+            "agency_location": "Constantine",
+            "agency_address": "Boulevard Zouiche Amar, N° 08, Sidi Mabrouk Supérieur, Constantine",
+            "agency_lat": 36.36403,
+            "agency_lng": 6.63755,
+            "agency_wilaya": 25,
+            "agency_phone": null,
+            "agency_fax": null,
+            "agency_location_link": "https://www.google.com/maps/place/36%C2%B021''50.5%22N+6%C2%B038''15.2%22E/@36.3640003,6.6375192,21z/data=!4m4!3m3!8m2!3d36.36403!4d6.63755?hl=en-US"
+        },
+        {
+            "agency_location": "Batna",
+            "agency_address": "Cité El Matar N°240, Route de Biskra, Batna",
+            "agency_lat": 35.54277,
+            "agency_lng": 6.160019999999999,
+            "agency_wilaya": 5,
+            "agency_phone": null,
+            "agency_fax": null,
+            "agency_location_link": "https://www.google.com/maps/place/35%C2%B032''34.0%22N+6%C2%B009''36.1%22E/@35.5426479,6.1570096,15.17z/data=!4m4!3m3!8m2!3d35.54277!4d6.16002?hl=en-US"
+        },
+        {
+            "agency_location": "Annaba",
+            "agency_address": "Cité 240 Logts Plaine Ouest, lot B N°03, Annaba",
+            "agency_lat": 36.89577,
+            "agency_lng": 7.72893,
+            "agency_wilaya": 23,
+            "agency_phone": null,
+            "agency_fax": null,
+            "agency_location_link": "https://www.google.com/maps/place/BANQUE+AL+SALAM/@36.8957538,7.7285776,19z/data=!4m12!1m5!3m4!2zMzbCsDUzJzQ0LjgiTiA3wrA0Myc0NC4yIkU!8m2!3d36.89577!4d7.72893!3m5!1s0x12f007c37f61424f:0x3fddd33fb7d00a88!8m2!3d36.8957522!4d7.7288692!16s%2Fg%2F11fjb58jkv?hl=en-US"
+        },
+        {
+            "agency_location": "MSila",
+            "agency_address": "Cité 361 lots, unité 01, M''Sila",
+            "agency_lat": 35.72354,
+            "agency_lng": 4.535369999999999,
+            "agency_wilaya": 28,
+            "agency_phone": null,
+            "agency_fax": null,
+            "agency_location_link": "https://www.google.com/maps/place/35%C2%B043''24.7%22N+4%C2%B032''07.3%22E/@35.72354,4.53537,16z/data=!4m4!3m3!8m2!3d35.72354!4d4.53537?hl=en-US"
+        },
+        {
+            "agency_location": "Béjaia",
+            "agency_address": "Boulevard Mahfoudi Fateh, 332 Logements promotionnels, résidence Numidia, Bt B, Béjaia",
+            "agency_lat": 36.74639,
+            "agency_lng": 5.05147,
+            "agency_wilaya": 6,
+            "agency_phone": null,
+            "agency_fax": null,
+            "agency_location_link": "https://www.google.com/maps/place/Al+SALAM+BANK+B%C3%89JA%C3%8FA/@36.7464334,5.0513114,21z/data=!4m12!1m5!3m4!2zMzbCsDQ0JzQ3LjAiTiA1wrAwMycwNS4zIkU!8m2!3d36.74639!4d5.05147!3m5!1s0x128d333344434303:0xff5c434109a4975b!8m2!3d36.7464334!4d5.0514482!16s%2Fg%2F11t3gdmdj2?hl=en-US"
+        },
+        {
+            "agency_location": "Ain Mlila",
+            "agency_address": "Lotissement 164 lots promotionnel, route de Batna, Oum Bouaghi",
+            "agency_lat": 36.0234983,
+            "agency_lng":6.5724504,
+            "agency_wilaya": 4,
+            "agency_phone": null,
+            "agency_fax": null,
+            "agency_location_link": "https://www.google.com/maps/place/36%C2%B001''24.6%22N+6%C2%B034''20.8%22E/@36.0233331,6.5728069,17.86z/data=!4m4!3m3!8m2!3d36.0234983!4d6.5724504?hl=en-US"
+        },
+        {
+            "agency_location": "Constantine Ritaj Mall",
+            "agency_address": "Centre commercial Ritaj Mall, Nouvelle ville Ali Mendjeli N°89, commune Al Kharoub, Constantine.",
+            "agency_lat": 36.25098,
+            "agency_lng":6.572463,
+            "agency_wilaya": 25,
+            "agency_phone": null,
+            "agency_fax": null,
+            "agency_location_link": "https://www.google.com/maps/place/36%C2%B015''03.5%22N+6%C2%B034''20.9%22E/@36.250967,6.5725411,19.74z/data=!4m4!3m3!8m2!3d36.25098!4d6.572463?hl=en-US"
+        },
+        {
+            "agency_location": "Bordj Bou Arreridj",
+            "agency_address": "Cité 05 juillet, lotissement 475, lot n°01, groupe de propriété 54, section 76, Bordj Bou Arreridj",
+            "agency_lat": 36.07326,
+            "agency_lng":4.74793,
+            "agency_wilaya": 34,
+            "agency_phone": null,
+            "agency_fax": null,
+            "agency_location_link": "https://www.google.com/maps/place/Al+salam+bank/@36.0730795,4.7470811,19z/data=!4m12!1m5!3m4!2zMzbCsDA0JzIzLjciTiA0wrA0NCc1Mi42IkU!8m2!3d36.07326!4d4.74793!3m5!1s0x128cbdf75e29afdd:0x234931e0090540a!8m2!3d36.0730795!4d4.747463!16s%2Fg%2F11fp3mb1d0?hl=en-US"
+        },
+        {
+            "agency_location": "Oran",
+            "agency_address": "05 Coopérative Adnane Mustapha, Zhun Usto, Bir El Djir, Oran",
+            "agency_lat": 35.70974,
+            "agency_lng":-0.595890,
+            "agency_wilaya": 31,
+            "agency_phone": "041838176",
+            "agency_fax": null,
+            "agency_location_link": "https://www.google.com/maps/place/35%C2%B042''35.1%22N+0%C2%B035''45.2%22W/@35.70974,-0.59589,16z/data=!4m4!3m3!8m2!3d35.70974!4d-0.59589?hl=en-US"
+        },
+        {
+            "agency_location": "Oran El Othmania",
+            "agency_address": "Cité El Othmania, Lot 100 logements, Bt B1, N°134 A et B, Oran",
+            "agency_lat": 35.66626,
+            "agency_lng":-0.64511999999,
+            "agency_wilaya": 31,
+            "agency_phone": null,
+            "agency_fax": null,
+            "agency_location_link": "https://www.google.com/maps/place/Al+Salam+Bank+Algeria/@35.666235,-0.6452808,21z/data=!4m12!1m5!3m4!2zMzXCsDM5JzU4LjUiTiAwwrAzOCc0Mi40Ilc!8m2!3d35.66626!4d-0.64512!3m5!1s0xd7e89ae6372f59f:0xb6d7264a755f9216!8m2!3d35.666235!4d-0.645144!16s%2Fg%2F11j2p44kyb?hl=en-US"
+        },
+        {
+            "agency_location": "Ouargla",
+            "agency_address": "Cité Chorfa, Route nationale N° 49, Ouargla",
+            "agency_lat": 31.94477,
+            "agency_lng":5.32181,
+            "agency_wilaya": 10,
+            "agency_phone": "029717504",
+            "agency_fax": null,
+            "agency_location_link": "https://www.google.com/maps/place/ALSALAM+Bank/@31.9447476,5.321674,21z/data=!4m12!1m5!3m4!2zMzHCsDU2JzQxLjIiTiA1wrAxOScxOC41IkU!8m2!3d31.94477!4d5.32181!3m5!1s0x125d6b48a43cb509:0x89ec4847066b8919!8m2!3d31.9447476!4d5.3218108!16s%2Fg%2F11gj19ndg_?hl=en-US"
+        },
+        {
+            "agency_location": "Adrar",
+            "agency_address": "Rue Bouzidi Abdelkader Lot Propriété N°145, Section N°30, Adrar",
+            "agency_lat": 27.87512,
+            "agency_lng":-0.2833,
+            "agency_wilaya": 1,
+            "agency_phone": null,
+            "agency_fax": null,
+            "agency_location_link": "https://www.google.com/maps/place/27%C2%B052''30.4%22N+0%C2%B016''59.9%22W/@27.87512,-0.2833,16z/data=!4m4!3m3!8m2!3d27.8751111!4d-0.2833056?hl=en-US"
+        },
+        {
+            "agency_location": "Biskra",
+            "agency_address": "Cité Sayhi, Lot N°69, Propriété N°109-110, Biskra",
+            "agency_lat": 34.84367,
+            "agency_lng":5.71554,
+            "agency_wilaya": 7,
+            "agency_phone": null,
+            "agency_fax": null,
+            "agency_location_link": "https://www.google.com/maps/place/34%C2%B050''37.2%22N+5%C2%B042''55.9%22E/@34.84367,5.71554,16z/data=!4m4!3m3!8m2!3d34.8436667!4d5.7155278?hl=en-US"
+        },
+        {
+            "agency_location": "Ain Ouessara",
+            "agency_address": "Cité El Mokrani N°1, Lot 1309, Ain Ouessara, Djelfa",
+            "agency_lat": 31.94477,
+            "agency_lng":5.32181,
+            "agency_wilaya": 17,
+            "agency_phone": "029717504",
+            "agency_fax": null,
+            "agency_location_link": "https://www.google.com/maps/place/34%C2%B050''37.2%22N+5%C2%B042''55.9%22E/@34.84367,5.71554,16z/data=!4m4!3m3!8m2!3d34.8436667!4d5.7155278?hl=en-US"
+        }
+    ]
+ }

@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export default async function createCategoriesMap(prests){
     var map = new Map() ;
     for (var i =0; i<prests.length ; i++){
@@ -8,6 +10,7 @@ export default async function createCategoriesMap(prests){
           ) ;
           map.set(prests[i].categorie_id,response.data.categorie.name) ;
         } catch(err){
+          console.log(err) ;
           continue ;
         }
       }

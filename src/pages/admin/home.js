@@ -33,10 +33,10 @@ function ConfirmDelete({ id, name, isDeleting, setIsDeleting, filteredList, setF
       <div className="w-[350px] sm:w-[500px]">
         <div className="py-4 rounded-t-md bg-red-500 text-white flex justify-center items-center">
           <RiDeleteBin6Line size={23} className="mr-3" />
-          <h2>Suppression définitive d'une banque</h2>
+          <h2>Suppression définitive d{"'"}une banque</h2>
         </div>
         <div className="bg-white rounded-b-md pt-4 sm:pt-8 flex flex-col justify-center items-center">
-          <h2 className="mb-8 font-semibold">Voulez-vous supprimer "{name}"?</h2>
+          <h2 className="mb-8 font-semibold">Voulez-vous supprimer {'"' + name + '"'}?</h2>
           <div className="w-full">
             <button className="w-1/2 bg-gray-200 p-2 rounded-bl-md border border-gray-300 text-gray-700 hover:bg-gray-100 font-medium" onClick={async () => {
                 await deleteBank(id);
@@ -68,9 +68,9 @@ function BankListElement({ id, name, logo_src, isDeleting, setIsDeleting, onDele
             alt={`${name} logo`}
             width={400}
             height={400}
-            className="w-[40px] h-[40px] sm:w-[60px] sm:h-[60px] md:w-[80px] md:h-[80px] shadow-lg"
+            className="w-[40px] h-[40px] sm:w-[60px] sm:h-[60px] md:w-[80px] md:h-[80px] shadow-lg rounded-md"
           />
-          <h2 className="font-bold sm:pl-[5%] sm:text-md smx:mt-2 lg:text-2xl">{name}</h2>
+          <h2 className="font-bold sm:pl-[5%] sm:text-md smx:mt-2 lg:text-lg">{name}</h2>
         </div>
 
         <div
@@ -95,7 +95,7 @@ function BankListElement({ id, name, logo_src, isDeleting, setIsDeleting, onDele
               Informations Générales
             </Link>
             <Link
-              href="/admin/banks/agencies"
+              href={`/admin/banks/agencies?id=${id}`}
               className="w-full text-center py-1 px-6 hover:bg-gray-100 hover:text-black"
             >
               Agences
@@ -139,6 +139,7 @@ function Home({ banks }) {
     setFilteredList(temp.filter((bank) =>
       bank.name.toLowerCase().includes(searchQuery.toLowerCase())
     ));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchQuery])
 
   const [isDeleting, setIsDeleting] = useState(false);

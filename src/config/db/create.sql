@@ -17,7 +17,7 @@ CREATE TABLE `ab_banks` (
 
 CREATE TABLE `ab_categories` (
   `id_categorie` INT NOT NULL AUTO_INCREMENT,
-  `categorie_name` TINYTEXT NOT NULL UNIQUE,
+  `categorie_name` VARCHAR(256) NOT NULL UNIQUE,
   PRIMARY KEY (`id_categorie`)
 );
 
@@ -44,7 +44,7 @@ CREATE TABLE `ab_dgs` (
   `dg_wilaya` INT NOT NULL,
   `dg_phone` TINYTEXT,
   `dg_fax` TINYTEXT,
-  `dg_location_link` TINYTEXT,
+  `dg_location_link` VARCHAR(500),
   PRIMARY KEY (`id_dg`),
   FOREIGN KEY (`dg_bank_id`) REFERENCES `ab_banks`(`id_bank`) ON UPDATE CASCADE ON DELETE CASCADE
 );
@@ -58,7 +58,8 @@ CREATE TABLE `ab_agencies` (
   `agency_wilaya` INT NOT NULL,
   `agency_phone` TINYTEXT,
   `agency_fax` TINYTEXT,
-  `agency_location_link` TINYTEXT,
+  `agency_location_link` VARCHAR(1000),
+  `agency_location` TINYTEXT,
   PRIMARY KEY (`id_agency`),
   FOREIGN KEY (`agency_bank_id`) REFERENCES `ab_banks`(`id_bank`) ON UPDATE CASCADE ON DELETE CASCADE
 );
@@ -84,6 +85,8 @@ CREATE TABLE `ab_users` (
   `user_password` TINYTEXT NOT NULL,
   PRIMARY KEY (`id_user`)
 );
+
+CREATE TABLE ab_slideshow (   id_slideshow INT NOT NULL AUTO_INCREMENT, link_slideshow TINYTEXT, PRIMARY KEY (id_slideshow) );
 
 CREATE DATABASE db_admin_amabank;
 USE db_admin_amabank;

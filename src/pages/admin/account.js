@@ -109,7 +109,7 @@ export async function getServerSideProps(context) {
     };
   }
 
-  var admin = null;
+  var admin = {};
 
   try {
     const response = await axios.get(
@@ -122,6 +122,8 @@ export async function getServerSideProps(context) {
     );
 
     admin = response.data.admin;
+
+    console.log(admin)
   } catch (e) {
     console.log(e.response.data || e.message);
   }

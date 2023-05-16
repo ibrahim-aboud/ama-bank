@@ -34,7 +34,7 @@ function BankListElement(props) {
             </button>
   
             <Link
-              href={`/bank/${props.id}`}
+              href={`/bank/${props.id}#top`}
               className="rounded-xl px-5 smx:py-2 py-3 font-semibold bg-[#40916C] text-white shadow-md hover:bg-[#51b186] disabled:bg-slate-900 flex items-center hover:ease-in-out duration-300"
             >
               <h2 className="smx:hidden">Plus de details</h2>

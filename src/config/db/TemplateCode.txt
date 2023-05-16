@@ -42,7 +42,7 @@ INSERT INTO ab_slideshow(link_slideshow) values("https://ads.google.com/home/ab_
 
 ************insert Admin data********
 
-INSERT INTO ab_admins value (1,"name","email","password_hashed");
+node src/config/db/init_admin.js "username" "email" "password"
 
 
 *************************************

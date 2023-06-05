@@ -1,4 +1,4 @@
-import globals from "../utils/globals";
+import {globals} from "../utils/globals";
 
 export default function agencyInfoValidator(agency){
     let error = false ;

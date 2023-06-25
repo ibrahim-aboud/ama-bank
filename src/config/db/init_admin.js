@@ -6,8 +6,8 @@ const info = {
     secret: "FE123E51947",
     host:'localhost',
     port: 3306,
-    user: "f100w",
-    password: "user",
+    user: "root",
+    password: "MyI6r@hims9l",
     database: "db_amabank"
 }
 

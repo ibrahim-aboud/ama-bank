@@ -8,7 +8,7 @@ const connection = mysql.createConnection({
   // database: process.env.MYSQL_DATABASE
   host:'localhost',
   user:'root',
-  password:'password',
+  password:'MyI6r@hims9l',
   database:'db_amabank'
 });
 connection.connect((error) => {

@@ -12,7 +12,7 @@ async function connect() {
           console.log("connected")
           return connection;
     } catch(err){
-        console.err("error of connexion")
+        console.error("error of connexion")
         throw err
     }
 

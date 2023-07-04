@@ -83,7 +83,7 @@ export default class Dg{
     static async modifyDg(dg){
         const {id,bank_id ,address ,lat ,lng ,wilaya ,phone ,fax ,location_link} = dg ;
         try {
-            var row = await dbQuery("SELECT * FROM db_amabank.ab_dgs WHERE id_dg=(?)", [id])
+            var row = await dbQuery("SELECT * FROM ab_dgs WHERE id_dg=(?)", [id])
         } catch(err){
             throw new ModelError(errorMessages.serverError,502) ; 
         }
@@ -95,8 +95,12 @@ export default class Dg{
         }
         try{
             if(row.length != 0){
+                var date = new Date();
+                var day = date.getDay();
+                var month = date.getMonth();
+                var year = date.getFullYear();
                 var dataToArchive = await dbQueryArchive(
-                "INSERT INTO db_amabank_archive.ab_dgs VALUES((?), (?), (?), (?), (?), (?), (?), (?), (?), (?), NOW(), 'MODIFIED')", 
+                "INSERT INTO ab_dgs VALUES((?), (?), (?), (?), (?), (?), (?), (?), (?), (?),'"+year+"-"+month+"-"+day+"', 'MODIFIED')", 
                 [null, row[0].id_dg, row[0].dg_bank_id, row[0].dg_address, row[0].dg_lat, row[0].dg_lng, 
                 row[0].dg_wilaya, row[0].dg_phone, row[0].dg_fax, row[0].dg_location_link]
                     )

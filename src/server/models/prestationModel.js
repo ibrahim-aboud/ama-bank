@@ -131,7 +131,7 @@ export default class Prestation{
         const {id,bank_id,categorie_id,name,type,tarif,period,categorie_operation}= prestation ;
         try {
 
-            var row = await dbQuery("SELECT * FROM db_amabank.ab_prestations WHERE id_prestation=(?)", [id])
+            var row = await dbQuery("SELECT * FROM ab_prestations WHERE id_prestation=(?)", [id])
         
         } catch(err){
             throw new ModelError(errorMessages.serverError,502) ; 
@@ -144,11 +144,14 @@ export default class Prestation{
             throw new ModelError(errorMessages.serverError,500) ;
         }
         try{
-  
+            var date = new Date();
+            var day = date.getDay();
+            var month = date.getMonth();
+            var year = date.getFullYear();
             var dataToArchivePres = await dbQueryArchive(
-            "INSERT INTO db_amabank_archive.ab_prestations VALUES((?), (?), (?), (?), (?), (?), (?), (?), (?), NOW(), 'MODIFIED')", 
+            "INSERT INTO ab_prestations VALUES((?), (?), (?), (?), (?), (?), (?), (?), (?), (?), 'MODIFIED')", 
             [null, row[0].id_prestation, row[0].prestation_bank_id, row[0].prestation_name, row[0].prestation_categorie_id, row[0].prestation_type, 
-            row[0].prestation_tarif, row[0].prestation_period, row[0].prestation_categorie_operation]
+            row[0].prestation_tarif, row[0].prestation_period, row[0].prestation_categorie_operation,"'"+year+"-"+month+"-"+day+"'"]
                 )
             return data;
         } catch(err){
@@ -159,7 +162,7 @@ export default class Prestation{
     static async deletePrestation(id){
         try {
 
-            var row = await dbQuery("SELECT * FROM db_amabank.ab_prestations WHERE id_prestation=(?)", [id])
+            var row = await dbQuery("SELECT * FROM ab_prestations WHERE id_prestation=(?)", [id])
 
         } catch(err){
 
@@ -173,9 +176,12 @@ export default class Prestation{
             throw new ModelError(errorMessages.serverError,500) ;
         }
         try{
-
+            var date = new Date();
+            var day = date.getDay();
+            var month = date.getMonth();
+            var year = date.getFullYear();
             var dataToArchivePres = await dbQueryArchive(
-            "INSERT INTO db_amabank_archive.ab_prestations VALUES((?), (?), (?), (?), (?), (?), (?), (?), (?), NOW(), 'DELETED')", 
+            "INSERT INTO ab_prestations VALUES((?), (?), (?), (?), (?), (?), (?), (?), (?), '"+year+"-"+month+"-"+day+"', 'DELETED')", 
             [null, row[0].id_prestation, row[0].prestation_bank_id, row[0].prestation_name, row[0].prestation_categorie_id, row[0].prestation_type, 
             row[0].prestation_tarif, row[0].prestation_period, row[0].prestation_categorie_operation]
                 )

@@ -46,6 +46,7 @@ export default class Agency {
         try {
             var data = await dbQuery("SELECT * FROM ab_agencies WHERE id_agency=(?)",[id]) ;
         } catch(err){
+            // (sometimes the deletion is not with error)also possibly this one when deleting an agency from a bank
             throw new ModelError(errorMessages.serverError,500) ;
         }
 
@@ -87,22 +88,25 @@ export default class Agency {
 
         try {
             
-            var row = await dbQuery("SELECT * FROM db_amabank.ab_agencies WHERE id_agency=(?)", [id])
+            var row = await dbQuery("SELECT * FROM ab_agencies WHERE id_agency=(?)", [id])
         
         } catch(err){
             throw new ModelError(errorMessages.serverError,502) ; 
         }
         try{
 
-            var data = await dbQuery("UPDATE db_amabank.ab_agencies SET agency_bank_id=(?),agency_address=(?),agency_lat=(?),agency_lng=(?),agency_wilaya=(?),agency_phone=(?),agency_fax=(?),agency_location_link=(?) WHERE id_agency=(?)",[bank_id ,address ,lat ,lng ,wilaya ,phone ,fax ,location_link,id])
+            var data = await dbQuery("UPDATE ab_agencies SET agency_bank_id=(?),agency_address=(?),agency_lat=(?),agency_lng=(?),agency_wilaya=(?),agency_phone=(?),agency_fax=(?),agency_location_link=(?) WHERE id_agency=(?)",[bank_id ,address ,lat ,lng ,wilaya ,phone ,fax ,location_link,id])
         
         } catch(err){
             throw new ModelError(errorMessages.serverError,500) ; 
         }
         try{
-            
+            var date = new Date();
+            var day = date.getDay();
+            var month = date.getMonth();
+            var year = date.getFullYear();
             var dataToArchive = await dbQueryArchive(
-            "INSERT INTO db_amabank_archive.ab_agencies VALUES((?), (?), (?), (?), (?), (?), (?), (?), (?), (?), NOW(), 'MODIFIED')", 
+            "INSERT INTO ab_agencies VALUES((?), (?), (?), (?), (?), (?), (?), (?), (?), (?), '"+year+"-"+month+"-"+day+"', 'MODIFIED')", 
             [null, row[0].id_agency, row[0].agency_bank_id, row[0].agency_address, row[0].agency_lat, row[0].agency_lng, 
             row[0].agency_wilaya, row[0].agency_phone, row[0].agency_fax, row[0].agency_location_link]
                 )
@@ -116,23 +120,28 @@ export default class Agency {
     static async deleteAgency(id){
         try {   
             
-            var row = await dbQuery("SELECT * FROM db_amabank.ab_agencies WHERE id_agency=(?)", [id])
+            var row = await dbQuery("SELECT * FROM ab_agencies WHERE id_agency=(?)", [id])
           
         }
         catch(err){
             throw new ModelError(errorMessages.serverError,502) ;
         }
         try{
-            var data = await dbQuery("DELETE FROM db_amabank.ab_agencies WHERE id_agency=(?)",[id]) ;
+            var data = await dbQuery("DELETE FROM ab_agencies WHERE id_agency=(?)",[id]) ;
         } catch(err){
+            // (not always happening ) here maybe internal server error when deleting an agency
             throw new ModelError(errorMessages.serverError,500) ;
         }
         try{
           
             if(row.length != 0){
                 console.log(row);
+                var date = new Date();
+                var day = date.getDay();
+                var month = date.getMonth();
+                var year = date.getFullYear();
                var dataToArchive = await dbQueryArchive(
-                "INSERT INTO db_amabank_archive.ab_agencies VALUES((?), (?), (?), (?), (?), (?), (?), (?), (?), (?), NOW(), 'DELETED')", 
+                "INSERT INTO ab_agencies VALUES((?), (?), (?), (?), (?), (?), (?), (?), (?), (?),'"+year+"-"+month+"-"+day+"', 'DELETED')", 
                 [null, row[0].id_agency, row[0].agency_bank_id, row[0].agency_address, row[0].agency_lat, row[0].agency_lng, 
                 row[0].agency_wilaya, row[0].agency_phone, row[0].agency_fax, row[0].agency_location_link]
                 ) 

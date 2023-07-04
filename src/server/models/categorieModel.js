@@ -12,6 +12,7 @@ export default class Categorie{
     static async getAllCategories(){
         
         try {
+            //HERE
             var data = await dbQuery("SELECT * FROM ab_categories") ;
         } catch (err){
             throw new ModelError(errorMessages.serverError, 500) ;

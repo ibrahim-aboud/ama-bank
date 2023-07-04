@@ -168,7 +168,10 @@ export async function getServerSideProps(context) {
   } catch (e) {
     console.error(e.message);
   }
-
+  if(object == undefined){
+    object = [];
+  }
+  console.log({ banks, categories, prestations, object, types, slides});
   return {
     props: { banks, categories, prestations, object, types, slides},
   };

@@ -103,13 +103,10 @@ export default class BanksController {
         if (await isNotAdmin(req,res)){
             throw new ModelError(errorMessages.unauthorized,401) ;
         }
-        
         if (isNaN(id)){
             throw new ModelError(errorMessages.wrongId, 404) ;
         }
-
         var bank = await Bank.getBankById(id) ;
-
         if (bank!=null){
             await Bank.deleteBank(id) ;
             FilesHelpers.deleteFilesInDirectory_IgnoreExtension(`${id}.png`,banks_images_folder);

@@ -181,7 +181,7 @@ import ModifyPrestation from "@/components/admin/banks/conditionTarifaire/modify
       }
 
     }
-  },[selectedCategorieId,conditionType,selectedBigCategorieId,oldInfo])
+  },[selectedCategorieId,conditionType,selectedBigCategorieId,oldInfo,categorieOperations,conditionTypes,selectedBankId])
 
 
   return(

@@ -22,6 +22,7 @@
     "react-icons": "^4.8.0",
     "react-perfect-scrollbar": "^1.5.8",
     "react-slick": "^0.29.0",
+    "sharp": "^0.33.3",
     "slick-carousel": "^1.8.1",
     "validator": "^13.9.0"
   },

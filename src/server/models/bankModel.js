@@ -30,7 +30,7 @@ export default class Bank {
     //   throw new ModelError(errorMessages.serverError, 500);
     // }
 
-    return "/assets/logos/logo.png";
+    return "/assets/logos/banks_logos/"+id+".png";
   }
 
   static #getImageLink(id) {
@@ -44,7 +44,7 @@ export default class Bank {
     //   throw new ModelError(errorMessages.serverError, 500);
     // }
 
-    return "/assets/logos/logo.png";
+    return "/assets/images/banks_images/"+id+".png";
   }
 
   static async getAllBanks() {

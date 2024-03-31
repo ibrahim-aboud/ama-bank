@@ -29,15 +29,17 @@ export default class WebsiteInfo {
   }
 
   static #getLogoLink() {
-    try {
-      const dirPath = "public/assets/logos";
-      const logos = FilesHelpers.getAllDirectoryFiles(dirPath);
+    // try {
+    //   const dirPath = "public/assets/logos";
+    //   const logos = FilesHelpers.getAllDirectoryFiles(dirPath);
 
-      const logo = logos.find((logo) => logo.split(".")[0] == "logo");
-      return logo ? "/assets/logos/" + logo : "";
-    } catch (err) {
-      throw new ModelError(errorMessages.serverError, 500);
-    }
+    //   const logo = logos.find((logo) => logo.split(".")[0] == "logo");
+    //   return logo ? "/assets/logos/" + logo : "";
+    // } catch (err) {
+    //   throw new ModelError(errorMessages.serverError, 500);
+    // }
+
+    return "/assets/logos/logo.png";
   }
 
   static async getAllInfos() {

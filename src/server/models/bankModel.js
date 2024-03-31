@@ -20,27 +20,31 @@ export default class Bank {
   }
 
   static #getLogoLink(id) {
-    try {
-      const dirPath = "public/assets/logos/banks_logos";
-      const logos = FilesHelpers.getAllDirectoryFiles(dirPath);
+    // try {
+    //   const dirPath = "public/assets/logos/banks_logos";
+    //   const logos = FilesHelpers.getAllDirectoryFiles(dirPath);
 
-      const logo = logos.find((logo) => logo.split(".")[0] == id);
-      return logo ? "/assets/logos/banks_logos/" + logo : "";
-    } catch (err) {
-      throw new ModelError(errorMessages.serverError, 500);
-    }
+    //   const logo = logos.find((logo) => logo.split(".")[0] == id);
+    //   return logo ? "/assets/logos/banks_logos/" + logo : "";
+    // } catch (err) {
+    //   throw new ModelError(errorMessages.serverError, 500);
+    // }
+
+    return "/assets/logos/logo.png";
   }
 
   static #getImageLink(id) {
-    try {
-      const dirPath = "public/assets/images/banks_images";
-      const images = FilesHelpers.getAllDirectoryFiles(dirPath);
+    // try {
+    //   const dirPath = "public/assets/images/banks_images";
+    //   const images = FilesHelpers.getAllDirectoryFiles(dirPath);
 
-      const image = images.find((image) => image.split(".")[0] == id);
-      return image ? "/assets/images/banks_images/" + image : "";
-    } catch (err) {
-      throw new ModelError(errorMessages.serverError, 500);
-    }
+    //   const image = images.find((image) => image.split(".")[0] == id);
+    //   return image ? "/assets/images/banks_images/" + image : "";
+    // } catch (err) {
+    //   throw new ModelError(errorMessages.serverError, 500);
+    // }
+
+    return "/assets/logos/logo.png";
   }
 
   static async getAllBanks() {

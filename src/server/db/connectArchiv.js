@@ -9,7 +9,7 @@ async function connect() {
       password: process.env.MYSQL_ARCHIV_PASSWORD,
       database: process.env.MYSQL_ARCHIV_DATABASE,
     });
-    console.log("connected");
+
     return connection;
   } catch (err) {
     console.error("error of connexion");
